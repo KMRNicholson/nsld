@@ -9,4 +9,34 @@ Finally, this is a personal project that will help my own understanding of mobil
 ## Features
 The features included in this app are workouts, nutrition, and records. The app will be available to all, however there will be an option to sign in. If the user signs in, they will have access to more features such as the records feature, as well as account settings. There may be more functionality to each specific feature for signed in users created in the future.
 
-To make logging in and signing up easier for the user, I plan to implement social media log in and sign up on top of the manual sign up by email and password.
+To make logging in and signing up easier for the user, I plan to implement social media log in and sign up on top of the manual sign up by email and password. 
+
+### Prototype
+If you are interested in viewing the prototype, first download and install [Adobe XD](https://www.adobe.com/products/xd.html). Once that is done, download the .xd file from the prototype directory [here](https://github.com/KMRNicholson/nsld/blob/master/prototype/nsld_prototype.xd). Open the .xd file with Adobe XD and click on the play button in the upper right hand corner.
+
+### Workouts
+The workouts feature gives the user the following functionality:
+  - Create workout sessions.
+  - Add exercises to workout sessions.
+  - Track exercise progress by weight, sets, and reps.
+  - Modify workouts and exercises.
+  - Remove workouts and exercises.
+    
+### Nutrition
+The nutritition section of the application gives the user the ability to:
+  - Create meals for today's meal plan.
+  - Add food to a meal.
+  - Optionally track food and meals by protein, carbs, fats, and calories.
+  - Modify food and meals.
+  - Remove food and meals.
+  - (Not in the prototype)Macronutrient proportion for food, meals and today's total will be visualized in a pie chart.
+  
+### Records
+The Records feature allows the user to:
+  - Create an exercise to enter a personal record lift.
+  - For the selected exercise, the user can enter a personal record by weight and reps.
+  - Add many records for one lift.
+  - Records will be tracked by date.
+  - (Not in the prototype)Record progression will be visualized as a graph.
+  - Modify existing records and exercises.
+  - Remove records and exercises.
