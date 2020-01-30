@@ -21,6 +21,12 @@ namespace NeverSkipLegDay.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            Window window = this.Window;
+            window.ClearFlags(WindowManagerFlags.TranslucentStatus);
+            window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+            window.SetStatusBarColor(Android.Graphics.Color.Rgb(90, 90, 90));
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
