@@ -10,17 +10,25 @@
     <StackLayout>
         <!-- Place new controls here -->
         <Label Text="NEVER" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+               TextColor="White"
+               FontSize="80"
+               Margin="5"
+               />
         <Label Text="SKIP" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+               TextColor="White"
+               FontSize="80"
+               Margin="5"
+               />
         <Label Text="LEG" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+               TextColor="White"
+               FontSize="80"
+               Margin="5"
+               />
         <Label Text="DAY" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+               TextColor="White"
+               FontSize="80"
+               Margin="5"
+               />
     </StackLayout>
 
 </ContentPage>
