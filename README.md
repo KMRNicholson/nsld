@@ -7,9 +7,7 @@ The purpose of this application is to create an app that gives the user the capa
 Finally, this is a personal project that will help my own understanding of mobile development. I chose Xamarin.Forms as I am comfortable using C# as a development language, as well as my familiarity with the .NET Standard library.
 
 ## Features
-The features included in this app are workouts, nutrition, and records. The app will be available to all, however there will be an option to sign in. If the user signs in, they will have access to more features such as the records feature, as well as account settings. There may be more functionality to each specific feature for signed in users created in the future.
-
-To make logging in and signing up easier for the user, I plan to implement social media log in and sign up on top of the manual sign up by email and password. 
+The features included in this app are workouts, nutrition, and records. The app will require the user to sign in or sign up. When the user signs in, they will have access to more features such as the records feature, as well as account settings. To make logging in and signing up easier for the user, I plan to implement social media log in and sign up on top of the manual sign up by email and password. 
 
 ### Prototype
 If you are interested in viewing the prototype, first download and install [Adobe XD](https://www.adobe.com/products/xd.html). Once that is done, download the .xd file from the prototype directory [here](https://github.com/KMRNicholson/nsld/blob/master/prototype/nsld_prototype.xd). Open the .xd file with Adobe XD and click on the play button in the upper right hand corner.
