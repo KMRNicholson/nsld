@@ -6,29 +6,38 @@
              BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.MainPage">
-
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="NEVER" 
+        <StackLayout>
+            <Label Text="NEVER" 
                TextColor="White"
                FontSize="80"
-               Margin="5"
-               />
-        <Label Text="SKIP" 
+               Margin="5" />
+            <Label Text="SKIP" 
                TextColor="White"
                FontSize="80"
-               Margin="5"
-               />
-        <Label Text="LEG" 
+               Margin="5" />
+            <Label Text="LEG" 
                TextColor="White"
                FontSize="80"
-               Margin="5"
-               />
-        <Label Text="DAY" 
+               Margin="5" />
+            <Label Text="DAY" 
                TextColor="White"
                FontSize="80"
-               Margin="5"
-               />
+               Margin="5" />
+        </StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Button Text="Log In"
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="EndAndExpand"
+                Margin="10"
+                WidthRequest="150" />
+            <Button Text="Sign Up"
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="StartAndExpand"
+                WidthRequest="150"
+                Margin="10"/>
+        </StackLayout>
     </StackLayout>
-
 </ContentPage>
