@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.App">
     <Application.Resources>
-
+        <Color x:Key="BarTextColor">White</Color>
+        <Color x:Key="BarBackgroundColor">#3f3f3f</Color>
     </Application.Resources>
 </Application>
