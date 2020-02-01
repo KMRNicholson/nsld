@@ -16,6 +16,12 @@ namespace NeverSkipLegDay
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        async void OnLogin(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Dashboard());
         }
     }
 }
