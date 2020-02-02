@@ -6,49 +6,46 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.DashboardMaster"
              Title="Master">
-    <StackLayout>
+  <StackLayout BackgroundColor="{StaticResource BarBackgroundColor}">
     <ListView x:Name="MenuItemsListView"
-              SeparatorVisibility="None"
-              HasUnevenRows="true"
-              ItemsSource="{Binding MenuItems}">
+      SeparatorVisibility="Default"
+      HasUnevenRows="true"
+      ItemsSource="{Binding MenuItems}"
+      SeparatorColor="{StaticResource SeparatorColor}">
       <d:ListView.ItemsSource>
-          <x:Array Type="{x:Type x:String}">
-                    <x:String>Workouts</x:String>
-                    <x:String>Nutrition</x:String>
-                    <x:String>Records</x:String>
-                    <x:String>Account</x:String>
-                    <x:String>Settings</x:String>
-          </x:Array>
+        <x:Array Type="{x:Type x:String}">
+          <x:String>Workouts</x:String>
+          <x:String>Nutrition</x:String>
+          <x:String>Records</x:String>
+          <x:String>Account</x:String>
+          <x:String>Settings</x:String>
+        </x:Array>
       </d:ListView.ItemsSource>
       <ListView.Header>
-        <Grid BackgroundColor="#03A9F4">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
-          </Grid.ColumnDefinitions>
-          <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-          </Grid.RowDefinitions>
-          <Label
-              Grid.Column="1"
-              Grid.Row="2"
-              Text="AppName"
-              Style="{DynamicResource SubtitleStyle}"/>
-        </Grid>
+        <StackLayout>
+          <Frame CornerRadius="100"
+            HeightRequest="200"
+            WidthRequest="200"
+            HorizontalOptions="Center"
+            Padding="0"
+            IsClippedToBounds="True"
+            Margin="20">
+            <Image Source="https://i.imgur.com/PoQiWKf.jpg"
+              HorizontalOptions="Center"
+              VerticalOptions="Center" />
+          </Frame>
+        </StackLayout>
       </ListView.Header>
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
               <Label VerticalOptions="FillAndExpand" 
-                    VerticalTextAlignment="Center" 
-                    Text="{Binding Title}" 
-                    d:Text="{Binding .}"
-                    FontSize="24"/>
+                VerticalTextAlignment="Center" 
+                Text="{Binding Title}" 
+                d:Text="{Binding .}"
+                FontSize="20"
+                TextColor="{StaticResource BarTextColor}"/>
             </StackLayout>
           </ViewCell>
         </DataTemplate>

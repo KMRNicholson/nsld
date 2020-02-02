@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.DashboardDetail" >
     <NavigationPage.TitleView>
-        <Label TextColor="White"
+        <Label TextColor="{StaticResource BarTextColor}"
                FontSize="20" 
                Text="N S L D"
                HorizontalOptions="Center"

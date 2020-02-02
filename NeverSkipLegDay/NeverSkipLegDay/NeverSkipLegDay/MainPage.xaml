@@ -26,19 +26,13 @@
                Margin="5" />
         </StackLayout>
         <StackLayout VerticalOptions="FillAndExpand">
-            <Button Text="Login"
+            <Button Text="Enter"
                 BackgroundColor="White"
                 HorizontalOptions="Center"
-                VerticalOptions="EndAndExpand"
+                VerticalOptions="CenterAndExpand"
                 Margin="10"
-                WidthRequest="150"
-                Clicked="OnLogin"/>
-            <Button Text="Sign Up"
-                BackgroundColor="White"
-                HorizontalOptions="Center"
-                VerticalOptions="StartAndExpand"
-                WidthRequest="150"
-                Margin="10"/>
+                WidthRequest="100"
+                Clicked="OnEnter"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
