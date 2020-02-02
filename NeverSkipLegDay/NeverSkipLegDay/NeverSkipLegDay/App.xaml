@@ -9,5 +9,6 @@
     <Color x:Key="BarTextColor">White</Color>
     <Color x:Key="BarBackgroundColor">#3f3f3f</Color>
     <Color x:Key="SeparatorColor">#7f7f7f</Color>
+    <Color x:Key="PanelColor">#1f1f1f</Color>
   </Application.Resources>
 </Application>

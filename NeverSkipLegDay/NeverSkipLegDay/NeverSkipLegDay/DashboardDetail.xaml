@@ -12,7 +12,7 @@
       HorizontalOptions="Center"
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
-  <StackLayout BackgroundColor="red">
+  <StackLayout>
     <Grid VerticalOptions="FillAndExpand"
           RowSpacing="0"
           ColumnSpacing="0">
@@ -24,7 +24,7 @@
         <ColumnDefinition Width="50*"/>
         <ColumnDefinition Width="50*"/>
       </Grid.ColumnDefinitions>
-      <RelativeLayout BackgroundColor="Black" Grid.Row="0" Grid.ColumnSpan="2">
+      <RelativeLayout BackgroundColor="{StaticResource PanelColor}" Grid.Row="0" Grid.ColumnSpan="2">
         <Image Source="https://i.imgur.com/3DEczN4.jpg?1" Aspect="Fill" />
       </RelativeLayout>
       <Button VerticalOptions="CenterAndExpand"
@@ -32,7 +32,7 @@
         Text="Workouts"
         Grid.Row="0"
         Grid.ColumnSpan="2"/>
-      <StackLayout BackgroundColor="Blue" Grid.Row="1" Grid.Column="0">
+      <StackLayout BackgroundColor="{StaticResource PanelColor}" Grid.Row="1" Grid.Column="0">
         <Frame HeightRequest="10000" Padding="0">
           <Image Source="https://i.imgur.com/3xL8zeOl.jpg" Aspect="AspectFill" />
         </Frame>
@@ -42,7 +42,7 @@
         Text="Nutrition"
         Grid.Row="1"
         Grid.Column="0"/>
-      <StackLayout BackgroundColor="Green" Grid.Row="1" Grid.Column="1">
+      <StackLayout BackgroundColor="{StaticResource PanelColor}" Grid.Row="1" Grid.Column="1">
         <Frame HeightRequest="10000" Padding="0">
           <Image Source="https://i.imgur.com/GGr0JL6l.jpg?1" Aspect="AspectFill" />
         </Frame>
