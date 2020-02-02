@@ -5,13 +5,45 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.DashboardDetail" >
-    <NavigationPage.TitleView>
-        <Label TextColor="{StaticResource BarTextColor}"
-               FontSize="20" 
-               Text="N S L D"
-               HorizontalOptions="Center"
-               Margin="0,0,70,0"/>
-    </NavigationPage.TitleView>
-    <StackLayout Padding="10">
+  <NavigationPage.TitleView>
+    <Label TextColor="{StaticResource BarTextColor}"
+      FontSize="20" 
+      Text="N S L D"
+      HorizontalOptions="Center"
+      Margin="0,0,70,0"/>
+  </NavigationPage.TitleView>
+  <StackLayout BackgroundColor="red">
+    <!--<StackLayout BackgroundColor="Blue" >
     </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <StackLayout BackgroundColor="Yellow">
+        
+      </StackLayout>
+      <StackLayout BackgroundColor="Green">
+        
+      </StackLayout>
+    </StackLayout>-->
+    <Grid VerticalOptions="FillAndExpand"
+          RowSpacing="0"
+          ColumnSpacing="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50*"/>
+        <RowDefinition Height="50*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="50*"/>
+        <ColumnDefinition Width="50*"/>
+      </Grid.ColumnDefinitions>
+      <RelativeLayout BackgroundColor="Black" Grid.Row="0" Grid.ColumnSpan="2">
+        <Image Source="https://i.imgur.com/3DEczN4.jpg?1" Aspect="Fill" />
+        <Button>Test</Button>
+      </RelativeLayout>
+      <StackLayout BackgroundColor="Blue" Grid.Row="1" Grid.Column="0">
+        <Image Source="https://i.imgur.com/0UlThfF.jpg?1" Aspect="AspectFill" />
+      </StackLayout>
+      <StackLayout BackgroundColor="Green" Grid.Row="1" Grid.Column="1">
+        <Image Source="https://i.imgur.com/0UlThfF.jpg?1" Aspect="AspectFill" />
+      </StackLayout>
+    </Grid>
+  </StackLayout>
 </ContentPage>
