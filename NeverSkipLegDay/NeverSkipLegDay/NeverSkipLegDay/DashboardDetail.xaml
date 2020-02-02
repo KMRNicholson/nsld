@@ -34,7 +34,7 @@
         Grid.ColumnSpan="2"/>
       <StackLayout BackgroundColor="Blue" Grid.Row="1" Grid.Column="0">
         <Frame HeightRequest="10000" Padding="0">
-          <Image Source="https://i.imgur.com/3xL8zeO.jpg" Aspect="AspectFill" />
+          <Image Source="https://i.imgur.com/3xL8zeOl.jpg" Aspect="AspectFill" />
         </Frame>
       </StackLayout>
       <Button VerticalOptions="CenterAndExpand"
@@ -44,7 +44,7 @@
         Grid.Column="0"/>
       <StackLayout BackgroundColor="Green" Grid.Row="1" Grid.Column="1">
         <Frame HeightRequest="10000" Padding="0">
-          <Image Source="https://i.imgur.com/3xL8zeO.jpg" Aspect="AspectFill" />
+          <Image Source="https://i.imgur.com/GGr0JL6l.jpg?1" Aspect="AspectFill" />
         </Frame>
       </StackLayout>
       <Button VerticalOptions="CenterAndExpand"
