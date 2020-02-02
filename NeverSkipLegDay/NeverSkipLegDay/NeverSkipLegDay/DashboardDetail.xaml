@@ -13,16 +13,6 @@
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
   <StackLayout BackgroundColor="red">
-    <!--<StackLayout BackgroundColor="Blue" >
-    </StackLayout>
-    <StackLayout Orientation="Horizontal">
-      <StackLayout BackgroundColor="Yellow">
-        
-      </StackLayout>
-      <StackLayout BackgroundColor="Green">
-        
-      </StackLayout>
-    </StackLayout>-->
     <Grid VerticalOptions="FillAndExpand"
           RowSpacing="0"
           ColumnSpacing="0">
@@ -36,14 +26,32 @@
       </Grid.ColumnDefinitions>
       <RelativeLayout BackgroundColor="Black" Grid.Row="0" Grid.ColumnSpan="2">
         <Image Source="https://i.imgur.com/3DEczN4.jpg?1" Aspect="Fill" />
-        <Button>Test</Button>
       </RelativeLayout>
+      <Button VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Center"
+        Text="Workouts"
+        Grid.Row="0"
+        Grid.ColumnSpan="2"/>
       <StackLayout BackgroundColor="Blue" Grid.Row="1" Grid.Column="0">
-        <Image Source="https://i.imgur.com/0UlThfF.jpg?1" Aspect="AspectFill" />
+        <Frame HeightRequest="10000" Padding="0">
+          <Image Source="https://i.imgur.com/3xL8zeO.jpg" Aspect="AspectFill" />
+        </Frame>
       </StackLayout>
+      <Button VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Center"
+        Text="Nutrition"
+        Grid.Row="1"
+        Grid.Column="0"/>
       <StackLayout BackgroundColor="Green" Grid.Row="1" Grid.Column="1">
-        <Image Source="https://i.imgur.com/0UlThfF.jpg?1" Aspect="AspectFill" />
+        <Frame HeightRequest="10000" Padding="0">
+          <Image Source="https://i.imgur.com/3xL8zeO.jpg" Aspect="AspectFill" />
+        </Frame>
       </StackLayout>
+      <Button VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Center"
+        Text="Records"
+        Grid.Row="1"
+        Grid.Column="1"/>
     </Grid>
   </StackLayout>
 </ContentPage>
