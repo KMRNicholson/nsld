@@ -1,7 +1,8 @@
 prototype/prototype-images/
 .vs
-/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay/bin
-/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay/obj
-/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay.Android/bin
-/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay.Android/obj
-/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay.iOS/obj
+/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay/bin/
+/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay/obj/
+/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay.Android/bin/
+/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay.Android/obj/
+/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay.iOS/obj/
+/NeverSkipLegDay/NeverSkipLegDay/NeverSkipLegDay.iOS/bin/
