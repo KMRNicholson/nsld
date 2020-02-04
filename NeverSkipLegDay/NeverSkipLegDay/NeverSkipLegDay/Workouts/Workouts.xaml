@@ -15,7 +15,14 @@
   </NavigationPage.TitleView>
     <ContentPage.Content>
     <StackLayout>
-      
+      <Button 
+        WidthRequest="80" 
+        HeightRequest="80" 
+        CornerRadius="40" 
+        HorizontalOptions="End" 
+        VerticalOptions="EndAndExpand" 
+        Text="Add" 
+        Margin="20"/>
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>
