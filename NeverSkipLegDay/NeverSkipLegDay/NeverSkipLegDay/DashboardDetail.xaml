@@ -31,7 +31,8 @@
         HorizontalOptions="Center"
         Text="Workouts"
         Grid.Row="0"
-        Grid.ColumnSpan="2"/>
+        Grid.ColumnSpan="2"
+        Clicked="OnWorkoutsSelected"/>
       <StackLayout BackgroundColor="{StaticResource PanelColor}" Grid.Row="1" Grid.Column="0">
         <Frame HeightRequest="10000" Padding="0">
           <Image Source="https://i.imgur.com/3xL8zeOl.jpg" Aspect="AspectFill" />
