@@ -5,9 +5,10 @@ using SQLite;
 
 namespace NeverSkipLegDay.Models
 {
-    class Workout : Model
+    class Model
     {
         [PrimaryKey, AutoIncrement]
-        public string Name { get; set; }
+        public int ID { get; set; }
+        public DateTime Date { get; set; }
     }
 }

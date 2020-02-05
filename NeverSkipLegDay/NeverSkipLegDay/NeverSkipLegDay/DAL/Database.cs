@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
-using NeverSkipLegDay.Models;
+using System.Threading.Tasks;
 
 namespace NeverSkipLegDay.DAL
 {
@@ -13,7 +13,12 @@ namespace NeverSkipLegDay.DAL
         public Database(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Workout>().Wait();
+            _database.CreateTableAsync<Models.Workout>().Wait();
+        }
+
+        public Task<List<Models.Model>> GetAllAsync()
+        {
+            return _database.Table<Models.Model>().ToListAsync();
         }
     }
 }
