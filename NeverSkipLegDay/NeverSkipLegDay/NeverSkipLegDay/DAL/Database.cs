@@ -41,7 +41,7 @@ namespace NeverSkipLegDay.DAL
 
         public Task<int> DeleteNoteAsync(Models.Model model)
         {
-            return _database.DeleteAsync(note);
+            return _database.DeleteAsync(model);
         }
     }
 }
