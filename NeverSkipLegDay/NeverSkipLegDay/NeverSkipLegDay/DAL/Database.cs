@@ -20,5 +20,28 @@ namespace NeverSkipLegDay.DAL
         {
             return _database.Table<Models.Model>().ToListAsync();
         }
+        public Task<Models.Model> GetNoteAsync(int id)
+        {
+            return _database.Table<Models.Model>()
+                            .Where(i => i.ID == id)
+                            .FirstOrDefaultAsync();
+        }
+
+        public Task<int> SaveNoteAsync(Models.Model model)
+        {
+            if (model.ID != 0)
+            {
+                return _database.UpdateAsync(model);
+            }
+            else
+            {
+                return _database.InsertAsync(model);
+            }
+        }
+
+        public Task<int> DeleteNoteAsync(Models.Model model)
+        {
+            return _database.DeleteAsync(note);
+        }
     }
 }
