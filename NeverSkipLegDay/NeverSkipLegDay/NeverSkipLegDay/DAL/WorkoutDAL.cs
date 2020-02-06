@@ -3,31 +3,32 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 using System.Threading.Tasks;
+using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.DAL
 {
-    class Database
+    public class WorkoutDAL
     {
         readonly SQLiteAsyncConnection _database;
 
-        public Database(string dbPath)
+        public WorkoutDAL(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Models.Workout>().Wait();
+            _database.CreateTableAsync<Workout>().Wait();
         }
 
-        public Task<List<Models.Model>> GetAllAsync()
+        public Task<List<Workout>> GetAllAsync<T>()
         {
-            return _database.Table<Models.Model>().ToListAsync();
+            return _database.Table<Workout>().ToListAsync();
         }
-        public Task<Models.Model> GetNoteAsync(int id)
+        public Task<Workout> GetNoteAsync(int id)
         {
-            return _database.Table<Models.Model>()
+            return _database.Table<Workout>()
                             .Where(i => i.ID == id)
                             .FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveNoteAsync(Models.Model model)
+        public Task<int> SaveNoteAsync(Workout model)
         {
             if (model.ID != 0)
             {
@@ -39,7 +40,7 @@ namespace NeverSkipLegDay.DAL
             }
         }
 
-        public Task<int> DeleteNoteAsync(Models.Model model)
+        public Task<int> DeleteNoteAsync(Workout model)
         {
             return _database.DeleteAsync(model);
         }
