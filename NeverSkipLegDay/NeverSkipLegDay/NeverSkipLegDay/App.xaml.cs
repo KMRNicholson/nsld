@@ -9,7 +9,6 @@ namespace NeverSkipLegDay
     public partial class App : Application
     {
         static WorkoutDAL workoutDAL;
-
         public static WorkoutDAL WorkoutDAL
         {
             get
