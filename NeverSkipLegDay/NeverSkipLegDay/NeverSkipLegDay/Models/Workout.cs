@@ -5,7 +5,7 @@ using SQLite;
 
 namespace NeverSkipLegDay.Models
 {
-    class Workout
+    public class Workout
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }

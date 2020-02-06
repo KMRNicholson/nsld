@@ -7,7 +7,7 @@ using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.DAL
 {
-    class WorkoutDAL
+    public class WorkoutDAL
     {
         readonly SQLiteAsyncConnection _database;
 
