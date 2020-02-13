@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using NeverSkipLegDay.Models;
+using NeverSkipLegDay.DAL;
 
 namespace NeverSkipLegDay.Workouts
 {
@@ -25,19 +26,31 @@ namespace NeverSkipLegDay.Workouts
             listView.ItemsSource = await App.WorkoutDAL.GetWorkoutsAsync();
         }
 
-        async void OnAdd(object sender, EventArgs e)
+        async void OnAddOrEdit(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddWorkout
+            var id = ((Button)sender).BindingContext;
+            if(id != null)
             {
-                BindingContext = new Workout()
-            });
+                Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
+                await Navigation.PushAsync(new AddEditWorkout
+                {
+                    BindingContext = workout as Workout
+                });
+            }
+            else
+            {
+                await Navigation.PushAsync(new AddEditWorkout
+                {
+                    BindingContext = new Workout()
+                });
+            }
         }
 
         async void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new AddWorkout
+                await Navigation.PushAsync(new AddEditWorkout
                 {
                     BindingContext = e.SelectedItem as Workout
                 });

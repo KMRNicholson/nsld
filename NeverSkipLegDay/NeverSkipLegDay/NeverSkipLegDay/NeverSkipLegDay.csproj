@@ -21,8 +21,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Workouts\AddWorkout.xaml.cs">
-      <DependentUpon>AddWorkout.xaml</DependentUpon>
+    <Compile Update="Workouts\AddEditWorkout.xaml.cs">
+      <DependentUpon>AddEditWorkout.xaml</DependentUpon>
     </Compile>
     <Compile Update="Workouts\Workouts.xaml.cs">
       <DependentUpon>Workouts.xaml</DependentUpon>
@@ -39,7 +39,7 @@
     <EmbeddedResource Update="DashboardMaster.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\AddWorkout.xaml">
+    <EmbeddedResource Update="Workouts\AddEditWorkout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Workouts\Workouts.xaml">

@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
              mc:Ignorable="d"
-             x:Class="NeverSkipLegDay.Workouts.AddWorkout">
+             x:Class="NeverSkipLegDay.Workouts.AddEditWorkout">
   <NavigationPage.TitleView>
     <Label TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
