@@ -14,14 +14,14 @@
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout BackgroundColor="White"
+    <StackLayout BackgroundColor="{StaticResource CardBackgroundColor}"
                  Margin="10"
                  Opacity="0.9"
-                  VerticalOptions="Start">
+                 VerticalOptions="Start">
       <Label Text="Name:"
              FontSize="20"
              Margin="10"
-             TextColor="Black"/>
+             TextColor="{StaticResource CardTextColor}"/>
       <Entry Text="{Binding Name}"
              Placeholder="e.g. Push Day" 
              Margin="10,0,10,10" 

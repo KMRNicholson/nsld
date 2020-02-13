@@ -6,6 +6,8 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.App">
   <Application.Resources>
+    <Color x:Key="CardBackgroundColor">White</Color>
+    <Color x:Key="CardTextColor">Black</Color>
     <Color x:Key="BarTextColor">White</Color>
     <Color x:Key="BarBackgroundColor">#3f3f3f</Color>
     <Color x:Key="SeparatorColor">#7f7f7f</Color>

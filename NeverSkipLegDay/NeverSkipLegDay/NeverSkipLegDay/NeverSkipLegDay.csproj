@@ -21,6 +21,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="Workouts\AddWorkout.xaml.cs">
+      <DependentUpon>AddWorkout.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Workouts\Workouts.xaml.cs">
       <DependentUpon>Workouts.xaml</DependentUpon>
     </Compile>

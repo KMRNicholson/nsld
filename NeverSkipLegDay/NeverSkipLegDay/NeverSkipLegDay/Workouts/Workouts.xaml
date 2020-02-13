@@ -15,24 +15,34 @@
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout>
+    <StackLayout
+      BackgroundColor="{StaticResource CardBackgroundColor}"
+      Opacity="0.9"
+      Margin="10"
+      VerticalOptions="Start">
       <ListView 
         x:Name="listView"
-        Margin="10"
-        ItemSelected="OnListViewItemSelected">
+        Margin="10" RowHeight="50"
+        ItemSelected="OnWorkoutSelected">
         <ListView.ItemTemplate>
           <DataTemplate>
-            <TextCell 
-              Text="{Binding Name}"
-              Detail="{Binding Date}" />
-          </DataTemplate>
+            <ViewCell>
+              <Label 
+                Text="{Binding Name}"
+                FontSize="20"
+                Margin="10"
+                TextColor="{StaticResource CardTextColor}"/>
+            </ViewCell>
+            </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-      <Button 
+    </StackLayout>
+    <Button 
         WidthRequest="80" 
         HeightRequest="80" 
         CornerRadius="40" 
         HorizontalOptions="End" 
-        VerticalOptions="EndAndExpand" 
+        VerticalOptions="End" 
         Text="Add" 
         Margin="20"
         Clicked="OnAdd"/>

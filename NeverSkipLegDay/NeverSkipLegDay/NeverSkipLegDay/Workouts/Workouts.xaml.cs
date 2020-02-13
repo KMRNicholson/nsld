@@ -33,7 +33,7 @@ namespace NeverSkipLegDay.Workouts
             });
         }
 
-        async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
