@@ -22,7 +22,8 @@
              FontSize="20"
              Margin="10"
              TextColor="Black"/>
-      <Entry Placeholder="e.g. Push Day" 
+      <Entry Text="{Binding Name}"
+             Placeholder="e.g. Push Day" 
              Margin="10,0,10,10" 
              IsTextPredictionEnabled="True"  
              Keyboard="Chat" 
@@ -31,7 +32,8 @@
               HorizontalOptions="End"
               Margin="0,0,10,10"
               BackgroundColor="{StaticResource BarBackgroundColor}"
-              TextColor="{StaticResource BarTextColor}"/>
+              TextColor="{StaticResource BarTextColor}"
+              Clicked="OnCreate"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

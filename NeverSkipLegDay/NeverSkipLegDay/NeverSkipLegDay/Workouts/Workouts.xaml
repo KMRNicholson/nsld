@@ -13,8 +13,20 @@
       HorizontalOptions="Center"
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
-    <ContentPage.Content>
+  <ContentPage.Content>
     <StackLayout>
+      <ListView 
+        x:Name="listView"
+        Margin="10"
+        ItemSelected="OnListViewItemSelected">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <TextCell 
+              Text="{Binding Name}"
+              Detail="{Binding Date}" />
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
       <Button 
         WidthRequest="80" 
         HeightRequest="80" 
@@ -25,5 +37,5 @@
         Margin="20"
         Clicked="OnAdd"/>
     </StackLayout>
-    </ContentPage.Content>
+  </ContentPage.Content>
 </ContentPage>

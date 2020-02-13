@@ -17,11 +17,11 @@ namespace NeverSkipLegDay.DAL
             _database.CreateTableAsync<Workout>().Wait();
         }
 
-        public Task<List<Workout>> GetAllAsync<T>()
+        public Task<List<Workout>> GetWorkoutsAsync<T>()
         {
             return _database.Table<Workout>().ToListAsync();
         }
-        public Task<Workout> GetNoteAsync(int id)
+        public Task<Workout> GetWorkoutAsync(int id)
         {
             return _database.Table<Workout>()
                             .Where(i => i.ID == id)

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using NeverSkipLegDay.Models;
+
 namespace NeverSkipLegDay.Workouts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -15,6 +17,21 @@ namespace NeverSkipLegDay.Workouts
         public AddWorkout()
         {
             InitializeComponent();
+        }
+
+        async void OnCreate(object sender, EventArgs e)
+        {
+            var workout = (Workout)BindingContext;
+            workout.Date = DateTime.UtcNow;
+            await App.WorkoutDAL.SaveNoteAsync(workout);
+            await Navigation.PopAsync();
+        }
+
+        async void OnDelete(object sender, EventArgs e)
+        {
+            var workout = (Workout)BindingContext;
+            await App.WorkoutDAL.DeleteNoteAsync(workout);
+            await Navigation.PopAsync();
         }
     }
 }
