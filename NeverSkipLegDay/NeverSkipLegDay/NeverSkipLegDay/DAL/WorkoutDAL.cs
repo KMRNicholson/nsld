@@ -28,7 +28,7 @@ namespace NeverSkipLegDay.DAL
                             .FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveNoteAsync(Workout model)
+        public Task<int> SaveWorkoutAsync(Workout model)
         {
             if (model.ID != 0)
             {
@@ -40,7 +40,7 @@ namespace NeverSkipLegDay.DAL
             }
         }
 
-        public Task<int> DeleteNoteAsync(Workout model)
+        public Task<int> DeleteWorkoutAsync(Workout model)
         {
             return _database.DeleteAsync(model);
         }

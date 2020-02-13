@@ -28,12 +28,12 @@
              IsTextPredictionEnabled="True"  
              Keyboard="Chat" 
              IsSpellCheckEnabled="True" />
-      <Button Text="Create"
+      <Button Text="Save"
               HorizontalOptions="End"
               Margin="0,0,10,10"
               BackgroundColor="{StaticResource BarBackgroundColor}"
               TextColor="{StaticResource BarTextColor}"
-              Clicked="OnCreate"/>
+              Clicked="OnSave"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

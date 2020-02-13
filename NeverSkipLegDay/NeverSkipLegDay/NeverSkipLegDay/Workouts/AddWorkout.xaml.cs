@@ -19,18 +19,18 @@ namespace NeverSkipLegDay.Workouts
             InitializeComponent();
         }
 
-        async void OnCreate(object sender, EventArgs e)
+        async void OnSave(object sender, EventArgs e)
         {
             var workout = (Workout)BindingContext;
             workout.Date = DateTime.UtcNow;
-            await App.WorkoutDAL.SaveNoteAsync(workout);
+            await App.WorkoutDAL.SaveWorkoutAsync(workout);
             await Navigation.PopAsync();
         }
 
         async void OnDelete(object sender, EventArgs e)
         {
             var workout = (Workout)BindingContext;
-            await App.WorkoutDAL.DeleteNoteAsync(workout);
+            await App.WorkoutDAL.DeleteWorkoutAsync(workout);
             await Navigation.PopAsync();
         }
     }
