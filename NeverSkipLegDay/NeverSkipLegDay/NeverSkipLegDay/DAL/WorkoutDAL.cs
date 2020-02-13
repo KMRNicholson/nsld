@@ -17,7 +17,7 @@ namespace NeverSkipLegDay.DAL
             _database.CreateTableAsync<Workout>().Wait();
         }
 
-        public Task<List<Workout>> GetWorkoutsAsync<T>()
+        public Task<List<Workout>> GetWorkoutsAsync()
         {
             return _database.Table<Workout>().ToListAsync();
         }
