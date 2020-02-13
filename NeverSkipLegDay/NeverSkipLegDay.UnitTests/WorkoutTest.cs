@@ -12,8 +12,6 @@ namespace NeverSkipLegDay.UnitTests
         [TestMethod]
         public void ConstructorTest()
         {
-            Workout workout = new Workout("Push Day");
-            Assert.AreEqual(workout.Name, "Push Day");
         }
     }
 }
