@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using NeverSkipLegDay.DAL;
 
 namespace NeverSkipLegDay
@@ -15,7 +14,7 @@ namespace NeverSkipLegDay
             {
                 if(workoutDAL == null)
                 {
-                    workoutDAL = new WorkoutDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "workouts.db3"));
+                    workoutDAL = new WorkoutDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Workouts.db3"));
                 }
                 return workoutDAL;
             }

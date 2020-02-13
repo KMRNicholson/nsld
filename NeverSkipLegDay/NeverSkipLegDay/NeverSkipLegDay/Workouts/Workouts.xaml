@@ -13,16 +13,39 @@
       HorizontalOptions="Center"
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
-    <ContentPage.Content>
+  <ContentPage.Content>
     <StackLayout>
-      <Button 
+    <StackLayout
+      BackgroundColor="{StaticResource CardBackgroundColor}"
+      Opacity="0.9"
+      Margin="10"
+      VerticalOptions="Start">
+      <ListView 
+        x:Name="listView"
+        Margin="10" RowHeight="50"
+        ItemSelected="OnWorkoutSelected">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Label 
+                Text="{Binding Name}"
+                FontSize="20"
+                Margin="10"
+                TextColor="{StaticResource CardTextColor}"/>
+            </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+    <Button 
         WidthRequest="80" 
         HeightRequest="80" 
         CornerRadius="40" 
         HorizontalOptions="End" 
-        VerticalOptions="EndAndExpand" 
+        VerticalOptions="End" 
         Text="Add" 
-        Margin="20"/>
+        Margin="20"
+        Clicked="OnAdd"/>
     </StackLayout>
-    </ContentPage.Content>
+  </ContentPage.Content>
 </ContentPage>

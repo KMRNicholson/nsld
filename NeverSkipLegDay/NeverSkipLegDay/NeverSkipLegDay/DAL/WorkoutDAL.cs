@@ -17,18 +17,18 @@ namespace NeverSkipLegDay.DAL
             _database.CreateTableAsync<Workout>().Wait();
         }
 
-        public Task<List<Workout>> GetAllAsync<T>()
+        public Task<List<Workout>> GetWorkoutsAsync()
         {
             return _database.Table<Workout>().ToListAsync();
         }
-        public Task<Workout> GetNoteAsync(int id)
+        public Task<Workout> GetWorkoutAsync(int id)
         {
             return _database.Table<Workout>()
                             .Where(i => i.ID == id)
                             .FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveNoteAsync(Workout model)
+        public Task<int> SaveWorkoutAsync(Workout model)
         {
             if (model.ID != 0)
             {
@@ -40,7 +40,7 @@ namespace NeverSkipLegDay.DAL
             }
         }
 
-        public Task<int> DeleteNoteAsync(Workout model)
+        public Task<int> DeleteWorkoutAsync(Workout model)
         {
             return _database.DeleteAsync(model);
         }
