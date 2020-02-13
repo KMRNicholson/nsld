@@ -15,8 +15,7 @@ namespace NeverSkipLegDay.Workouts
     {
         public Workouts()
         {
-            InitializeComponent();
-            
+            InitializeComponent();       
         }
 
         protected override async void OnAppearing()
@@ -44,6 +43,15 @@ namespace NeverSkipLegDay.Workouts
                     BindingContext = new Workout()
                 });
             }
+        }
+
+        async void OnDelete(object sender, EventArgs e)
+        {
+            var id = ((Button)sender).BindingContext;            
+            Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
+            await App.WorkoutDAL.DeleteWorkoutAsync(workout);
+            await Navigation.PushAsync(new Workouts());
+            
         }
 
         async void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)
