@@ -10,17 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace NeverSkipLegDay.Workouts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Workouts : ContentPage
+    public partial class AddWorkout : ContentPage
     {
-        public Workouts()
+        public AddWorkout()
         {
             InitializeComponent();
-            
-        }
-
-        async void OnAdd(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AddWorkout());
         }
     }
 }

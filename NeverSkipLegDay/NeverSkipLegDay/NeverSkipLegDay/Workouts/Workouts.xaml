@@ -22,7 +22,8 @@
         HorizontalOptions="End" 
         VerticalOptions="EndAndExpand" 
         Text="Add" 
-        Margin="20"/>
+        Margin="20"
+        Clicked="OnAdd"/>
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>
