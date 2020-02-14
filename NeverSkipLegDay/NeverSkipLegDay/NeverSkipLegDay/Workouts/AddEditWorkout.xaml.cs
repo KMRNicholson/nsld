@@ -21,7 +21,7 @@ namespace NeverSkipLegDay.Workouts
 
         async void OnSave(object sender, EventArgs e)
         {
-            var workout = (Workout)BindingContext;
+            var workout = (Models.Workout)BindingContext;
             workout.Date = DateTime.UtcNow;
             await App.WorkoutDAL.SaveWorkoutAsync(workout);
             await Navigation.PopAsync();
@@ -29,7 +29,7 @@ namespace NeverSkipLegDay.Workouts
 
         async void OnDelete(object sender, EventArgs e)
         {
-            var workout = (Workout)BindingContext;
+            var workout = (Models.Workout)BindingContext;
             await App.WorkoutDAL.DeleteWorkoutAsync(workout);
             await Navigation.PopAsync();
         }

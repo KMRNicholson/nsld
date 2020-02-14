@@ -26,7 +26,7 @@
                Margin="5" />
         </StackLayout>
         <StackLayout VerticalOptions="FillAndExpand">
-            <Button Text="Enter"
+            <Button Text="E n t e r"
                 BackgroundColor="White"
                 HorizontalOptions="Center"
                 VerticalOptions="CenterAndExpand"

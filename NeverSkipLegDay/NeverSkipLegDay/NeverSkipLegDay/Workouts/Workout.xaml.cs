@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using NeverSkipLegDay.Models;
-using NeverSkipLegDay.DAL;
-
 namespace NeverSkipLegDay.Workouts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Workouts : ContentPage
+    public partial class Workout : ContentPage
     {
-        public Workouts()
+        public Workout()
         {
-            InitializeComponent();       
+            InitializeComponent();
         }
 
         protected override async void OnAppearing()
@@ -28,7 +27,7 @@ namespace NeverSkipLegDay.Workouts
         async void OnAddOrEdit(object sender, EventArgs e)
         {
             var id = ((Button)sender).BindingContext;
-            if(id != null)
+            if (id != null)
             {
                 Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
                 await Navigation.PushAsync(new AddEditWorkout
@@ -47,22 +46,12 @@ namespace NeverSkipLegDay.Workouts
 
         async void OnDelete(object sender, EventArgs e)
         {
-            var id = ((Button)sender).BindingContext;
-            Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
-            await App.WorkoutDAL.DeleteWorkoutAsync(workout);
-            await Navigation.PushAsync(new Workouts());
             
         }
 
-        async void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)
+        async void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
-            {
-                await Navigation.PushAsync(new Workout
-                {
-                    BindingContext = e.SelectedItem as Models.Workout
-                });
-            }
+            
         }
     }
 }
