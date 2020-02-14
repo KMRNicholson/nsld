@@ -24,6 +24,9 @@
     <Compile Update="Workouts\AddEditWorkout.xaml.cs">
       <DependentUpon>AddEditWorkout.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Workouts\Workout.xaml.cs">
+      <DependentUpon>Workout.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Workouts\Workouts.xaml.cs">
       <DependentUpon>Workouts.xaml</DependentUpon>
     </Compile>
@@ -40,6 +43,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Workouts\AddEditWorkout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Workouts\Workout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Workouts\Workouts.xaml">
