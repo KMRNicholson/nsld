@@ -8,6 +8,7 @@ namespace NeverSkipLegDay
     public partial class App : Application
     {
         static WorkoutDAL workoutDAL;
+        static ExerciseDAL exerciseDAL;
         public static WorkoutDAL WorkoutDAL
         {
             get
@@ -17,6 +18,18 @@ namespace NeverSkipLegDay
                     workoutDAL = new WorkoutDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Workouts.db3"));
                 }
                 return workoutDAL;
+            }
+        }
+
+        public static ExerciseDAL ExerciseDAL
+        {
+            get
+            {
+                if (exerciseDAL == null)
+                {
+                    exerciseDAL = new ExerciseDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Exercises.db3"));
+                }
+                return exerciseDAL;
             }
         }
         public App()
