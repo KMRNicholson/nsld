@@ -20,26 +20,26 @@ namespace NeverSkipLegDay.Workouts
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-            listView.ItemsSource = await App.WorkoutDAL.GetWorkoutsAsync();
+            
+            listView.ItemsSource = await App.ExerciseDAL.GetExercisesAsync();
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)
         {
             var id = ((Button)sender).BindingContext;
-            if (id != null)
+            if (Int32.TryParse(id.ToString(), out int result))
             {
-                Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
-                await Navigation.PushAsync(new AddEditWorkout
+                Models.Exercise exercise = await App.ExerciseDAL.GetExerciseAsync((int)id);
+                await Navigation.PushAsync(new AddEditExercise
                 {
-                    BindingContext = workout as Models.Workout
+                    BindingContext = exercise as Models.Exercise
                 });
             }
             else
             {
-                await Navigation.PushAsync(new AddEditWorkout
+                await Navigation.PushAsync(new AddEditExercise
                 {
-                    BindingContext = new Models.Workout()
+                    BindingContext = new Models.Exercise()
                 });
             }
         }
