@@ -27,7 +27,7 @@
         </StackLayout>
         <StackLayout VerticalOptions="FillAndExpand">
             <Button Text="E n t e r"
-                BackgroundColor="White"
+                BackgroundColor="{StaticResource CardBackgroundColor}"
                 HorizontalOptions="Center"
                 VerticalOptions="CenterAndExpand"
                 Margin="10"
