@@ -44,10 +44,11 @@
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Button 
-                    BindingContext="{Binding 2, StringFormat='Edit,{0:F0}'}"
+                    BindingContext="{Binding ID, StringFormat='Edit,{0:F0}'}"
                     Text="EDIT"
-                    WidthRequest="55"
-                    HeightRequest="40"
+                    FontSize="10"
+                    WidthRequest="45"
+                    HeightRequest="35"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
                     BackgroundColor="{StaticResource BarBackgroundColor}"
@@ -56,8 +57,9 @@
                   <Button 
                     BindingContext="{Binding ID}"
                     Text="DEL"
-                    WidthRequest="50"
-                    HeightRequest="40"
+                    FontSize="10"
+                    WidthRequest="45"
+                    HeightRequest="35"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
                     Margin="0,0,10,0"

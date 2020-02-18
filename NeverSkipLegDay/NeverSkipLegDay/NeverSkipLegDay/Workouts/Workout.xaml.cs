@@ -20,8 +20,8 @@ namespace NeverSkipLegDay.Workouts
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            
-            listView.ItemsSource = await App.ExerciseDAL.GetExercisesAsync();
+            Models.Workout workout = (Models.Workout)this.BindingContext;
+            listView.ItemsSource = await App.ExerciseDAL.GetExercisesByWorkoutIdAsync(workout.ID);
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)

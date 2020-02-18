@@ -21,6 +21,12 @@ namespace NeverSkipLegDay.DAL
         {
             return _database.Table<Exercise>().ToListAsync();
         }
+        public Task<List<Exercise>> GetExercisesByWorkoutIdAsync(int workoutId)
+        {
+            return _database.Table<Exercise>()
+                .Where(i => i.WorkoutID == workoutId)
+                .ToListAsync();
+        }
         public Task<Exercise> GetExerciseAsync(int id)
         {
             return _database.Table<Exercise>()

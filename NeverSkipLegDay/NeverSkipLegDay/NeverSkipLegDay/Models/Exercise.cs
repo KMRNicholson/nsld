@@ -11,9 +11,7 @@ namespace NeverSkipLegDay.Models
         public int ID { get; set; }
         public int WorkoutID { get; set; }
         public string Name { get; set; }
-        public int Sets { get; set; }
-        public int Reps { get; set; }
-        public int Weight { get; set; }
+        public int? Sets { get; set; }
         public DateTime Date { get; set; }
     }
 }
