@@ -59,10 +59,16 @@ namespace NeverSkipLegDay.Workouts
             //    });
             //}
         }
-
         async void OnDelete(object sender, EventArgs e)
         {
-            
+            var id = ((Button)sender).BindingContext;
+            Models.Exercise exercise = await App.ExerciseDAL.GetExerciseAsync((int)id);
+            await App.ExerciseDAL.DeleteExerciseAsync(exercise);
+            Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync(exercise.WorkoutID);
+            await Navigation.PushAsync(new Workout
+            {
+                BindingContext =  workout as Models.Workout
+            });
         }
 
         async void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
