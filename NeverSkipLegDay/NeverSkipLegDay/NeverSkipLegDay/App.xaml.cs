@@ -9,6 +9,7 @@ namespace NeverSkipLegDay
     {
         static WorkoutDAL workoutDAL;
         static ExerciseDAL exerciseDAL;
+        static SetDAL setDAL;
         public static WorkoutDAL WorkoutDAL
         {
             get
@@ -30,6 +31,17 @@ namespace NeverSkipLegDay
                     exerciseDAL = new ExerciseDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Exercises.db3"));
                 }
                 return exerciseDAL;
+            }
+        }
+        public static SetDAL SetDAL
+        {
+            get
+            {
+                if (setDAL == null)
+                {
+                    setDAL = new SetDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Sets.db3"));
+                }
+                return setDAL;
             }
         }
         public App()
