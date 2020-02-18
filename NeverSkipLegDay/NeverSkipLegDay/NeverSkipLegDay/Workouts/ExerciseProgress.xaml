@@ -14,56 +14,64 @@
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout
-      VerticalOptions="Start">
+    <StackLayout 
+      Spacing="0">
       <StackLayout 
         BackgroundColor="{StaticResource CardBackgroundColor}"
-        Margin="10"
+        Margin="10,10,10,0"
         Opacity="0.9"
-        VerticalOptions="Start"
-        HorizontalOptions="Center"
-        Padding="10,0,10,0">
+        VerticalOptions="Start">
         <Label 
           Text="{Binding Name}"
           FontSize="20"
           Margin="10"
-          TextColor="{StaticResource CardTextColor}"
-          HorizontalOptions="Center"/>
+          TextColor="{StaticResource CardTextColor}"/>
       </StackLayout>
-      <StackLayout 
-        BackgroundColor="Red" 
+      <StackLayout
         VerticalOptions="Start">
         <ListView 
           x:Name="listView"
-          Margin="10" 
-          RowHeight="60">
+          Margin="10,0,10,10" 
+          RowHeight="60"
+          ItemSelected="CancelSelection">
           <ListView.ItemTemplate>
             <DataTemplate>
               <ViewCell>
-                <StackLayout 
+                <StackLayout
+                  Opacity="0.9"
                   BackgroundColor="{StaticResource CardBackgroundColor}"
                   Orientation="Horizontal">
-                  <Label 
+                  <Label
                     Text="Reps:"
-                    FontSize="10"
+                    FontSize="17"
                     Margin="10"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
-                  <Entry/>
+                  <Entry
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="50"
+                    Text="{Binding Reps}"
+                    Keyboard="Numeric"/>
                   <Label 
                     Text="Weight:"
-                    FontSize="10"
+                    FontSize="17"
                     Margin="10"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
-                  <Entry/>
+                  <Entry
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="50"
+                    Text="{Binding Reps}"
+                    Keyboard="Numeric"/>
                   <Button 
                     BindingContext="{Binding ID}"
                     Text="Save"
+                    FontSize="10"
                     WidthRequest="55"
-                    HeightRequest="40"
+                    HeightRequest="35"
+                    Margin="10,0,10,0"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
                     BackgroundColor="{StaticResource BarBackgroundColor}"
