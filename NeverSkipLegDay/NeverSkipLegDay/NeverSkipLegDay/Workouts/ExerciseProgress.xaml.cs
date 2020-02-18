@@ -25,16 +25,9 @@ namespace NeverSkipLegDay.Workouts
 
         async void OnSave(object sender, EventArgs e)
         {
-            //var exercise = (Models.Exercise)BindingContext;
-            //exercise.Date = DateTime.UtcNow;
-            //await App.ExerciseDAL.SaveExerciseAsync(exercise);
-            //for (int i = 0; i < exercise.Sets; i++)
-            //{
-            //    Set set = new Set();
-            //    set.ExerciseID = exercise.ID;
-            //    await App.SetDAL.SaveSetAsync(set);
-            //}
-            //await Navigation.PopAsync();
+            var set = (Models.Set)BindingContext;
+            set.Date = DateTime.UtcNow;
+            await App.SetDAL.SaveSetAsync(set);
         }
 
         private void CancelSelection(object sender, SelectedItemChangedEventArgs e)
