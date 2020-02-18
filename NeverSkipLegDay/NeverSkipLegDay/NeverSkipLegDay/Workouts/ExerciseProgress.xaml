@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
+             mc:Ignorable="d"
+             x:Class="NeverSkipLegDay.Workouts.ExerciseProgress">
+  <NavigationPage.TitleView>
+    <Label TextColor="{StaticResource BarTextColor}"
+      FontSize="20" 
+      Text="W O R K O U T S"
+      HorizontalOptions="Center"
+      Margin="0,0,70,0"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout
+      VerticalOptions="Start">
+      <StackLayout 
+        BackgroundColor="{StaticResource CardBackgroundColor}"
+        Margin="10"
+        Opacity="0.9"
+        VerticalOptions="Start"
+        HorizontalOptions="Center"
+        Padding="10,0,10,0">
+        <Label 
+          Text="{Binding Name}"
+          FontSize="20"
+          Margin="10"
+          TextColor="{StaticResource CardTextColor}"
+          HorizontalOptions="Center"/>
+      </StackLayout>
+      <StackLayout 
+        BackgroundColor="Red" 
+        VerticalOptions="Start">
+        <ListView 
+          x:Name="listView"
+          Margin="10" 
+          RowHeight="60">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <StackLayout 
+                  BackgroundColor="{StaticResource CardBackgroundColor}"
+                  Orientation="Horizontal">
+                  <Label 
+                    Text="Reps:"
+                    FontSize="10"
+                    Margin="10"
+                    TextColor="{StaticResource CardTextColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+                  <Entry/>
+                  <Label 
+                    Text="Weight:"
+                    FontSize="10"
+                    Margin="10"
+                    TextColor="{StaticResource CardTextColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+                  <Entry/>
+                  <Button 
+                    BindingContext="{Binding ID}"
+                    Text="Save"
+                    WidthRequest="55"
+                    HeightRequest="40"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    BackgroundColor="{StaticResource BarBackgroundColor}"
+                    TextColor="{StaticResource BarTextColor}"
+                    Clicked="OnSave"/>
+                </StackLayout>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

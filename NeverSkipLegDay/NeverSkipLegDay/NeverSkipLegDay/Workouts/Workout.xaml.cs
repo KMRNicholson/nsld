@@ -73,7 +73,13 @@ namespace NeverSkipLegDay.Workouts
 
         async void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            
+            if (e.SelectedItem != null)
+            {
+                await Navigation.PushAsync(new ExerciseProgress
+                {
+                    BindingContext = e.SelectedItem as Models.Exercise
+                });
+            }
         }
     }
 }
