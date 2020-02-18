@@ -20,28 +20,44 @@ namespace NeverSkipLegDay.Workouts
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-            listView.ItemsSource = await App.WorkoutDAL.GetWorkoutsAsync();
+            Models.Workout workout = (Models.Workout)this.BindingContext;
+            listView.ItemsSource = await App.ExerciseDAL.GetExercisesByWorkoutIdAsync(workout.ID);
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)
         {
-            var id = ((Button)sender).BindingContext;
-            if (id != null)
+            string[] args = ((Button)sender).BindingContext.ToString().Split(',');
+            string operation = args[0];
+            int id = Int32.Parse(args[1]);
+            switch (operation)
             {
-                Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
-                await Navigation.PushAsync(new AddEditWorkout
-                {
-                    BindingContext = workout as Models.Workout
-                });
+                case "Add":
+                    Models.Exercise exercise = new Models.Exercise();
+                    exercise.WorkoutID = id;
+                    await Navigation.PushAsync(new AddEditExercise
+                    {
+                        BindingContext = exercise as Models.Exercise
+                    });
+                    break;
+                case "Edit":
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                await Navigation.PushAsync(new AddEditWorkout
-                {
-                    BindingContext = new Models.Workout()
-                });
-            }
+            //{
+            //    Models.Exercise exercise = await App.ExerciseDAL.GetExerciseAsync((int)id);
+            //    await Navigation.PushAsync(new AddEditExercise
+            //    {
+            //        BindingContext = exercise as Models.Exercise
+            //    });
+            //}
+            //else
+            //{
+            //    await Navigation.PushAsync(new AddEditExercise
+            //    {
+            //        BindingContext = new Models.Exercise()
+            //    });
+            //}
         }
 
         async void OnDelete(object sender, EventArgs e)
