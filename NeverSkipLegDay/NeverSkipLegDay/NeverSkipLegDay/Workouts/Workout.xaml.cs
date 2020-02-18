@@ -26,22 +26,38 @@ namespace NeverSkipLegDay.Workouts
 
         async void OnAddOrEdit(object sender, EventArgs e)
         {
-            var id = ((Button)sender).BindingContext;
-            if (Int32.TryParse(id.ToString(), out int result))
+            string[] args = ((Button)sender).BindingContext.ToString().Split(',');
+            string operation = args[0];
+            int id = Int32.Parse(args[1]);
+            switch (operation)
             {
-                Models.Exercise exercise = await App.ExerciseDAL.GetExerciseAsync((int)id);
-                await Navigation.PushAsync(new AddEditExercise
-                {
-                    BindingContext = exercise as Models.Exercise
-                });
+                case "Add":
+                    Models.Exercise exercise = new Models.Exercise();
+                    exercise.WorkoutID = id;
+                    await Navigation.PushAsync(new AddEditExercise
+                    {
+                        BindingContext = exercise as Models.Exercise
+                    });
+                    break;
+                case "Edit":
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                await Navigation.PushAsync(new AddEditExercise
-                {
-                    BindingContext = new Models.Exercise()
-                });
-            }
+            //{
+            //    Models.Exercise exercise = await App.ExerciseDAL.GetExerciseAsync((int)id);
+            //    await Navigation.PushAsync(new AddEditExercise
+            //    {
+            //        BindingContext = exercise as Models.Exercise
+            //    });
+            //}
+            //else
+            //{
+            //    await Navigation.PushAsync(new AddEditExercise
+            //    {
+            //        BindingContext = new Models.Exercise()
+            //    });
+            //}
         }
 
         async void OnDelete(object sender, EventArgs e)

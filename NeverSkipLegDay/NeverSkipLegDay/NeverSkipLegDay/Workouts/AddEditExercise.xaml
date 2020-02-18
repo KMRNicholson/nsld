@@ -7,38 +7,54 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.Workouts.AddEditExercise">
   <NavigationPage.TitleView>
-    <Label TextColor="{StaticResource BarTextColor}"
+    <Label 
+      TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
       Text="W O R K O U T S"
       HorizontalOptions="Center"
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout BackgroundColor="{StaticResource CardBackgroundColor}"
-                 Margin="10"
-                 Opacity="0.9"
-                 VerticalOptions="Start">
-      <Label Text="Name:"
-             FontSize="20"
-             Margin="10"
-             TextColor="{StaticResource CardTextColor}"/>
+    <StackLayout 
+      BackgroundColor="{StaticResource CardBackgroundColor}"
+      Margin="10"
+      Opacity="0.9"
+      VerticalOptions="Start">
+      <Label 
+        Text="Name:"
+        FontSize="20"
+        Margin="10"
+        TextColor="{StaticResource CardTextColor}"/>
       <StackLayout
-        Orientation="Horizontal"
-        BackgroundColor="Red">
-        <Entry Text="{Binding Name}"
+        Orientation="Horizontal">
+        <StackLayout
+          HorizontalOptions="FillAndExpand">
+          <Entry Text="{Binding Name}"
              Placeholder="e.g. Bench Press" 
              Margin="10,0,10,10" 
              IsTextPredictionEnabled="True"  
              Keyboard="Chat" 
              IsSpellCheckEnabled="True"/>
-        
+        </StackLayout>
+        <StackLayout 
+          HorizontalOptions="End">
+          <Entry Text="{Binding Sets}"
+             Placeholder="Sets" 
+             Margin="10,0,10,10" 
+             IsTextPredictionEnabled="True"  
+             Keyboard="Numeric" 
+             IsSpellCheckEnabled="True"
+             WidthRequest="50"/>
+        </StackLayout>
       </StackLayout>
-      <Button Text="Save"
-              HorizontalOptions="End"
-              Margin="0,0,10,10"
-              BackgroundColor="{StaticResource BarBackgroundColor}"
-              TextColor="{StaticResource BarTextColor}"
-              Clicked="OnSave"/>
+      <Button
+        BindingContext="{Binding [ID, Name]}"
+        Text="Save"
+        HorizontalOptions="End"
+        Margin="0,0,10,10"
+        BackgroundColor="{StaticResource BarBackgroundColor}"
+        TextColor="{StaticResource BarTextColor}"
+        Clicked="OnSave"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

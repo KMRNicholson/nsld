@@ -44,7 +44,7 @@
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Button 
-                    BindingContext="{Binding ID}"
+                    BindingContext="{Binding 2, StringFormat='Edit,{0:F0}'}"
                     Text="EDIT"
                     WidthRequest="55"
                     HeightRequest="40"
@@ -71,6 +71,7 @@
         </ListView>
       </StackLayout>
       <Button 
+        BindingContext="{Binding ID, StringFormat='Add,{0:F0}'}"
         WidthRequest="80" 
         HeightRequest="80" 
         CornerRadius="40" 
