@@ -26,12 +26,5 @@ namespace NeverSkipLegDay.Workouts
             await App.WorkoutDAL.SaveWorkoutAsync(workout);
             await Navigation.PopAsync();
         }
-
-        async void OnDelete(object sender, EventArgs e)
-        {
-            var workout = (Models.Workout)BindingContext;
-            await App.WorkoutDAL.DeleteWorkoutAsync(workout);
-            await Navigation.PopAsync();
-        }
     }
 }
