@@ -63,10 +63,9 @@
                   <Entry
                     HorizontalOptions="StartAndExpand"
                     WidthRequest="50"
-                    Text="{Binding Reps}"
+                    Text="{Binding Weight}"
                     Keyboard="Numeric"/>
-                  <Button 
-                    BindingContext="{Binding ID}"
+                  <Button
                     Text="Save"
                     FontSize="10"
                     WidthRequest="55"
