@@ -49,6 +49,7 @@
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Entry
+                    x:Name="reps"
                     HorizontalOptions="StartAndExpand"
                     WidthRequest="50"
                     Text="{Binding Reps}"
@@ -64,7 +65,7 @@
                     HorizontalOptions="StartAndExpand"
                     WidthRequest="50"
                     Text="{Binding Weight}"
-                    Keyboard="Numeric"/>
+                    Keyboard="Telephone"/>
                   <Button
                     Text="Save"
                     FontSize="10"

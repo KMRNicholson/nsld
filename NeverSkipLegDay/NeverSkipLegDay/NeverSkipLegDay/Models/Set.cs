@@ -11,7 +11,7 @@ namespace NeverSkipLegDay.Models
         public int ID { get; set; }
         public int ExerciseID { get; set; }
         public int? Reps { get; set; }
-        public int? Weight { get; set; }
+        public decimal? Weight { get; set; }
         public DateTime Date { get; set; }
     }
 }

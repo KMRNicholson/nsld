@@ -25,7 +25,7 @@ namespace NeverSkipLegDay.Workouts
 
         async void OnSave(object sender, EventArgs e)
         {
-            var set = (Models.Set)BindingContext;
+            Models.Set set = (Models.Set)((Button)sender).BindingContext;
             set.Date = DateTime.UtcNow;
             await App.SetDAL.SaveSetAsync(set);
         }
