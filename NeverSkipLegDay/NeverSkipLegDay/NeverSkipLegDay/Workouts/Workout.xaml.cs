@@ -36,16 +36,21 @@ namespace NeverSkipLegDay.Workouts
                 {
                     WorkoutID = id
                 };
+
+                await Navigation.PushAsync(new AddExercise
+                {
+                    BindingContext = exercise as Models.Exercise
+                });
             }
             else
             {
                 exercise = await App.ExerciseDAL.GetExerciseAsync(id);
-            }
 
-            await Navigation.PushAsync(new AddEditExercise
-            {
-                BindingContext = exercise as Models.Exercise
-            });
+                await Navigation.PushAsync(new EditExercise
+                {
+                    BindingContext = exercise as Models.Exercise
+                });
+            }
         }
         async void OnDelete(object sender, EventArgs e)
         {
