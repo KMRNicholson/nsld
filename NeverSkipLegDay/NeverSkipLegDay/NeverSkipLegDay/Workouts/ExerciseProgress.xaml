@@ -18,7 +18,7 @@
       Spacing="0">
       <StackLayout 
         BackgroundColor="{StaticResource CardBackgroundColor}"
-        Margin="10,10,10,0"
+        Margin="10,10,10,1"
         Opacity="0.9"
         VerticalOptions="Start">
         <Label 
@@ -32,7 +32,7 @@
         <ListView 
           x:Name="listView"
           Margin="10,0,10,10" 
-          RowHeight="60"
+          RowHeight="50"
           ItemSelected="CancelSelection">
           <ListView.ItemTemplate>
             <DataTemplate>
