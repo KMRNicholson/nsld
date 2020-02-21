@@ -29,26 +29,28 @@
         Orientation="Horizontal">
         <StackLayout
           HorizontalOptions="FillAndExpand">
-          <Entry Text="{Binding Name}"
-             Placeholder="e.g. Bench Press" 
-             Margin="10,0,10,10" 
-             IsTextPredictionEnabled="True"  
-             Keyboard="Chat" 
-             IsSpellCheckEnabled="True"/>
+          <Entry 
+            Text="{Binding Name}"
+            Placeholder="e.g. Bench Press" 
+            Margin="10,0,10,10" 
+            IsTextPredictionEnabled="True"  
+            Keyboard="Chat" 
+            IsSpellCheckEnabled="True"/>
         </StackLayout>
         <StackLayout 
           HorizontalOptions="End">
-          <Entry Text="{Binding Sets}"
-             Placeholder="Sets" 
-             Margin="10,0,10,10" 
-             IsTextPredictionEnabled="True"  
-             Keyboard="Numeric" 
-             IsSpellCheckEnabled="True"
-             WidthRequest="50"/>
+          <Entry 
+            Text="{Binding Sets}"
+            Placeholder="Sets" 
+            Margin="10,0,10,10" 
+            IsTextPredictionEnabled="True"  
+            Keyboard="Numeric" 
+            IsSpellCheckEnabled="True"
+            WidthRequest="50"/>
         </StackLayout>
       </StackLayout>
       <Button
-        BindingContext="{Binding [ID, Name]}"
+        BindingContext="{Binding ID}"
         Text="Save"
         HorizontalOptions="End"
         Margin="0,0,10,10"
