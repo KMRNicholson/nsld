@@ -52,8 +52,9 @@
                     HorizontalOptions="StartAndExpand"
                     WidthRequest="50"
                     Text="{Binding Reps}"
-                    Keyboard="Numeric"/>
-                  <Label 
+                    Keyboard="Numeric"
+                    TextChanged="OnEdit"/>
+                  <Label
                     Text="Weight:"
                     FontSize="17"
                     Margin="10"
@@ -61,12 +62,14 @@
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Entry
-                    x:Name="weight"
                     HorizontalOptions="StartAndExpand"
                     WidthRequest="50"
                     Text="{Binding Weight}"
-                    Keyboard="Telephone"/>
+                    Keyboard="Telephone"
+                    TextChanged="OnEdit"/>
                   <Button
+                    Opacity="0.5"
+                    IsEnabled="False"
                     Text="Save"
                     FontSize="10"
                     WidthRequest="55"
