@@ -26,38 +26,31 @@ namespace NeverSkipLegDay.Workouts
 
         async void OnAddOrEdit(object sender, EventArgs e)
         {
+            Models.Exercise exercise;
             string[] args = ((Button)sender).BindingContext.ToString().Split(',');
             string operation = args[0];
             int id = Int32.Parse(args[1]);
-            switch (operation)
+            if(operation == "Add")
             {
-                case "Add":
-                    Models.Exercise exercise = new Models.Exercise();
-                    exercise.WorkoutID = id;
-                    await Navigation.PushAsync(new AddEditExercise
-                    {
-                        BindingContext = exercise as Models.Exercise
-                    });
-                    break;
-                case "Edit":
-                    break;
-                default:
-                    break;
+                exercise = new Models.Exercise
+                {
+                    WorkoutID = id
+                };
+
+                await Navigation.PushAsync(new AddExercise
+                {
+                    BindingContext = exercise as Models.Exercise
+                });
             }
-            //{
-            //    Models.Exercise exercise = await App.ExerciseDAL.GetExerciseAsync((int)id);
-            //    await Navigation.PushAsync(new AddEditExercise
-            //    {
-            //        BindingContext = exercise as Models.Exercise
-            //    });
-            //}
-            //else
-            //{
-            //    await Navigation.PushAsync(new AddEditExercise
-            //    {
-            //        BindingContext = new Models.Exercise()
-            //    });
-            //}
+            else
+            {
+                exercise = await App.ExerciseDAL.GetExerciseAsync(id);
+
+                await Navigation.PushAsync(new EditExercise
+                {
+                    BindingContext = exercise as Models.Exercise
+                });
+            }
         }
         async void OnDelete(object sender, EventArgs e)
         {

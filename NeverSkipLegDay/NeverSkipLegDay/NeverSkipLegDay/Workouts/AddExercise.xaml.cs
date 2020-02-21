@@ -12,9 +12,9 @@ using NeverSkipLegDay.Models;
 namespace NeverSkipLegDay.Workouts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddEditExercise : ContentPage
+    public partial class AddExercise : ContentPage
     {
-        public AddEditExercise()
+        public AddExercise()
         {
             InitializeComponent();
         }
@@ -27,16 +27,20 @@ namespace NeverSkipLegDay.Workouts
             {
                 exercise.Sets = 1; //Must have atleast 1 set.
             }
+            
             await App.ExerciseDAL.SaveExerciseAsync(exercise);
             for (int i = 0; i < exercise.Sets; i++)
             {
-                Set set = new Set();
-                set.ExerciseID = exercise.ID;
-                set.Reps = 0;
-                set.Weight = 0;
+                Set set = new Set
+                {
+                    ExerciseID = exercise.ID,
+                    Reps = 0,
+                    Weight = 0
+                };
                 await App.SetDAL.SaveSetAsync(set);
             }
             await Navigation.PopAsync();
+            
         }
     }
 }

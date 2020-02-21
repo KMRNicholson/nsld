@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
              BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
              mc:Ignorable="d"
-             x:Class="NeverSkipLegDay.Workouts.AddEditExercise">
+             x:Class="NeverSkipLegDay.Workouts.EditExercise">
   <NavigationPage.TitleView>
     <Label 
       TextColor="{StaticResource BarTextColor}"
@@ -36,17 +36,6 @@
             IsTextPredictionEnabled="True"  
             Keyboard="Chat" 
             IsSpellCheckEnabled="True"/>
-        </StackLayout>
-        <StackLayout 
-          HorizontalOptions="End">
-          <Entry 
-            Text="{Binding Sets}"
-            Placeholder="Sets" 
-            Margin="10,0,10,10" 
-            IsTextPredictionEnabled="True"  
-            Keyboard="Numeric" 
-            IsSpellCheckEnabled="True"
-            WidthRequest="50"/>
         </StackLayout>
       </StackLayout>
       <Button
