@@ -12,7 +12,7 @@ namespace NeverSkipLegDay.Workouts
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExerciseProgress : ContentPage
     {
-        static int render = 1;
+        static int render = 0;
         public ExerciseProgress()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace NeverSkipLegDay.Workouts
         {
             base.OnAppearing();
             Models.Exercise exercise = (Models.Exercise)this.BindingContext;
-            render = 1;
+            render = 0;
             listView.ItemsSource = await App.SetDAL.GetSetsByExerciseIdAsync(exercise.ID);
         }
 
@@ -44,11 +44,12 @@ namespace NeverSkipLegDay.Workouts
         void OnEdit(object sender, EventArgs e)
         {
             Models.Exercise exercise = (Models.Exercise)BindingContext;
-            if(render > (exercise.Sets * 2))
+            Entry entry = (Entry)sender;
+            StackLayout stackLayout = (StackLayout)entry.Parent;
+            Button save = (Button)stackLayout.Children.Last();
+
+            if (render > ((exercise.Sets * 2))-1)
             {
-                Entry entry = (Entry)sender;
-                StackLayout stackLayout = (StackLayout)entry.Parent;
-                Button save = (Button)stackLayout.Children.Last();
                 save.IsEnabled = true;
                 save.Opacity = 1;
             }
