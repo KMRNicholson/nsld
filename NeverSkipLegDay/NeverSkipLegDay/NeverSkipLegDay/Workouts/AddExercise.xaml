@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
+             BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
+             mc:Ignorable="d"
+             x:Class="NeverSkipLegDay.Workouts.AddExercise">
+  <NavigationPage.TitleView>
+    <Label 
+      TextColor="{StaticResource BarTextColor}"
+      FontSize="20" 
+      Text="W O R K O U T S"
+      HorizontalOptions="Center"
+      Margin="0,0,70,0"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout 
+      BackgroundColor="{StaticResource CardBackgroundColor}"
+      Margin="10"
+      VerticalOptions="Start">
+      <Label 
+        Text="Name:"
+        FontSize="20"
+        Margin="10"
+        TextColor="{StaticResource CardTextColor}"/>
+      <StackLayout
+        Orientation="Horizontal">
+        <StackLayout
+          HorizontalOptions="FillAndExpand">
+          <Entry 
+            Text="{Binding Name}"
+            Placeholder="e.g. Bench Press" 
+            Margin="10,0,10,10" 
+            IsTextPredictionEnabled="True"  
+            Keyboard="Chat" 
+            IsSpellCheckEnabled="True"/>
+        </StackLayout>
+        <StackLayout 
+          HorizontalOptions="End">
+          <Entry 
+            Text="{Binding Sets}"
+            Placeholder="Sets" 
+            Margin="10,0,10,10" 
+            IsTextPredictionEnabled="True"  
+            Keyboard="Numeric" 
+            IsSpellCheckEnabled="True"
+            WidthRequest="50"/>
+        </StackLayout>
+      </StackLayout>
+      <Button
+        BindingContext="{Binding ID}"
+        Text="Save"
+        HorizontalOptions="End"
+        Margin="0,0,10,10"
+        BackgroundColor="{StaticResource BarBackgroundColor}"
+        TextColor="{StaticResource BarTextColor}"
+        Clicked="OnSave"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

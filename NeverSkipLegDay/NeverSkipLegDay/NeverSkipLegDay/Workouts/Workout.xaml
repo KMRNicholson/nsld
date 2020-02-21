@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
              mc:Ignorable="d"
-             x:Class="NeverSkipLegDay.Workouts.Workouts">
+             x:Class="NeverSkipLegDay.Workouts.Workout">
   <NavigationPage.TitleView>
     <Label TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
@@ -14,14 +14,25 @@
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout>
+    <StackLayout
+      Spacing="0">
+      <StackLayout
+        BackgroundColor="{StaticResource CardBackgroundColor}"
+        Margin="10,10,10,1"
+        VerticalOptions="Start">
+        <Label
+          Text="{Binding Name}"
+          FontSize="20"
+          TextColor="{StaticResource CardTextColor}"
+          Margin="10"/>
+      </StackLayout>
       <StackLayout
         VerticalOptions="Start">
         <ListView 
           x:Name="listView"
-          Margin="10" 
-          RowHeight="60"
-          ItemSelected="OnWorkoutSelected">
+          Margin="10,0,10,10" 
+          RowHeight="50"
+          ItemSelected="OnExerciseSelected">
           <ListView.ItemTemplate>
             <DataTemplate>
               <ViewCell>
@@ -30,16 +41,17 @@
                   Orientation="Horizontal">
                   <Label 
                     Text="{Binding Name}"
-                    FontSize="20"
+                    FontSize="17"
                     Margin="10"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Button 
-                    BindingContext="{Binding ID}"
+                    BindingContext="{Binding ID, StringFormat='Edit,{0:F0}'}"
                     Text="EDIT"
-                    WidthRequest="55"
-                    HeightRequest="40"
+                    FontSize="10"
+                    WidthRequest="45"
+                    HeightRequest="35"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
                     BackgroundColor="{StaticResource BarBackgroundColor}"
@@ -48,8 +60,9 @@
                   <Button 
                     BindingContext="{Binding ID}"
                     Text="DEL"
-                    WidthRequest="50"
-                    HeightRequest="40"
+                    FontSize="10"
+                    WidthRequest="45"
+                    HeightRequest="35"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
                     Margin="0,0,10,0"
@@ -63,14 +76,15 @@
         </ListView>
       </StackLayout>
       <Button 
-          WidthRequest="80" 
-          HeightRequest="80" 
-          CornerRadius="40" 
-          HorizontalOptions="End" 
-          VerticalOptions="End" 
-          Text="Add" 
-          Margin="20"
-          Clicked="OnAddOrEdit"/>
+        BindingContext="{Binding ID, StringFormat='Add,{0:F0}'}"
+        WidthRequest="80" 
+        HeightRequest="80" 
+        CornerRadius="40" 
+        HorizontalOptions="End" 
+        VerticalOptions="End" 
+        Text="Add" 
+        Margin="20"
+        Clicked="OnAddOrEdit"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

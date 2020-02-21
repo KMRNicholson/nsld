@@ -7,28 +7,34 @@ using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.DAL
 {
-    public class WorkoutDAL
+    public class SetDAL
     {
         readonly SQLiteAsyncConnection _database;
 
-        public WorkoutDAL(string dbPath)
+        public SetDAL(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Workout>().Wait();
+            _database.CreateTableAsync<Set>().Wait();
         }
 
-        public Task<List<Workout>> GetWorkoutsAsync()
+        public Task<List<Set>> GetSetsAsync()
         {
-            return _database.Table<Workout>().ToListAsync();
+            return _database.Table<Set>().ToListAsync();
         }
-        public Task<Workout> GetWorkoutAsync(int id)
+        public Task<List<Set>> GetSetsByExerciseIdAsync(int exerciseId)
         {
-            return _database.Table<Workout>()
+            return _database.Table<Set>()
+                .Where(i => i.ExerciseID == exerciseId)
+                .ToListAsync();
+        }
+        public Task<Set> GetSetAsync(int id)
+        {
+            return _database.Table<Set>()
                             .Where(i => i.ID == id)
                             .FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveWorkoutAsync(Workout model)
+        public Task<int> SaveSetAsync(Set model)
         {
             if (model.ID != 0)
             {
@@ -40,7 +46,7 @@ namespace NeverSkipLegDay.DAL
             }
         }
 
-        public Task<int> DeleteWorkoutAsync(Workout model)
+        public Task<int> DeleteSetAsync(Set model)
         {
             return _database.DeleteAsync(model);
         }

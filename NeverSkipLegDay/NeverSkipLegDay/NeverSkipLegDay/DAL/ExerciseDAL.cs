@@ -7,28 +7,34 @@ using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.DAL
 {
-    public class WorkoutDAL
+    public class ExerciseDAL
     {
         readonly SQLiteAsyncConnection _database;
 
-        public WorkoutDAL(string dbPath)
+        public ExerciseDAL(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Workout>().Wait();
+            _database.CreateTableAsync<Exercise>().Wait();
         }
 
-        public Task<List<Workout>> GetWorkoutsAsync()
+        public Task<List<Exercise>> GetExercisesAsync()
         {
-            return _database.Table<Workout>().ToListAsync();
+            return _database.Table<Exercise>().ToListAsync();
         }
-        public Task<Workout> GetWorkoutAsync(int id)
+        public Task<List<Exercise>> GetExercisesByWorkoutIdAsync(int workoutId)
         {
-            return _database.Table<Workout>()
+            return _database.Table<Exercise>()
+                .Where(i => i.WorkoutID == workoutId)
+                .ToListAsync();
+        }
+        public Task<Exercise> GetExerciseAsync(int id)
+        {
+            return _database.Table<Exercise>()
                             .Where(i => i.ID == id)
                             .FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveWorkoutAsync(Workout model)
+        public Task<int> SaveExerciseAsync(Exercise model)
         {
             if (model.ID != 0)
             {
@@ -40,7 +46,7 @@ namespace NeverSkipLegDay.DAL
             }
         }
 
-        public Task<int> DeleteWorkoutAsync(Workout model)
+        public Task<int> DeleteExerciseAsync(Exercise model)
         {
             return _database.DeleteAsync(model);
         }
