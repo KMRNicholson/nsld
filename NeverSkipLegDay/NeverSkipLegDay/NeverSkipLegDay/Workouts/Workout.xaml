@@ -14,21 +14,24 @@
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout>
+    <StackLayout
+      Spacing="0">
       <StackLayout
         BackgroundColor="{StaticResource CardBackgroundColor}"
-        Opacity="0.9"
-        Margin="10"
+        Margin="10,10,10,1"
         VerticalOptions="Start">
         <Label
           Text="{Binding Name}"
           FontSize="20"
           TextColor="{StaticResource CardTextColor}"
           Margin="10"/>
+      </StackLayout>
+      <StackLayout
+        VerticalOptions="Start">
         <ListView 
           x:Name="listView"
-          Margin="10" 
-          RowHeight="60"
+          Margin="10,0,10,10" 
+          RowHeight="50"
           ItemSelected="OnExerciseSelected">
           <ListView.ItemTemplate>
             <DataTemplate>
@@ -38,7 +41,7 @@
                   Orientation="Horizontal">
                   <Label 
                     Text="{Binding Name}"
-                    FontSize="15"
+                    FontSize="17"
                     Margin="10"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
