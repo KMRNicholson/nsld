@@ -23,11 +23,17 @@ namespace NeverSkipLegDay.Workouts
         {
             var exercise = (Models.Exercise)BindingContext;
             exercise.Date = DateTime.UtcNow;
+            if(exercise.Sets == 0 || exercise.Sets == null)
+            {
+                exercise.Sets = 1; //Must have atleast 1 set.
+            }
             await App.ExerciseDAL.SaveExerciseAsync(exercise);
             for (int i = 0; i < exercise.Sets; i++)
             {
                 Set set = new Set();
                 set.ExerciseID = exercise.ID;
+                set.Reps = 0;
+                set.Weight = 0;
                 await App.SetDAL.SaveSetAsync(set);
             }
             await Navigation.PopAsync();
