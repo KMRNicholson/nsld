@@ -19,7 +19,6 @@
       <StackLayout 
         BackgroundColor="{StaticResource CardBackgroundColor}"
         Margin="10,10,10,1"
-        Opacity="0.9"
         VerticalOptions="Start">
         <Label 
           Text="{Binding Name}"
@@ -38,7 +37,6 @@
             <DataTemplate>
               <ViewCell>
                 <StackLayout
-                  Opacity="0.9"
                   BackgroundColor="{StaticResource CardBackgroundColor}"
                   Orientation="Horizontal">
                   <Label
@@ -68,7 +66,7 @@
                     Keyboard="Telephone"
                     TextChanged="OnEdit"/>
                   <Button
-                    Opacity="0.5"
+                    Opacity="0"
                     IsEnabled="False"
                     Text="Save"
                     FontSize="10"

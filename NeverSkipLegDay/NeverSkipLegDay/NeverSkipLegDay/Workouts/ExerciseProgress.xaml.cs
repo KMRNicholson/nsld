@@ -32,7 +32,7 @@ namespace NeverSkipLegDay.Workouts
             set.Date = DateTime.UtcNow;
             await App.SetDAL.SaveSetAsync(set);
             save.IsEnabled = false;
-            save.Opacity = 0.5;
+            save.Opacity = 0;
         }
 
         private void CancelSelection(object sender, SelectedItemChangedEventArgs e)
