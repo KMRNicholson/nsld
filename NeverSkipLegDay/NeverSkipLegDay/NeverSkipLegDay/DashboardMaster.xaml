@@ -11,16 +11,8 @@
       SeparatorVisibility="Default"
       HasUnevenRows="true"
       ItemsSource="{Binding MenuItems}"
-      SeparatorColor="{StaticResource SeparatorColor}">
-      <d:ListView.ItemsSource>
-        <x:Array Type="{x:Type x:String}">
-          <x:String>Workouts</x:String>
-          <x:String>Nutrition</x:String>
-          <x:String>Records</x:String>
-          <x:String>Account</x:String>
-          <x:String>Settings</x:String>
-        </x:Array>
-      </d:ListView.ItemsSource>
+      SeparatorColor="{StaticResource SeparatorColor}"
+      ItemSelected="OnItemSelected">
       <ListView.Header>
         <StackLayout>
           <Frame CornerRadius="100"
@@ -42,8 +34,7 @@
             <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
               <Label VerticalOptions="FillAndExpand" 
                 VerticalTextAlignment="Center" 
-                Text="{Binding Title}" 
-                d:Text="{Binding .}"
+                Text="{Binding Title}"
                 FontSize="20"
                 TextColor="{StaticResource BarTextColor}"/>
             </StackLayout>

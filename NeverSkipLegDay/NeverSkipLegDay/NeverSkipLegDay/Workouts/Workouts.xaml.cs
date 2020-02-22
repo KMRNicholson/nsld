@@ -23,6 +23,9 @@ namespace NeverSkipLegDay.Workouts
             base.OnAppearing();
 
             listView.ItemsSource = await App.WorkoutDAL.GetWorkoutsAsync();
+            NavigationPage page = (NavigationPage)this.Parent;
+            page.BarBackgroundColor = Color.FromHex("#3f3f3f");
+            page.BarTextColor = Color.White;
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)

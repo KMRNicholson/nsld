@@ -52,5 +52,29 @@ namespace NeverSkipLegDay
             }
             #endregion
         }
+
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            DashboardMasterMenuItem item = (DashboardMasterMenuItem)e.SelectedItem;
+            if (item != null)
+            {
+                switch (item.Title)
+                {
+                    case "Workouts":
+                        await Navigation.PushAsync(new Workouts.Workouts());
+                        break;
+                    case "Nutrition":
+                        break;
+                    case "Record":
+                        break;
+                    case "Account":
+                        break;
+                    case "Settings":
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }
