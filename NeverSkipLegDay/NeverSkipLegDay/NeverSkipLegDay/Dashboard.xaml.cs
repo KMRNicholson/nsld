@@ -16,22 +16,6 @@ namespace NeverSkipLegDay
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            MasterPage.ListView.ItemSelected += ListView_ItemSelected;
-        }
-
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var item = e.SelectedItem as DashboardMasterMenuItem;
-            if (item == null)
-                return;
-
-            //var page = (Page)Activator.CreateInstance(item.TargetType);
-            //page.Title = item.Title;
-            //
-            //Detail = new NavigationPage(page);
-            //IsPresented = false;
-            //
-            //MasterPage.ListView.SelectedItem = null;
         }
     }
 }
