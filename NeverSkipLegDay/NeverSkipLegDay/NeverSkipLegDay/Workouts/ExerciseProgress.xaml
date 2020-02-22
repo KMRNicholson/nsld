@@ -9,7 +9,7 @@
   <NavigationPage.TitleView>
     <Label TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
-      Text="W O R K O U T S"
+      Text="S E T S"
       HorizontalOptions="Center"
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>

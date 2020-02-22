@@ -23,6 +23,9 @@ namespace NeverSkipLegDay.Workouts
             base.OnAppearing();
 
             listView.ItemsSource = await App.WorkoutDAL.GetWorkoutsAsync();
+            NavigationPage page = (NavigationPage)this.Parent;
+            page.BarBackgroundColor = Color.FromHex("#3f3f3f");
+            page.BarTextColor = Color.White;
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace NeverSkipLegDay.Workouts
             var id = ((Button)sender).BindingContext;
             Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
             await App.WorkoutDAL.DeleteWorkoutAsync(workout);
-            await Navigation.PushAsync(new Workouts());
+            listView.ItemsSource = await App.WorkoutDAL.GetWorkoutsAsync();
         }
 
         async void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)

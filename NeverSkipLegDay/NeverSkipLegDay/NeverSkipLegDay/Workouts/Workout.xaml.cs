@@ -57,11 +57,7 @@ namespace NeverSkipLegDay.Workouts
             var id = ((Button)sender).BindingContext;
             Models.Exercise exercise = await App.ExerciseDAL.GetExerciseAsync((int)id);
             await App.ExerciseDAL.DeleteExerciseAsync(exercise);
-            Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync(exercise.WorkoutID);
-            await Navigation.PushAsync(new Workout
-            {
-                BindingContext =  workout as Models.Workout
-            });
+            listView.ItemsSource = await App.ExerciseDAL.GetExercisesByWorkoutIdAsync(exercise.WorkoutID);
         }
 
         async void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
