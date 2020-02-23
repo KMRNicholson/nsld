@@ -6,52 +6,70 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.DashboardDetail" >
   <NavigationPage.TitleView>
-    <Label TextColor="{StaticResource BarTextColor}"
-      FontSize="20" 
+    <Label
+      FontAttributes="Bold"
+      TextColor="{StaticResource BarTextColor}"
+      FontSize="20"
       Text="N S L D"
       HorizontalOptions="Center"
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
   <StackLayout>
-    <Grid VerticalOptions="FillAndExpand"
-          RowSpacing="0"
-          ColumnSpacing="0">
+    <Grid 
+      VerticalOptions="FillAndExpand"
+      RowSpacing="0"    
+      ColumnSpacing="0">
       <Grid.RowDefinitions>
-        <RowDefinition Height="50*"/>
-        <RowDefinition Height="50*"/>
+        <RowDefinition Height="33*"/>
+        <RowDefinition Height="33*"/>
+        <RowDefinition Height="33*"/>
       </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="50*"/>
-        <ColumnDefinition Width="50*"/>
-      </Grid.ColumnDefinitions>
-      <RelativeLayout BackgroundColor="{StaticResource PanelColor}" Grid.Row="0" Grid.ColumnSpan="2"/>
-      <Button 
-        BackgroundColor="{StaticResource CardBackgroundColor}"
+      <StackLayout 
+        BackgroundColor="LightSkyBlue"
+        Grid.Row="0">
+        <Button
+          BackgroundColor="Transparent"
+          VerticalOptions="CenterAndExpand"
+          HorizontalOptions="CenterAndExpand"
+          BorderColor="White"
+          BorderWidth="1"
+          HeightRequest="100"
+          WidthRequest="150"
+          Text="W o r k o u t s"
+          Grid.Row="0"
+          Clicked="OnWorkoutsSelected"
+          TextColor="{StaticResource PanelButtonTextColor}"/>
+      </StackLayout>
+      <StackLayout
+        BackgroundColor="LightBlue"
+        Grid.Row="1">
+        <Button
+          BackgroundColor="Transparent"
+          HeightRequest="100"
+          VerticalOptions="CenterAndExpand"
+          HorizontalOptions="CenterAndExpand"
+          WidthRequest="150"
+          BorderColor="White"
+          BorderWidth="1"
+          Text="N u t r i t i o n"
+          Grid.Row="1"
+          TextColor="{StaticResource PanelButtonTextColor}"/>
+      </StackLayout>
+      <StackLayout
+        BackgroundColor="LightSteelBlue"
+        Grid.Row="2">
+        <Button
+        BackgroundColor="Transparent"
         VerticalOptions="CenterAndExpand"
-        WidthRequest="150"
-        HorizontalOptions="Center"
-        Text="W o r k o u t s"
-        Grid.Row="0"
-        Grid.ColumnSpan="2"
-        Clicked="OnWorkoutsSelected"/>
-      <StackLayout BackgroundColor="{StaticResource PanelColor}" Grid.Row="1" Grid.Column="0"/>
-      <Button
-        BackgroundColor="{StaticResource CardBackgroundColor}"
-        VerticalOptions="CenterAndExpand"
-        HorizontalOptions="Center"
-        WidthRequest="150"
-        Text="N u t r i t i o n"
-        Grid.Row="1"
-        Grid.Column="0"/>
-      <StackLayout BackgroundColor="{StaticResource PanelColor}" Grid.Row="1" Grid.Column="1"/>
-      <Button
-        BackgroundColor="{StaticResource CardBackgroundColor}"
-        VerticalOptions="CenterAndExpand"
-        HorizontalOptions="Center"
+        HorizontalOptions="CenterAndExpand"
         Text="R e c o r d s"
+          BorderColor="White"
+          BorderWidth="1"
+        HeightRequest="100"
         WidthRequest="150"
-        Grid.Row="1"
-        Grid.Column="1"/>
+        Grid.Row="2"
+        TextColor="{StaticResource PanelButtonTextColor}"/>
+      </StackLayout>
     </Grid>
   </StackLayout>
 </ContentPage>
