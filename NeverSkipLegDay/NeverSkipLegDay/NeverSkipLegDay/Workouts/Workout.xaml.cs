@@ -22,6 +22,8 @@ namespace NeverSkipLegDay.Workouts
             base.OnAppearing();
             Models.Workout workout = (Models.Workout)this.BindingContext;
             listView.ItemsSource = await App.ExerciseDAL.GetExercisesByWorkoutIdAsync(workout.ID);
+            List<Models.Exercise> exercises = (List<Models.Exercise>)listView.ItemsSource;
+            helpLabel.IsVisible = exercises.Count == 0 ? true : false;
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)
@@ -57,7 +59,9 @@ namespace NeverSkipLegDay.Workouts
             var id = ((Button)sender).BindingContext;
             Models.Exercise exercise = await App.ExerciseDAL.GetExerciseAsync((int)id);
             await App.ExerciseDAL.DeleteExerciseAsync(exercise);
-            listView.ItemsSource = await App.ExerciseDAL.GetExercisesByWorkoutIdAsync(exercise.WorkoutID);
+            listView.ItemsSource = await App.ExerciseDAL.GetExercisesByWorkoutIdAsync((int)id);
+            List<Models.Exercise> exercises = (List<Models.Exercise>)listView.ItemsSource;
+            helpLabel.IsVisible = exercises.Count == 0 ? true : false;
         }
 
         async void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
