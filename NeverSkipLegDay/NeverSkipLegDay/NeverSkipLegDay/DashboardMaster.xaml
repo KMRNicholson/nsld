@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.DashboardMaster"
              Title="Master">
-  <StackLayout BackgroundColor="{StaticResource BarBackgroundColor}">
+  <StackLayout BackgroundColor="{StaticResource CardBackgroundColor}">
     <ListView x:Name="MenuItemsListView"
       SeparatorVisibility="Default"
       HasUnevenRows="true"
@@ -14,7 +14,7 @@
       SeparatorColor="{StaticResource SeparatorColor}"
       ItemSelected="OnItemSelected">
       <ListView.Header>
-        <StackLayout>
+        <StackLayout BackgroundColor="{StaticResource CardBackgroundColor}">
           <Frame CornerRadius="100"
             HeightRequest="200"
             WidthRequest="200"
@@ -31,12 +31,16 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout
+              BackgroundColor="{StaticResource CardBackgroundColor}"
+              Padding="15,10" 
+              HorizontalOptions="FillAndExpand" 
+              VerticalOptions="FillAndExpand">
               <Label VerticalOptions="FillAndExpand" 
                 VerticalTextAlignment="Center" 
                 Text="{Binding Title}"
                 FontSize="20"
-                TextColor="{StaticResource BarTextColor}"/>
+                TextColor="{StaticResource CardTextColor}"/>
             </StackLayout>
           </ViewCell>
         </DataTemplate>

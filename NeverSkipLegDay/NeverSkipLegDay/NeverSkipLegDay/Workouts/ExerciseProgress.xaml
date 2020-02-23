@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
+             BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.Workouts.ExerciseProgress">
   <NavigationPage.TitleView>
-    <Label TextColor="{StaticResource BarTextColor}"
+    <Label 
+      FontAttributes="Bold"
+      TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
       Text="S E T S"
       HorizontalOptions="Center"
@@ -22,6 +24,8 @@
         VerticalOptions="Start">
         <Label 
           Text="{Binding Name}"
+          HorizontalOptions="Center"
+          CharacterSpacing="1"
           FontSize="20"
           Margin="10"
           TextColor="{StaticResource CardTextColor}"/>
@@ -40,27 +44,29 @@
                   BackgroundColor="{StaticResource CardBackgroundColor}"
                   Orientation="Horizontal">
                   <Label
-                    Text="Reps:"
+                    Text="Reps"
                     FontSize="17"
-                    Margin="10"
+                    Margin="10,0,0,0"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Entry
                     HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource CardTextColor}"
                     WidthRequest="50"
                     Text="{Binding Reps}"
                     Keyboard="Numeric"
                     TextChanged="OnEdit"/>
                   <Label
-                    Text="Weight:"
+                    Text="Weight"
                     FontSize="17"
-                    Margin="10"
+                    Margin="10,0,0,0"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Entry
                     HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource CardTextColor}"
                     WidthRequest="50"
                     Text="{Binding Weight}"
                     Keyboard="Telephone"

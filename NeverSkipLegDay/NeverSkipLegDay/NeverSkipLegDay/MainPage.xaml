@@ -3,36 +3,84 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.MainPage">
-    <StackLayout>
-        <StackLayout>
-            <Label Text="NEVER" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-            <Label Text="SKIP" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-            <Label Text="LEG" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-            <Label Text="DAY" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-        </StackLayout>
-        <StackLayout VerticalOptions="FillAndExpand">
-            <Button Text="E n t e r"
-                BackgroundColor="{StaticResource CardBackgroundColor}"
-                HorizontalOptions="Center"
-                VerticalOptions="CenterAndExpand"
-                Margin="10"
-                WidthRequest="100"
-                Clicked="OnEnter"/>
-        </StackLayout>
-    </StackLayout>
+  <StackLayout BackgroundColor="{StaticResource BackgroundColor}">
+    <Grid 
+      VerticalOptions="FillAndExpand"
+      RowSpacing="0"    
+      ColumnSpacing="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+      </Grid.RowDefinitions>
+      <StackLayout 
+        BackgroundColor="{StaticResource BarBackgroundColor}"
+        Grid.Row="0">
+        <Label 
+          HorizontalOptions="StartAndExpand"
+          VerticalOptions="CenterAndExpand"
+          FontAttributes="Bold"
+          TextColor="{StaticResource BackgroundTextColor}"
+          Text="NEVER"
+          FontSize="80"
+          Margin="20,0,0,0" />
+      </StackLayout>
+      <StackLayout 
+        BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
+        Grid.Row="1">
+        <Label
+          HorizontalOptions="StartAndExpand"
+          VerticalOptions="CenterAndExpand"
+          FontAttributes="Bold"
+          Text="SKIP" 
+          TextColor="{StaticResource BackgroundTextColor}"
+          FontSize="80"
+          Margin="20,0,0,0" />
+      </StackLayout>
+      <StackLayout 
+        BackgroundColor="{StaticResource NutritionBackgroundColor}"
+        Grid.Row="2">
+        <Label
+          HorizontalOptions="StartAndExpand"
+          VerticalOptions="CenterAndExpand"
+          FontAttributes="Bold"
+          Text="LEG" 
+          TextColor="{StaticResource BackgroundTextColor}"
+          FontSize="80"
+          Margin="20,0,0,0" />
+      </StackLayout>
+      <StackLayout
+        BackgroundColor="{StaticResource RecordsBackgroundColor}"
+        Grid.Row="3">
+        <Label
+          HorizontalOptions="StartAndExpand"
+          VerticalOptions="CenterAndExpand"
+          FontAttributes="Bold"
+          Text="DAY" 
+          TextColor="{StaticResource BackgroundTextColor}"
+          FontSize="80"
+          Margin="20,0,0,0" />
+      </StackLayout>
+      <StackLayout 
+        BackgroundColor="LightSteelBlue"
+        Grid.Row="4">
+        <Button 
+          BackgroundColor="{StaticResource PanelButtonColor}"
+          TextColor="{StaticResource PanelButtonTextColor}"
+          BorderColor="{StaticResource PanelButtonBorderColor}"
+          BorderWidth="1"
+          Text="E n t e r"
+          HorizontalOptions="CenterAndExpand"
+          VerticalOptions="CenterAndExpand"
+          Margin="10"
+          HeightRequest="100"
+          WidthRequest="150"
+          Clicked="OnEnter"/>
+      </StackLayout>
+    </Grid>
+  </StackLayout>
 </ContentPage>
