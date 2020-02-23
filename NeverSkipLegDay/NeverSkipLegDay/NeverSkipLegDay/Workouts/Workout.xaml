@@ -7,7 +7,9 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.Workouts.Workout">
   <NavigationPage.TitleView>
-    <Label TextColor="{StaticResource BarTextColor}"
+    <Label
+      FontAttributes="Bold"
+      TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
       Text="E X E R C I S E S"
       HorizontalOptions="Center"

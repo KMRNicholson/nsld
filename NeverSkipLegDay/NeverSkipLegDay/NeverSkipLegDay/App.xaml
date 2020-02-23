@@ -19,6 +19,8 @@
     <Color x:Key="PanelButtonTextColor">White</Color>
     <Color x:Key="PanelButtonBorderColor">White</Color>
     <Color x:Key="WorkoutsBackgroundColor">LightSkyBlue</Color>
+    <Color x:Key="NutritionBackgroundColor">LightBlue</Color>
+    <Color x:Key="RecordsBackgroundColor">LightSteelBlue</Color>
     <Color x:Key="PlaceholderColor">LightGray</Color>
   </Application.Resources>
 </Application>

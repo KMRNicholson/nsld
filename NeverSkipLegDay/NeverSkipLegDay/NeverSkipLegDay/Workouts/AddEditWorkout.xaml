@@ -8,6 +8,7 @@
              x:Class="NeverSkipLegDay.Workouts.AddEditWorkout">
   <NavigationPage.TitleView>
     <Label 
+      FontAttributes="Bold"
       TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
       Text="W O R K O U T S"
