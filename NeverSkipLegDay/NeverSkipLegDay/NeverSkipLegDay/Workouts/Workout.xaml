@@ -47,7 +47,7 @@
         <ListView 
           x:Name="listView"
           Margin="10,0,10,10" 
-          RowHeight="50"
+          RowHeight="70"
           ItemSelected="OnExerciseSelected">
           <ListView.ItemTemplate>
             <DataTemplate>
@@ -59,32 +59,37 @@
                     Text="{Binding Name}"
                     CharacterSpacing="1"
                     FontSize="17"
-                    Margin="10"
+                    Margin="15"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Button 
                     BindingContext="{Binding ID, StringFormat='Edit,{0:F0}'}"
+                    CharacterSpacing="1"
                     Text="EDIT"
-                    FontSize="10"
-                    WidthRequest="45"
-                    HeightRequest="35"
+                    WidthRequest="60"
+                    HeightRequest="50"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    BackgroundColor="{StaticResource BarBackgroundColor}"
-                    TextColor="{StaticResource BarTextColor}"
+                    Margin="0,0,6,0"
+                    BorderColor="{StaticResource CardTextColor}"
+                    BorderWidth="1"
+                    BackgroundColor="{StaticResource PanelButtonColor}"
+                    TextColor="{StaticResource CardTextColor}"
                     Clicked="OnAddOrEdit"/>
                   <Button 
                     BindingContext="{Binding ID}"
+                    CharacterSpacing="1"
                     Text="DEL"
-                    FontSize="10"
-                    WidthRequest="45"
-                    HeightRequest="35"
+                    WidthRequest="60"
+                    HeightRequest="50"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    Margin="0,0,10,0"
-                    BackgroundColor="{StaticResource BarBackgroundColor}"
-                    TextColor="{StaticResource BarTextColor}"
+                    Margin="0,0,12,0"
+                    BorderColor="{StaticResource CardTextColor}"
+                    BorderWidth="1"
+                    BackgroundColor="{StaticResource PanelButtonColor}"
+                    TextColor="{StaticResource CardTextColor}"
                     Clicked="OnDelete"/>
                 </StackLayout>
               </ViewCell>
