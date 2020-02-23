@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.Workouts.Workout">
   <NavigationPage.TitleView>
@@ -18,8 +19,12 @@
       <StackLayout
         BackgroundColor="{StaticResource CardBackgroundColor}"
         Margin="10,10,10,1"
-        VerticalOptions="Start">
+        VerticalOptions="Start"
+        HeightRequest="100">
         <Label
+          CharacterSpacing="1"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand"
           Text="{Binding Name}"
           FontSize="20"
           TextColor="{StaticResource CardTextColor}"
@@ -31,9 +36,10 @@
           x:Name="helpLabel"
           IsVisible="False"
           BackgroundColor="{StaticResource CardBackgroundColor}"
-          Text='It looks like you have not created any exercises.. Please, click the "Add" button below to create your first exercise!'
+          Text='It looks like you have not created any exercises.. Please, click the "ADD EXERCISE" button below to create your first exercise!'
+          CharacterSpacing="3"
           FontSize="15"
-          Padding="10"
+          Padding="20"
           Margin="50"
           TextColor="{StaticResource CardTextColor}"
           HorizontalOptions="Center"
@@ -51,6 +57,7 @@
                   Orientation="Horizontal">
                   <Label 
                     Text="{Binding Name}"
+                    CharacterSpacing="1"
                     FontSize="17"
                     Margin="10"
                     TextColor="{StaticResource CardTextColor}"
@@ -87,13 +94,17 @@
       </StackLayout>
       <Button 
         BindingContext="{Binding ID, StringFormat='Add,{0:F0}'}"
-        WidthRequest="80" 
-        HeightRequest="80" 
-        CornerRadius="40" 
-        HorizontalOptions="End" 
-        VerticalOptions="End" 
-        Text="Add" 
-        Margin="20"
+        BackgroundColor="{StaticResource PanelButtonColor}"
+        BorderColor="{StaticResource PanelButtonBorderColor}"
+        TextColor="{StaticResource PanelButtonTextColor}"
+        BorderWidth="1"
+        WidthRequest="150" 
+        HeightRequest="100"
+        HorizontalOptions="Center" 
+        VerticalOptions="End"
+        CharacterSpacing="5"
+        Text="Add Exercise" 
+        Margin="0,0,0,10"
         Clicked="OnAddOrEdit"/>
     </StackLayout>
   </ContentPage.Content>

@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.Workouts.Workouts">
   <NavigationPage.TitleView>
-    <Label TextColor="{StaticResource BarTextColor}"
+    <Label 
+      TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
       Text="W O R K O U T S"
       HorizontalOptions="Center"
@@ -20,9 +22,10 @@
           x:Name="helpLabel"
           IsVisible="False"
           BackgroundColor="{StaticResource CardBackgroundColor}"
-          Text='It looks like you have not created any workouts.. Please, click the "Add" button below to create your first workout!'
+          Text='It looks like you have not created any workouts.. Please, click the "ADD WORKOUT" button below to create your first workout!'
+          CharacterSpacing="3"
           FontSize="15"
-          Padding="10"
+          Padding="20"
           Margin="50"
           TextColor="{StaticResource CardTextColor}"
           HorizontalOptions="Center"
@@ -30,7 +33,7 @@
         <ListView 
           x:Name="listView"
           Margin="10" 
-          RowHeight="60"
+          RowHeight="100"
           ItemSelected="OnWorkoutSelected">
           <ListView.ItemTemplate>
             <DataTemplate>
@@ -40,31 +43,38 @@
                   Orientation="Horizontal">
                   <Label 
                     Text="{Binding Name}"
+                    CharacterSpacing="1"
                     FontSize="20"
-                    Margin="10"
+                    Margin="30"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Button 
                     BindingContext="{Binding ID}"
+                    CharacterSpacing="1"
                     Text="EDIT"
-                    WidthRequest="55"
-                    HeightRequest="40"
+                    WidthRequest="60"
+                    HeightRequest="50"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    BackgroundColor="{StaticResource BarBackgroundColor}"
-                    TextColor="{StaticResource BarTextColor}"
+                    BorderColor="{StaticResource CardTextColor}"
+                    BorderWidth="1"
+                    BackgroundColor="{StaticResource PanelButtonColor}"
+                    TextColor="{StaticResource CardTextColor}"
                     Clicked="OnAddOrEdit"/>
                   <Button 
                     BindingContext="{Binding ID}"
+                    CharacterSpacing="1"
                     Text="DEL"
-                    WidthRequest="50"
-                    HeightRequest="40"
+                    WidthRequest="60"
+                    HeightRequest="50"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    Margin="0,0,10,0"
-                    BackgroundColor="{StaticResource BarBackgroundColor}"
-                    TextColor="{StaticResource BarTextColor}"
+                    Margin="10,0,20,0"
+                    BorderColor="{StaticResource CardTextColor}"
+                    BorderWidth="1"
+                    BackgroundColor="{StaticResource CardBackgroundColor}"
+                    TextColor="{StaticResource CardTextColor}"
                     Clicked="OnDelete"/>
                 </StackLayout>
               </ViewCell>
@@ -73,14 +83,18 @@
         </ListView>
       </StackLayout>
       <Button 
-          WidthRequest="80" 
-          HeightRequest="80" 
-          CornerRadius="40" 
-          HorizontalOptions="End" 
-          VerticalOptions="End" 
-          Text="Add" 
-          Margin="20"
-          Clicked="OnAddOrEdit"/>
+        BackgroundColor="{StaticResource PanelButtonColor}"
+        BorderColor="{StaticResource PanelButtonBorderColor}"
+        TextColor="{StaticResource PanelButtonTextColor}"
+        BorderWidth="1"
+        WidthRequest="150" 
+        HeightRequest="100"
+        HorizontalOptions="Center" 
+        VerticalOptions="End"
+        CharacterSpacing="5"
+        Text="Add Workout" 
+        Margin="0,0,0,10"
+        Clicked="OnAddOrEdit"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>
