@@ -6,42 +6,81 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.MainPage">
   <StackLayout BackgroundColor="{StaticResource BackgroundColor}">
-    <StackLayout>
-      <Label 
-        FontAttributes="Bold"
-        TextColor="{StaticResource BackgroundTextColor}"
-        Text="NEVER"
-        FontSize="80"
-        Margin="20,10,0,0" />
-      <Label
-        FontAttributes="Bold"
-        Text="SKIP" 
-        TextColor="{StaticResource BackgroundTextColor}"
-        FontSize="80"
-        Margin="20,10,0,0" />
-      <Label
-        FontAttributes="Bold"
-        Text="LEG" 
-        TextColor="{StaticResource BackgroundTextColor}"
-        FontSize="80"
-        Margin="20,10,0,0" />
-      <Label
-        FontAttributes="Bold"
-        Text="DAY" 
-        TextColor="{StaticResource BackgroundTextColor}"
-        FontSize="80"
-        Margin="20,10,0,0" />
-    </StackLayout>
-    <StackLayout VerticalOptions="FillAndExpand">
-      <Button 
-        Text="E n t e r"
-        BackgroundColor="{StaticResource BackgroundButtonColor}"
-        HorizontalOptions="Center"
-        VerticalOptions="CenterAndExpand"
-        CornerRadius="5"
-        Margin="10"
-        WidthRequest="100"
-        Clicked="OnEnter"/>
-    </StackLayout>
-   </StackLayout>
+    <Grid 
+      VerticalOptions="FillAndExpand"
+      RowSpacing="0"    
+      ColumnSpacing="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+      </Grid.RowDefinitions>
+      <StackLayout 
+        BackgroundColor="{StaticResource BarBackgroundColor}"
+        Grid.Row="0">
+        <Label 
+          HorizontalOptions="StartAndExpand"
+          VerticalOptions="CenterAndExpand"
+          FontAttributes="Bold"
+          TextColor="{StaticResource BackgroundTextColor}"
+          Text="NEVER"
+          FontSize="80"
+          Margin="20,0,0,0" />
+      </StackLayout>
+      <StackLayout 
+        BackgroundColor="LightSkyBlue"
+        Grid.Row="1">
+        <Label
+          HorizontalOptions="StartAndExpand"
+          VerticalOptions="CenterAndExpand"
+          FontAttributes="Bold"
+          Text="SKIP" 
+          TextColor="{StaticResource BackgroundTextColor}"
+          FontSize="80"
+          Margin="20,0,0,0" />
+      </StackLayout>
+      <StackLayout 
+        BackgroundColor="LightBlue"
+        Grid.Row="2">
+        <Label
+          HorizontalOptions="StartAndExpand"
+          VerticalOptions="CenterAndExpand"
+          FontAttributes="Bold"
+          Text="LEG" 
+          TextColor="{StaticResource BackgroundTextColor}"
+          FontSize="80"
+          Margin="20,0,0,0" />
+      </StackLayout>
+      <StackLayout
+        BackgroundColor="LightSteelBlue"
+        Grid.Row="3">
+        <Label
+          HorizontalOptions="StartAndExpand"
+          VerticalOptions="CenterAndExpand"
+          FontAttributes="Bold"
+          Text="DAY" 
+          TextColor="{StaticResource BackgroundTextColor}"
+          FontSize="80"
+          Margin="20,0,0,0" />
+      </StackLayout>
+      <StackLayout 
+        BackgroundColor="LightSteelBlue"
+        Grid.Row="4">
+        <Button 
+          BackgroundColor="{StaticResource PanelButtonColor}"
+          TextColor="{StaticResource PanelButtonTextColor}"
+          BorderColor="{StaticResource PanelButtonBorderColor}"
+          BorderWidth="1"
+          Text="E n t e r"
+          HorizontalOptions="CenterAndExpand"
+          VerticalOptions="CenterAndExpand"
+          Margin="10"
+          HeightRequest="100"
+          WidthRequest="150"
+          Clicked="OnEnter"/>
+      </StackLayout>
+    </Grid>
+  </StackLayout>
 </ContentPage>
