@@ -28,6 +28,17 @@
       </StackLayout>
       <StackLayout
         VerticalOptions="Start">
+        <Label
+          x:Name="helpLabel"
+          IsVisible="False"
+          BackgroundColor="{StaticResource CardBackgroundColor}"
+          Text='It looks like you have not created any exercises.. Please, click the "Add" button below to create your first exercise!'
+          FontSize="15"
+          Padding="10"
+          Margin="50"
+          TextColor="{StaticResource CardTextColor}"
+          HorizontalOptions="Center"
+          HorizontalTextAlignment="Center"/>
         <ListView 
           x:Name="listView"
           Margin="10,0,10,10" 
