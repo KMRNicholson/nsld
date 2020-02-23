@@ -30,7 +30,7 @@
           Margin="20,0,0,0" />
       </StackLayout>
       <StackLayout 
-        BackgroundColor="LightSkyBlue"
+        BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
         Grid.Row="1">
         <Label
           HorizontalOptions="StartAndExpand"
@@ -42,7 +42,7 @@
           Margin="20,0,0,0" />
       </StackLayout>
       <StackLayout 
-        BackgroundColor="LightBlue"
+        BackgroundColor="{StaticResource NutritionBackgroundColor}"
         Grid.Row="2">
         <Label
           HorizontalOptions="StartAndExpand"
@@ -54,7 +54,7 @@
           Margin="20,0,0,0" />
       </StackLayout>
       <StackLayout
-        BackgroundColor="LightSteelBlue"
+        BackgroundColor="{StaticResource RecordsBackgroundColor}"
         Grid.Row="3">
         <Label
           HorizontalOptions="StartAndExpand"
