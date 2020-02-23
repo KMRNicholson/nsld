@@ -13,9 +13,10 @@
     <Color x:Key="CardTextColor">Accent</Color>
     <Color x:Key="BarTextColor">White</Color>
     <Color x:Key="BarBackgroundColor">#99aabb</Color>
-    <Color x:Key="SeparatorColor">White</Color>
     <Color x:Key="PanelColor">White</Color>
-    <Color x:Key="PanelButtonColor">Accent</Color>
+    <Color x:Key="PanelButtonColor">Transparent</Color>
+    <Color x:Key="SeparatorColor">Black</Color>
     <Color x:Key="PanelButtonTextColor">White</Color>
+    <Color x:Key="PanelButtonBorderColor">White</Color>
   </Application.Resources>
 </Application>

@@ -28,10 +28,10 @@
         BackgroundColor="LightSkyBlue"
         Grid.Row="0">
         <Button
-          BackgroundColor="Transparent"
+          BackgroundColor="{StaticResource PanelButtonColor}"
           VerticalOptions="CenterAndExpand"
           HorizontalOptions="CenterAndExpand"
-          BorderColor="White"
+          BorderColor="{StaticResource PanelButtonBorderColor}"
           BorderWidth="1"
           HeightRequest="100"
           WidthRequest="150"
@@ -44,12 +44,12 @@
         BackgroundColor="LightBlue"
         Grid.Row="1">
         <Button
-          BackgroundColor="Transparent"
+          BackgroundColor="{StaticResource PanelButtonColor}"
           HeightRequest="100"
           VerticalOptions="CenterAndExpand"
           HorizontalOptions="CenterAndExpand"
           WidthRequest="150"
-          BorderColor="White"
+          BorderColor="{StaticResource PanelButtonBorderColor}"
           BorderWidth="1"
           Text="N u t r i t i o n"
           Grid.Row="1"
@@ -59,16 +59,16 @@
         BackgroundColor="LightSteelBlue"
         Grid.Row="2">
         <Button
-        BackgroundColor="Transparent"
-        VerticalOptions="CenterAndExpand"
-        HorizontalOptions="CenterAndExpand"
-        Text="R e c o r d s"
-          BorderColor="White"
+          Text="R e c o r d s"
+          BackgroundColor="{StaticResource PanelButtonColor}"
+          VerticalOptions="CenterAndExpand"
+          HorizontalOptions="CenterAndExpand"
+          BorderColor="{StaticResource PanelButtonBorderColor}"
           BorderWidth="1"
-        HeightRequest="100"
-        WidthRequest="150"
-        Grid.Row="2"
-        TextColor="{StaticResource PanelButtonTextColor}"/>
+          HeightRequest="100"
+          WidthRequest="150"
+          Grid.Row="2"
+          TextColor="{StaticResource PanelButtonTextColor}"/>
       </StackLayout>
     </Grid>
   </StackLayout>
