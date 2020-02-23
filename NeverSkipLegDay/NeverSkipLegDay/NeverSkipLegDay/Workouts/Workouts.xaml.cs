@@ -25,9 +25,6 @@ namespace NeverSkipLegDay.Workouts
             listView.ItemsSource = await App.WorkoutDAL.GetWorkoutsAsync();
             List<Models.Workout> workouts = (List<Models.Workout>)listView.ItemsSource;
             helpLabel.IsVisible = workouts.Count == 0 ? true : false;
-            NavigationPage page = (NavigationPage)this.Parent;
-            page.BarBackgroundColor = Color.FromHex("#3f3f3f");
-            page.BarTextColor = Color.White;
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)

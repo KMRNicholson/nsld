@@ -3,36 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.MainPage">
+  <StackLayout BackgroundColor="{StaticResource BackgroundColor}">
     <StackLayout>
-        <StackLayout>
-            <Label Text="NEVER" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-            <Label Text="SKIP" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-            <Label Text="LEG" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-            <Label Text="DAY" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-        </StackLayout>
-        <StackLayout VerticalOptions="FillAndExpand">
-            <Button Text="E n t e r"
-                BackgroundColor="{StaticResource CardBackgroundColor}"
-                HorizontalOptions="Center"
-                VerticalOptions="CenterAndExpand"
-                Margin="10"
-                WidthRequest="100"
-                Clicked="OnEnter"/>
-        </StackLayout>
+      <Label 
+        FontAttributes="Bold"
+        TextColor="{StaticResource BackgroundTextColor}"
+        Text="NEVER"
+        FontSize="80"
+        Margin="20,10,0,0" />
+      <Label
+        FontAttributes="Bold"
+        Text="SKIP" 
+        TextColor="{StaticResource BackgroundTextColor}"
+        FontSize="80"
+        Margin="20,10,0,0" />
+      <Label
+        FontAttributes="Bold"
+        Text="LEG" 
+        TextColor="{StaticResource BackgroundTextColor}"
+        FontSize="80"
+        Margin="20,10,0,0" />
+      <Label
+        FontAttributes="Bold"
+        Text="DAY" 
+        TextColor="{StaticResource BackgroundTextColor}"
+        FontSize="80"
+        Margin="20,10,0,0" />
     </StackLayout>
+    <StackLayout VerticalOptions="FillAndExpand">
+      <Button 
+        Text="E n t e r"
+        BackgroundColor="{StaticResource BackgroundButtonColor}"
+        HorizontalOptions="Center"
+        VerticalOptions="CenterAndExpand"
+        CornerRadius="5"
+        Margin="10"
+        WidthRequest="100"
+        Clicked="OnEnter"/>
+    </StackLayout>
+   </StackLayout>
 </ContentPage>
