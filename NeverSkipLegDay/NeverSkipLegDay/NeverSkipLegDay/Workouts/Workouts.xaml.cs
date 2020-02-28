@@ -5,6 +5,7 @@ using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using NeverSkipLegDay.ViewModels;
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.DAL;
 
@@ -22,12 +23,19 @@ namespace NeverSkipLegDay.Workouts
         {
             base.OnAppearing();
 
-            listView.ItemsSource = await App.WorkoutDAL.GetWorkoutsAsync();
-            List<Models.Workout> workouts = (List<Models.Workout>)listView.ItemsSource;
-            helpLabel.IsVisible = workouts.Count == 0 ? true : false;
             NavigationPage page = (NavigationPage)this.Parent;
             page.BarBackgroundColor = Color.FromHex("#99aabb");
             page.BarTextColor = Color.White;
+
+            WorkoutList workoutList = new WorkoutList(await App.WorkoutDAL.GetWorkoutsAsync());
+            if (workoutList.IsEmpty())
+            {
+                helpLabel.IsVisible = true;
+            }
+            else
+            {
+                listView.ItemsSource = workoutList.Workouts;
+            }
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)
