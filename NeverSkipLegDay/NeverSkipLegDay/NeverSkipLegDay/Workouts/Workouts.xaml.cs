@@ -28,14 +28,9 @@ namespace NeverSkipLegDay.Workouts
             page.BarTextColor = Color.White;
 
             WorkoutList workoutList = new WorkoutList(await App.WorkoutDAL.GetWorkoutsAsync());
-            if (workoutList.IsEmpty())
-            {
-                helpLabel.IsVisible = true;
-            }
-            else
-            {
-                listView.ItemsSource = workoutList.Workouts;
-            }
+            helpLabel.IsVisible = workoutList.IsEmpty();
+            listView.ItemsSource = workoutList.Workouts;
+            
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)
@@ -63,9 +58,10 @@ namespace NeverSkipLegDay.Workouts
             var id = ((Button)sender).BindingContext;
             Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
             await App.WorkoutDAL.DeleteWorkoutAsync(workout);
-            listView.ItemsSource = await App.WorkoutDAL.GetWorkoutsAsync();
-            List<Models.Workout> workouts = (List<Models.Workout>)listView.ItemsSource;
-            helpLabel.IsVisible = workouts.Count == 0 ? true : false;
+
+            WorkoutList workoutList = new WorkoutList(await App.WorkoutDAL.GetWorkoutsAsync());
+            helpLabel.IsVisible = workoutList.IsEmpty();
+            listView.ItemsSource = workoutList.Workouts;
         }
 
         async void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)
