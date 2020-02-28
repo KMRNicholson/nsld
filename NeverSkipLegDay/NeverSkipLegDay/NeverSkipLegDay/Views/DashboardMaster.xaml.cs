@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace NeverSkipLegDay
+namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DashboardMaster : ContentPage
@@ -62,7 +57,7 @@ namespace NeverSkipLegDay
                 {
                     case "Workouts":
                         ((ListView)sender).SelectedItem = null;
-                        await Navigation.PushAsync(new Workouts.Workouts());
+                        await Navigation.PushAsync(new Views.Workouts());
                         break;
                     case "Nutrition":
                         break;

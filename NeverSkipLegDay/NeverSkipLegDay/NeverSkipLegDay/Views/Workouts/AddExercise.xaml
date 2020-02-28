@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
              mc:Ignorable="d"
-             x:Class="NeverSkipLegDay.Workouts.AddExercise">
+             x:Class="NeverSkipLegDay.Views.AddExercise">
   <NavigationPage.TitleView>
     <Label 
       FontAttributes="Bold"

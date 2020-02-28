@@ -9,7 +9,7 @@ using NeverSkipLegDay.ViewModels;
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.DAL;
 
-namespace NeverSkipLegDay.Workouts
+namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Workouts : ContentPage
@@ -27,9 +27,9 @@ namespace NeverSkipLegDay.Workouts
             page.BarBackgroundColor = Color.FromHex("#99aabb");
             page.BarTextColor = Color.White;
 
-            WorkoutList workoutList = new WorkoutList(await App.WorkoutDAL.GetWorkoutsAsync());
+            ViewModels.Workouts workoutList = new ViewModels.Workouts(await App.WorkoutDAL.GetWorkoutsAsync());
             helpLabel.IsVisible = workoutList.IsEmpty();
-            listView.ItemsSource = workoutList.Workouts;
+            listView.ItemsSource = workoutList.WorkoutList;
             
         }
 
@@ -59,9 +59,9 @@ namespace NeverSkipLegDay.Workouts
             Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
             await App.WorkoutDAL.DeleteWorkoutAsync(workout);
 
-            WorkoutList workoutList = new WorkoutList(await App.WorkoutDAL.GetWorkoutsAsync());
+            ViewModels.Workouts workoutList = new ViewModels.Workouts(await App.WorkoutDAL.GetWorkoutsAsync());
             helpLabel.IsVisible = workoutList.IsEmpty();
-            listView.ItemsSource = workoutList.Workouts;
+            listView.ItemsSource = workoutList.WorkoutList;
         }
 
         async void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)

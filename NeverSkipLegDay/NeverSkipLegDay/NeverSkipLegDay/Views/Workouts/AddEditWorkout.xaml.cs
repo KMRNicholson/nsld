@@ -9,21 +9,21 @@ using Xamarin.Forms.Xaml;
 
 using NeverSkipLegDay.Models;
 
-namespace NeverSkipLegDay.Workouts
+namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EditExercise : ContentPage
+    public partial class AddEditWorkout : ContentPage
     {
-        public EditExercise()
+        public AddEditWorkout()
         {
             InitializeComponent();
         }
 
         async void OnSave(object sender, EventArgs e)
         {
-            var exercise = (Models.Exercise)BindingContext;
-            exercise.Date = DateTime.UtcNow;
-            await App.ExerciseDAL.SaveExerciseAsync(exercise);
+            var workout = (Models.Workout)BindingContext;
+            workout.Date = DateTime.UtcNow;
+            await App.WorkoutDAL.SaveWorkoutAsync(workout);
             await Navigation.PopAsync();
         }
     }

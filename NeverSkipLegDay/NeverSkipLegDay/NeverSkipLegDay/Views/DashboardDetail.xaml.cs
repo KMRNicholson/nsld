@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace NeverSkipLegDay
+namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DashboardDetail : ContentPage
@@ -19,7 +19,7 @@ namespace NeverSkipLegDay
 
         async void OnWorkoutsSelected(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Workouts.Workouts());
+            await Navigation.PushAsync(new Views.Workouts());
         }
     }
 }

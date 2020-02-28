@@ -5,17 +5,17 @@ using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.ViewModels
 {
-    public class WorkoutList
+    public class Workouts
     {
-        public List<Workout> Workouts { get; set; }
-        public WorkoutList(List<Workout> workouts)
+        public List<Workout> WorkoutList { get; set; }
+        public Workouts(List<Workout> workouts)
         {
-            Workouts = workouts;
+            WorkoutList = workouts;
         }
 
         public bool IsEmpty()
         {
-            return Workouts.Count == 0 ? true : false;
+            return WorkoutList.Count == 0 ? true : false;
         }
     }
 }

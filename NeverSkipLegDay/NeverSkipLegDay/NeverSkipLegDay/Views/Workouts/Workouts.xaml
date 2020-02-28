@@ -5,40 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
              mc:Ignorable="d"
-             x:Class="NeverSkipLegDay.Workouts.Workout">
+             x:Class="NeverSkipLegDay.Views.Workouts">
   <NavigationPage.TitleView>
-    <Label
+    <Label 
       FontAttributes="Bold"
       TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
-      Text="E X E R C I S E S"
+      Text="W O R K O U T S"
       HorizontalOptions="Center"
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout
-      Spacing="0">
-      <StackLayout
-        BackgroundColor="{StaticResource CardBackgroundColor}"
-        Margin="10,10,10,1"
-        VerticalOptions="Start"
-        HeightRequest="100">
-        <Label
-          CharacterSpacing="1"
-          HorizontalOptions="Center"
-          VerticalOptions="CenterAndExpand"
-          Text="{Binding Name}"
-          FontSize="20"
-          TextColor="{StaticResource CardTextColor}"
-          Margin="10"/>
-      </StackLayout>
+    <StackLayout>
       <StackLayout
         VerticalOptions="Start">
         <Label
           x:Name="helpLabel"
           IsVisible="False"
           BackgroundColor="{StaticResource CardBackgroundColor}"
-          Text='It looks like you have not created any exercises.. Please, click the "ADD EXERCISE" button below to create your first exercise!'
+          Text='It looks like you have not created any workouts.. Please, click the "ADD WORKOUT" button below to create your first workout!'
           CharacterSpacing="3"
           FontSize="15"
           Padding="20"
@@ -48,9 +33,9 @@
           HorizontalTextAlignment="Center"/>
         <ListView 
           x:Name="listView"
-          Margin="10,0,10,10" 
-          RowHeight="70"
-          ItemSelected="OnExerciseSelected">
+          Margin="10" 
+          RowHeight="100"
+          ItemSelected="OnWorkoutSelected">
           <ListView.ItemTemplate>
             <DataTemplate>
               <ViewCell>
@@ -60,20 +45,19 @@
                   <Label 
                     Text="{Binding Name}"
                     CharacterSpacing="1"
-                    FontSize="17"
-                    Margin="15"
+                    FontSize="20"
+                    Margin="30"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Button 
-                    BindingContext="{Binding ID, StringFormat='Edit,{0:F0}'}"
+                    BindingContext="{Binding ID}"
                     CharacterSpacing="1"
                     Text="EDIT"
                     WidthRequest="60"
                     HeightRequest="50"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    Margin="0,0,6,0"
                     BorderColor="{StaticResource CardTextColor}"
                     BorderWidth="1"
                     BackgroundColor="{StaticResource PanelButtonColor}"
@@ -87,10 +71,10 @@
                     HeightRequest="50"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    Margin="0,0,12,0"
+                    Margin="10,0,20,0"
                     BorderColor="{StaticResource CardTextColor}"
                     BorderWidth="1"
-                    BackgroundColor="{StaticResource PanelButtonColor}"
+                    BackgroundColor="{StaticResource CardBackgroundColor}"
                     TextColor="{StaticResource CardTextColor}"
                     Clicked="OnDelete"/>
                 </StackLayout>
@@ -100,7 +84,6 @@
         </ListView>
       </StackLayout>
       <Button 
-        BindingContext="{Binding ID, StringFormat='Add,{0:F0}'}"
         BackgroundColor="{StaticResource PanelButtonColor}"
         BorderColor="{StaticResource PanelButtonBorderColor}"
         TextColor="{StaticResource PanelButtonTextColor}"
@@ -110,7 +93,7 @@
         HorizontalOptions="Center" 
         VerticalOptions="End"
         CharacterSpacing="5"
-        Text="Add Exercise" 
+        Text="Add Workout" 
         Margin="0,0,0,10"
         Clicked="OnAddOrEdit"/>
     </StackLayout>

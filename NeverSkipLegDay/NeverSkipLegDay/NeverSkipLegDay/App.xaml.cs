@@ -16,7 +16,7 @@ namespace NeverSkipLegDay
             {
                 if(workoutDAL == null)
                 {
-                    workoutDAL = new WorkoutDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Workouts.db3"));
+                    workoutDAL = new WorkoutDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Views.db3"));
                 }
                 return workoutDAL;
             }

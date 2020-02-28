@@ -16,51 +16,47 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <MSBuildWarningsAsMessages>XA5302</MSBuildWarningsAsMessages>
-  </PropertyGroup>
-
   <ItemGroup>
-    <Compile Update="Workouts\AddExercise.xaml.cs">
+    <Compile Update="Views\Workouts\AddExercise.xaml.cs">
       <DependentUpon>AddExercise.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Workouts\AddEditWorkout.xaml.cs">
+    <Compile Update="Views\Workouts\AddEditWorkout.xaml.cs">
       <DependentUpon>AddEditWorkout.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Workouts\Workout.xaml.cs">
+    <Compile Update="Views\Workouts\Workout.xaml.cs">
       <DependentUpon>Workout.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Workouts\Workouts.xaml.cs">
+    <Compile Update="Views\Workouts\Workouts.xaml.cs">
       <DependentUpon>Workouts.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Dashboard.xaml">
+    <EmbeddedResource Update="Views\Dashboard.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="DashboardDetail.xaml">
+    <EmbeddedResource Update="Views\DashboardDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="DashboardMaster.xaml">
+    <EmbeddedResource Update="Views\DashboardMaster.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\AddExercise.xaml">
+    <EmbeddedResource Update="Views\Workouts\AddExercise.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\AddEditWorkout.xaml">
+    <EmbeddedResource Update="Views\Workouts\AddEditWorkout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\EditExercise.xaml">
+    <EmbeddedResource Update="Views\Workouts\EditExercise.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\ExerciseProgress.xaml">
+    <EmbeddedResource Update="Views\Workouts\ExerciseProgress.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\Workout.xaml">
+    <EmbeddedResource Update="Views\Workouts\Workout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\Workouts.xaml">
+    <EmbeddedResource Update="Views\Workouts\Workouts.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
