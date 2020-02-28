@@ -30,7 +30,7 @@ namespace NeverSkipLegDay.UnitTests
             List<Workout> workouts = _database.GetWorkouts();
 
             WorkoutList workoutList = new WorkoutList(workouts);
-            Assert.IsFalse(workoutList.IsEmpty());
+            Assert.IsTrue(workoutList.IsEmpty());
 
             WorkoutList emptyWorkoutList = new WorkoutList(new List<Workout>());
             Assert.IsTrue(emptyWorkoutList.IsEmpty());
