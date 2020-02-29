@@ -32,17 +32,6 @@
       </StackLayout>
       <StackLayout
         VerticalOptions="Start">
-        <Label
-          x:Name="helpLabel"
-          BackgroundColor="{StaticResource CardBackgroundColor}"
-          Text='It looks like you have not created any sets.. Please, click the "ADD SET" button below to create your first set!'
-          CharacterSpacing="3"
-          FontSize="15"
-          Padding="20"
-          Margin="50"
-          TextColor="{StaticResource CardTextColor}"
-          HorizontalOptions="Center"
-          HorizontalTextAlignment="Center"/>
         <ListView 
           x:Name="listView"
           Margin="10,0,10,10" 
