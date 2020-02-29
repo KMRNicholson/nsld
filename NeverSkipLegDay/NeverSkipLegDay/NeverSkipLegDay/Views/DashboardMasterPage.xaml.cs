@@ -8,11 +8,11 @@ using Xamarin.Forms.Xaml;
 namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DashboardMaster : ContentPage
+    public partial class DashboardMasterPage : ContentPage
     {
         public ListView ListView;
 
-        public DashboardMaster()
+        public DashboardMasterPage()
         {
             InitializeComponent();
 
@@ -57,7 +57,7 @@ namespace NeverSkipLegDay.Views
                 {
                     case "Workouts":
                         ((ListView)sender).SelectedItem = null;
-                        await Navigation.PushAsync(new Views.Workouts());
+                        await Navigation.PushAsync(new Workouts());
                         break;
                     case "Nutrition":
                         break;

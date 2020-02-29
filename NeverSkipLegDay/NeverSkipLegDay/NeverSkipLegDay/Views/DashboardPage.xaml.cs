@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Dashboard : MasterDetailPage
+    public partial class DashboardPage : MasterDetailPage
     {
-        public Dashboard()
+        public DashboardPage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);

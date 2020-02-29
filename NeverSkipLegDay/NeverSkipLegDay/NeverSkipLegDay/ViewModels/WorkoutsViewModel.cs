@@ -5,10 +5,10 @@ using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.ViewModels
 {
-    public class Workouts
+    public class WorkoutsViewModel
     {
         public List<Workout> WorkoutList { get; set; }
-        public Workouts(List<Workout> workouts)
+        public WorkoutsViewModel(List<Workout> workouts)
         {
             WorkoutList = workouts;
         }

@@ -18,7 +18,7 @@ namespace NeverSkipLegDay
 
         async void OnEnter(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Dashboard());
+            await Navigation.PushAsync(new DashboardPage());
         }
     }
 }

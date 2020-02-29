@@ -17,6 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\DashboardDetailPage.xaml.cs">
+      <DependentUpon>DashboardDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DashboardMasterPage.xaml.cs">
+      <DependentUpon>DashboardMasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DashboardPage.xaml.cs">
+      <DependentUpon>DashboardPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Workouts\AddExercise.xaml.cs">
       <DependentUpon>AddExercise.xaml</DependentUpon>
     </Compile>
@@ -32,13 +41,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Dashboard.xaml">
+    <EmbeddedResource Update="Views\DashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DashboardDetail.xaml">
+    <EmbeddedResource Update="Views\DashboardDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DashboardMaster.xaml">
+    <EmbeddedResource Update="Views\DashboardMasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Workouts\AddExercise.xaml">
@@ -59,5 +68,9 @@
     <EmbeddedResource Update="Views\Workouts\Workouts.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Interfaces\" />
   </ItemGroup>
 </Project>

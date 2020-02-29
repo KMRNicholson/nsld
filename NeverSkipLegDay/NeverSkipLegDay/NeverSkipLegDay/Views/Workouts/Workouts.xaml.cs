@@ -27,7 +27,7 @@ namespace NeverSkipLegDay.Views
             page.BarBackgroundColor = Color.FromHex("#99aabb");
             page.BarTextColor = Color.White;
 
-            ViewModels.Workouts workoutList = new ViewModels.Workouts(await App.WorkoutDAL.GetWorkoutsAsync());
+            ViewModels.WorkoutsViewModel workoutList = new ViewModels.WorkoutsViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
             helpLabel.IsVisible = workoutList.IsEmpty();
             listView.ItemsSource = workoutList.WorkoutList;
             
@@ -59,7 +59,7 @@ namespace NeverSkipLegDay.Views
             Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
             await App.WorkoutDAL.DeleteWorkoutAsync(workout);
 
-            ViewModels.Workouts workoutList = new ViewModels.Workouts(await App.WorkoutDAL.GetWorkoutsAsync());
+            ViewModels.WorkoutsViewModel workoutList = new ViewModels.WorkoutsViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
             helpLabel.IsVisible = workoutList.IsEmpty();
             listView.ItemsSource = workoutList.WorkoutList;
         }
