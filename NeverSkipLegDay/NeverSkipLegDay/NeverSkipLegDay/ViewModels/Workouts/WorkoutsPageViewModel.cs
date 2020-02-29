@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using NeverSkipLegDay.Models;
 using NeverSkipLegDay.Models.DAL;
 using NeverSkipLegDay.Views;
 using Xamarin.Forms;
@@ -29,6 +31,12 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand DeleteWorkoutCommand { get; set; }
         public ICommand SelectWorkoutCommand { get; set; }
 
+        public WorkoutsPageViewModel()
+        {
+            MessagingCenter.Subscribe<AddEditWorkoutPageViewModel, Workout>
+                (this, Events.WorkoutSaved, OnWorkoutSaved);
+        }
+
         public WorkoutsPageViewModel(WorkoutDal workoutDal, IPageService pageService)
         {
             _workoutDal = workoutDal;
@@ -39,6 +47,21 @@ namespace NeverSkipLegDay.ViewModels
             EditWorkoutCommand = new Command<WorkoutViewModel>(async workout => await EditWorkout(workout));
             DeleteWorkoutCommand = new Command<WorkoutViewModel>(async workout => await DeleteWorkout(workout));
             SelectWorkoutCommand = new Command<WorkoutViewModel>(async workout => await SelectWorkout(workout));
+        }
+
+        private void OnWorkoutSaved(AddEditWorkoutPageViewModel source, Workout workout)
+        {
+            var workoutInList = Workouts.Single(w => w.Id == workout.Id);
+
+            if(workoutInList == null)
+            {
+                Workouts.Add(new WorkoutViewModel(workout));
+            }
+            else
+            {
+                workoutInList.Id = workout.Id;
+                workoutInList.Name = workout.Name;
+            }
         }
 
         private async Task LoadData()

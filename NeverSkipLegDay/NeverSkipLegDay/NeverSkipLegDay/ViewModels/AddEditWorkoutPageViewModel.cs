@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace NeverSkipLegDay.ViewModels
 {
-    public class AddEditWorkoutViewModel : BaseViewModel
+    public class AddEditWorkoutPageViewModel : BaseViewModel
     {
         private WorkoutDal _workoutDal;
         private IPageService _pageService;
@@ -16,7 +16,7 @@ namespace NeverSkipLegDay.ViewModels
 
         public ICommand SaveCommand { get; private set; }
 
-        public AddEditWorkoutViewModel(WorkoutViewModel workout, WorkoutDal workoutDal, IPageService pageService)
+        public AddEditWorkoutPageViewModel(WorkoutViewModel workout, WorkoutDal workoutDal, IPageService pageService)
         {
             if (workout == null)
                 throw new ArgumentNullException(nameof(workout));
@@ -41,6 +41,7 @@ namespace NeverSkipLegDay.ViewModels
             }
 
             await _workoutDal.SaveWorkoutAsync(Workout);
+            MessagingCenter.Send(this, Events.WorkoutSaved, Workout);
             await _pageService.PopAsync();
         }
     }
