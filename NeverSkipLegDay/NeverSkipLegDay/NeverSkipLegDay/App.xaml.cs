@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using NeverSkipLegDay.Models.DAL;
 
 namespace NeverSkipLegDay
@@ -8,32 +6,7 @@ namespace NeverSkipLegDay
     public partial class App : Application
     {
         static readonly SQLiteDB Db = new SQLiteDB();
-        static WorkoutDal workoutDal;
-        static ExerciseDal exerciseDal;
         static SetDal setDal;
-        public static WorkoutDal WorkoutDal
-        {
-            get
-            {
-                if(workoutDal == null)
-                {
-                    workoutDal = new WorkoutDal(Db);
-                }
-                return workoutDal;
-            }
-        }
-
-        public static ExerciseDal ExerciseDal
-        {
-            get
-            {
-                if (exerciseDal == null)
-                {
-                    exerciseDal = new ExerciseDal(Db);
-                }
-                return exerciseDal;
-            }
-        }
         public static SetDal SetDal
         {
             get
