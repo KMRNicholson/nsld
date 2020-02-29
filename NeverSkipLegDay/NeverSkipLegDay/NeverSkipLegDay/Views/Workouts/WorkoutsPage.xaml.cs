@@ -27,7 +27,7 @@ namespace NeverSkipLegDay.Views
             InitializeComponent();
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             ViewModel.LoadDataCommand.Execute(null);
             base.OnAppearing();
@@ -35,37 +35,6 @@ namespace NeverSkipLegDay.Views
             NavigationPage page = (NavigationPage)this.Parent;
             page.BarBackgroundColor = Color.FromHex("#99aabb");
             page.BarTextColor = Color.White;
-        }
-
-        async void OnAddOrEdit(object sender, EventArgs e)
-        {
-            var id = ((Button)sender).BindingContext;
-            if(id != null)
-            {
-                Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
-                await Navigation.PushAsync(new AddEditWorkoutPage
-                {
-                    BindingContext = workout as Models.Workout
-                });
-            }
-            else
-            {
-                await Navigation.PushAsync(new AddEditWorkoutPage
-                {
-                    BindingContext = new Models.Workout()
-                });
-            }
-        }
-
-        async void OnDelete(object sender, EventArgs e)
-        {
-            var id = ((Button)sender).BindingContext;
-            Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
-            await App.WorkoutDAL.DeleteWorkoutAsync(workout);
-
-            ViewModels.WorkoutsPageViewModel workoutList = new ViewModels.WorkoutsPageViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
-            helpLabel.IsVisible = workoutList.IsEmpty();
-            listView.ItemsSource = workoutList.WorkoutList;
         }
 
         async void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)
