@@ -90,9 +90,12 @@ namespace NeverSkipLegDay.ViewModels
         {
             if (workout == null) return;
 
-            var workoutModel = await _workoutDal.GetWorkoutAsync(workout.Id);
-            Workouts.Remove(workout);
-            await _workoutDal.DeleteWorkoutAsync(workoutModel);
+            if(await _pageService.DisplayAlert("Warning", $"Are you sure you want to delete {workout.Name}?", "Yes", "No"))
+            {
+                var workoutModel = await _workoutDal.GetWorkoutAsync(workout.Id);
+                Workouts.Remove(workout);
+                await _workoutDal.DeleteWorkoutAsync(workoutModel);
+            }
         }
 
         private async Task SelectWorkout(WorkoutViewModel workout)
