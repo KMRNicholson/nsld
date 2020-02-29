@@ -14,23 +14,27 @@ namespace NeverSkipLegDay.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WorkoutsPage : ContentPage
     {
+        public WorkoutsPageViewModel ViewModel 
+        { 
+            get { return BindingContext as WorkoutsPageViewModel; }
+            set { BindingContext = value; }
+        }
         public WorkoutsPage()
         {
+            var workoutDal = new WorkoutDal(new SQLiteDB());
+            var pageService = new PageService();
+            ViewModel = new WorkoutsPageViewModel(workoutDal, pageService);
             InitializeComponent();
         }
 
         protected override async void OnAppearing()
         {
+            ViewModel.LoadDataCommand.Execute(null);
             base.OnAppearing();
 
             NavigationPage page = (NavigationPage)this.Parent;
             page.BarBackgroundColor = Color.FromHex("#99aabb");
             page.BarTextColor = Color.White;
-
-            ViewModels.WorkoutsPageViewModel workoutList = new ViewModels.WorkoutsPageViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
-            helpLabel.IsVisible = workoutList.IsEmpty();
-            listView.ItemsSource = workoutList.WorkoutList;
-            
         }
 
         async void OnAddOrEdit(object sender, EventArgs e)
