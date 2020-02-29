@@ -10,18 +10,19 @@ namespace NeverSkipLegDay.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DashboardDetailPage : ContentPage
     {
+        public DashboardDetailPageViewModel ViewModel
+        {
+            get { return BindingContext as DashboardDetailPageViewModel; }
+            set { BindingContext = value; }
+        }
         public DashboardDetailPage()
         {
             InitializeComponent();
         }
 
-        async void OnWorkoutsSelected(object sender, EventArgs e)
+        void OnWorkoutsSelected(object sender, EventArgs e)
         {
-            WorkoutsPageViewModel WorkoutsViewModel = new WorkoutsPageViewModel();
-            await Navigation.PushAsync(new WorkoutsPage()
-            {
-                BindingContext = WorkoutsViewModel as WorkoutsPageViewModel
-            });
+            ViewModel.SelectWorkoutsCommand.Execute(null);
         }
     }
 }
