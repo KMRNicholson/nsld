@@ -17,6 +17,8 @@ namespace NeverSkipLegDay.ViewModels
 
         private bool _isDataLoaded;
 
+        public Workout Workout { get; private set; }
+
         public ObservableCollection<ExerciseViewModel> Exercises { get; private set; }
 
         public ExerciseViewModel SelectedExercise
@@ -36,7 +38,7 @@ namespace NeverSkipLegDay.ViewModels
             //MessagingCenter.Subscribe<>
         }
 
-        public ExercisesPageViewModel(ExerciseDal exerciseDal, IPageService pageService)
+        public ExercisesPageViewModel(WorkoutViewModel workout, ExerciseDal exerciseDal, IPageService pageService)
         {
             _exerciseDal = exerciseDal;
             _pageService = pageService;
@@ -46,6 +48,12 @@ namespace NeverSkipLegDay.ViewModels
             EditExerciseCommand = new Command<ExerciseViewModel>(async exercise => await EditExercise(exercise));
             DeleteExerciseCommand = new Command<ExerciseViewModel>(async exercise => await DeleteExercise(exercise));
             SelectExerciseCommand = new Command<ExerciseViewModel>(async exercise => await SelectExercise(exercise));
+
+            Workout = new Workout()
+            {
+                Id = workout.Id,
+                Name = workout.Name
+            };
         }
 
         private async Task LoadData()
@@ -53,7 +61,7 @@ namespace NeverSkipLegDay.ViewModels
             if (_isDataLoaded) return;
 
             _isDataLoaded = true;
-            var exercises = await _exerciseDal.GetExercisesAsync();
+            var exercises = await _exerciseDal.GetExercisesByWorkoutIdAsync(Workout.Id);
             foreach (var exercise in exercises)
             {
                 Exercises.Add(new ExerciseViewModel(exercise));
