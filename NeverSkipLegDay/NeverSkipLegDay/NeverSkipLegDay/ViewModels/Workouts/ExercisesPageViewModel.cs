@@ -33,15 +33,12 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand EditExerciseCommand { get; set; }
         public ICommand DeleteExerciseCommand { get; set; }
         public ICommand SelectExerciseCommand { get; set; }
-    
-        public ExercisesPageViewModel()
-        {
-            MessagingCenter.Subscribe<AddEditExercisePageViewModel, Exercise>
-                (this, Events.ExerciseSaved, OnExerciseSaved);
-        }
 
         public ExercisesPageViewModel(WorkoutViewModel workout, ExerciseDal exerciseDal, IPageService pageService)
         {
+            MessagingCenter.Subscribe<AddEditExercisePageViewModel, Exercise>
+                (this, Events.ExerciseSaved, OnExerciseSaved);
+
             _exerciseDal = exerciseDal;
             _pageService = pageService;
 
@@ -60,7 +57,7 @@ namespace NeverSkipLegDay.ViewModels
 
         public void OnExerciseSaved(AddEditExercisePageViewModel source, Exercise exercise)
         {
-            var exerciseInList = Exercises.Single(e => e.Id == exercise.Id);
+            ExerciseViewModel exerciseInList = Exercises.Where(e => e.Id == exercise.Id).ToList().FirstOrDefault();
 
             if(exerciseInList == null)
             {

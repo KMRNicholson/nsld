@@ -39,6 +39,7 @@ namespace NeverSkipLegDay.ViewModels
             if (string.IsNullOrWhiteSpace(Exercise.Name))
             {
                 await _pageService.DisplayAlert("Error", "Please enter a name.", "OK");
+                return;
             }
 
             await _exerciseDal.SaveExerciseAsync(Exercise);
