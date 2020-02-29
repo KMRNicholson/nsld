@@ -8,13 +8,14 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using NeverSkipLegDay.Models;
+using NeverSkipLegDay.ViewModels;
 
 namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddExercise : ContentPage
+    public partial class AddEditExercisePage : ContentPage
     {
-        public AddExercise()
+        public AddEditExercisePage(ExerciseViewModel exerciseViewModel)
         {
             InitializeComponent();
         }

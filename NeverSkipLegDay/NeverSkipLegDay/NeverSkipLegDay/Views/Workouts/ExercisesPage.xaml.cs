@@ -39,7 +39,7 @@ namespace NeverSkipLegDay.Views
                     WorkoutID = id
                 };
 
-                await Navigation.PushAsync(new AddExercise
+                await Navigation.PushAsync(new AddEditExercisePage
                 {
                     BindingContext = exercise as Models.Exercise
                 });
