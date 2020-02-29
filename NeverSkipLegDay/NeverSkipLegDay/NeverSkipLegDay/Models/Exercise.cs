@@ -12,6 +12,5 @@ namespace NeverSkipLegDay.Models
         public int WorkoutId { get; set; }
         [MaxLength(50)]
         public string Name { get; set; }
-        public int? Sets { get; set; }
     }
 }
