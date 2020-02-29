@@ -16,7 +16,7 @@ namespace NeverSkipLegDay.ViewModels
 
         private bool _isDataLoaded;
 
-        public Exercise Exercise { get; private set; }
+        public ExerciseViewModel Exercise { get; private set; }
 
         public ObservableCollection<SetViewModel> Sets { get; private set; }
             = new ObservableCollection<SetViewModel>();
@@ -26,10 +26,14 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand EditSetCommand { get; set; }
         public ICommand DeleteSetCommand { get; set; }
 
+        public ICommand BatchSaveCommand { get; set; }
+
         public SetsPageViewModel(ExerciseViewModel exercise, SetDal setDal, IPageService pageService)
         {
             _setDal = setDal;
             _pageService = pageService;
+
+            Exercise = exercise;
 
             LoadDataCommand = new Command(async () => await LoadData());
             AddSetCommand = new Command(async () => await AddSet());
@@ -74,9 +78,12 @@ namespace NeverSkipLegDay.ViewModels
         {
             if (set == null) return;
             
-            var setModel = await _setDal.GetSetAsync(set.Id);
-            Sets.Remove(set);
-            await _setDal.DeleteSetAsync(setModel);
+            if(await _pageService.DisplayAlert("Warning", "Are you sure you want to delete the set?", "Yes", "No"))
+            {
+                var setModel = await _setDal.GetSetAsync(set.Id);
+                Sets.Remove(set);
+                await _setDal.DeleteSetAsync(setModel);
+            }
         }
     }
 }
