@@ -35,7 +35,8 @@ namespace NeverSkipLegDay.ViewModels
     
         public ExercisesPageViewModel()
         {
-            //MessagingCenter.Subscribe<>
+            MessagingCenter.Subscribe<AddEditExercisePageViewModel, Exercise>
+                (this, Events.ExerciseSaved, OnExerciseSaved);
         }
 
         public ExercisesPageViewModel(WorkoutViewModel workout, ExerciseDal exerciseDal, IPageService pageService)
@@ -54,6 +55,21 @@ namespace NeverSkipLegDay.ViewModels
                 Id = workout.Id,
                 Name = workout.Name
             };
+        }
+
+        public void OnExerciseSaved(AddEditExercisePageViewModel source, Exercise exercise)
+        {
+            var exerciseInList = Exercises.Single(e => e.Id == exercise.Id);
+
+            if(exerciseInList == null)
+            {
+                Exercises.Add(new ExerciseViewModel(exercise));
+            }
+            else
+            {
+                exerciseInList.Id = exercise.Id;
+                exerciseInList.Name = exercise.Name;
+            }
         }
 
         private async Task LoadData()
