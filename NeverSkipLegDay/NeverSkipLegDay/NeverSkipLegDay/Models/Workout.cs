@@ -8,8 +8,8 @@ namespace NeverSkipLegDay.Models
     public class Workout
     {
         [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        public int Id { get; set; }
+        [MaxLength(50)]
         public string Name { get; set; }
-        public DateTime Date { get; set; }
     }
 }

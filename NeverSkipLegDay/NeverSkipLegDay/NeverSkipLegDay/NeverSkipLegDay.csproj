@@ -16,51 +16,62 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <MSBuildWarningsAsMessages>XA5302</MSBuildWarningsAsMessages>
-  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Xamarin.Android.Arch.Lifecycle.ViewModel">
+      <HintPath>..\..\..\..\..\..\..\Microsoft\Xamarin\NuGet\xamarin.android.arch.lifecycle.viewmodel\1.1.1.3\lib\monoandroid90\Xamarin.Android.Arch.Lifecycle.ViewModel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Workouts\AddExercise.xaml.cs">
-      <DependentUpon>AddExercise.xaml</DependentUpon>
+    <Compile Update="Views\DashboardDetailPage.xaml.cs">
+      <DependentUpon>DashboardDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Workouts\AddEditWorkout.xaml.cs">
-      <DependentUpon>AddEditWorkout.xaml</DependentUpon>
+    <Compile Update="Views\DashboardMasterPage.xaml.cs">
+      <DependentUpon>DashboardMasterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Workouts\Workout.xaml.cs">
-      <DependentUpon>Workout.xaml</DependentUpon>
+    <Compile Update="Views\DashboardPage.xaml.cs">
+      <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Workouts\Workouts.xaml.cs">
-      <DependentUpon>Workouts.xaml</DependentUpon>
+    <Compile Update="Views\Workouts\AddEditExercisePage.xaml.cs">
+      <DependentUpon>AddEditExercisePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Workouts\AddEditWorkoutPage.xaml.cs">
+      <DependentUpon>AddEditWorkoutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Workouts\SetsPage.xaml.cs">
+      <DependentUpon>SetsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Workouts\ExercisesPage.xaml.cs">
+      <DependentUpon>ExercisesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Workouts\WorkoutsPage.xaml.cs">
+      <DependentUpon>WorkoutsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Dashboard.xaml">
+    <EmbeddedResource Update="Views\DashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="DashboardDetail.xaml">
+    <EmbeddedResource Update="Views\DashboardDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="DashboardMaster.xaml">
+    <EmbeddedResource Update="Views\DashboardMasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\AddExercise.xaml">
+    <EmbeddedResource Update="Views\Workouts\AddEditExercisePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\AddEditWorkout.xaml">
+    <EmbeddedResource Update="Views\Workouts\AddEditWorkoutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\EditExercise.xaml">
+    <EmbeddedResource Update="Views\Workouts\SetsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\ExerciseProgress.xaml">
+    <EmbeddedResource Update="Views\Workouts\ExercisesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\Workout.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Workouts\Workouts.xaml">
+    <EmbeddedResource Update="Views\Workouts\WorkoutsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

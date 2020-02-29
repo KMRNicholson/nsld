@@ -5,13 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
              mc:Ignorable="d"
-             x:Class="NeverSkipLegDay.Workouts.AddExercise">
+             x:Class="NeverSkipLegDay.Views.AddEditWorkoutPage">
   <NavigationPage.TitleView>
     <Label 
       FontAttributes="Bold"
       TextColor="{StaticResource BarTextColor}"
       FontSize="20" 
-      Text="E X E R C I S E S"
+      Text="W O R K O U T S"
       HorizontalOptions="Center"
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
@@ -25,42 +25,22 @@
         FontSize="20"
         Margin="10"
         TextColor="{StaticResource CardTextColor}"/>
-      <StackLayout
-        Orientation="Horizontal">
-        <StackLayout
-          HorizontalOptions="FillAndExpand">
-          <Entry 
-            Text="{Binding Name}"
-            Placeholder="e.g. Bench Press" 
-            PlaceholderColor="{StaticResource PlaceholderColor}"
-            TextColor="{StaticResource CardTextColor}"
-            Margin="10,0,10,10" 
-            IsTextPredictionEnabled="True"  
-            Keyboard="Chat" 
-            IsSpellCheckEnabled="True"/>
-        </StackLayout>
-        <StackLayout 
-          HorizontalOptions="End">
-          <Entry 
-            Text="{Binding Sets}"
-            Placeholder="Sets" 
-            PlaceholderColor="{StaticResource PlaceholderColor}"
-            TextColor="{StaticResource CardTextColor}"
-            Margin="10,0,10,10" 
-            IsTextPredictionEnabled="True"  
-            Keyboard="Numeric" 
-            IsSpellCheckEnabled="True"
-            WidthRequest="50"/>
-        </StackLayout>
-      </StackLayout>
+      <Entry 
+        Text="{Binding Workout.Name}"
+        TextColor="{StaticResource CardTextColor}"
+        PlaceholderColor="{StaticResource PlaceholderColor}"
+        Placeholder="e.g. Push Day" 
+        Margin="10,0,10,10" 
+        IsTextPredictionEnabled="True"  
+        Keyboard="Chat" 
+        IsSpellCheckEnabled="True" />
       <Button
-        BindingContext="{Binding ID}"
         Text="Save"
         HorizontalOptions="End"
         Margin="0,0,10,10"
         BackgroundColor="{StaticResource BarBackgroundColor}"
         TextColor="{StaticResource BarTextColor}"
-        Clicked="OnSave"/>
+        Command="{Binding SaveCommand}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

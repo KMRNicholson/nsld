@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
+using NeverSkipLegDay.Views;
 
 namespace NeverSkipLegDay
 {
@@ -21,7 +18,7 @@ namespace NeverSkipLegDay
 
         async void OnEnter(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Dashboard());
+            await Navigation.PushAsync(new DashboardPage());
         }
     }
 }

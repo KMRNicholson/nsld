@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NeverSkipLegDay
+namespace NeverSkipLegDay.Views
 {
 
     public class DashboardMasterMenuItem

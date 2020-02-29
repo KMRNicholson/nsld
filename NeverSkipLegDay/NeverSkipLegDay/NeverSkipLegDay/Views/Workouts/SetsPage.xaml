@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
-             mc:Ignorable="d"
-             x:Class="NeverSkipLegDay.Workouts.ExerciseProgress">
+             x:Name="setsPage"
+             x:Class="NeverSkipLegDay.Views.SetsPage">
   <NavigationPage.TitleView>
     <Label 
       FontAttributes="Bold"
@@ -21,10 +19,12 @@
       <StackLayout 
         BackgroundColor="{StaticResource CardBackgroundColor}"
         Margin="10,10,10,1"
-        VerticalOptions="Start">
+        VerticalOptions="Start"
+        HeightRequest="80">
         <Label 
-          Text="{Binding Name}"
+          Text="{Binding Exercise.Name}"
           HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand"
           CharacterSpacing="1"
           FontSize="20"
           Margin="10"
@@ -35,61 +35,91 @@
         <ListView 
           x:Name="listView"
           Margin="10,0,10,10" 
-          RowHeight="50"
-          ItemSelected="CancelSelection">
+          RowHeight="80"
+          HasUnevenRows="True"
+          ItemsSource="{Binding Sets}">
           <ListView.ItemTemplate>
             <DataTemplate>
               <ViewCell>
                 <StackLayout
                   BackgroundColor="{StaticResource CardBackgroundColor}"
-                  Orientation="Horizontal">
+                  Orientation="Horizontal"
+                  HeightRequest="80">
                   <Label
                     Text="Reps"
-                    FontSize="17"
                     Margin="10,0,0,0"
+                    FontSize="15"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Entry
-                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="CenterAndExpand"
                     TextColor="{StaticResource CardTextColor}"
                     WidthRequest="50"
+                    FontSize="15"
                     Text="{Binding Reps}"
-                    Keyboard="Numeric"
-                    TextChanged="OnEdit"/>
+                    Keyboard="Numeric"/>
                   <Label
                     Text="Weight"
-                    FontSize="17"
-                    Margin="10,0,0,0"
+                    FontSize="15"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Entry
+                    VerticalOptions="CenterAndExpand"
                     HorizontalOptions="StartAndExpand"
+                    FontSize="15"
                     TextColor="{StaticResource CardTextColor}"
                     WidthRequest="50"
                     Text="{Binding Weight}"
-                    Keyboard="Telephone"
-                    TextChanged="OnEdit"/>
+                    Keyboard="Telephone"/>
                   <Button
-                    Opacity="0"
-                    IsEnabled="False"
                     Text="Save"
                     FontSize="10"
-                    WidthRequest="55"
-                    HeightRequest="35"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Margin="0,0,-5,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    BackgroundColor="{StaticResource BackgroundButtonColor}"
+                    BorderColor="{StaticResource CardTextColor}"
+                    BorderWidth="1"
+                    TextColor="{StaticResource CardTextColor}"
+                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.EditSetCommand}" 
+                    CommandParameter="{Binding .}"/>
+                  <Button
+                    Text="Del"
+                    FontSize="10"
+                    WidthRequest="50"
+                    HeightRequest="50"
                     Margin="10,0,10,0"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    BackgroundColor="{StaticResource BarBackgroundColor}"
-                    TextColor="{StaticResource BarTextColor}"
-                    Clicked="OnSave"/>
+                    BackgroundColor="{StaticResource BackgroundButtonColor}"
+                    BorderColor="{StaticResource CardTextColor}"
+                    BorderWidth="1"
+                    TextColor="{StaticResource CardTextColor}"
+                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.DeleteSetCommand}" 
+                    CommandParameter="{Binding .}"/>
                 </StackLayout>
               </ViewCell>
             </DataTemplate>
           </ListView.ItemTemplate>
         </ListView>
       </StackLayout>
+      <Button 
+        BackgroundColor="{StaticResource PanelButtonColor}"
+        BorderColor="{StaticResource PanelButtonBorderColor}"
+        TextColor="{StaticResource PanelButtonTextColor}"
+        BorderWidth="1"
+        WidthRequest="150" 
+        HeightRequest="80"
+        HorizontalOptions="Center" 
+        VerticalOptions="End"
+        CharacterSpacing="5"
+        Text="Add Set" 
+        Margin="0,0,0,20"
+        Command="{Binding AddSetCommand}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

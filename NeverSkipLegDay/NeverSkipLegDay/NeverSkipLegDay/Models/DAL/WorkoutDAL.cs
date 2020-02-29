@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using SQLite;
 using System.Threading.Tasks;
-using NeverSkipLegDay.Models;
 
-namespace NeverSkipLegDay.DAL
+namespace NeverSkipLegDay.Models.DAL
 {
-    public class WorkoutDAL
+    public class WorkoutDal
     {
         readonly SQLiteAsyncConnection _database;
-
-        public WorkoutDAL(string dbPath)
+        public WorkoutDal(SQLiteDB db)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
+            _database = db.GetConnection();
             _database.CreateTableAsync<Workout>().Wait();
         }
 
@@ -24,13 +20,13 @@ namespace NeverSkipLegDay.DAL
         public Task<Workout> GetWorkoutAsync(int id)
         {
             return _database.Table<Workout>()
-                            .Where(i => i.ID == id)
+                            .Where(i => i.Id == id)
                             .FirstOrDefaultAsync();
         }
 
         public Task<int> SaveWorkoutAsync(Workout model)
         {
-            if (model.ID != 0)
+            if (model.Id != 0)
             {
                 return _database.UpdateAsync(model);
             }
