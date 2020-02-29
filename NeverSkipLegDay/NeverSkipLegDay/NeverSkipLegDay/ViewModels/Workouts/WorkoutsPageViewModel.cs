@@ -32,11 +32,6 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand DeleteWorkoutCommand { get; set; }
         public ICommand SelectWorkoutCommand { get; set; }
 
-        public WorkoutsPageViewModel()
-        {
-            
-        }
-
         public WorkoutsPageViewModel(WorkoutDal workoutDal, IPageService pageService)
         {
             MessagingCenter.Subscribe<AddEditWorkoutPageViewModel, Workout>
