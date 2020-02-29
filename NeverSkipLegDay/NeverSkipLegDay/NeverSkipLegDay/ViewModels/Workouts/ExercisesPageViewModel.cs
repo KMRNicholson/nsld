@@ -108,7 +108,7 @@ namespace NeverSkipLegDay.ViewModels
         {
             if (exercise == null) return;
 
-            await _pageService.PushAsync(new ExercisesPage());
+            await _pageService.PushAsync(new AddEditExercisePage(exercise));
         }
     }
 }
