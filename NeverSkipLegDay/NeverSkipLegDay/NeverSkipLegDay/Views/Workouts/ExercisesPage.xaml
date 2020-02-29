@@ -15,12 +15,12 @@
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout
-      >
+      Spacing="0">
       <StackLayout
         BackgroundColor="{StaticResource CardBackgroundColor}"
-        Margin="10,10,10,1"
         VerticalOptions="Start"
-        HeightRequest="100">
+        Margin="10,10,10,1"
+        HeightRequest="80">
         <Label
           CharacterSpacing="1"
           HorizontalOptions="Center"
@@ -47,7 +47,7 @@
         <ListView 
           x:Name="listView"
           Margin="10,0,10,10" 
-          RowHeight="70"
+          RowHeight="80"
           ItemsSource="{Binding Exercises}"
           SelectedItem="{Binding SelectedExercise, Mode=TwoWay}"
           HasUnevenRows="True"
@@ -61,19 +61,20 @@
                   <Label 
                     Text="{Binding Name}"
                     CharacterSpacing="1"
-                    FontSize="17"
-                    Margin="15"
+                    FontSize="20"
+                    Margin="20"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Button 
                     CharacterSpacing="1"
                     Text="EDIT"
-                    WidthRequest="60"
+                    FontSize="10"
+                    WidthRequest="50"
                     HeightRequest="50"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    Margin="0,0,6,0"
+                    Margin="0,0,-5,0"
                     BorderColor="{StaticResource CardTextColor}"
                     BorderWidth="1"
                     BackgroundColor="{StaticResource PanelButtonColor}"
@@ -83,11 +84,12 @@
                   <Button 
                     CharacterSpacing="1"
                     Text="DEL"
-                    WidthRequest="60"
+                    FontSize="10"
+                    WidthRequest="50"
                     HeightRequest="50"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    Margin="0,0,12,0"
+                    Margin="10"
                     BorderColor="{StaticResource CardTextColor}"
                     BorderWidth="1"
                     BackgroundColor="{StaticResource PanelButtonColor}"
