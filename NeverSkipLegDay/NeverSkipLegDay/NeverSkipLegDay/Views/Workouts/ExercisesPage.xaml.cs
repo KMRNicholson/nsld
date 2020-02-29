@@ -25,6 +25,7 @@ namespace NeverSkipLegDay.Views
         protected override void OnAppearing()
         {
             ViewModel.LoadDataCommand.Execute(null);
+            helpLabel.IsVisible = ViewModel.Exercises.Count == 0 ? true : false;
             base.OnAppearing();
         }
 
