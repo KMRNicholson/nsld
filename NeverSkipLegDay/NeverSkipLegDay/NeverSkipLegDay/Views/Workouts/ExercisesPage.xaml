@@ -50,6 +50,8 @@
           x:Name="listView"
           Margin="10,0,10,10" 
           RowHeight="70"
+          ItemsSource="{Binding Exercises}"
+          SelectedItem="{Binding SelectedExercise, Mode=TwoWay}"
           ItemSelected="OnExerciseSelected">
           <ListView.ItemTemplate>
             <DataTemplate>
@@ -66,7 +68,7 @@
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Button 
-                    BindingContext="{Binding ID, StringFormat='Edit,{0:F0}'}"
+                    BindingContext="{Binding Id}"
                     CharacterSpacing="1"
                     Text="EDIT"
                     WidthRequest="60"
@@ -78,9 +80,9 @@
                     BorderWidth="1"
                     BackgroundColor="{StaticResource PanelButtonColor}"
                     TextColor="{StaticResource CardTextColor}"
-                    Clicked="OnAddOrEdit"/>
+                    Command="{Binding EditExerciseCommand}"/>
                   <Button 
-                    BindingContext="{Binding ID}"
+                    BindingContext="{Binding Id}"
                     CharacterSpacing="1"
                     Text="DEL"
                     WidthRequest="60"
@@ -92,7 +94,7 @@
                     BorderWidth="1"
                     BackgroundColor="{StaticResource PanelButtonColor}"
                     TextColor="{StaticResource CardTextColor}"
-                    Clicked="OnDelete"/>
+                    Command="{Binding DeleteExerciseCommand}"/>
                 </StackLayout>
               </ViewCell>
             </DataTemplate>
@@ -100,7 +102,6 @@
         </ListView>
       </StackLayout>
       <Button 
-        BindingContext="{Binding ID, StringFormat='Add,{0:F0}'}"
         BackgroundColor="{StaticResource PanelButtonColor}"
         BorderColor="{StaticResource PanelButtonBorderColor}"
         TextColor="{StaticResource PanelButtonTextColor}"
@@ -112,7 +113,7 @@
         CharacterSpacing="5"
         Text="Add Exercise" 
         Margin="0,0,0,10"
-        Clicked="OnAddOrEdit"/>
+        Command="{Binding AddWorkoutCommand}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>
