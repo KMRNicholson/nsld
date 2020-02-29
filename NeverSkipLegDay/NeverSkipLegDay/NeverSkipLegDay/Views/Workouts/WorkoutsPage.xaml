@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
              mc:Ignorable="d"
-             x:Class="NeverSkipLegDay.Views.Workouts">
+             x:Class="NeverSkipLegDay.Views.WorkoutsPage">
   <NavigationPage.TitleView>
     <Label 
       FontAttributes="Bold"
@@ -35,6 +35,8 @@
           x:Name="listView"
           Margin="10" 
           RowHeight="100"
+          ItemsSource="{Binding Workouts}"
+          SelectedItem="{Binding SelectedWorkout, Mode=TwoWay}"
           ItemSelected="OnWorkoutSelected">
           <ListView.ItemTemplate>
             <DataTemplate>
@@ -51,7 +53,7 @@
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Button 
-                    BindingContext="{Binding ID}"
+                    BindingContext="{Binding Id}"
                     CharacterSpacing="1"
                     Text="EDIT"
                     WidthRequest="60"
@@ -62,9 +64,9 @@
                     BorderWidth="1"
                     BackgroundColor="{StaticResource PanelButtonColor}"
                     TextColor="{StaticResource CardTextColor}"
-                    Clicked="OnAddOrEdit"/>
+                    Command="{Binding EditWorkoutCommand}"/>
                   <Button 
-                    BindingContext="{Binding ID}"
+                    BindingContext="{Binding Id}"
                     CharacterSpacing="1"
                     Text="DEL"
                     WidthRequest="60"
@@ -76,7 +78,7 @@
                     BorderWidth="1"
                     BackgroundColor="{StaticResource CardBackgroundColor}"
                     TextColor="{StaticResource CardTextColor}"
-                    Clicked="OnDelete"/>
+                    Command="{Binding DeleteWorkoutCommand}"/>
                 </StackLayout>
               </ViewCell>
             </DataTemplate>
@@ -95,7 +97,7 @@
         CharacterSpacing="5"
         Text="Add Workout" 
         Margin="0,0,0,10"
-        Clicked="OnAddOrEdit"/>
+        Command="{Binding AddWorkoutCommand}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

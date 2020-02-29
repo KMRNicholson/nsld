@@ -19,7 +19,7 @@ namespace NeverSkipLegDay.UnitTests
         {
             List<Workout> workouts = _database.GetWorkouts();
 
-            ViewModels.WorkoutsViewModel workoutList = new ViewModels.WorkoutsViewModel(workouts);
+            ViewModels.WorkoutsPageViewModel workoutList = new ViewModels.WorkoutsPageViewModel(workouts);
 
             Assert.AreEqual(workouts, workoutList.WorkoutList);
         }
@@ -29,10 +29,10 @@ namespace NeverSkipLegDay.UnitTests
         {
             List<Workout> workouts = _database.GetWorkouts();
 
-            ViewModels.WorkoutsViewModel workoutList = new ViewModels.WorkoutsViewModel(workouts);
+            ViewModels.WorkoutsPageViewModel workoutList = new ViewModels.WorkoutsPageViewModel(workouts);
             Assert.IsTrue(workoutList.IsEmpty());
 
-            ViewModels.WorkoutsViewModel emptyWorkoutList = new ViewModels.WorkoutsViewModel(new List<Workout>());
+            ViewModels.WorkoutsPageViewModel emptyWorkoutList = new ViewModels.WorkoutsPageViewModel(new List<Workout>());
             Assert.IsTrue(emptyWorkoutList.IsEmpty());
         }
     }

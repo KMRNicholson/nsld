@@ -17,10 +17,10 @@ namespace NeverSkipLegDay.Views
 
         async void OnWorkoutsSelected(object sender, EventArgs e)
         {
-            WorkoutsViewModel WorkoutsViewModel = new WorkoutsViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
-            await Navigation.PushAsync(new Workouts()
+            WorkoutsPageViewModel WorkoutsViewModel = new WorkoutsPageViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
+            await Navigation.PushAsync(new WorkoutsPage()
             {
-                BindingContext = WorkoutsViewModel as WorkoutsViewModel
+                BindingContext = WorkoutsViewModel as WorkoutsPageViewModel
             });
         }
     }

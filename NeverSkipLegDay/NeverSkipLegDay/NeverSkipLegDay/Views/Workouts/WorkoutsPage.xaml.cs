@@ -7,14 +7,14 @@ using Xamarin.Forms.Xaml;
 
 using NeverSkipLegDay.ViewModels;
 using NeverSkipLegDay.Models;
-using NeverSkipLegDay.DAL;
+using NeverSkipLegDay.Models.DAL;
 
 namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Workouts : ContentPage
+    public partial class WorkoutsPage : ContentPage
     {
-        public Workouts()
+        public WorkoutsPage()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace NeverSkipLegDay.Views
             page.BarBackgroundColor = Color.FromHex("#99aabb");
             page.BarTextColor = Color.White;
 
-            ViewModels.WorkoutsViewModel workoutList = new ViewModels.WorkoutsViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
+            ViewModels.WorkoutsPageViewModel workoutList = new ViewModels.WorkoutsPageViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
             helpLabel.IsVisible = workoutList.IsEmpty();
             listView.ItemsSource = workoutList.WorkoutList;
             
@@ -39,14 +39,14 @@ namespace NeverSkipLegDay.Views
             if(id != null)
             {
                 Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
-                await Navigation.PushAsync(new AddEditWorkout
+                await Navigation.PushAsync(new AddEditWorkoutPage
                 {
                     BindingContext = workout as Models.Workout
                 });
             }
             else
             {
-                await Navigation.PushAsync(new AddEditWorkout
+                await Navigation.PushAsync(new AddEditWorkoutPage
                 {
                     BindingContext = new Models.Workout()
                 });
@@ -59,7 +59,7 @@ namespace NeverSkipLegDay.Views
             Models.Workout workout = await App.WorkoutDAL.GetWorkoutAsync((int)id);
             await App.WorkoutDAL.DeleteWorkoutAsync(workout);
 
-            ViewModels.WorkoutsViewModel workoutList = new ViewModels.WorkoutsViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
+            ViewModels.WorkoutsPageViewModel workoutList = new ViewModels.WorkoutsPageViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
             helpLabel.IsVisible = workoutList.IsEmpty();
             listView.ItemsSource = workoutList.WorkoutList;
         }
@@ -68,7 +68,7 @@ namespace NeverSkipLegDay.Views
         {
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new Workout
+                await Navigation.PushAsync(new WorkoutPage
                 {
                     BindingContext = e.SelectedItem as Models.Workout
                 });

@@ -12,9 +12,9 @@ using NeverSkipLegDay.Models;
 namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddEditWorkout : ContentPage
+    public partial class AddEditWorkoutPage : ContentPage
     {
-        public AddEditWorkout()
+        public AddEditWorkoutPage(ViewModels.WorkoutViewModel workoutViewModel)
         {
             InitializeComponent();
         }

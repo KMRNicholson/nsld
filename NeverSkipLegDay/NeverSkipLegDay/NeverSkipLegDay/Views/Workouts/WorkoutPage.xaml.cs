@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Workout : ContentPage
+    public partial class WorkoutPage : ContentPage
     {
-        public Workout()
+        public WorkoutPage()
         {
             InitializeComponent();
         }

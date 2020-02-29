@@ -29,14 +29,14 @@
     <Compile Update="Views\Workouts\AddExercise.xaml.cs">
       <DependentUpon>AddExercise.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Workouts\AddEditWorkout.xaml.cs">
-      <DependentUpon>AddEditWorkout.xaml</DependentUpon>
+    <Compile Update="Views\Workouts\AddEditWorkoutPage.xaml.cs">
+      <DependentUpon>AddEditWorkoutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Workouts\Workout.xaml.cs">
-      <DependentUpon>Workout.xaml</DependentUpon>
+    <Compile Update="Views\Workouts\WorkoutPage.xaml.cs">
+      <DependentUpon>WorkoutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Workouts\Workouts.xaml.cs">
-      <DependentUpon>Workouts.xaml</DependentUpon>
+    <Compile Update="Views\Workouts\WorkoutsPage.xaml.cs">
+      <DependentUpon>WorkoutsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -53,7 +53,7 @@
     <EmbeddedResource Update="Views\Workouts\AddExercise.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Workouts\AddEditWorkout.xaml">
+    <EmbeddedResource Update="Views\Workouts\AddEditWorkoutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Workouts\EditExercise.xaml">
@@ -62,10 +62,10 @@
     <EmbeddedResource Update="Views\Workouts\ExerciseProgress.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Workouts\Workout.xaml">
+    <EmbeddedResource Update="Views\Workouts\WorkoutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Workouts\Workouts.xaml">
+    <EmbeddedResource Update="Views\Workouts\WorkoutsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
