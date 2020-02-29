@@ -13,7 +13,7 @@ namespace NeverSkipLegDay.ViewModels
     {
         private IPageService _pageService;
 
-        public ICommand SelectWorkoutsCommand { get; set; }
+        public ICommand SelectWorkoutsCommand { get; private set; }
         public ICommand SelectNutritionCommand { get; set; }
         public ICommand SelectRecordsCommand { get; set; }
 
@@ -21,9 +21,13 @@ namespace NeverSkipLegDay.ViewModels
         {
             _pageService = pageService;
 
-            SelectWorkoutsCommand = new Command(async () => await SelectWorkouts());
+            SelectWorkoutsCommand = new Command(async workoutsPage => await SelectWorkouts(workoutsPage));
         }
 
-        private async Task SelectWorkouts() => await _pageService.PushAsync(new WorkoutsPage());        
+        private async Task SelectWorkouts(object workoutsPage)
+        {
+
+            await _pageService.PushAsync((WorkoutsPage)workoutsPage);
+        }
     }
 }

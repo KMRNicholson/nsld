@@ -20,6 +20,7 @@ namespace NeverSkipLegDay.ViewModels
         public Workout Workout { get; private set; }
 
         public ObservableCollection<ExerciseViewModel> Exercises { get; private set; }
+            = new ObservableCollection<ExerciseViewModel>();
 
         public ExerciseViewModel SelectedExercise
         {

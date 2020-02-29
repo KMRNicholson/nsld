@@ -26,7 +26,7 @@
         Margin="10"
         TextColor="{StaticResource CardTextColor}"/>
       <Entry 
-        Text="{Binding Name}"
+        Text="{Binding Workout.Name}"
         TextColor="{StaticResource CardTextColor}"
         PlaceholderColor="{StaticResource PlaceholderColor}"
         Placeholder="e.g. Push Day" 

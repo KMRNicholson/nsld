@@ -18,6 +18,7 @@ namespace NeverSkipLegDay.ViewModels
         private bool _isDataLoaded;
 
         public ObservableCollection<WorkoutViewModel> Workouts { get; private set; }
+            = new ObservableCollection<WorkoutViewModel>();
 
         public WorkoutViewModel SelectedWorkout
         {

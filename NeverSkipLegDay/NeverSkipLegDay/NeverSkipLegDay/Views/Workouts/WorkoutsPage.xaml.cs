@@ -26,10 +26,6 @@ namespace NeverSkipLegDay.Views
         {
             ViewModel.LoadDataCommand.Execute(null);
             base.OnAppearing();
-
-            NavigationPage page = (NavigationPage)this.Parent;
-            page.BarBackgroundColor = Color.FromHex("#99aabb");
-            page.BarTextColor = Color.White;
         }
 
         void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)

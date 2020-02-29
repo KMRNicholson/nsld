@@ -20,9 +20,10 @@ namespace NeverSkipLegDay.Views
             InitializeComponent();
         }
 
-        void OnWorkoutsSelected(object sender, EventArgs e)
+        async void OnWorkoutsSelected(object sender, EventArgs e)
         {
-            ViewModel.SelectWorkoutsCommand.Execute(null);
+            WorkoutsPage workoutsPage = new WorkoutsPage();
+            await Navigation.PushAsync(workoutsPage);
         }
     }
 }

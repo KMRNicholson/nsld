@@ -11,7 +11,6 @@ namespace NeverSkipLegDay.ViewModels
 {
     public class SetsPageViewModel : BaseViewModel
     {
-        private SetViewModel _selectedSet;
         private SetDal _setDal;
         private IPageService _pageService;
 
@@ -20,6 +19,7 @@ namespace NeverSkipLegDay.ViewModels
         public Exercise Exercise { get; private set; }
 
         public ObservableCollection<SetViewModel> Sets { get; private set; }
+            = new ObservableCollection<SetViewModel>();
 
         public ICommand LoadDataCommand { get; set; }
         public ICommand AddSetCommand { get; set; }
