@@ -34,13 +34,13 @@
         IsTextPredictionEnabled="True"  
         Keyboard="Chat" 
         IsSpellCheckEnabled="True" />
-      <Button 
+      <Button
         Text="Save"
         HorizontalOptions="End"
         Margin="0,0,10,10"
         BackgroundColor="{StaticResource BarBackgroundColor}"
         TextColor="{StaticResource BarTextColor}"
-        Clicked="OnSave"/>
+        Command="{Binding SaveCommand}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>
