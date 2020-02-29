@@ -14,7 +14,7 @@ namespace NeverSkipLegDay.Models.DAL
         public ExerciseDal(SQLiteDB db)
         {
             _database = db.GetConnection();
-            _database.CreateTableAsync<Set>().Wait();
+            _database.CreateTableAsync<Exercise>().Wait();
         }
 
         public Task<List<Exercise>> GetExercisesAsync()
