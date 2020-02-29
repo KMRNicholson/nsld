@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
-             mc:Ignorable="d"
+             x:Name="addEditExercisePage"
              x:Class="NeverSkipLegDay.Views.AddEditExercisePage">
   <NavigationPage.TitleView>
     <Label 
@@ -26,7 +24,7 @@
         Margin="10"
         TextColor="{StaticResource CardTextColor}"/>
       <Entry 
-        Text="{Binding Name}"
+        Text="{Binding Exercise.Name}"
         Placeholder="e.g. Bench Press" 
         PlaceholderColor="{StaticResource PlaceholderColor}"
         TextColor="{StaticResource CardTextColor}"
