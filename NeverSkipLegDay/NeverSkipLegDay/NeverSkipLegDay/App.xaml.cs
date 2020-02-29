@@ -1,47 +1,48 @@
 ﻿using System;
 using System.IO;
 using Xamarin.Forms;
-using NeverSkipLegDay.DAL;
+using NeverSkipLegDay.Models.DAL;
 
 namespace NeverSkipLegDay
 {
     public partial class App : Application
     {
-        static WorkoutDAL workoutDAL;
-        static ExerciseDAL exerciseDAL;
-        static SetDAL setDAL;
-        public static WorkoutDAL WorkoutDAL
+        static readonly SQLiteDB Db = new SQLiteDB();
+        static WorkoutDal workoutDal;
+        static ExerciseDal exerciseDal;
+        static SetDal setDal;
+        public static WorkoutDal WorkoutDal
         {
             get
             {
-                if(workoutDAL == null)
+                if(workoutDal == null)
                 {
-                    workoutDAL = new WorkoutDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Views.db3"));
+                    workoutDal = new WorkoutDal(Db);
                 }
-                return workoutDAL;
+                return workoutDal;
             }
         }
 
-        public static ExerciseDAL ExerciseDAL
+        public static ExerciseDal ExerciseDal
         {
             get
             {
-                if (exerciseDAL == null)
+                if (exerciseDal == null)
                 {
-                    exerciseDAL = new ExerciseDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Exercises.db3"));
+                    exerciseDal = new ExerciseDal(Db);
                 }
-                return exerciseDAL;
+                return exerciseDal;
             }
         }
-        public static SetDAL SetDAL
+        public static SetDal SetDal
         {
             get
             {
-                if (setDAL == null)
+                if (setDal == null)
                 {
-                    setDAL = new SetDAL(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Sets.db3"));
+                    setDal = new SetDal(Db);
                 }
-                return setDAL;
+                return setDal;
             }
         }
         public App()

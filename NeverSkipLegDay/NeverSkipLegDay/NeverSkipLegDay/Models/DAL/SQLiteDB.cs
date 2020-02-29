@@ -6,7 +6,7 @@ using SQLite;
 
 namespace NeverSkipLegDay.Models.DAL
 {
-    public class BaseDAL
+    public class SQLiteDB
     {
         public SQLiteAsyncConnection GetConnection()
         {

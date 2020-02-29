@@ -5,16 +5,16 @@ using SQLite;
 using System.Threading.Tasks;
 using NeverSkipLegDay.Models;
 
-namespace NeverSkipLegDay.DAL
+namespace NeverSkipLegDay.Models.DAL
 {
-    public class ExerciseDAL
+    public class ExerciseDal
     {
         readonly SQLiteAsyncConnection _database;
 
-        public ExerciseDAL(string dbPath)
+        public ExerciseDal(SQLiteDB db)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Exercise>().Wait();
+            _database = db.GetConnection();
+            _database.CreateTableAsync<Set>().Wait();
         }
 
         public Task<List<Exercise>> GetExercisesAsync()
@@ -24,19 +24,19 @@ namespace NeverSkipLegDay.DAL
         public Task<List<Exercise>> GetExercisesByWorkoutIdAsync(int workoutId)
         {
             return _database.Table<Exercise>()
-                .Where(i => i.WorkoutID == workoutId)
+                .Where(i => i.WorkoutId == workoutId)
                 .ToListAsync();
         }
         public Task<Exercise> GetExerciseAsync(int id)
         {
             return _database.Table<Exercise>()
-                            .Where(i => i.ID == id)
+                            .Where(i => i.Id == id)
                             .FirstOrDefaultAsync();
         }
 
         public Task<int> SaveExerciseAsync(Exercise model)
         {
-            if (model.ID != 0)
+            if (model.Id != 0)
             {
                 return _database.UpdateAsync(model);
             }
