@@ -27,7 +27,7 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand AddWorkoutCommand { get; set; }
         public ICommand EditWorkoutCommand { get; set; }
         public ICommand DeleteWorkoutCommand { get; set; }
-        public ICommand SelectedWorkoutCommand { get; set; }
+        public ICommand SelectWorkoutCommand { get; set; }
 
         public WorkoutsPageViewModel(WorkoutDal workoutDal, IPageService pageService)
         {
@@ -38,6 +38,7 @@ namespace NeverSkipLegDay.ViewModels
             AddWorkoutCommand = new Command(async () => await AddWorkout());
             EditWorkoutCommand = new Command<WorkoutViewModel>(async workout => await EditWorkout(workout));
             DeleteWorkoutCommand = new Command<WorkoutViewModel>(async workout => await DeleteWorkout(workout));
+            SelectWorkoutCommand = new Command<WorkoutViewModel>(async workout => await SelectWorkout(workout));
         }
 
         private async Task LoadData()
@@ -70,6 +71,13 @@ namespace NeverSkipLegDay.ViewModels
 
             var workoutModel = await _workoutDal.GetWorkoutAsync(workout.Id);
             await _workoutDal.DeleteWorkoutAsync(workoutModel);
+        }
+
+        private async Task SelectWorkout(WorkoutViewModel workout)
+        {
+            if (workout == null) return;
+
+            await _pageService.PushAsync(new ExercisesPage());
         }
     }
 }

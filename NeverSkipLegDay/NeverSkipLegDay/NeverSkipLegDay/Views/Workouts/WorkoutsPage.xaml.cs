@@ -37,15 +37,9 @@ namespace NeverSkipLegDay.Views
             page.BarTextColor = Color.White;
         }
 
-        async void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)
+        void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
-            {
-                await Navigation.PushAsync(new WorkoutPage
-                {
-                    BindingContext = e.SelectedItem as Models.Workout
-                });
-            }
+            ViewModel.SelectWorkoutCommand.Execute(e.SelectedItem);
         }
     }
 }

@@ -38,8 +38,8 @@
     <Compile Update="Views\Workouts\AddEditWorkoutPage.xaml.cs">
       <DependentUpon>AddEditWorkoutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Workouts\WorkoutPage.xaml.cs">
-      <DependentUpon>WorkoutPage.xaml</DependentUpon>
+    <Compile Update="Views\Workouts\ExercisesPage.xaml.cs">
+      <DependentUpon>ExercisesPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Workouts\WorkoutsPage.xaml.cs">
       <DependentUpon>WorkoutsPage.xaml</DependentUpon>
@@ -68,7 +68,7 @@
     <EmbeddedResource Update="Views\Workouts\ExerciseProgress.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Workouts\WorkoutPage.xaml">
+    <EmbeddedResource Update="Views\Workouts\ExercisesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Workouts\WorkoutsPage.xaml">
