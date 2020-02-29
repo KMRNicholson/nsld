@@ -22,11 +22,11 @@ namespace NeverSkipLegDay.Views
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
-            ViewModel.LoadDataCommand.Execute(null);
-            helpLabel.IsVisible = ViewModel.Workouts.Count == 0 ? true : false;
             base.OnAppearing();
+            await ViewModel.LoadData();
+            helpLabel.IsVisible = ViewModel.IsWorkoutsEmpty();
         }
 
         void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)

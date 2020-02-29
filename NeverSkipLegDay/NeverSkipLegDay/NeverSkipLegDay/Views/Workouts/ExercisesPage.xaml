@@ -34,6 +34,7 @@
         VerticalOptions="Start">
         <Label
           x:Name="helpLabel"
+          IsVisible="False"
           BackgroundColor="{StaticResource CardBackgroundColor}"
           Text='It looks like you have not created any exercises.. Please, click the "ADD EXERCISE" button below to create your first exercise!'
           CharacterSpacing="3"

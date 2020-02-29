@@ -19,6 +19,7 @@
         VerticalOptions="Start">
         <Label
           x:Name="helpLabel"
+          IsVisible="False"
           BackgroundColor="{StaticResource CardBackgroundColor}"
           Text='It looks like you have not created any workouts.. Please, click the "ADD WORKOUT" button below to create your first workout!'
           CharacterSpacing="3"
