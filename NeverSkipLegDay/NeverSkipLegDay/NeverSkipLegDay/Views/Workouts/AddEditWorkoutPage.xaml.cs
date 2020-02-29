@@ -1,30 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using NeverSkipLegDay.Models;
+using NeverSkipLegDay.ViewModels;
+using NeverSkipLegDay.Models.DAL;
 
 namespace NeverSkipLegDay.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddEditWorkoutPage : ContentPage
     {
-        public AddEditWorkoutPage(ViewModels.WorkoutViewModel workoutViewModel)
+        public AddEditWorkoutPageViewModel ViewModel
         {
-            InitializeComponent();
+            get { return BindingContext as AddEditWorkoutPageViewModel; }
+            set { BindingContext = value; }
         }
-
-        async void OnSave(object sender, EventArgs e)
+        public AddEditWorkoutPage(WorkoutViewModel workoutViewModel)
         {
-            var workout = (Models.Workout)BindingContext;
-            workout.Date = DateTime.UtcNow;
-            await App.WorkoutDAL.SaveWorkoutAsync(workout);
-            await Navigation.PopAsync();
+            var workoutDal = new WorkoutDal(new SQLiteDB());
+            var pageService = new PageService();
+            ViewModel = new AddEditWorkoutPageViewModel(workoutViewModel, workoutDal, pageService);
+            InitializeComponent();
         }
     }
 }
