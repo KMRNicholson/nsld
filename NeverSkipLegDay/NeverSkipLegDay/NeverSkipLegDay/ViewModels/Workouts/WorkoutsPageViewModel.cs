@@ -34,12 +34,14 @@ namespace NeverSkipLegDay.ViewModels
 
         public WorkoutsPageViewModel()
         {
-            MessagingCenter.Subscribe<AddEditWorkoutPageViewModel, Workout>
-                (this, Events.WorkoutSaved, OnWorkoutSaved);
+            
         }
 
         public WorkoutsPageViewModel(WorkoutDal workoutDal, IPageService pageService)
         {
+            MessagingCenter.Subscribe<AddEditWorkoutPageViewModel, Workout>
+                (this, Events.WorkoutSaved, OnWorkoutSaved);
+
             _workoutDal = workoutDal;
             _pageService = pageService;
 
@@ -52,7 +54,7 @@ namespace NeverSkipLegDay.ViewModels
 
         private void OnWorkoutSaved(AddEditWorkoutPageViewModel source, Workout workout)
         {
-            var workoutInList = Workouts.Single(w => w.Id == workout.Id);
+            WorkoutViewModel workoutInList = Workouts.Where(w => w.Id == workout.Id).ToList().FirstOrDefault();
 
             if(workoutInList == null)
             {
@@ -94,6 +96,7 @@ namespace NeverSkipLegDay.ViewModels
             if (workout == null) return;
 
             var workoutModel = await _workoutDal.GetWorkoutAsync(workout.Id);
+            Workouts.Remove(workout);
             await _workoutDal.DeleteWorkoutAsync(workoutModel);
         }
 
