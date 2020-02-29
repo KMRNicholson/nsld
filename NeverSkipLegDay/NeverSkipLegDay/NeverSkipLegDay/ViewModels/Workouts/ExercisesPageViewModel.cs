@@ -17,7 +17,7 @@ namespace NeverSkipLegDay.ViewModels
 
         private bool _isDataLoaded;
 
-        public Workout Workout { get; private set; }
+        public WorkoutViewModel Workout { get; private set; }
 
         public ObservableCollection<ExerciseViewModel> Exercises { get; private set; }
             = new ObservableCollection<ExerciseViewModel>();
@@ -42,17 +42,13 @@ namespace NeverSkipLegDay.ViewModels
             _exerciseDal = exerciseDal;
             _pageService = pageService;
 
+            Workout = workout;
+
             LoadDataCommand = new Command(async () => await LoadData());
             AddExerciseCommand = new Command(async () => await AddExercise());
             EditExerciseCommand = new Command<ExerciseViewModel>(async exercise => await EditExercise(exercise));
             DeleteExerciseCommand = new Command<ExerciseViewModel>(async exercise => await DeleteExercise(exercise));
             SelectExerciseCommand = new Command<ExerciseViewModel>(async exercise => await SelectExercise(exercise));
-
-            Workout = new Workout()
-            {
-                Id = workout.Id,
-                Name = workout.Name
-            };
         }
 
         public void OnExerciseSaved(AddEditExercisePageViewModel source, Exercise exercise)
@@ -84,7 +80,7 @@ namespace NeverSkipLegDay.ViewModels
 
         private async Task AddExercise()
         {
-            await _pageService.PushAsync(new AddEditExercisePage(new ExerciseViewModel()));
+            await _pageService.PushAsync(new AddEditExercisePage(new ExerciseViewModel() { WorkoutId = Workout.Id }));
         }
 
         private async Task EditExercise(ExerciseViewModel exercise)

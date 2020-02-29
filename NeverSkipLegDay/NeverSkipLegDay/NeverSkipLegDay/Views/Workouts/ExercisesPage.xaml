@@ -14,7 +14,8 @@
       Margin="0,0,70,0"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout>
+    <StackLayout
+      >
       <StackLayout
         BackgroundColor="{StaticResource CardBackgroundColor}"
         Margin="10,10,10,1"
@@ -105,12 +106,12 @@
         TextColor="{StaticResource PanelButtonTextColor}"
         BorderWidth="1"
         WidthRequest="150" 
-        HeightRequest="100"
+        HeightRequest="80"
         HorizontalOptions="Center" 
         VerticalOptions="End"
         CharacterSpacing="5"
         Text="Add Exercise" 
-        Margin="0,0,0,10"
+        Margin="0,0,0,20"
         Command="{Binding AddExerciseCommand}"/>
     </StackLayout>
   </ContentPage.Content>

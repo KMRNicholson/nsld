@@ -90,12 +90,12 @@
         TextColor="{StaticResource PanelButtonTextColor}"
         BorderWidth="1"
         WidthRequest="150" 
-        HeightRequest="100"
+        HeightRequest="80"
         HorizontalOptions="Center" 
         VerticalOptions="End"
         CharacterSpacing="5"
         Text="Add Workout" 
-        Margin="0,0,0,10"
+        Margin="0,0,0,20"
         Command="{Binding AddWorkoutCommand}"/>
     </StackLayout>
   </ContentPage.Content>
