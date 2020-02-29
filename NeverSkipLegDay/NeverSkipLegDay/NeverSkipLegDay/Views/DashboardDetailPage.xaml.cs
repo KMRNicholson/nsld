@@ -17,7 +17,7 @@ namespace NeverSkipLegDay.Views
 
         async void OnWorkoutsSelected(object sender, EventArgs e)
         {
-            WorkoutsPageViewModel WorkoutsViewModel = new WorkoutsPageViewModel(await App.WorkoutDAL.GetWorkoutsAsync());
+            WorkoutsPageViewModel WorkoutsViewModel = new WorkoutsPageViewModel();
             await Navigation.PushAsync(new WorkoutsPage()
             {
                 BindingContext = WorkoutsViewModel as WorkoutsPageViewModel

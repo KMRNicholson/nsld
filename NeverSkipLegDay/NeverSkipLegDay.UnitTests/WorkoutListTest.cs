@@ -17,23 +17,12 @@ namespace NeverSkipLegDay.UnitTests
         [TestMethod]
         public void ConstructorTest()
         {
-            List<Workout> workouts = _database.GetWorkouts();
-
-            ViewModels.WorkoutsPageViewModel workoutList = new ViewModels.WorkoutsPageViewModel(workouts);
-
-            Assert.AreEqual(workouts, workoutList.WorkoutList);
+            
         }
 
         [TestMethod]
         public void IsEmptyTest()
         {
-            List<Workout> workouts = _database.GetWorkouts();
-
-            ViewModels.WorkoutsPageViewModel workoutList = new ViewModels.WorkoutsPageViewModel(workouts);
-            Assert.IsTrue(workoutList.IsEmpty());
-
-            ViewModels.WorkoutsPageViewModel emptyWorkoutList = new ViewModels.WorkoutsPageViewModel(new List<Workout>());
-            Assert.IsTrue(emptyWorkoutList.IsEmpty());
         }
     }
 }
