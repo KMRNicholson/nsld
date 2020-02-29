@@ -62,7 +62,8 @@
                     BorderWidth="1"
                     BackgroundColor="{StaticResource PanelButtonColor}"
                     TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding EditWorkoutCommand}"/>
+                    Command="{Binding Source={x:Reference workoutsPage}, Path=ViewModel.EditWorkoutCommand}" 
+                    CommandParameter="{Binding .}"/>
                   <Button 
                     CharacterSpacing="1"
                     Text="DEL"
@@ -75,7 +76,8 @@
                     BorderWidth="1"
                     BackgroundColor="{StaticResource CardBackgroundColor}"
                     TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding DeleteWorkoutCommand}"/>
+                    Command="{Binding Source={x:Reference workoutsPage}, Path=ViewModel.DeleteWorkoutCommand}" 
+                    CommandParameter="{Binding .}"/>
                 </StackLayout>
               </ViewCell>
             </DataTemplate>
