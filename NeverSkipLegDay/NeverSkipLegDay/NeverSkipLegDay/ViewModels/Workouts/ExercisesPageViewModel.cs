@@ -15,6 +15,11 @@ namespace NeverSkipLegDay.ViewModels
         private ExerciseDal _exerciseDal;
         private IPageService _pageService;
 
+        private bool AreExercisesEmpty
+        {
+            get { return Exercises.Count == 0 ? true : false; }
+        }
+
         private bool _isDataLoaded;
 
         public WorkoutViewModel Workout { get; private set; }

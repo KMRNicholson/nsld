@@ -16,6 +16,11 @@ namespace NeverSkipLegDay.ViewModels
 
         private bool _isDataLoaded;
 
+        private bool AreSetsEmpty
+        {
+            get { return Sets.Count == 0 ? true : false; }
+        }
+
         public ExerciseViewModel Exercise { get; private set; }
 
         public ObservableCollection<SetViewModel> Sets { get; private set; }
