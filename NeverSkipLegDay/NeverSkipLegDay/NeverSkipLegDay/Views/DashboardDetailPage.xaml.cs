@@ -17,13 +17,9 @@ namespace NeverSkipLegDay.Views
         }
         public DashboardDetailPage()
         {
+            PageService pageService = new PageService();
+            ViewModel = new DashboardDetailPageViewModel(pageService);
             InitializeComponent();
-        }
-
-        async void OnWorkoutsSelected(object sender, EventArgs e)
-        {
-            WorkoutsPage workoutsPage = new WorkoutsPage();
-            await Navigation.PushAsync(workoutsPage);
         }
     }
 }

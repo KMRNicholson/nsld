@@ -35,7 +35,7 @@
           WidthRequest="150"
           Text="W o r k o u t s"
           Grid.Row="0"
-          Clicked="OnWorkoutsSelected"
+          Command="{Binding SelectWorkoutsCommand}"
           TextColor="{StaticResource PanelButtonTextColor}"/>
       </StackLayout>
       <StackLayout
