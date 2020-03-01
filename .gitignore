@@ -10,3 +10,6 @@ prototype/prototype-images/
 /NeverSkipLegDay/NeverSkipLegDay.UnitTests/bin/
 /NeverSkipLegDay/packages
 /NeverSkipLegDay/TestResults
+/NeverSkipLegDay/NeverSkipLegDay.NUnitTestProject/bin
+/NeverSkipLegDay/NeverSkipLegDay.NUnitTestProject/obj
+/NeverSkipLegDay/NUnitTestProject/obj
