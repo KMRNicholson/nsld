@@ -34,9 +34,6 @@
         VerticalOptions="Start">
         <ListView 
           x:Name="listView"
-          Margin="10,0,10,10" 
-          RowHeight="80"
-          HasUnevenRows="True"
           ItemsSource="{Binding Sets}">
           <ListView.ItemTemplate>
             <DataTemplate>

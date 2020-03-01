@@ -31,11 +31,8 @@
           HorizontalTextAlignment="Center"/>
         <ListView 
           x:Name="listView"
-          Margin="10" 
-          RowHeight="80"
           ItemsSource="{Binding Workouts}"
           SelectedItem="{Binding SelectedWorkout, Mode=TwoWay}"
-          HasUnevenRows="True"
           ItemSelected="OnWorkoutSelected">
           <ListView.ItemTemplate>
             <DataTemplate>

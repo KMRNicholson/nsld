@@ -11,6 +11,14 @@
       <Setter Property="BarBackgroundColor" Value="#99aabb"></Setter>
       <Setter Property="BarTextColor" Value="White"></Setter>
     </Style>
+    <Style TargetType="ListView">
+      <Setter Property="HasUnevenRows" Value="True"></Setter>
+      <Setter Property="Margin" Value="10"></Setter>
+      <Setter Property="RowHeight" Value="80"></Setter>
+    </Style>
+    <Style x:Key="AddButton" TargetType="Button">
+      <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+    </Style>
     <Color x:Key="BackgroundTextColor">White</Color>
     <Color x:Key="BackgroundColor">LightSkyBlue</Color>
     <Color x:Key="BackgroundButtonColor">White</Color>
