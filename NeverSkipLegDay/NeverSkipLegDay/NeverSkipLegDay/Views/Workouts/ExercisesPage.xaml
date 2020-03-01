@@ -11,11 +11,7 @@
   <ContentPage.Content>
     <StackLayout
       Spacing="0">
-      <StackLayout
-        BackgroundColor="{StaticResource CardBackgroundColor}"
-        VerticalOptions="Start"
-        Margin="10,10,10,-5"
-        HeightRequest="80">
+      <StackLayout Style="{StaticResource HeaderCard}">
         <Label Style="{StaticResource Header}"
           Text="{Binding Workout.Name}"/>
       </StackLayout>
