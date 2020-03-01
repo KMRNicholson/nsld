@@ -1,44 +1,43 @@
 ﻿using System.Collections.Generic;
 using SQLite;
-using System.Threading.Tasks;
 
 namespace NeverSkipLegDay.Models.DAL
 {
-    public class WorkoutDal
+    public class WorkoutDal : IWorkoutDal
     {
-        readonly SQLiteAsyncConnection _database;
+        readonly SQLiteConnection _database;
         public WorkoutDal(SQLiteDB db)
         {
             _database = db.GetConnection();
-            _database.CreateTableAsync<Workout>().Wait();
+            _database.CreateTable<Workout>();
         }
 
-        public Task<List<Workout>> GetWorkoutsAsync()
+        public List<Workout> GetWorkouts()
         {
-            return _database.Table<Workout>().ToListAsync();
+            return _database.Table<Workout>().ToList();
         }
-        public Task<Workout> GetWorkoutAsync(int id)
+        public Workout GetWorkout(int id)
         {
             return _database.Table<Workout>()
                             .Where(i => i.Id == id)
-                            .FirstOrDefaultAsync();
+                            .FirstOrDefault();
         }
 
-        public Task<int> SaveWorkoutAsync(Workout model)
+        public int SaveWorkout(Workout model)
         {
             if (model.Id != 0)
             {
-                return _database.UpdateAsync(model);
+                return _database.Update(model);
             }
             else
             {
-                return _database.InsertAsync(model);
+                return _database.Insert(model);
             }
         }
 
-        public Task<int> DeleteWorkoutAsync(Workout model)
+        public int DeleteWorkout(Workout model)
         {
-            return _database.DeleteAsync(model);
+            return _database.Delete(model);
         }
     }
 }

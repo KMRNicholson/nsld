@@ -41,7 +41,7 @@ namespace NeverSkipLegDay.ViewModels
                 return;
             }
 
-            await _workoutDal.SaveWorkoutAsync(Workout);
+            _workoutDal.SaveWorkout(Workout);
             MessagingCenter.Send(this, Events.WorkoutSaved, Workout);
             await _pageService.PopAsync();
         }

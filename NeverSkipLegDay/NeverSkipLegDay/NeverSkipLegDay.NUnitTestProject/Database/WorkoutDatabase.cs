@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NeverSkipLegDay.Models;
+using NeverSkipLegDay.Models.DAL;
 
-namespace NeverSkipLegDay.UnitTests.Database
+namespace NeverSkipLegDay.NUnitTestProject.Database
 {
-    public class WorkoutDatabase
+    public class WorkoutDatabase : IWorkoutDal
     {
         public List<Workout> workouts { get; set; }
         public WorkoutDatabase()
@@ -18,38 +19,39 @@ namespace NeverSkipLegDay.UnitTests.Database
                 new Workout(){ Id = 5, Name = "Push Day 2"},
                 new Workout(){ Id = 6, Name = "Leg Day 2"}
             };
+            
         }
 
         public List<Workout> GetWorkouts()
         {
-            return this.workouts;
+            return workouts;
         }
 
-        public Workout GetWorkoutById(int id)
+        public Workout GetWorkout(int id)
         {
-            return this.workouts.Where(w => w.Id == id).ToList().FirstOrDefault();
+            return workouts.Where(w => w.Id == id).ToList().FirstOrDefault();
         }
 
-        public int SaveWorkout(Workout workout)
+        public int SaveWorkout(Workout model)
         {
-            if(workout.Id != 0)
+            if (model.Id != 0)
             {
-                Workout workoutInDb = workouts.Where(w => w.Id == workout.Id).ToList().FirstOrDefault();
-                workoutInDb.Name = workout.Name;
+                Workout workoutInDb = workouts.Where(w => w.Id == model.Id).ToList().FirstOrDefault();
+                workoutInDb.Name = model.Name;
                 return 1;
             }
             else
             {
-                workout.Id = workouts.Last().Id + 1;
-                workouts.Add(workout);
-                return workouts.Find(w => w == workout) != null ? 1 : 0;
+                model.Id = workouts.Last().Id + 1;
+                workouts.Add(model);
+                return workouts.Find(w => w == model) != null ? 1 : 0;
             }
         }
 
-        public int DeleteWorkout(Workout workout)
+        public int DeleteWorkout(Workout model)
         {
-            workouts.Remove(workout);
-            return workouts.Find(w => w == workout) == null ? 1 : 0;
+            workouts.Remove(model);
+            return workouts.Find(w => w == model) == null ? 1 : 0;
         }
     }
 }

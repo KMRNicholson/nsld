@@ -4,6 +4,7 @@ using System.Text;
 using SQLite;
 using System.Threading.Tasks;
 using NeverSkipLegDay.Models;
+using System.IO;
 
 namespace NeverSkipLegDay.Models.DAL
 {
@@ -13,7 +14,9 @@ namespace NeverSkipLegDay.Models.DAL
 
         public SetDal(SQLiteDB db)
         {
-            _database = db.GetConnection();
+            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var dbPath = Path.Combine(appData, "SQLiteNSLD.db3");
+            _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Set>().Wait();
         }
 
