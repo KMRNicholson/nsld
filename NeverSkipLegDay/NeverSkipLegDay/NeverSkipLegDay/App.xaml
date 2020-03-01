@@ -5,8 +5,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.App">
-  
+
   <Application.Resources>
+    <Color x:Key="BackgroundTextColor">White</Color>
+    <Color x:Key="BackgroundColor">LightSkyBlue</Color>
+    <Color x:Key="BackgroundButtonColor">White</Color>
+    <Color x:Key="CardBackgroundColor">White</Color>
+    <Color x:Key="CardTextColor">#99aabb</Color>
+    <Color x:Key="BarTextColor">White</Color>
+    <Color x:Key="BarBackgroundColor">#99aabb</Color>
+    <Color x:Key="PanelColor">White</Color>
+    <Color x:Key="PanelButtonColor">Transparent</Color>
+    <Color x:Key="SeparatorColor">Black</Color>
+    <Color x:Key="PanelButtonTextColor">White</Color>
+    <Color x:Key="PanelButtonBorderColor">White</Color>
+    <Color x:Key="WorkoutsBackgroundColor">LightSkyBlue</Color>
+    <Color x:Key="NutritionBackgroundColor">LightBlue</Color>
+    <Color x:Key="RecordsBackgroundColor">LightSteelBlue</Color>
+    <Color x:Key="PlaceholderColor">LightGray</Color>
     <Style TargetType="NavigationPage">
       <Setter Property="BarBackgroundColor" Value="{StaticResource Key=BarBackgroundColor}"></Setter>
       <Setter Property="BarTextColor" Value="{StaticResource Key=BarTextColor}"></Setter>
@@ -68,21 +84,24 @@
       <Setter Property="CharacterSpacing" Value="1"></Setter>
       <Setter Property="Margin" Value="10,10,10,0"></Setter>
     </Style>
-    <Color x:Key="BackgroundTextColor">White</Color>
-    <Color x:Key="BackgroundColor">LightSkyBlue</Color>
-    <Color x:Key="BackgroundButtonColor">White</Color>
-    <Color x:Key="CardBackgroundColor">White</Color>
-    <Color x:Key="CardTextColor">#99aabb</Color>
-    <Color x:Key="BarTextColor">White</Color>
-    <Color x:Key="BarBackgroundColor">#99aabb</Color>
-    <Color x:Key="PanelColor">White</Color>
-    <Color x:Key="PanelButtonColor">Transparent</Color>
-    <Color x:Key="SeparatorColor">Black</Color>
-    <Color x:Key="PanelButtonTextColor">White</Color>
-    <Color x:Key="PanelButtonBorderColor">White</Color>
-    <Color x:Key="WorkoutsBackgroundColor">LightSkyBlue</Color>
-    <Color x:Key="NutritionBackgroundColor">LightBlue</Color>
-    <Color x:Key="RecordsBackgroundColor">LightSteelBlue</Color>
-    <Color x:Key="PlaceholderColor">LightGray</Color>
+    <Style x:Key="HelpLabel" TargetType="Label">
+      <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+      <Setter Property="FontSize" Value="15"></Setter>
+      <Setter Property="BackgroundColor" Value="{StaticResource Key=CardBackgroundColor}"></Setter>
+      <Setter Property="Padding" Value="20"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="CharacterSpacing" Value="2"></Setter>
+      <Setter Property="Margin" Value="40,70,40,0"></Setter>
+      <Setter Property="Text" Value="Please tap the Add Button below to add your first item!"></Setter>
+    </Style>
+    <Style x:Key="AppBarTitle" TargetType="Label">
+      <Setter Property="FontAttributes" Value="Bold"></Setter>
+      <Setter Property="FontSize" Value="20"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=BarTextColor}"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      <Setter Property="Margin" Value="0,0,70,0"></Setter>
+    </Style>
   </Application.Resources>
 </Application>

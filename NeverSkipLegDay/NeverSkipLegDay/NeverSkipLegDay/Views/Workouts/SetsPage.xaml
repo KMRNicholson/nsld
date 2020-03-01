@@ -5,13 +5,8 @@
              x:Name="setsPage"
              x:Class="NeverSkipLegDay.Views.SetsPage">
   <NavigationPage.TitleView>
-    <Label 
-      FontAttributes="Bold"
-      TextColor="{StaticResource BarTextColor}"
-      FontSize="20" 
-      Text="S E T S"
-      HorizontalOptions="Center"
-      Margin="0,0,70,0"/>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="S E T S"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout 

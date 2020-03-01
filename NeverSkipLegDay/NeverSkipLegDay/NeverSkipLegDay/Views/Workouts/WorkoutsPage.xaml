@@ -5,30 +5,16 @@
              x:Name="workoutsPage"
              x:Class="NeverSkipLegDay.Views.WorkoutsPage">
   <NavigationPage.TitleView>
-    <Label 
-      FontAttributes="Bold"
-      TextColor="{StaticResource BarTextColor}"
-      FontSize="20" 
-      Text="W O R K O U T S"
-      HorizontalOptions="Center"
-      Margin="0,0,70,0"/>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="W O R K O U T S"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout>
       <StackLayout
         VerticalOptions="Start">
-        <Label
+        <Label Style="{StaticResource HelpLabel}"
           x:Name="helpLabel"
-          IsVisible="False"
-          BackgroundColor="{StaticResource CardBackgroundColor}"
-          Text='It looks like you have not created any workouts.. Please, click the "ADD WORKOUT" button below to create your first workout!'
-          CharacterSpacing="3"
-          FontSize="15"
-          Padding="20"
-          Margin="50"
-          TextColor="{StaticResource CardTextColor}"
-          HorizontalOptions="Center"
-          HorizontalTextAlignment="Center"/>
+          IsVisible="False"/>
         <ListView 
           x:Name="listView"
           ItemsSource="{Binding Workouts}"
