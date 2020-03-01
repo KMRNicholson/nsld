@@ -13,5 +13,5 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
-    - name: Build with dotnet
-      run: dotnet test NeverSkipLegDay\NeverSkipLegDay.UnitTests\NeverSkipLegDay.UnitTests.csproj
+    - name: Test with dotnet
+      run: dotnet test NeverSkipLegDay\NeverSkipLegDay.NUnitTestProject\NeverSkipLegDay.NUnitTestProject.csproj
