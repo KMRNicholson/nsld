@@ -11,11 +11,7 @@
   <ContentPage.Content>
     <StackLayout 
       Spacing="0">
-      <StackLayout 
-        BackgroundColor="{StaticResource CardBackgroundColor}"
-        Margin="10,10,10,1"
-        VerticalOptions="Start"
-        HeightRequest="80">
+      <StackLayout Style="{StaticResource HeaderCard}">
         <Label Style="{StaticResource Header}"
           Text="{Binding Exercise.Name}"/>
       </StackLayout>
@@ -59,20 +55,10 @@
                     WidthRequest="50"
                     Text="{Binding Weight}"
                     Keyboard="Telephone"/>
-                  <Button
+                  <Button Style="{StaticResource EditButton}"
                     Text="Save"
-                    FontSize="10"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    Margin="0,0,-5,0"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    BackgroundColor="{StaticResource BackgroundButtonColor}"
-                    BorderColor="{StaticResource CardTextColor}"
-                    BorderWidth="1"
-                    TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.EditCommand}" 
-                    CommandParameter="{Binding .}"/>
+                    WidthRequest="51"
+                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.EditCommand}"/>
                   <Button Style="{StaticResource DeleteButton}"
                     Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.DeleteCommand}" />
                 </StackLayout>

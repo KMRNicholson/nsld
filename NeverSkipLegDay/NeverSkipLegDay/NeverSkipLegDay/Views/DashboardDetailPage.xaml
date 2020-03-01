@@ -20,48 +20,21 @@
       <StackLayout 
         BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
         Grid.Row="0">
-        <Button
-          BackgroundColor="{StaticResource PanelButtonColor}"
-          VerticalOptions="CenterAndExpand"
-          HorizontalOptions="CenterAndExpand"
-          BorderColor="{StaticResource PanelButtonBorderColor}"
-          BorderWidth="1"
-          HeightRequest="100"
-          WidthRequest="150"
+        <Button Style="{StaticResource PanelButton}"
           Text="W o r k o u t s"
-          Grid.Row="0"
-          Command="{Binding SelectWorkoutsCommand}"
-          TextColor="{StaticResource PanelButtonTextColor}"/>
+          Command="{Binding SelectWorkoutsCommand}"/>
       </StackLayout>
       <StackLayout
         BackgroundColor="{StaticResource NutritionBackgroundColor}"
         Grid.Row="1">
-        <Button
-          BackgroundColor="{StaticResource PanelButtonColor}"
-          HeightRequest="100"
-          VerticalOptions="CenterAndExpand"
-          HorizontalOptions="CenterAndExpand"
-          WidthRequest="150"
-          BorderColor="{StaticResource PanelButtonBorderColor}"
-          BorderWidth="1"
-          Text="N u t r i t i o n"
-          Grid.Row="1"
-          TextColor="{StaticResource PanelButtonTextColor}"/>
+        <Button Style="{StaticResource PanelButton}"
+          Text="N u t r i t i o n"/>
       </StackLayout>
       <StackLayout
         BackgroundColor="{StaticResource RecordsBackgroundColor}"
         Grid.Row="2">
-        <Button
-          Text="R e c o r d s"
-          BackgroundColor="{StaticResource PanelButtonColor}"
-          VerticalOptions="CenterAndExpand"
-          HorizontalOptions="CenterAndExpand"
-          BorderColor="{StaticResource PanelButtonBorderColor}"
-          BorderWidth="1"
-          HeightRequest="100"
-          WidthRequest="150"
-          Grid.Row="2"
-          TextColor="{StaticResource PanelButtonTextColor}"/>
+        <Button Style="{StaticResource PanelButton}"
+          Text="R e c o r d s"/>
       </StackLayout>
     </Grid>
   </StackLayout>
