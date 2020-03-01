@@ -16,9 +16,9 @@ namespace NeverSkipLegDay.ViewModels
 
         private bool _isDataLoaded;
 
-        private bool AreSetsEmpty
+        public string AddButtonText
         {
-            get { return Sets.Count == 0 ? true : false; }
+            get { return "Add Set"; }
         }
 
         public ExerciseViewModel Exercise { get; private set; }
@@ -27,9 +27,9 @@ namespace NeverSkipLegDay.ViewModels
             = new ObservableCollection<SetViewModel>();
 
         public ICommand LoadDataCommand { get; set; }
-        public ICommand AddSetCommand { get; set; }
-        public ICommand EditSetCommand { get; set; }
-        public ICommand DeleteSetCommand { get; set; }
+        public ICommand AddCommand { get; set; }
+        public ICommand EditCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
 
         public ICommand BatchSaveCommand { get; set; }
 
@@ -41,9 +41,9 @@ namespace NeverSkipLegDay.ViewModels
             Exercise = exercise;
 
             LoadDataCommand = new Command(async () => await LoadData());
-            AddSetCommand = new Command(async () => await AddSet());
-            EditSetCommand = new Command<SetViewModel>(async set => await EditSet(set));
-            DeleteSetCommand = new Command<SetViewModel>(async set => await DeleteSet(set));
+            AddCommand = new Command(async () => await AddSet());
+            EditCommand = new Command<SetViewModel>(async set => await EditSet(set));
+            DeleteCommand = new Command<SetViewModel>(async set => await DeleteSet(set));
         }
 
         private async Task LoadData()

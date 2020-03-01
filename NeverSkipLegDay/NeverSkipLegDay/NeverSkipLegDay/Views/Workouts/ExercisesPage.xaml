@@ -5,13 +5,8 @@
              x:Name="exercisesPage"
              x:Class="NeverSkipLegDay.Views.ExercisesPage">
   <NavigationPage.TitleView>
-    <Label
-      FontAttributes="Bold"
-      TextColor="{StaticResource BarTextColor}"
-      FontSize="20" 
-      Text="E X E R C I S E S"
-      HorizontalOptions="Center"
-      Margin="0,0,70,0"/>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="E X E R C I S E S"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout
@@ -19,38 +14,20 @@
       <StackLayout
         BackgroundColor="{StaticResource CardBackgroundColor}"
         VerticalOptions="Start"
-        Margin="10,10,10,1"
+        Margin="10,10,10,-5"
         HeightRequest="80">
-        <Label
-          CharacterSpacing="1"
-          HorizontalOptions="Center"
-          VerticalOptions="CenterAndExpand"
-          Text="{Binding Workout.Name}"
-          FontSize="20"
-          TextColor="{StaticResource CardTextColor}"
-          Margin="10"/>
+        <Label Style="{StaticResource Header}"
+          Text="{Binding Workout.Name}"/>
       </StackLayout>
       <StackLayout
         VerticalOptions="Start">
-        <Label
+        <Label Style="{StaticResource HelpLabel}"
           x:Name="helpLabel"
-          IsVisible="False"
-          BackgroundColor="{StaticResource CardBackgroundColor}"
-          Text='It looks like you have not created any exercises.. Please, click the "ADD EXERCISE" button below to create your first exercise!'
-          CharacterSpacing="3"
-          FontSize="15"
-          Padding="20"
-          Margin="50"
-          TextColor="{StaticResource CardTextColor}"
-          HorizontalOptions="Center"
-          HorizontalTextAlignment="Center"/>
+          IsVisible="False"/>
         <ListView 
           x:Name="listView"
-          Margin="10,0,10,10" 
-          RowHeight="80"
           ItemsSource="{Binding Exercises}"
           SelectedItem="{Binding SelectedExercise, Mode=TwoWay}"
-          HasUnevenRows="True"
           ItemSelected="OnExerciseSelected">
           <ListView.ItemTemplate>
             <DataTemplate>
@@ -66,55 +43,17 @@
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
-                  <Button 
-                    CharacterSpacing="1"
-                    Text="EDIT"
-                    FontSize="10"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    Margin="0,0,-5,0"
-                    BorderColor="{StaticResource CardTextColor}"
-                    BorderWidth="1"
-                    BackgroundColor="{StaticResource PanelButtonColor}"
-                    TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.EditExerciseCommand}" 
-                    CommandParameter="{Binding .}"/>
-                  <Button 
-                    CharacterSpacing="1"
-                    Text="DEL"
-                    FontSize="10"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    Margin="10"
-                    BorderColor="{StaticResource CardTextColor}"
-                    BorderWidth="1"
-                    BackgroundColor="{StaticResource PanelButtonColor}"
-                    TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.DeleteExerciseCommand}" 
-                    CommandParameter="{Binding .}"/>
+                  <Button Style="{StaticResource EditButton}"
+                    Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.EditCommand}" />
+                  <Button Style="{StaticResource DeleteButton}"
+                    Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.DeleteCommand}" />
                 </StackLayout>
               </ViewCell>
             </DataTemplate>
           </ListView.ItemTemplate>
         </ListView>
       </StackLayout>
-      <Button 
-        BackgroundColor="{StaticResource PanelButtonColor}"
-        BorderColor="{StaticResource PanelButtonBorderColor}"
-        TextColor="{StaticResource PanelButtonTextColor}"
-        BorderWidth="1"
-        WidthRequest="150" 
-        HeightRequest="80"
-        HorizontalOptions="Center" 
-        VerticalOptions="End"
-        CharacterSpacing="5"
-        Text="Add Exercise" 
-        Margin="0,0,0,20"
-        Command="{Binding AddExerciseCommand}"/>
+      <Button Style="{StaticResource AddButton}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

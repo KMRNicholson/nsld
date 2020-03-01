@@ -5,13 +5,8 @@
              x:Name="addEditExercisePage"
              x:Class="NeverSkipLegDay.Views.AddEditExercisePage">
   <NavigationPage.TitleView>
-    <Label 
-      FontAttributes="Bold"
-      TextColor="{StaticResource BarTextColor}"
-      FontSize="20" 
-      Text="E X E R C I S E S"
-      HorizontalOptions="Center"
-      Margin="0,0,70,0"/>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="E X E R C I S E S"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout 

@@ -24,6 +24,11 @@ namespace NeverSkipLegDay.ViewModels
 
         public WorkoutViewModel Workout { get; private set; }
 
+        public string AddButtonText
+        {
+            get { return "Add Exercise"; }
+        }
+
         public ObservableCollection<ExerciseViewModel> Exercises { get; private set; }
             = new ObservableCollection<ExerciseViewModel>();
 
@@ -33,10 +38,10 @@ namespace NeverSkipLegDay.ViewModels
             set { SetValue(ref _selectedExercise, value); }
         }
 
-        public ICommand AddExerciseCommand { get; set; }
-        public ICommand EditExerciseCommand { get; set; }
-        public ICommand DeleteExerciseCommand { get; set; }
-        public ICommand SelectExerciseCommand { get; set; }
+        public ICommand AddCommand { get; set; }
+        public ICommand EditCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
+        public ICommand SelectCommand { get; set; }
 
         public ExercisesPageViewModel(WorkoutViewModel workout, ExerciseDal exerciseDal, IPageService pageService)
         {
@@ -48,10 +53,10 @@ namespace NeverSkipLegDay.ViewModels
 
             Workout = workout;
 
-            AddExerciseCommand = new Command(async () => await AddExercise());
-            EditExerciseCommand = new Command<ExerciseViewModel>(async exercise => await EditExercise(exercise));
-            DeleteExerciseCommand = new Command<ExerciseViewModel>(async exercise => await DeleteExercise(exercise));
-            SelectExerciseCommand = new Command<ExerciseViewModel>(async exercise => await SelectExercise(exercise));
+            AddCommand = new Command(async () => await AddExercise());
+            EditCommand = new Command<ExerciseViewModel>(async exercise => await EditExercise(exercise));
+            DeleteCommand = new Command<ExerciseViewModel>(async exercise => await DeleteExercise(exercise));
+            SelectCommand = new Command<ExerciseViewModel>(async exercise => await SelectExercise(exercise));
         }
 
         public void OnExerciseSaved(AddEditExercisePageViewModel source, Exercise exercise)

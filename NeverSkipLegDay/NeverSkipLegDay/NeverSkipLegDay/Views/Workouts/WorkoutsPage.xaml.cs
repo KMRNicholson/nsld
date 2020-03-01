@@ -31,7 +31,7 @@ namespace NeverSkipLegDay.Views
 
         void OnWorkoutSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            ViewModel.SelectWorkoutCommand.Execute(e.SelectedItem);
+            ViewModel.SelectCommand.Execute(e.SelectedItem);
         }
     }
 }

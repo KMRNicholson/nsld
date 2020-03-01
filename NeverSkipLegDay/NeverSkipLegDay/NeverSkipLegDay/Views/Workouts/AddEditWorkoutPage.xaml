@@ -7,13 +7,8 @@
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.Views.AddEditWorkoutPage">
   <NavigationPage.TitleView>
-    <Label 
-      FontAttributes="Bold"
-      TextColor="{StaticResource BarTextColor}"
-      FontSize="20" 
-      Text="W O R K O U T S"
-      HorizontalOptions="Center"
-      Margin="0,0,70,0"/>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="W O R K O U T S"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout 

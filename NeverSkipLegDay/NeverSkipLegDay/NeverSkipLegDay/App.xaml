@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.App">
+
   <Application.Resources>
     <Color x:Key="BackgroundTextColor">White</Color>
     <Color x:Key="BackgroundColor">LightSkyBlue</Color>
@@ -22,5 +23,85 @@
     <Color x:Key="NutritionBackgroundColor">LightBlue</Color>
     <Color x:Key="RecordsBackgroundColor">LightSteelBlue</Color>
     <Color x:Key="PlaceholderColor">LightGray</Color>
+    <Style TargetType="NavigationPage">
+      <Setter Property="BarBackgroundColor" Value="{StaticResource Key=BarBackgroundColor}"></Setter>
+      <Setter Property="BarTextColor" Value="{StaticResource Key=BarTextColor}"></Setter>
+    </Style>
+    <Style TargetType="ListView">
+      <Setter Property="HasUnevenRows" Value="True"></Setter>
+      <Setter Property="Margin" Value="10"></Setter>
+      <Setter Property="RowHeight" Value="80"></Setter>
+    </Style>
+    <Style x:Key="AddButton" TargetType="Button">
+      <Setter Property="BackgroundColor" Value="{StaticResource Key=PanelButtonColor}"></Setter>
+      <Setter Property="BorderColor" Value="{StaticResource Key=PanelButtonBorderColor}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=PanelButtonTextColor}"></Setter>
+      <Setter Property="BorderWidth" Value="1"></Setter>
+      <Setter Property="WidthRequest" Value="150"></Setter>
+      <Setter Property="HeightRequest" Value="80"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      <Setter Property="VerticalOptions" Value="End"></Setter>
+      <Setter Property="CharacterSpacing" Value="5"></Setter>
+      <Setter Property="Margin" Value="0,0,0,20"></Setter>
+      <Setter Property="Command" Value="{Binding AddCommand}"></Setter>
+      <Setter Property="Text" Value="{Binding AddButtonText}"></Setter>
+    </Style>
+    <Style x:Key="EditButton" TargetType="Button">
+      <Setter Property="FontSize" Value="10"></Setter>
+      <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+      <Setter Property="BorderColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="BorderWidth" Value="1"></Setter>
+      <Setter Property="WidthRequest" Value="50"></Setter>
+      <Setter Property="HeightRequest" Value="50"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="Margin" Value="0,0,-5,0"></Setter>
+      <Setter Property="CommandParameter" Value="{Binding .}"></Setter>
+      <Setter Property="Text" Value="Edit"></Setter>
+    </Style>
+    <Style x:Key="DeleteButton" TargetType="Button">
+      <Setter Property="FontSize" Value="10"></Setter>
+      <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+      <Setter Property="BorderColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="BorderWidth" Value="1"></Setter>
+      <Setter Property="WidthRequest" Value="50"></Setter>
+      <Setter Property="HeightRequest" Value="50"></Setter>
+      <Setter Property="HorizontalOptions" Value="End"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="Margin" Value="10"></Setter>
+      <Setter Property="CommandParameter" Value="{Binding .}"></Setter>
+      <Setter Property="Text" Value="Del"></Setter>
+    </Style>
+    <Style x:Key="Header" TargetType="Label">
+      <Setter Property="FontSize" Value="20"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="Margin" Value="10,10,10,0"></Setter>
+    </Style>
+    <Style x:Key="HelpLabel" TargetType="Label">
+      <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+      <Setter Property="FontSize" Value="15"></Setter>
+      <Setter Property="BackgroundColor" Value="{StaticResource Key=CardBackgroundColor}"></Setter>
+      <Setter Property="Padding" Value="20"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="CharacterSpacing" Value="2"></Setter>
+      <Setter Property="Margin" Value="40,70,40,0"></Setter>
+      <Setter Property="Text" Value="Please tap the Add Button below to add your first item!"></Setter>
+    </Style>
+    <Style x:Key="AppBarTitle" TargetType="Label">
+      <Setter Property="FontAttributes" Value="Bold"></Setter>
+      <Setter Property="FontSize" Value="20"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=BarTextColor}"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      <Setter Property="Margin" Value="0,0,70,0"></Setter>
+    </Style>
   </Application.Resources>
 </Application>

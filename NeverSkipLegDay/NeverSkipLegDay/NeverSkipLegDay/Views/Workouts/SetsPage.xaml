@@ -5,13 +5,8 @@
              x:Name="setsPage"
              x:Class="NeverSkipLegDay.Views.SetsPage">
   <NavigationPage.TitleView>
-    <Label 
-      FontAttributes="Bold"
-      TextColor="{StaticResource BarTextColor}"
-      FontSize="20" 
-      Text="S E T S"
-      HorizontalOptions="Center"
-      Margin="0,0,70,0"/>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="S E T S"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout 
@@ -21,22 +16,13 @@
         Margin="10,10,10,1"
         VerticalOptions="Start"
         HeightRequest="80">
-        <Label 
-          Text="{Binding Exercise.Name}"
-          HorizontalOptions="Center"
-          VerticalOptions="CenterAndExpand"
-          CharacterSpacing="1"
-          FontSize="20"
-          Margin="10"
-          TextColor="{StaticResource CardTextColor}"/>
+        <Label Style="{StaticResource Header}"
+          Text="{Binding Exercise.Name}"/>
       </StackLayout>
       <StackLayout
         VerticalOptions="Start">
         <ListView 
           x:Name="listView"
-          Margin="10,0,10,10" 
-          RowHeight="80"
-          HasUnevenRows="True"
           ItemsSource="{Binding Sets}">
           <ListView.ItemTemplate>
             <DataTemplate>
@@ -85,41 +71,17 @@
                     BorderColor="{StaticResource CardTextColor}"
                     BorderWidth="1"
                     TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.EditSetCommand}" 
+                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.EditCommand}" 
                     CommandParameter="{Binding .}"/>
-                  <Button
-                    Text="Del"
-                    FontSize="10"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    Margin="10,0,10,0"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    BackgroundColor="{StaticResource BackgroundButtonColor}"
-                    BorderColor="{StaticResource CardTextColor}"
-                    BorderWidth="1"
-                    TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.DeleteSetCommand}" 
-                    CommandParameter="{Binding .}"/>
+                  <Button Style="{StaticResource DeleteButton}"
+                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.DeleteCommand}" />
                 </StackLayout>
               </ViewCell>
             </DataTemplate>
           </ListView.ItemTemplate>
         </ListView>
       </StackLayout>
-      <Button 
-        BackgroundColor="{StaticResource PanelButtonColor}"
-        BorderColor="{StaticResource PanelButtonBorderColor}"
-        TextColor="{StaticResource PanelButtonTextColor}"
-        BorderWidth="1"
-        WidthRequest="150" 
-        HeightRequest="80"
-        HorizontalOptions="Center" 
-        VerticalOptions="End"
-        CharacterSpacing="5"
-        Text="Add Set" 
-        Margin="0,0,0,20"
-        Command="{Binding AddSetCommand}"/>
+      <Button Style="{StaticResource AddButton}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>
