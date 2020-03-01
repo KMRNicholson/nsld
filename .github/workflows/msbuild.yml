@@ -1,4 +1,4 @@
-name: Nuget Restore & MSBuild
+name: MSBuild
 
 on: [push]
 
