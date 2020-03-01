@@ -21,14 +21,8 @@
         Margin="10,10,10,1"
         VerticalOptions="Start"
         HeightRequest="80">
-        <Label 
-          Text="{Binding Exercise.Name}"
-          HorizontalOptions="Center"
-          VerticalOptions="CenterAndExpand"
-          CharacterSpacing="1"
-          FontSize="20"
-          Margin="10"
-          TextColor="{StaticResource CardTextColor}"/>
+        <Label Style="{StaticResource Header}"
+          Text="{Binding Exercise.Name}"/>
       </StackLayout>
       <StackLayout
         VerticalOptions="Start">

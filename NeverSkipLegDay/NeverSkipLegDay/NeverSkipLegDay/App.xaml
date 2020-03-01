@@ -8,8 +8,8 @@
   
   <Application.Resources>
     <Style TargetType="NavigationPage">
-      <Setter Property="BarBackgroundColor" Value="#99aabb"></Setter>
-      <Setter Property="BarTextColor" Value="White"></Setter>
+      <Setter Property="BarBackgroundColor" Value="{StaticResource Key=BarBackgroundColor}"></Setter>
+      <Setter Property="BarTextColor" Value="{StaticResource Key=BarTextColor}"></Setter>
     </Style>
     <Style TargetType="ListView">
       <Setter Property="HasUnevenRows" Value="True"></Setter>
@@ -17,9 +17,9 @@
       <Setter Property="RowHeight" Value="80"></Setter>
     </Style>
     <Style x:Key="AddButton" TargetType="Button">
-      <Setter Property="BackgroundColor" Value="Transparent"></Setter>
-      <Setter Property="BorderColor" Value="White"></Setter>
-      <Setter Property="TextColor" Value="White"></Setter>
+      <Setter Property="BackgroundColor" Value="{StaticResource Key=PanelButtonColor}"></Setter>
+      <Setter Property="BorderColor" Value="{StaticResource Key=PanelButtonBorderColor}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=PanelButtonTextColor}"></Setter>
       <Setter Property="BorderWidth" Value="1"></Setter>
       <Setter Property="WidthRequest" Value="150"></Setter>
       <Setter Property="HeightRequest" Value="80"></Setter>
@@ -33,8 +33,8 @@
     <Style x:Key="EditButton" TargetType="Button">
       <Setter Property="FontSize" Value="10"></Setter>
       <Setter Property="BackgroundColor" Value="Transparent"></Setter>
-      <Setter Property="BorderColor" Value="#99aabb"></Setter>
-      <Setter Property="TextColor" Value="#99aabb"></Setter>
+      <Setter Property="BorderColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"></Setter>
       <Setter Property="BorderWidth" Value="1"></Setter>
       <Setter Property="WidthRequest" Value="50"></Setter>
       <Setter Property="HeightRequest" Value="50"></Setter>
@@ -48,8 +48,8 @@
     <Style x:Key="DeleteButton" TargetType="Button">
       <Setter Property="FontSize" Value="10"></Setter>
       <Setter Property="BackgroundColor" Value="Transparent"></Setter>
-      <Setter Property="BorderColor" Value="#99aabb"></Setter>
-      <Setter Property="TextColor" Value="#99aabb"></Setter>
+      <Setter Property="BorderColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"></Setter>
       <Setter Property="BorderWidth" Value="1"></Setter>
       <Setter Property="WidthRequest" Value="50"></Setter>
       <Setter Property="HeightRequest" Value="50"></Setter>
@@ -59,6 +59,14 @@
       <Setter Property="Margin" Value="10"></Setter>
       <Setter Property="CommandParameter" Value="{Binding .}"></Setter>
       <Setter Property="Text" Value="Del"></Setter>
+    </Style>
+    <Style x:Key="Header" TargetType="Label">
+      <Setter Property="FontSize" Value="20"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="Margin" Value="10,10,10,0"></Setter>
     </Style>
     <Color x:Key="BackgroundTextColor">White</Color>
     <Color x:Key="BackgroundColor">LightSkyBlue</Color>
