@@ -30,6 +30,36 @@
       <Setter Property="Command" Value="{Binding AddCommand}"></Setter>
       <Setter Property="Text" Value="{Binding AddButtonText}"></Setter>
     </Style>
+    <Style x:Key="EditButton" TargetType="Button">
+      <Setter Property="FontSize" Value="10"></Setter>
+      <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+      <Setter Property="BorderColor" Value="#99aabb"></Setter>
+      <Setter Property="TextColor" Value="#99aabb"></Setter>
+      <Setter Property="BorderWidth" Value="1"></Setter>
+      <Setter Property="WidthRequest" Value="50"></Setter>
+      <Setter Property="HeightRequest" Value="50"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="Margin" Value="0,0,-5,0"></Setter>
+      <Setter Property="CommandParameter" Value="{Binding .}"></Setter>
+      <Setter Property="Text" Value="Edit"></Setter>
+    </Style>
+    <Style x:Key="DeleteButton" TargetType="Button">
+      <Setter Property="FontSize" Value="10"></Setter>
+      <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+      <Setter Property="BorderColor" Value="#99aabb"></Setter>
+      <Setter Property="TextColor" Value="#99aabb"></Setter>
+      <Setter Property="BorderWidth" Value="1"></Setter>
+      <Setter Property="WidthRequest" Value="50"></Setter>
+      <Setter Property="HeightRequest" Value="50"></Setter>
+      <Setter Property="HorizontalOptions" Value="End"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="Margin" Value="10"></Setter>
+      <Setter Property="CommandParameter" Value="{Binding .}"></Setter>
+      <Setter Property="Text" Value="Del"></Setter>
+    </Style>
     <Color x:Key="BackgroundTextColor">White</Color>
     <Color x:Key="BackgroundColor">LightSkyBlue</Color>
     <Color x:Key="BackgroundButtonColor">White</Color>

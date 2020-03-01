@@ -63,36 +63,10 @@
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
-                  <Button 
-                    CharacterSpacing="1"
-                    Text="EDIT"
-                    FontSize="10"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    Margin="0,0,-5,0"
-                    BorderColor="{StaticResource CardTextColor}"
-                    BorderWidth="1"
-                    BackgroundColor="{StaticResource PanelButtonColor}"
-                    TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.EditExerciseCommand}" 
-                    CommandParameter="{Binding .}"/>
-                  <Button 
-                    CharacterSpacing="1"
-                    Text="DEL"
-                    FontSize="10"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    Margin="10"
-                    BorderColor="{StaticResource CardTextColor}"
-                    BorderWidth="1"
-                    BackgroundColor="{StaticResource PanelButtonColor}"
-                    TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.DeleteExerciseCommand}" 
-                    CommandParameter="{Binding .}"/>
+                  <Button Style="{StaticResource EditButton}"
+                    Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.EditCommand}" />
+                  <Button Style="{StaticResource DeleteButton}"
+                    Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.DeleteCommand}" />
                 </StackLayout>
               </ViewCell>
             </DataTemplate>

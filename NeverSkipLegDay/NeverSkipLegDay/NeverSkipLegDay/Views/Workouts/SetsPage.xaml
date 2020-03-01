@@ -82,22 +82,10 @@
                     BorderColor="{StaticResource CardTextColor}"
                     BorderWidth="1"
                     TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.EditSetCommand}" 
+                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.EditCommand}" 
                     CommandParameter="{Binding .}"/>
-                  <Button
-                    Text="Del"
-                    FontSize="10"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    Margin="10,0,10,0"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    BackgroundColor="{StaticResource BackgroundButtonColor}"
-                    BorderColor="{StaticResource CardTextColor}"
-                    BorderWidth="1"
-                    TextColor="{StaticResource CardTextColor}"
-                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.DeleteSetCommand}" 
-                    CommandParameter="{Binding .}"/>
+                  <Button Style="{StaticResource DeleteButton}"
+                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.DeleteCommand}" />
                 </StackLayout>
               </ViewCell>
             </DataTemplate>
