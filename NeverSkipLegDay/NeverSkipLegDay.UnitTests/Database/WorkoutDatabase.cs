@@ -40,6 +40,7 @@ namespace NeverSkipLegDay.UnitTests.Database
             }
             else
             {
+                workout.Id = workouts.Last().Id + 1;
                 workouts.Add(workout);
                 return workouts.Find(w => w == workout) != null ? 1 : 0;
             }

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Database\WorkoutDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\WorkoutViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
