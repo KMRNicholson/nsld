@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NeverSkipLegDay\NeverSkipLegDay\NeverSkipLegDay.csproj" />
+    <ProjectReference Include="..\NeverSkipLegDay\NeverSkipLegDay.csproj" />
   </ItemGroup>
 
 </Project>
