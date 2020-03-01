@@ -4,13 +4,8 @@
              x:Name="dashboardPage"
              x:Class="NeverSkipLegDay.Views.DashboardDetailPage" >
   <NavigationPage.TitleView>
-    <Label
-      FontAttributes="Bold"
-      TextColor="{StaticResource BarTextColor}"
-      FontSize="20"
-      Text="N S L D"
-      HorizontalOptions="Center"
-      Margin="0,0,70,0"/>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="N S L D"/>
   </NavigationPage.TitleView>
   <StackLayout>
     <Grid 
