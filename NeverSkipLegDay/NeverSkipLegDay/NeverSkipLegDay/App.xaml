@@ -5,7 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.App">
+  
   <Application.Resources>
+    <Style TargetType="NavigationPage">
+      <Setter Property="BarBackgroundColor" Value="#99aabb"></Setter>
+      <Setter Property="BarTextColor" Value="White"></Setter>
+    </Style>
     <Color x:Key="BackgroundTextColor">White</Color>
     <Color x:Key="BackgroundColor">LightSkyBlue</Color>
     <Color x:Key="BackgroundButtonColor">White</Color>
