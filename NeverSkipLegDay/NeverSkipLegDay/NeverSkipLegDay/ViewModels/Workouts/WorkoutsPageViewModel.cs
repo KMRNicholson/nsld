@@ -17,6 +17,11 @@ namespace NeverSkipLegDay.ViewModels
 
         private bool _isDataLoaded;
 
+        public string AddButtonText
+        {
+            get { return "Add Workout"; }
+        }
+
         public ObservableCollection<WorkoutViewModel> Workouts { get; private set; }
             = new ObservableCollection<WorkoutViewModel>();
 
@@ -26,10 +31,10 @@ namespace NeverSkipLegDay.ViewModels
             set { SetValue(ref _selectedWorkout, value); }
         }
 
-        public ICommand AddWorkoutCommand { get; set; }
-        public ICommand EditWorkoutCommand { get; set; }
-        public ICommand DeleteWorkoutCommand { get; set; }
-        public ICommand SelectWorkoutCommand { get; set; }
+        public ICommand AddCommand { get; set; }
+        public ICommand EditCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
+        public ICommand SelectCommand { get; set; }
 
         public WorkoutsPageViewModel(WorkoutDal workoutDal, IPageService pageService)
         {
@@ -39,10 +44,10 @@ namespace NeverSkipLegDay.ViewModels
             _workoutDal = workoutDal;
             _pageService = pageService;
 
-            AddWorkoutCommand = new Command(async () => await AddWorkout());
-            EditWorkoutCommand = new Command<WorkoutViewModel>(async workout => await EditWorkout(workout));
-            DeleteWorkoutCommand = new Command<WorkoutViewModel>(async workout => await DeleteWorkout(workout));
-            SelectWorkoutCommand = new Command<WorkoutViewModel>(async workout => await SelectWorkout(workout));            
+            AddCommand = new Command(async () => await AddWorkout());
+            EditCommand = new Command<WorkoutViewModel>(async workout => await EditWorkout(workout));
+            DeleteCommand = new Command<WorkoutViewModel>(async workout => await DeleteWorkout(workout));
+            SelectCommand = new Command<WorkoutViewModel>(async workout => await SelectWorkout(workout));            
         }
 
         private void OnWorkoutSaved(AddEditWorkoutPageViewModel source, Workout workout)

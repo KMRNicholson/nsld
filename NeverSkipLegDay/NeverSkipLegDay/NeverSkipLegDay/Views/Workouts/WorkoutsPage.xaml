@@ -84,19 +84,7 @@
           </ListView.ItemTemplate>
         </ListView>
       </StackLayout>
-      <Button 
-        BackgroundColor="{StaticResource PanelButtonColor}"
-        BorderColor="{StaticResource PanelButtonBorderColor}"
-        TextColor="{StaticResource PanelButtonTextColor}"
-        BorderWidth="1"
-        WidthRequest="150" 
-        HeightRequest="80"
-        HorizontalOptions="Center" 
-        VerticalOptions="End"
-        CharacterSpacing="5"
-        Text="Add Workout" 
-        Margin="0,0,0,20"
-        Command="{Binding AddWorkoutCommand}"/>
+      <Button Style="{StaticResource AddButton}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>
