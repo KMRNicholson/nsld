@@ -1,4 +1,4 @@
-![MSBuild](https://github.com/KMRNicholson/nsld/workflows/MSBuild/badge.svg)
+![Dev](https://github.com/KMRNicholson/nsld/workflows/MSBuild/badge.svg)
 
 # Never Skip Leg Day Mobile
 Mobile application for my Never Skip Leg Day web app which can be found here at https://neverskiplegday.ca. The user interface and experience will be revamped from the old version currently available online.
