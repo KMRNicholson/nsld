@@ -11,7 +11,7 @@ namespace NeverSkipLegDay.ViewModels
 {
     public class SetsPageViewModel : BaseViewModel
     {
-        private SetDal _setDal;
+        private ISetDal _setDal;
         private IPageService _pageService;
 
         private bool _isDataLoaded;
@@ -30,64 +30,63 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-
         public ICommand BatchSaveCommand { get; set; }
 
-        public SetsPageViewModel(ExerciseViewModel exercise, SetDal setDal, IPageService pageService)
+        public SetsPageViewModel(ExerciseViewModel exercise, ISetDal setDal, IPageService pageService)
         {
             _setDal = setDal;
             _pageService = pageService;
 
             Exercise = exercise;
 
-            LoadDataCommand = new Command(async () => await LoadData());
-            AddCommand = new Command(async () => await AddSet());
-            EditCommand = new Command<SetViewModel>(async set => await EditSet(set));
+            LoadDataCommand = new Command(() => LoadData());
+            AddCommand = new Command(() => AddSet());
+            EditCommand = new Command<SetViewModel>(set => EditSet(set));
             DeleteCommand = new Command<SetViewModel>(async set => await DeleteSet(set));
         }
 
-        private async Task LoadData()
+        public void LoadData()
         {
             if (_isDataLoaded) return;
 
             _isDataLoaded = true;
-            var sets = await _setDal.GetSetsByExerciseIdAsync(Exercise.Id);
+            var sets = _setDal.GetSetsByExerciseId(Exercise.Id);
             foreach (var set in sets)
             {
                 Sets.Add(new SetViewModel(set));
             }
         }
 
-        private async Task AddSet()
+        public void AddSet()
         {
             Set set = new Set() { ExerciseId = Exercise.Id };
-            await _setDal.SaveSetAsync(set);
+            _setDal.SaveSet(set);
             Sets.Add(new SetViewModel(set));   
         }
 
-        private async Task EditSet(SetViewModel set)
+        public void EditSet(SetViewModel set)
         {
             if (set == null) return;
 
-            Set existingSet = await _setDal.GetSetAsync(set.Id);
+            Set existingSet = _setDal.GetSet(set.Id);
             existingSet.Reps = set.Reps;
             existingSet.Weight = set.Weight;
-            await _setDal.SaveSetAsync(existingSet);
+            _setDal.SaveSet(existingSet);
 
             var setInList = Sets.Single(s => s.Id == set.Id);
             setInList.Reps = set.Reps;
             setInList.Weight = set.Weight;
         }
 
-        private async Task DeleteSet(SetViewModel set)
+        public async Task DeleteSet(SetViewModel set)
         {
             if (set == null) return;
             
             if(await _pageService.DisplayAlert("Warning", "Are you sure you want to delete the set?", "Yes", "No"))
             {
-                var setModel = await _setDal.GetSetAsync(set.Id);
+                var setModel = _setDal.GetSet(set.Id);
                 Sets.Remove(set);
-                await _setDal.DeleteSetAsync(setModel);
+                _setDal.DeleteSet(setModel);
             }
         }
     }
