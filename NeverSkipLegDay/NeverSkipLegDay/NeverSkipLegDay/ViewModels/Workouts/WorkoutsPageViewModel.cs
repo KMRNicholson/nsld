@@ -68,7 +68,7 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             if (_isDataLoaded) return;
 
@@ -80,19 +80,19 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        private async Task AddWorkout()
+        public async Task AddWorkout()
         {
             await _pageService.PushAsync(new AddEditWorkoutPage(new WorkoutViewModel()));
         }
 
-        private async Task EditWorkout(WorkoutViewModel workout)
+        public async Task EditWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
 
             await _pageService.PushAsync(new AddEditWorkoutPage(workout));
         }
 
-        private async Task DeleteWorkout(WorkoutViewModel workout)
+        public async Task DeleteWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
 
@@ -104,7 +104,7 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        private async Task SelectWorkout(WorkoutViewModel workout)
+        public async Task SelectWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
 
