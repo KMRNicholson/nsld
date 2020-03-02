@@ -1,57 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using SQLite;
-using System.Threading.Tasks;
-using NeverSkipLegDay.Models;
-using System.IO;
 
 namespace NeverSkipLegDay.Models.DAL
 {
-    public class SetDal
+    public class SetDal : ISetDal
     {
-        readonly SQLiteAsyncConnection _database;
+        readonly SQLiteConnection _database;
 
         public SetDal(SQLiteDB db)
         {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var dbPath = Path.Combine(appData, "SQLiteNSLD.db3");
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Set>().Wait();
+            _database = db.GetConnection();
+            _database.CreateTable<Set>();
         }
 
-        public Task<List<Set>> GetSetsAsync()
+        public List<Set> GetSets()
         {
-            return _database.Table<Set>().ToListAsync();
+            return _database.Table<Set>().ToList();
         }
-        public Task<List<Set>> GetSetsByExerciseIdAsync(int exerciseId)
+        public List<Set> GetSetsByExerciseId(int exerciseId)
         {
             return _database.Table<Set>()
                 .Where(i => i.ExerciseId == exerciseId)
-                .ToListAsync();
+                .ToList();
         }
-        public Task<Set> GetSetAsync(int id)
+        public Set GetSet(int id)
         {
             return _database.Table<Set>()
                             .Where(i => i.Id == id)
-                            .FirstOrDefaultAsync();
+                            .FirstOrDefault();
         }
 
-        public Task<int> SaveSetAsync(Set model)
+        public int SaveSet(Set model)
         {
             if (model.Id != 0)
             {
-                return _database.UpdateAsync(model);
+                return _database.Update(model);
             }
             else
             {
-                return _database.InsertAsync(model);
+                return _database.Insert(model);
             }
         }
 
-        public Task<int> DeleteSetAsync(Set model)
+        public int DeleteSet(Set model)
         {
-            return _database.DeleteAsync(model);
+            return _database.Delete(model);
         }
     }
 }
