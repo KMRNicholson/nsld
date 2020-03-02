@@ -36,8 +36,7 @@ namespace NeverSkipLegDay.NUnitTestProject.Database
         {
             if (model.Id != 0)
             {
-                Workout workoutInDb = workouts.Where(w => w.Id == model.Id).ToList().FirstOrDefault();
-                workoutInDb.Name = model.Name;
+                workouts.ForEach(w => { if (w.Id == model.Id) w.Name = model.Name; });
                 return 1;
             }
             else

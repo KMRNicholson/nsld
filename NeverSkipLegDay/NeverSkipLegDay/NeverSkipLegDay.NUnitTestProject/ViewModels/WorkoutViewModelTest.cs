@@ -1,42 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using NUnit.Framework;
-using System.Text;
-using System.Threading.Tasks;
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.NUnitTestProject.Database;
 using NeverSkipLegDay.ViewModels;
 
-namespace NeverSkipLegDay.UnitTests.ViewModels
+namespace NeverSkipLegDay.NUnitTestProject.ViewModels
 {
     [TestFixture]
     public class WorkoutViewModelTest
     {
-        //private WorkoutDatabase _db = new WorkoutDatabase();
-        
-        //[Test]
-        //public void ConstructorTest()
-        //{
-        //    Workout workout = _db.GetWorkouts().FirstOrDefault();
-        //    WorkoutViewModel workoutViewModel = new WorkoutViewModel(workout);
+        private WorkoutDatabase mockDatabase;
+        private WorkoutViewModel viewModel;
+        private Workout workout;
 
-        //    Assert.AreEqual(workoutViewModel.Id, workout.Id);
-        //    Assert.AreEqual(workoutViewModel.Name, workout.Name);
-        //}
+        [SetUp]
+        public void Constructor()
+        {
+            mockDatabase = new WorkoutDatabase();
+            workout = mockDatabase.GetWorkouts().FirstOrDefault();
+            viewModel = new WorkoutViewModel(workout);
+        }
 
-        //[Test]
-        //public void OnPropertyChangedTest()
-        //{
-        //    Workout workout = _db.GetWorkouts().FirstOrDefault();
-        //    WorkoutViewModel workoutViewModel = new WorkoutViewModel(workout);
+        [Test]
+        public void ConstructorTest()
+        {
+            Assert.AreEqual(viewModel.Id, workout.Id);
+            Assert.AreEqual(viewModel.Name, workout.Name);
+        }
 
-        //    string newName = "New Workout";
+        [Test]
+        public void OnPropertyChangedTest()
+        {
+            string newName = "New Workout";
 
-        //    workoutViewModel.Name = newName;
+            viewModel.Name = newName;
 
-        //    Assert.AreNotEqual(workoutViewModel.Name, workout.Name);
-        //    Assert.AreEqual(workoutViewModel.Name, newName);
-        //}
+            Assert.AreNotEqual(viewModel.Name, workout.Name);
+            Assert.AreEqual(viewModel.Name, newName);
+        }
     }
 }

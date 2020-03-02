@@ -1,28 +1,26 @@
-﻿using System;
-using Moq;
-using NUnit.Framework;
-using NeverSkipLegDay.Models.DAL;
+﻿using NUnit.Framework;
 using NeverSkipLegDay.ViewModels;
 using NeverSkipLegDay.Models;
 using System.Collections.Generic;
 using NeverSkipLegDay.NUnitTestProject.Database;
 using System.Threading.Tasks;
 using System.Linq;
-using Xamarin.Forms;
 
 namespace NeverSkipLegDay.NUnitTestProject.ViewModels
 {
     [TestFixture]
     public class WorkoutsPageViewModelTest
     {
-        WorkoutDatabase mockDatabase = new WorkoutDatabase();
-        MockPageService pageService = new MockPageService();
-        WorkoutsPageViewModel viewModel;
-        List<Workout> workouts;
+        private WorkoutDatabase mockDatabase;
+        private MockPageService pageService;
+        private WorkoutsPageViewModel viewModel;
+        private List<Workout> workouts;
 
         [SetUp]
         public void Constructor()
         {
+            mockDatabase = new WorkoutDatabase();
+            pageService = new MockPageService();
             viewModel = new WorkoutsPageViewModel(mockDatabase, pageService);
             workouts = mockDatabase.GetWorkouts();
             viewModel.LoadDataCommand.Execute(null);
@@ -32,11 +30,6 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         public void ConstructorTest()
         {
             Assert.AreNotEqual(viewModel, null);
-        }
-
-        [Test]
-        public void PropertyGettersTest()
-        {
             Assert.AreEqual(viewModel.AddButtonText, "Add Workout");
             Assert.AreEqual(viewModel.Workouts.Count, workouts.Count);
             Assert.AreEqual(viewModel.SelectedWorkout, null);
@@ -84,21 +77,6 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreEqual(viewModel.Workouts.Count, workouts.Count);
             Assert.AreEqual(viewModel.Workouts.Count, numInList);
             Assert.AreEqual(workouts.Count, numInDb);
-        }
-
-        [Test]
-        public async Task DeselectWorkoutTest()
-        {
-            Assert.AreEqual(viewModel.SelectedWorkout, null);
-
-            WorkoutViewModel selectedWorkout = new WorkoutViewModel(workouts.FirstOrDefault());
-            viewModel.SelectedWorkout = selectedWorkout;
-
-            Assert.AreEqual(viewModel.SelectedWorkout, selectedWorkout);
-
-            await viewModel.SelectWorkout(selectedWorkout);
-
-            Assert.AreEqual(viewModel.SelectedWorkout, null);
         }
 
         [Test]
