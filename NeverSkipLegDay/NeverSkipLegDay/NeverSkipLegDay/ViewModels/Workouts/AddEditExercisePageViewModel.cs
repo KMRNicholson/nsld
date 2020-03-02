@@ -34,7 +34,7 @@ namespace NeverSkipLegDay.ViewModels
             };
         }
 
-        private async Task Save()
+        public async Task Save()
         {
             if (string.IsNullOrWhiteSpace(Exercise.Name))
             {
