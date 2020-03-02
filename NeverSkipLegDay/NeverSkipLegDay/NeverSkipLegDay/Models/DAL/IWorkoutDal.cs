@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using SQLite;
-using System.Threading.Tasks;
 
 namespace NeverSkipLegDay.Models.DAL
 {
