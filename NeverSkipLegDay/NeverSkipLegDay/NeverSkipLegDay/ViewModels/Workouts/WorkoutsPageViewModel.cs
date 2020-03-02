@@ -80,12 +80,12 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        public async Task AddWorkout()
+        private async Task AddWorkout()
         {
             await _pageService.PushAsync(new AddEditWorkoutPage(new WorkoutViewModel()));
         }
 
-        public async Task EditWorkout(WorkoutViewModel workout)
+        private async Task EditWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
 
