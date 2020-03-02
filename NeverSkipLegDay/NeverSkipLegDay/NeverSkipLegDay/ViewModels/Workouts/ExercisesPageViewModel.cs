@@ -12,7 +12,7 @@ namespace NeverSkipLegDay.ViewModels
     public class ExercisesPageViewModel : BaseViewModel
     {
         private ExerciseViewModel _selectedExercise;
-        private ExerciseDal _exerciseDal;
+        private IExerciseDal _exerciseDal;
         private IPageService _pageService;
 
         private bool AreExercisesEmpty
@@ -43,7 +43,7 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand DeleteCommand { get; set; }
         public ICommand SelectCommand { get; set; }
 
-        public ExercisesPageViewModel(WorkoutViewModel workout, ExerciseDal exerciseDal, IPageService pageService)
+        public ExercisesPageViewModel(WorkoutViewModel workout, IExerciseDal exerciseDal, IPageService pageService)
         {
             MessagingCenter.Subscribe<AddEditExercisePageViewModel, Exercise>
                 (this, Events.ExerciseSaved, OnExerciseSaved);
@@ -74,12 +74,12 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        public async Task LoadData()
+        public void LoadData()
         {
             if (_isDataLoaded) return;
 
             _isDataLoaded = true;
-            var exercises = await _exerciseDal.GetExercisesByWorkoutIdAsync(Workout.Id);
+            var exercises = _exerciseDal.GetExercisesByWorkoutId(Workout.Id);
             foreach (var exercise in exercises)
             {
                 Exercises.Add(new ExerciseViewModel(exercise));
@@ -104,9 +104,9 @@ namespace NeverSkipLegDay.ViewModels
 
             if(await _pageService.DisplayAlert("Warning", $"Are you sure you want to delete {exercise.Name}?", "Yes", "No"))
             {
-                var exerciseModel = await _exerciseDal.GetExerciseAsync(exercise.Id);
+                var exerciseModel = _exerciseDal.GetExercise(exercise.Id);
                 Exercises.Remove(exercise);
-                await _exerciseDal.DeleteExerciseAsync(exerciseModel);
+                _exerciseDal.DeleteExercise(exerciseModel);
             }
         }
 

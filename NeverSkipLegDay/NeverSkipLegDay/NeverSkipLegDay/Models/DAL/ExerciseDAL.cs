@@ -1,59 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using SQLite;
-using System.Threading.Tasks;
-using NeverSkipLegDay.Models;
-using System.IO;
 
 namespace NeverSkipLegDay.Models.DAL
 {
-    public class ExerciseDal
+    public class ExerciseDal : IExerciseDal
     {
-        readonly SQLiteAsyncConnection _database;
-        
-
+        readonly SQLiteConnection _database;
 
         public ExerciseDal(SQLiteDB db)
         {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var dbPath = Path.Combine(appData, "SQLiteNSLD.db3");
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Exercise>().Wait();
+            _database = db.GetConnection();
+            _database.CreateTable<Exercise>();
         }
 
-        public Task<List<Exercise>> GetExercisesAsync()
+        public List<Exercise> GetExercises()
         {
-            return _database.Table<Exercise>().ToListAsync();
+            return _database.Table<Exercise>().ToList();
         }
-        public Task<List<Exercise>> GetExercisesByWorkoutIdAsync(int workoutId)
+        public List<Exercise> GetExercisesByWorkoutId(int workoutId)
         {
             return _database.Table<Exercise>()
                 .Where(i => i.WorkoutId == workoutId)
-                .ToListAsync();
+                .ToList();
         }
-        public Task<Exercise> GetExerciseAsync(int id)
+        public Exercise GetExercise(int id)
         {
             return _database.Table<Exercise>()
                             .Where(i => i.Id == id)
-                            .FirstOrDefaultAsync();
+                            .FirstOrDefault();
         }
 
-        public Task<int> SaveExerciseAsync(Exercise model)
+        public int SaveExercise(Exercise model)
         {
             if (model.Id != 0)
             {
-                return _database.UpdateAsync(model);
+                return _database.Update(model);
             }
             else
             {
-                return _database.InsertAsync(model);
+                return _database.Insert(model);
             }
         }
 
-        public Task<int> DeleteExerciseAsync(Exercise model)
+        public int DeleteExercise(Exercise model)
         {
-            return _database.DeleteAsync(model);
+            return _database.Delete(model);
         }
     }
 }

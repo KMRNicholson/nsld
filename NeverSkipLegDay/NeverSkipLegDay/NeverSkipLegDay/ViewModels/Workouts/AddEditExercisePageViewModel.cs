@@ -9,14 +9,14 @@ namespace NeverSkipLegDay.ViewModels
 {
     public class AddEditExercisePageViewModel : BaseViewModel
     {
-        private ExerciseDal _exerciseDal;
+        private IExerciseDal _exerciseDal;
         private IPageService _pageService;
 
         public Exercise Exercise { get; private set; }
 
         public ICommand SaveCommand { get; private set; }
 
-        public AddEditExercisePageViewModel(ExerciseViewModel exercise, ExerciseDal exerciseDal, IPageService pageService)
+        public AddEditExercisePageViewModel(ExerciseViewModel exercise, IExerciseDal exerciseDal, IPageService pageService)
         {
             if (exercise == null)
                 throw new ArgumentNullException(nameof(exercise));
@@ -42,7 +42,7 @@ namespace NeverSkipLegDay.ViewModels
                 return;
             }
 
-            await _exerciseDal.SaveExerciseAsync(Exercise);
+            _exerciseDal.SaveExercise(Exercise);
             MessagingCenter.Send(this, Events.ExerciseSaved, Exercise);
             await _pageService.PopAsync();
         }
