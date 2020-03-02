@@ -20,7 +20,7 @@ jobs:
     - name: Setup Nuget.exe
       uses: warrenbuckley/Setup-Nuget@v1
     - name: Nuget Restore
-      run: nuget NeverSkipLegDay\NeverSkipLegDay\NeverSkipLegDay\NeverSkipLegDay.csproj
+      run: nuget NeverSkipLegDay\NeverSkipLegDay.sln
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: Build with MSBuild
