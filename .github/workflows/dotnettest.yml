@@ -14,4 +14,4 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Build with dotnet
-      run: dotnet test NeverSkipLegDay\NeverSkipLegDay.UnitTests\NeverSkipLegDay.UnitTests.csproj
+      run: dotnet test NeverSkipLegDay\NeverSkipLegDay\NeverSkipLegDay.NUnitTestProject
