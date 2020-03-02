@@ -68,26 +68,39 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         }
 
         [Test]
-        public void EditCommand()
+        public void BatchSave()
         {
-            SetViewModel setViewModel = viewModel.Sets.FirstOrDefault();
+            SetViewModel firstSetViewModel = viewModel.Sets.FirstOrDefault();
+            SetViewModel secondSetViewModel = viewModel.Sets.Last();
 
-            Set setFromDb = mockDatabase.GetSet(setViewModel.Id);
+            Set firstSetFromDb = mockDatabase.GetSet(firstSetViewModel.Id);
+            Set secondSetFromDb = mockDatabase.GetSet(secondSetViewModel.Id);
 
-            Assert.AreEqual(setViewModel.Id, setFromDb.Id);
-            Assert.AreEqual(setViewModel.Reps, setFromDb.Reps);
-            Assert.AreEqual(setViewModel.Weight, setFromDb.Weight);
+            Assert.AreEqual(firstSetViewModel.Id, firstSetFromDb.Id);
+            Assert.AreEqual(firstSetViewModel.Reps, firstSetFromDb.Reps);
+            Assert.AreEqual(firstSetViewModel.Weight, firstSetFromDb.Weight);
 
-            setViewModel.Reps -= 1;
-            setViewModel.Weight += 5;
+            Assert.AreEqual(secondSetViewModel.Id, secondSetFromDb.Id);
+            Assert.AreEqual(secondSetViewModel.Reps, secondSetFromDb.Reps);
+            Assert.AreEqual(secondSetViewModel.Weight, secondSetFromDb.Weight);
 
-            viewModel.EditSet(setViewModel);
+            firstSetViewModel.Reps -= 1;
+            firstSetViewModel.Weight += 5;
+            secondSetViewModel.Reps -= 1;
+            secondSetViewModel.Weight += 5;
 
-            Set newSetFromDb = mockDatabase.GetSet(setViewModel.Id);
+            viewModel.BatchSave();
 
-            Assert.AreEqual(setViewModel.Id, setFromDb.Id);
-            Assert.AreEqual(setViewModel.Reps, newSetFromDb.Reps);
-            Assert.AreEqual(setViewModel.Weight, newSetFromDb.Weight);
+            Set newSetFromDb1 = mockDatabase.GetSet(firstSetViewModel.Id);
+            Set newSetFromDb2 = mockDatabase.GetSet(secondSetViewModel.Id);
+
+            Assert.AreEqual(firstSetViewModel.Id, newSetFromDb1.Id);
+            Assert.AreEqual(firstSetViewModel.Reps, newSetFromDb1.Reps);
+            Assert.AreEqual(firstSetViewModel.Weight, newSetFromDb1.Weight);
+
+            Assert.AreEqual(secondSetViewModel.Id, newSetFromDb2.Id);
+            Assert.AreEqual(secondSetViewModel.Reps, newSetFromDb2.Reps);
+            Assert.AreEqual(secondSetViewModel.Weight, newSetFromDb2.Weight);
         }
 
         [Test]

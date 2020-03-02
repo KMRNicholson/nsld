@@ -64,7 +64,7 @@ namespace NeverSkipLegDay.ViewModels
             Sets.Add(new SetViewModel(set));   
         }
 
-        public void EditSet(SetViewModel set)
+        private void EditSet(SetViewModel set)
         {
             if (set == null) return;
 
@@ -87,6 +87,14 @@ namespace NeverSkipLegDay.ViewModels
                 var setModel = _setDal.GetSet(set.Id);
                 Sets.Remove(set);
                 _setDal.DeleteSet(setModel);
+            }
+        }
+
+        public void BatchSave()
+        {
+            foreach(SetViewModel set in Sets)
+            {
+                EditSet(set);
             }
         }
     }
