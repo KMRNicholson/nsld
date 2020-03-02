@@ -4,16 +4,21 @@ using System.Text;
 using SQLite;
 using System.Threading.Tasks;
 using NeverSkipLegDay.Models;
+using System.IO;
 
 namespace NeverSkipLegDay.Models.DAL
 {
     public class ExerciseDal
     {
         readonly SQLiteAsyncConnection _database;
+        
+
 
         public ExerciseDal(SQLiteDB db)
         {
-            _database = db.GetConnection();
+            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var dbPath = Path.Combine(appData, "SQLiteNSLD.db3");
+            _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Exercise>().Wait();
         }
 

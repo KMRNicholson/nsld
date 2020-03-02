@@ -8,11 +8,11 @@ namespace NeverSkipLegDay.Models.DAL
 {
     public class SQLiteDB
     {
-        public SQLiteAsyncConnection GetConnection()
+        public SQLiteConnection GetConnection()
         {
             var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             var dbPath = Path.Combine(appData, "SQLiteNSLD.db3");
-            return new SQLiteAsyncConnection(dbPath);
+            return new SQLiteConnection(dbPath);
         }
     }
 }
