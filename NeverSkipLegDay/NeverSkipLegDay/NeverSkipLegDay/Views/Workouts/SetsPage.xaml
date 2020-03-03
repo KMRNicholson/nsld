@@ -4,9 +4,16 @@
              BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
              x:Name="setsPage"
              x:Class="NeverSkipLegDay.Views.SetsPage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="  Save  "
+                 Order="Primary"
+                 Priority="0"
+                 Command="{Binding BatchSaveCommand}"/>
+  </ContentPage.ToolbarItems>
   <NavigationPage.TitleView>
     <Label Style="{StaticResource AppBarTitle}"
-      Text="S E T S"/>
+      Text="S E T S"
+           Margin="0,0,10,0"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout 
@@ -28,9 +35,9 @@
                   Orientation="Horizontal"
                   HeightRequest="80">
                   <Label
-                    Text="Reps"
+                    Text="Reps:"
                     Margin="10,0,0,0"
-                    FontSize="15"
+                    FontSize="20"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
@@ -38,27 +45,23 @@
                     VerticalOptions="CenterAndExpand"
                     TextColor="{StaticResource CardTextColor}"
                     WidthRequest="50"
-                    FontSize="15"
+                    FontSize="20"
                     Text="{Binding Reps}"
                     Keyboard="Numeric"/>
                   <Label
-                    Text="Weight"
-                    FontSize="15"
+                    Text="Weight:"
+                    FontSize="20"
                     TextColor="{StaticResource CardTextColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="StartAndExpand"/>
                   <Entry
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="StartAndExpand"
-                    FontSize="15"
+                    FontSize="20"
                     TextColor="{StaticResource CardTextColor}"
                     WidthRequest="50"
                     Text="{Binding Weight}"
                     Keyboard="Telephone"/>
-                  <Button Style="{StaticResource EditButton}"
-                    Text="Save"
-                    WidthRequest="51"
-                    Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.EditCommand}"/>
                   <Button Style="{StaticResource DeleteButton}"
                     Command="{Binding Source={x:Reference setsPage}, Path=ViewModel.DeleteCommand}" />
                 </StackLayout>

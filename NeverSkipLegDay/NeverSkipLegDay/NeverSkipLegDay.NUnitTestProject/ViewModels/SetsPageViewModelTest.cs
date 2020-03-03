@@ -68,7 +68,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         }
 
         [Test]
-        public void BatchSave()
+        public async Task BatchSave()
         {
             SetViewModel firstSetViewModel = viewModel.Sets.FirstOrDefault();
             SetViewModel secondSetViewModel = viewModel.Sets.Last();
@@ -89,7 +89,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             secondSetViewModel.Reps -= 1;
             secondSetViewModel.Weight += 5;
 
-            viewModel.BatchSave();
+            await viewModel.BatchSave();
 
             Set newSetFromDb1 = mockDatabase.GetSet(firstSetViewModel.Id);
             Set newSetFromDb2 = mockDatabase.GetSet(secondSetViewModel.Id);
