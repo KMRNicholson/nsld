@@ -10,7 +10,7 @@
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout>
-      <StackLayout 
+      <StackLayout
         VerticalOptions="Start">
         <Label Style="{StaticResource HelpLabel}"
           x:Name="helpLabel"

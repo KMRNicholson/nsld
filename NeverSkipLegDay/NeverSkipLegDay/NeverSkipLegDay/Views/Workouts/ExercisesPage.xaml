@@ -9,19 +9,18 @@
       Text="E X E R C I S E S"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout Spacing="0">
-      <StackLayout
-        Style="{StaticResource HeaderCard}">
+    <StackLayout
+      Spacing="0">
+      <StackLayout Style="{StaticResource HeaderCard}">
         <Label Style="{StaticResource Header}"
           Text="{Binding Workout.Name}"/>
       </StackLayout>
       <StackLayout
-        Margin="10"
         VerticalOptions="Start">
         <Label Style="{StaticResource HelpLabel}"
           x:Name="helpLabel"
           IsVisible="False"/>
-        <ListView Margin="0"
+        <ListView 
           x:Name="listView"
           ItemsSource="{Binding Exercises}"
           SelectedItem="{Binding SelectedExercise, Mode=TwoWay}"
