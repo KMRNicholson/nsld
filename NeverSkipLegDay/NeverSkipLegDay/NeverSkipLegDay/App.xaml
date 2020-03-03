@@ -99,13 +99,13 @@
       <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
       <Setter Property="FontSize" Value="15"></Setter>
       <Setter Property="BackgroundColor" Value="{StaticResource Key=CardBackgroundColor}"></Setter>
-      <Setter Property="Padding" Value="20"></Setter>
       <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"></Setter>
       <Setter Property="HorizontalOptions" Value="Center"></Setter>
-      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="VerticalOptions" Value="StartAndExpand"></Setter>
       <Setter Property="CharacterSpacing" Value="2"></Setter>
-      <Setter Property="Margin" Value="40,70,40,0"></Setter>
-      <Setter Property="Text" Value="Please tap the Add Button below to add your first item!"></Setter>
+      <Setter Property="Padding" Value="20"></Setter>
+      <Setter Property="Margin" Value="40,40,40,0"></Setter>
+      <Setter Property="Text" Value="Please tap the Add button below to add your first item!"></Setter>
     </Style>
     <Style x:Key="AppBarTitle" TargetType="Label">
       <Setter Property="FontAttributes" Value="Bold"></Setter>
