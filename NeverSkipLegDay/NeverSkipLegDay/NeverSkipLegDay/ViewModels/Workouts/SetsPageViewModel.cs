@@ -43,6 +43,7 @@ namespace NeverSkipLegDay.ViewModels
             AddCommand = new Command(() => AddSet());
             EditCommand = new Command<SetViewModel>(set => EditSet(set));
             DeleteCommand = new Command<SetViewModel>(async set => await DeleteSet(set));
+            BatchSaveCommand = new Command(async () => await BatchSave());
         }
 
         public void LoadData()
@@ -90,12 +91,14 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        public void BatchSave()
+        public async Task BatchSave()
         {
             foreach(SetViewModel set in Sets)
             {
                 EditSet(set);
             }
+
+            await _pageService.DisplayAlert("Saved", "All sets are now saved.", "OK");
         }
     }
 }
