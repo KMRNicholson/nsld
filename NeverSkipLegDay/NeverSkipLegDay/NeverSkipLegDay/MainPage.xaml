@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             BackgroundColor="LightSteelBlue"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.MainPage">
-  <StackLayout BackgroundColor="{StaticResource BackgroundColor}">
+  <StackLayout BackgroundColor="LightSteelBlue">
     <Grid 
       VerticalOptions="FillAndExpand"
       RowSpacing="0"    
@@ -17,31 +18,40 @@
         <RowDefinition Height="20*"/>
         <RowDefinition Height="20*"/>
       </Grid.RowDefinitions>
-      <StackLayout 
+      <StackLayout
+        x:Name="never"
+        Opacity="0"
         BackgroundColor="{StaticResource BarBackgroundColor}"
         Grid.Row="0">
         <Label Style="{StaticResource MainPageLabel}"
           Text="NEVER"/>
       </StackLayout>
-      <StackLayout 
+      <StackLayout
+        Opacity="0"
+        x:Name="skip"
         BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
         Grid.Row="1">
         <Label Style="{StaticResource MainPageLabel}"
           Text="SKIP" />
       </StackLayout>
-      <StackLayout 
+      <StackLayout
+        Opacity="0"
+        x:Name="leg"
         BackgroundColor="{StaticResource NutritionBackgroundColor}"
         Grid.Row="2">
         <Label Style="{StaticResource MainPageLabel}"
           Text="LEG" />
       </StackLayout>
       <StackLayout
+        Opacity="0"
+        x:Name="day"
         BackgroundColor="{StaticResource RecordsBackgroundColor}"
         Grid.Row="3">
         <Label Style="{StaticResource MainPageLabel}"
           Text="DAY"  />
       </StackLayout>
-      <StackLayout 
+      <StackLayout
+        x:Name="enter"
         BackgroundColor="LightSteelBlue"
         Grid.Row="4">
         <Button Style="{StaticResource PanelButton}"

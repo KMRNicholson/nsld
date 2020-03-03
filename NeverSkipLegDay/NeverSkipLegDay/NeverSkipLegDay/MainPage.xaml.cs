@@ -2,11 +2,10 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using NeverSkipLegDay.Views;
+using System.Threading.Tasks;
 
 namespace NeverSkipLegDay
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
@@ -14,6 +13,15 @@ namespace NeverSkipLegDay
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        protected override async void OnAppearing()
+        {
+            await never.FadeTo(1, 500);
+            await skip.FadeTo(1, 500);
+            await leg.FadeTo(1, 500);
+            await day.FadeTo(1, 500);
+            base.OnAppearing();
         }
 
         async void OnEnter(object sender, EventArgs e)
