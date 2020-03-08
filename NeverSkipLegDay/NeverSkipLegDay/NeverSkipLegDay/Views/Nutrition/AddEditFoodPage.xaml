@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource NutritionBackgroundColor}"
+             x:Name="addEditFoodPage"
+             x:Class="NeverSkipLegDay.Views.AddEditFoodPage">
+  <NavigationPage.TitleView>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="E X E R C I S E S"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout 
+      BackgroundColor="{StaticResource CardBackgroundColor}"
+      Margin="10"
+      VerticalOptions="Start">
+      <Label 
+        Text="Name:"
+        FontSize="20"
+        Margin="10"
+        TextColor="{StaticResource CardTextColor}"/>
+      <Entry 
+        Text="{Binding Food.Name}"
+        Placeholder="e.g. Bench Press" 
+        PlaceholderColor="{StaticResource PlaceholderColor}"
+        TextColor="{StaticResource CardTextColor}"
+        Margin="10,0,10,10" 
+        IsTextPredictionEnabled="True"  
+        Keyboard="Chat" 
+        IsSpellCheckEnabled="True"/>
+      <Button
+        Text="Save"
+        HorizontalOptions="End"
+        Margin="0,0,10,10"
+        BackgroundColor="{StaticResource BarBackgroundColor}"
+        TextColor="{StaticResource BarTextColor}"
+        Command="{Binding SaveCommand}"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
