@@ -1,15 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             BackgroundColor="{StaticResource NutritionBackgroundColor}"
+             x:Name="foodsPage"
              x:Class="NeverSkipLegDay.Views.FoodsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+  <NavigationPage.TitleView>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="F O O D"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout Spacing="0">
+      <StackLayout
+        Style="{StaticResource HeaderCard}">
+        <Label Style="{StaticResource Header}"
+          Text="{Binding Meal.Name}"/>
+      </StackLayout>
+      <StackLayout
+        Margin="10"
+        VerticalOptions="Start">
+        <Label Style="{StaticResource HelpLabel}"
+          x:Name="helpLabel"
+          IsVisible="False"/>
+        <ListView Margin="0"
+          x:Name="listView"
+          ItemsSource="{Binding Foods}">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <StackLayout
+                  Spacing="0">
+                  <StackLayout 
+                  BackgroundColor="{StaticResource CardBackgroundColor}"
+                  Orientation="Horizontal">
+                    <Label 
+                    Text="{Binding Name}"
+                    CharacterSpacing="1"
+                    FontSize="20"
+                    Margin="20"
+                    TextColor="{StaticResource CardTextColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+                    <Button Style="{StaticResource EditButton}"
+                    Command="{Binding Source={x:Reference foodsPage}, Path=ViewModel.EditCommand}" />
+                    <Button Style="{StaticResource DeleteButton}"
+                    Command="{Binding Source={x:Reference foodsPage}, Path=ViewModel.DeleteCommand}" />
+                  </StackLayout>
+                  <StackLayout
+                    BackgroundColor="{StaticResource CardBackgroundColor}"
+                    Orientation="Horizontal"
+                    Spacing="0">
+                    <Label 
+                      Style="{StaticResource NutritionalLabel}"
+                      Text="Fat:"
+                      Margin="20,20,5,20"/>
+                    <Label 
+                      Style="{StaticResource NutritionalLabel}"
+                      Text="{Binding Fat}"/>
+                    <Label 
+                      Style="{StaticResource NutritionalLabel}"
+                      Text="Prot:"
+                      Margin="0,20,5,20"/>
+                    <Label 
+                      Style="{StaticResource NutritionalLabel}"
+                      Text="{Binding Prot}"/>
+                    <Label 
+                      Style="{StaticResource NutritionalLabel}"
+                      Text="Carb:"
+                      Margin="0,20,5,20"/>
+                    <Label
+                      Style="{StaticResource NutritionalLabel}"
+                      Text="{Binding Carb}"/>
+                    <Label
+                      Style="{StaticResource NutritionalLabel}"
+                      Text="Cals:"
+                      Margin="0,20,5,20"
+                      HorizontalOptions="EndAndExpand"/>
+                    <Label 
+                      Style="{StaticResource NutritionalLabel}"
+                      Text="{Binding Cal}"/>
+                  </StackLayout>
+                </StackLayout>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+      <Button Style="{StaticResource AddButton}"/>
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>

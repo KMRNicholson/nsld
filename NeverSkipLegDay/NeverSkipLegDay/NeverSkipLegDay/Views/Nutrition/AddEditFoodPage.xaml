@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource NutritionBackgroundColor}"
+             x:Name="addEditFoodPage"
+             x:Class="NeverSkipLegDay.Views.AddEditFoodPage">
+  <NavigationPage.TitleView>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="F O O D"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout 
+      BackgroundColor="{StaticResource CardBackgroundColor}"
+      Margin="10"
+      VerticalOptions="Start">
+      <Label 
+        Text="Name:"
+        FontSize="20"
+        Margin="10"
+        TextColor="{StaticResource CardTextColor}"/>
+      <Entry 
+        Text="{Binding Food.Name}"
+        Placeholder="e.g. Boiled Egg" 
+        PlaceholderColor="{StaticResource PlaceholderColor}"
+        TextColor="{StaticResource CardTextColor}"
+        Margin="10,0,10,10" 
+        IsTextPredictionEnabled="True"  
+        Keyboard="Chat" 
+        IsSpellCheckEnabled="True"/>
+      <Grid 
+      RowSpacing="0"    
+      ColumnSpacing="0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="25*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="50*"/>
+          <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Label 
+          Style="{StaticResource GridNutritionalLabel}"
+          Text="Fat:"
+          Margin="20,0,0,10"
+          Grid.Row="0"
+          Grid.Column="0"/>
+        <Label
+          Grid.Row="0"
+          Grid.Column="1" 
+          Style="{StaticResource GridNutritionalLabel}"
+          Text="Prot:"/>
+        <Label
+          Grid.Row="0"
+          Grid.Column="2"
+          Style="{StaticResource GridNutritionalLabel}"
+          Text="Carb:"/>
+        <Label
+          Grid.Row="0"
+          Grid.Column="3"
+          Style="{StaticResource GridNutritionalLabel}"
+          Text="Cals:"/>
+        <Entry 
+          Grid.Row="1"
+          Grid.Column="0"
+          Margin="20,0,0,10"
+          Style="{StaticResource NutritionEntry}"
+          Text="{Binding Food.Fat}"/>
+        <Entry
+          Grid.Row="1"
+          Grid.Column="1"
+          Style="{StaticResource NutritionEntry}"
+          Text="{Binding Food.Prot}"/>
+        <Entry 
+          Grid.Row="1"
+          Grid.Column="2"
+          Style="{StaticResource NutritionEntry}"
+          Text="{Binding Food.Carb}"/>
+        <Entry 
+          Grid.Row="1"
+          Grid.Column="3"
+          Style="{StaticResource NutritionEntry}"
+          Text="{Binding Food.Cal}"/>
+      </Grid>
+      <Button
+        Text="Save"
+        HorizontalOptions="End"
+        Margin="0,0,10,10"
+        BackgroundColor="{StaticResource BarBackgroundColor}"
+        TextColor="{StaticResource BarTextColor}"
+        Command="{Binding SaveCommand}"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

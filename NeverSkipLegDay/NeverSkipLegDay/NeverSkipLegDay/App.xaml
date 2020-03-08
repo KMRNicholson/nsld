@@ -23,6 +23,32 @@
     <Color x:Key="NutritionBackgroundColor">LightBlue</Color>
     <Color x:Key="RecordsBackgroundColor">LightSteelBlue</Color>
     <Color x:Key="PlaceholderColor">LightGray</Color>
+    <Style x:Key="NutritionalLabel" TargetType="Label">
+      <Setter Property="FontSize" Value="13"></Setter>
+      <Setter Property="Margin" Value="0,10,20,10"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="HorizontalOptions" Value="Start"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource CardTextColor}"></Setter>
+    </Style>
+    <Style x:Key="GridNutritionalLabel" TargetType="Label">
+      <Setter Property="FontSize" Value="15"></Setter>
+      <Setter Property="Margin" Value="10,0,0,10"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="HorizontalOptions" Value="Start"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource CardTextColor}"></Setter>
+    </Style>
+    <Style x:Key="NutritionEntry" TargetType="Entry">
+      <Setter Property="FontSize" Value="15"></Setter>
+      <Setter Property="WidthRequest" Value="50"></Setter>
+      <Setter Property="Keyboard" Value="Numeric"></Setter>
+      <Setter Property="Margin" Value="10,0,0,10"></Setter>
+      <Setter Property="HorizontalOptions" Value="Start"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="PlaceholderColor" Value="{StaticResource CardTextColor}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource CardTextColor}"></Setter>
+    </Style>
     <Style TargetType="NavigationPage">
       <Setter Property="BarBackgroundColor" Value="{StaticResource Key=BarBackgroundColor}"></Setter>
       <Setter Property="BarTextColor" Value="{StaticResource Key=BarTextColor}"></Setter>
