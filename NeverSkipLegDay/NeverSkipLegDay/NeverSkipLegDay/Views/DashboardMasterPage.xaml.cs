@@ -60,6 +60,8 @@ namespace NeverSkipLegDay.Views
                         await Navigation.PushAsync(new WorkoutsPage());
                         break;
                     case "Nutrition":
+                        ((ListView)sender).SelectedItem = null;
+                        await Navigation.PushAsync(new MealsPage());
                         break;
                     case "Record":
                         break;

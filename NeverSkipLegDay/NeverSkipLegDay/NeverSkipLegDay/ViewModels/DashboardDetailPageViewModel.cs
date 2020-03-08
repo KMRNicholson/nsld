@@ -21,11 +21,17 @@ namespace NeverSkipLegDay.ViewModels
             _pageService = pageService;
 
             SelectWorkoutsCommand = new Command(async () => await SelectWorkouts());
+            SelectNutritionCommand = new Command(async () => await SelectNutrition());
         }
 
         private async Task SelectWorkouts()
         {
             await _pageService.PushAsync(new WorkoutsPage());
+        }
+
+        private async Task SelectNutrition()
+        {
+            await _pageService.PushAsync(new MealsPage());
         }
     }
 }
