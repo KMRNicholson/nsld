@@ -24,7 +24,7 @@
         Text="{Binding Meal.Name}"
         TextColor="{StaticResource CardTextColor}"
         PlaceholderColor="{StaticResource PlaceholderColor}"
-        Placeholder="e.g. Push Day" 
+        Placeholder="e.g. Breakfast" 
         Margin="10,0,10,10" 
         IsTextPredictionEnabled="True"  
         Keyboard="Chat" 
