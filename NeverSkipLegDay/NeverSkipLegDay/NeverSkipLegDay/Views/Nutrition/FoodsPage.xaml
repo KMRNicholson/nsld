@@ -23,9 +23,7 @@
           IsVisible="False"/>
         <ListView Margin="0"
           x:Name="listView"
-          ItemsSource="{Binding Foods}"
-          SelectedItem="{Binding SelectedFood, Mode=TwoWay}"
-          ItemSelected="OnFoodSelected">
+          ItemsSource="{Binding Foods}">
           <ListView.ItemTemplate>
             <DataTemplate>
               <ViewCell>
@@ -34,6 +32,38 @@
                   Orientation="Horizontal">
                   <Label 
                     Text="{Binding Name}"
+                    CharacterSpacing="1"
+                    FontSize="20"
+                    Margin="20"
+                    TextColor="{StaticResource CardTextColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+                  <Label 
+                    Text="{Binding Fat}"
+                    CharacterSpacing="1"
+                    FontSize="20"
+                    Margin="20"
+                    TextColor="{StaticResource CardTextColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+                  <Label 
+                    Text="{Binding Prot}"
+                    CharacterSpacing="1"
+                    FontSize="20"
+                    Margin="20"
+                    TextColor="{StaticResource CardTextColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+                  <Label 
+                    Text="{Binding Carb}"
+                    CharacterSpacing="1"
+                    FontSize="20"
+                    Margin="20"
+                    TextColor="{StaticResource CardTextColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+                  <Label 
+                    Text="{Binding Cal}"
                     CharacterSpacing="1"
                     FontSize="20"
                     Margin="20"

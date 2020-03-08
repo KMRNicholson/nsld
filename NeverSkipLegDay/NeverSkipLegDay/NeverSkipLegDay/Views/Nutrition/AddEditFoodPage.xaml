@@ -27,6 +27,62 @@
         IsTextPredictionEnabled="True"  
         Keyboard="Chat" 
         IsSpellCheckEnabled="True"/>
+      <Label 
+        Text="Fat:"
+        FontSize="20"
+        Margin="10"
+        TextColor="{StaticResource CardTextColor}"/>
+      <Entry 
+        Text="{Binding Food.Fat}"
+        Placeholder="e.g. Bench Press" 
+        PlaceholderColor="{StaticResource PlaceholderColor}"
+        TextColor="{StaticResource CardTextColor}"
+        Margin="10,0,10,10" 
+        IsTextPredictionEnabled="True"  
+        Keyboard="Chat" 
+        IsSpellCheckEnabled="True"/>
+      <Label 
+        Text="Prot:"
+        FontSize="20"
+        Margin="10"
+        TextColor="{StaticResource CardTextColor}"/>
+      <Entry 
+        Text="{Binding Food.Prot}"
+        Placeholder="e.g. Bench Press" 
+        PlaceholderColor="{StaticResource PlaceholderColor}"
+        TextColor="{StaticResource CardTextColor}"
+        Margin="10,0,10,10" 
+        IsTextPredictionEnabled="True"  
+        Keyboard="Chat" 
+        IsSpellCheckEnabled="True"/>
+      <Label 
+        Text="Carb:"
+        FontSize="20"
+        Margin="10"
+        TextColor="{StaticResource CardTextColor}"/>
+      <Entry 
+        Text="{Binding Food.Carb}"
+        Placeholder="e.g. Bench Press" 
+        PlaceholderColor="{StaticResource PlaceholderColor}"
+        TextColor="{StaticResource CardTextColor}"
+        Margin="10,0,10,10" 
+        IsTextPredictionEnabled="True"  
+        Keyboard="Chat" 
+        IsSpellCheckEnabled="True"/>
+      <Label 
+        Text="Cal:"
+        FontSize="20"
+        Margin="10"
+        TextColor="{StaticResource CardTextColor}"/>
+      <Entry 
+        Text="{Binding Food.Cal}"
+        Placeholder="e.g. Bench Press" 
+        PlaceholderColor="{StaticResource PlaceholderColor}"
+        TextColor="{StaticResource CardTextColor}"
+        Margin="10,0,10,10" 
+        IsTextPredictionEnabled="True"  
+        Keyboard="Chat" 
+        IsSpellCheckEnabled="True"/>
       <Button
         Text="Save"
         HorizontalOptions="End"

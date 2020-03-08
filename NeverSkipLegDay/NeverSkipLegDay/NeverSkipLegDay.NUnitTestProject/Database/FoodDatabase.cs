@@ -12,9 +12,9 @@ namespace NeverSkipLegDay.NUnitTestProject.Database
         {
             Foods = new List<Food>
             {
-                new Food(){ Id = 1, MealId = 1, Name = "2 Eggs"},
-                new Food(){ Id = 2, MealId = 1, Name = "1 Banana"},
-                new Food(){ Id = 3, MealId = 1, Name = "2 Toast"},
+                new Food(){ Id = 1, MealId = 1, Name = "2 Eggs", Fat = 20, Prot = 12, Carb = 0, Cal = 140},
+                new Food(){ Id = 2, MealId = 1, Name = "1 Banana", Fat = 0, Prot = 2, Carb = 27, Cal = 90},
+                new Food(){ Id = 3, MealId = 1, Name = "2 Toast", Fat = 0, Prot = 5, Carb = 34, Cal = 150},
                 new Food(){ Id = 4, MealId = 2, Name = "Soup"},
                 new Food(){ Id = 5, MealId = 2, Name = "Bread"},
                 new Food(){ Id = 6, MealId = 2, Name = "1 Glass of Milk"}
