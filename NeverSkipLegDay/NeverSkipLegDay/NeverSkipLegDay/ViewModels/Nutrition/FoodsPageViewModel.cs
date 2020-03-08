@@ -27,17 +27,10 @@ namespace NeverSkipLegDay.ViewModels
         public ObservableCollection<FoodViewModel> Foods { get; private set; }
             = new ObservableCollection<FoodViewModel>();
 
-        public FoodViewModel SelectedFood
-        {
-            get { return _selectedFood; }
-            set { SetValue(ref _selectedFood, value); }
-        }
-
         public ICommand LoadDataCommand { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-        public ICommand SelectCommand { get; set; }
 
         public FoodsPageViewModel(MealViewModel meal, IFoodDal foodDal, IPageService pageService)
         {
@@ -53,7 +46,6 @@ namespace NeverSkipLegDay.ViewModels
             AddCommand = new Command(async () => await AddFood());
             EditCommand = new Command<FoodViewModel>(async food => await EditFood(food));
             DeleteCommand = new Command<FoodViewModel>(async food => await DeleteFood(food));
-            SelectCommand = new Command<FoodViewModel>(async food => await SelectFood(food));
         }
 
         private void OnFoodSaved(AddEditFoodPageViewModel source, Food food)
@@ -66,8 +58,11 @@ namespace NeverSkipLegDay.ViewModels
             }
             else
             {
-                foodInList.Id = food.Id;
                 foodInList.Name = food.Name;
+                foodInList.Fat = food.Fat;
+                foodInList.Prot = food.Prot;
+                foodInList.Carb = food.Carb;
+                foodInList.Cal = food.Cal;
             }
         }
 
@@ -105,14 +100,6 @@ namespace NeverSkipLegDay.ViewModels
                 Foods.Remove(food);
                 _foodDal.DeleteFood(foodModel);
             }
-        }
-
-        private async Task SelectFood(FoodViewModel food)
-        {
-            if (food == null) return;
-
-            SelectedFood = null;
-            await _pageService.PushAsync(new SetsPage(food));
         }
 
         public bool IsFoodsEmpty()

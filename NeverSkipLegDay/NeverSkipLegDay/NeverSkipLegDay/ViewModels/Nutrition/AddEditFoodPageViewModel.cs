@@ -30,7 +30,11 @@ namespace NeverSkipLegDay.ViewModels
             {
                 Id = food.Id,
                 MealId = food.MealId,
-                Name = food.Name
+                Name = food.Name,
+                Fat = food.Fat,
+                Prot = food.Prot,
+                Carb = food.Carb,
+                Cal = food.Cal
             };
         }
 
