@@ -38,7 +38,7 @@
           Scale="1"
           Style="{StaticResource PanelButton}"
           Text="N u t r i t i o n"
-          Command="{Binding SelectNutritionCommand}"/>/>
+          Command="{Binding SelectNutritionCommand}"/>
       </StackLayout>
       <StackLayout
         BackgroundColor="{StaticResource RecordsBackgroundColor}"
