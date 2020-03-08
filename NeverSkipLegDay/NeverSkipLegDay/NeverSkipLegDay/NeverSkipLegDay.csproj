@@ -54,7 +54,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AddEditMealPage.xaml">
+    <EmbeddedResource Update="Views\Nutrition\AddEditMealPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DashboardPage.xaml">
@@ -66,10 +66,10 @@
     <EmbeddedResource Update="Views\DashboardMasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FoodsPage.xaml">
+    <EmbeddedResource Update="Views\Nutrition\FoodsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MealsPage.xaml">
+    <EmbeddedResource Update="Views\Nutrition\MealsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Workouts\AddEditExercisePage.xaml">
