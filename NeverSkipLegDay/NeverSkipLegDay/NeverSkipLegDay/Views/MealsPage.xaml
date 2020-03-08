@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource MealsBackgroundColor}"
+             x:Name="mealsPage"
+             x:Class="NeverSkipLegDay.Views.MealsPage">
+  <NavigationPage.TitleView>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="N U T R I T I O N"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout>
+      <StackLayout 
+        VerticalOptions="Start">
+        <Label Style="{StaticResource HelpLabel}"
+          x:Name="helpLabel"
+          IsVisible="False"/>
+        <ListView 
+          x:Name="listView"
+          ItemsSource="{Binding Meals}"
+          SelectedItem="{Binding SelectedMeal, Mode=TwoWay}"
+          ItemSelected="OnMealSelected">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <StackLayout 
+                  BackgroundColor="{StaticResource CardBackgroundColor}"
+                  Orientation="Horizontal">
+                  <Label 
+                    Text="{Binding Name}"
+                    CharacterSpacing="1"
+                    FontSize="20"
+                    Margin="20"
+                    TextColor="{StaticResource CardTextColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+                  <Button Style="{StaticResource EditButton}"
+                    Command="{Binding Source={x:Reference mealsPage}, Path=ViewModel.EditCommand}" />
+                  <Button Style="{StaticResource DeleteButton}"
+                    Command="{Binding Source={x:Reference mealsPage}, Path=ViewModel.DeleteCommand}" />
+                </StackLayout>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+      <Button Style="{StaticResource AddButton}"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
