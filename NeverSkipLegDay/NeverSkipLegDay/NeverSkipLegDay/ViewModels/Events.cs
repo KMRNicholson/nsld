@@ -8,5 +8,6 @@ namespace NeverSkipLegDay.ViewModels
     {
         public static string WorkoutSaved = "SaveWorkout";
         public static string ExerciseSaved = "SaveExercise";
+        public static string MealSaved = "SaveMeal";
     }
 }
