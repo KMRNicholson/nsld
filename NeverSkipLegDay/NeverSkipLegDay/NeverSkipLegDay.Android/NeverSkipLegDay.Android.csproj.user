@@ -3,5 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>HUAWEI POT-LX1</SelectedDevice>
     <DefaultDevice>my_device</DefaultDevice>
+    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
   </PropertyGroup>
 </Project>
