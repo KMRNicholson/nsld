@@ -24,11 +24,36 @@
         Text="{Binding Record.Name}"
         TextColor="{StaticResource CardTextColor}"
         PlaceholderColor="{StaticResource PlaceholderColor}"
-        Placeholder="e.g. Push Day" 
+        Placeholder="e.g. Back Squat" 
         Margin="10,0,10,10" 
         IsTextPredictionEnabled="True"  
         Keyboard="Chat" 
         IsSpellCheckEnabled="True" />
+      <Grid 
+        ColumnSpacing="0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="20*"/>
+          <ColumnDefinition Width="30*"/>
+          <ColumnDefinition Width="24*"/>
+          <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <Label 
+          Style="{StaticResource GridRecordLabel}"
+          Text="Reps:"
+          Grid.Column="0"/>
+        <Label
+          Grid.Column="2" 
+          Style="{StaticResource GridRecordLabel}"
+          Text="Weight:"/>
+        <Entry 
+          Grid.Column="1"
+          Style="{StaticResource RecordEntry}"
+          Text="{Binding Record.Reps}"/>
+        <Entry
+          Grid.Column="3"
+          Style="{StaticResource RecordEntry}"
+          Text="{Binding Record.Weight}"/>
+      </Grid>
       <Button
         Text="Save"
         HorizontalOptions="End"

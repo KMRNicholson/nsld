@@ -39,8 +39,26 @@
       <Setter Property="VerticalOptions" Value="Center"></Setter>
       <Setter Property="TextColor" Value="{StaticResource CardTextColor}"></Setter>
     </Style>
+    <Style x:Key="GridRecordLabel" TargetType="Label">
+      <Setter Property="FontSize" Value="15"></Setter>
+      <Setter Property="Margin" Value="10,0,0,10"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="HorizontalOptions" Value="Start"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource CardTextColor}"></Setter>
+    </Style>
     <Style x:Key="NutritionEntry" TargetType="Entry">
       <Setter Property="FontSize" Value="15"></Setter>
+      <Setter Property="WidthRequest" Value="50"></Setter>
+      <Setter Property="Keyboard" Value="Numeric"></Setter>
+      <Setter Property="Margin" Value="10,0,0,10"></Setter>
+      <Setter Property="HorizontalOptions" Value="Start"></Setter>
+      <Setter Property="VerticalOptions" Value="Center"></Setter>
+      <Setter Property="PlaceholderColor" Value="{StaticResource CardTextColor}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource CardTextColor}"></Setter>
+    </Style>
+    <Style x:Key="RecordEntry" TargetType="Entry">
+      <Setter Property="FontSize" Value="1"></Setter>
       <Setter Property="WidthRequest" Value="50"></Setter>
       <Setter Property="Keyboard" Value="Numeric"></Setter>
       <Setter Property="Margin" Value="10,0,0,10"></Setter>
