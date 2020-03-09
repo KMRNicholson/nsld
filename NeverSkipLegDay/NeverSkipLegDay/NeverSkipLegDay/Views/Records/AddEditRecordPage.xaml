@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             BackgroundColor="{StaticResource RecordsBackgroundColor}"
+             mc:Ignorable="d"
+             x:Class="NeverSkipLegDay.Views.AddEditRecordPage">
+  <NavigationPage.TitleView>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="R E C O R D S"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout 
+      BackgroundColor="{StaticResource CardBackgroundColor}"
+      Margin="10"
+      VerticalOptions="Start">
+      <Label 
+        Text="Name:"
+        FontSize="20"
+        Margin="10"
+        TextColor="{StaticResource CardTextColor}"/>
+      <Entry 
+        Text="{Binding Record.Name}"
+        TextColor="{StaticResource CardTextColor}"
+        PlaceholderColor="{StaticResource PlaceholderColor}"
+        Placeholder="e.g. Push Day" 
+        Margin="10,0,10,10" 
+        IsTextPredictionEnabled="True"  
+        Keyboard="Chat" 
+        IsSpellCheckEnabled="True" />
+      <Button
+        Text="Save"
+        HorizontalOptions="End"
+        Margin="0,0,10,10"
+        BackgroundColor="{StaticResource BarBackgroundColor}"
+        TextColor="{StaticResource BarTextColor}"
+        Command="{Binding SaveCommand}"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
