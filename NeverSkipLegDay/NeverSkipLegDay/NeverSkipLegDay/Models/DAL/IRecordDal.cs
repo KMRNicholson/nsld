@@ -6,6 +6,7 @@ namespace NeverSkipLegDay.Models.DAL
     {
         List<Record> GetRecords();
         Record GetRecord(int id);
+        List<Record> GetRecordsByExerciseId(int exerciseId);
         int SaveRecord(Record model);
         int DeleteRecord(Record model);
     }

@@ -5,7 +5,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NeverSkipLegDay.App">
-
   <Application.Resources>
     <Color x:Key="BackgroundTextColor">White</Color>
     <Color x:Key="BackgroundColor">LightSkyBlue</Color>
@@ -58,7 +57,7 @@
       <Setter Property="TextColor" Value="{StaticResource CardTextColor}"></Setter>
     </Style>
     <Style x:Key="RecordEntry" TargetType="Entry">
-      <Setter Property="FontSize" Value="1"></Setter>
+      <Setter Property="FontSize" Value="15"></Setter>
       <Setter Property="WidthRequest" Value="50"></Setter>
       <Setter Property="Keyboard" Value="Numeric"></Setter>
       <Setter Property="Margin" Value="10,0,0,10"></Setter>

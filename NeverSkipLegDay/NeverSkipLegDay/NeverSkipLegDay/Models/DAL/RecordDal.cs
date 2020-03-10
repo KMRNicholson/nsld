@@ -22,6 +22,12 @@ namespace NeverSkipLegDay.Models.DAL
                             .Where(i => i.Id == id)
                             .FirstOrDefault();
         }
+        public List<Record> GetRecordsByExerciseId(int exerciseId)
+        {
+            return _database.Table<Record>()
+                .Where(i => i.ExerciseId == exerciseId)
+                .ToList();
+        }
 
         public int SaveRecord(Record model)
         {
