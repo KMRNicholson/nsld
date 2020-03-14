@@ -9,14 +9,14 @@ using Xamarin.Forms;
 
 namespace NeverSkipLegDay.ViewModels
 {
-    public class DashboardDetailPageViewModel : BaseViewModel
+    public class DashboardPageViewModel : BaseViewModel
     {
         private IPageService _pageService;
         public ICommand SelectWorkoutsCommand { get; set; }
         public ICommand SelectNutritionCommand { get; set; }
         public ICommand SelectRecordsCommand { get; set; }
 
-        public DashboardDetailPageViewModel(IPageService pageService)
+        public DashboardPageViewModel(IPageService pageService)
         {
             _pageService = pageService;
 

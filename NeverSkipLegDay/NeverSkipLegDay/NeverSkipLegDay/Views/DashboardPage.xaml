@@ -1,20 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="NeverSkipLegDay.Views.DashboardPage"
-             xmlns:pages="clr-namespace:NeverSkipLegDay.Views">
-  <MasterDetailPage.Master>
-    <pages:DashboardMasterPage x:Name="MasterPage" />
-  </MasterDetailPage.Master>
-  <MasterDetailPage.Detail>
-    <NavigationPage BarBackgroundColor="{StaticResource BarBackgroundColor}"
-                    BarTextColor="{StaticResource BarTextColor}" >
-      <x:Arguments>
-        <pages:DashboardDetailPage />
-      </x:Arguments>
-    </NavigationPage>
-  </MasterDetailPage.Detail>
-</MasterDetailPage>
+             x:Name="dashboardPage"
+             x:Class="NeverSkipLegDay.Views.DashboardPage" >
+  <NavigationPage.TitleView>
+    <Label 
+      x:Name="title"
+      Opacity="0"
+      Style="{StaticResource AppBarTitle}"
+      Text="N S L D"/>
+  </NavigationPage.TitleView>
+  <StackLayout>
+    <Grid 
+      VerticalOptions="FillAndExpand"
+      RowSpacing="0"    
+      ColumnSpacing="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="33*"/>
+        <RowDefinition Height="33*"/>
+        <RowDefinition Height="33*"/>
+      </Grid.RowDefinitions>
+      <StackLayout 
+        BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
+        Grid.Row="0">
+        <Button 
+          x:Name="workouts"
+          Scale="1"
+          Style="{StaticResource PanelButton}"
+          Text="W o r k o u t s"
+          Command="{Binding SelectWorkoutsCommand}"/>
+      </StackLayout>
+      <StackLayout
+        BackgroundColor="{StaticResource NutritionBackgroundColor}"
+        Grid.Row="1">
+        <Button 
+          x:Name="nutrition"
+          Scale="1"
+          Style="{StaticResource PanelButton}"
+          Text="N u t r i t i o n"
+          Command="{Binding SelectNutritionCommand}"/>
+      </StackLayout>
+      <StackLayout
+        BackgroundColor="{StaticResource RecordsBackgroundColor}"
+        Grid.Row="2">
+        <Button 
+          x:Name="records"
+          Scale="1"
+          Style="{StaticResource PanelButton}"
+          Text="R e c o r d s"
+          Command="{Binding SelectRecordsCommand}"/>
+      </StackLayout>
+    </Grid>
+  </StackLayout>
+</ContentPage>
