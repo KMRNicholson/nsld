@@ -21,6 +21,7 @@ namespace NeverSkipLegDay.ViewModels
         {
             get { return "Add Record"; }
         }
+        public ExerciseViewModel Exercise { get; private set; }
 
         public ObservableCollection<RecordViewModel> Records { get; private set; }
             = new ObservableCollection<RecordViewModel>();
@@ -30,13 +31,15 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
 
-        public RecordsPageViewModel(IRecordDal recordDal, IPageService pageService)
+        public RecordsPageViewModel(ExerciseViewModel exercise, IRecordDal recordDal, IPageService pageService)
         {
             MessagingCenter.Subscribe<AddEditRecordPageViewModel, Record>
                 (this, Events.RecordSaved, OnRecordSaved);
 
             _recordDal = recordDal;
             _pageService = pageService;
+
+            Exercise = exercise;
 
             LoadDataCommand = new Command(() => LoadData());
             AddCommand = new Command(async () => await AddRecord());
@@ -65,7 +68,7 @@ namespace NeverSkipLegDay.ViewModels
             if (_isDataLoaded) return;
 
             _isDataLoaded = true;
-            List<Record> records = _recordDal.GetRecords();
+            List<Record> records = _recordDal.GetRecordsByExerciseId(Exercise.Id);
             foreach (var record in records)
             {
                 Records.Add(new RecordViewModel(record));
@@ -74,7 +77,7 @@ namespace NeverSkipLegDay.ViewModels
 
         private async Task AddRecord()
         {
-            await _pageService.PushAsync(new AddEditRecordPage(new RecordViewModel()));
+            await _pageService.PushAsync(new AddEditRecordPage(new RecordViewModel() { ExerciseId = Exercise.Id }));
         }
 
         private async Task EditRecord(RecordViewModel record)

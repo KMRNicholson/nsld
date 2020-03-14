@@ -112,7 +112,15 @@ namespace NeverSkipLegDay.ViewModels
             if (exercise == null) return;
 
             SelectedExercise = null;
-            await _pageService.PushAsync(new SetsPage(exercise));
+
+            if (exercise.WorkoutId == 0)
+            {
+                await _pageService.PushAsync(new RecordsPage(exercise));
+            }
+            else
+            {
+                await _pageService.PushAsync(new SetsPage(exercise));
+            }
         }
 
         public bool IsExercisesEmpty()

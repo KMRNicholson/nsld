@@ -14,11 +14,11 @@ namespace NeverSkipLegDay.Views
             get { return BindingContext as RecordsPageViewModel; }
             set { BindingContext = value; }
         }
-        public RecordsPage()
+        public RecordsPage(ExerciseViewModel exercise)
         {
             var recordDal = new RecordDal(new SQLiteDB());
             var pageService = new PageService();
-            ViewModel = new RecordsPageViewModel(recordDal, pageService);
+            ViewModel = new RecordsPageViewModel(exercise, recordDal, pageService);
             InitializeComponent();
         }
 
