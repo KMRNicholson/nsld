@@ -47,7 +47,8 @@
           x:Name="records"
           Scale="1"
           Style="{StaticResource PanelButton}"
-          Text="R e c o r d s"/>
+          Text="R e c o r d s"
+          Command="{Binding SelectRecordsCommand}"/>
       </StackLayout>
     </Grid>
   </StackLayout>

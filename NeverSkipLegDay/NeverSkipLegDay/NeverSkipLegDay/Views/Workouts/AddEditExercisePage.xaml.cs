@@ -18,6 +18,7 @@ namespace NeverSkipLegDay.Views
         {
             var exerciseDal = new ExerciseDal(new SQLiteDB());
             var pageService = new PageService();
+            this.BackgroundColor = exerciseViewModel.WorkoutId == 0 ? Color.LightSteelBlue : Color.LightSkyBlue;
             ViewModel = new AddEditExercisePageViewModel(exerciseViewModel, exerciseDal, pageService);
             InitializeComponent();
         }

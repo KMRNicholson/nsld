@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource RecordsBackgroundColor}"
+             x:Name="recordsPage"
+             x:Class="NeverSkipLegDay.Views.RecordsPage">
+  <NavigationPage.TitleView>
+    <Label Style="{StaticResource AppBarTitle}"
+      Text="R E C O R D S"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout
+      Spacing="0">
+      <StackLayout
+        Style="{StaticResource HeaderCard}">
+        <Label Style="{StaticResource Header}"
+          Text="{Binding Exercise.Name}"/>
+      </StackLayout>
+      <StackLayout 
+        VerticalOptions="Start">
+        <Label Style="{StaticResource HelpLabel}"
+          x:Name="helpLabel"
+          IsVisible="False"/>
+        <ListView 
+          x:Name="listView"
+          ItemsSource="{Binding Records}">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <StackLayout 
+                  BackgroundColor="{StaticResource CardBackgroundColor}"
+                  Orientation="Horizontal">
+                  <Label 
+                    Style="{StaticResource GridRecordLabel}"
+                    Text="{Binding Reps}"
+                    Margin="20,0,0,0"/>
+                  <Label 
+                    Style="{StaticResource GridRecordLabel}"
+                    Text="x"/>
+                  <Label 
+                    Style="{StaticResource GridRecordLabel}"
+                    Text="{Binding Weight}"/>
+                  <Button Style="{StaticResource EditButton}"
+                    Command="{Binding Source={x:Reference recordsPage}, Path=ViewModel.EditCommand}" />
+                  <Button Style="{StaticResource DeleteButton}"
+                    Command="{Binding Source={x:Reference recordsPage}, Path=ViewModel.DeleteCommand}" />
+                </StackLayout>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+      <Button Style="{StaticResource AddButton}"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

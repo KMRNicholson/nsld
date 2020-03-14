@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using NeverSkipLegDay.Models;
+using NeverSkipLegDay.ViewModels;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -63,7 +65,9 @@ namespace NeverSkipLegDay.Views
                         ((ListView)sender).SelectedItem = null;
                         await Navigation.PushAsync(new MealsPage());
                         break;
-                    case "Record":
+                    case "Records":
+                        ((ListView)sender).SelectedItem = null;
+                        await Navigation.PushAsync(new RecordExercisesPage(new WorkoutViewModel(new Workout())));
                         break;
                     case "Account":
                         break;
