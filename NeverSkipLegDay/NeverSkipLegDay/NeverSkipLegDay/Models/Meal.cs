@@ -25,5 +25,28 @@ namespace NeverSkipLegDay.Models
 
             return totals;
         }
+
+        public Dictionary<string, int> GetAllMealsTotals(IFoodDal foodDal, IMealDal mealDal)
+        {
+            List<Meal> meals = new List<Meal>();
+            Dictionary<string, int> totals = new Dictionary<string, int>();
+
+            totals.Add("Fat", 0);
+            totals.Add("Prot", 0);
+            totals.Add("Carb", 0);
+            totals.Add("Cal", 0);
+
+            meals = mealDal.GetMeals();
+
+            foreach(Meal meal in meals)
+            {
+                totals["Fat"] += meal.GetMealTotals(foodDal)["Fat"];
+                totals["Prot"] += meal.GetMealTotals(foodDal)["Prot"];
+                totals["Carb"] += meal.GetMealTotals(foodDal)["Carb"];
+                totals["Cal"] += meal.GetMealTotals(foodDal)["Cal"];
+            }
+
+            return totals;
+        }
     }
 }
