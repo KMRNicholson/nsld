@@ -37,7 +37,7 @@ namespace NeverSkipLegDay.ViewModels
 
         private async Task SelectRecords()
         {
-            await _pageService.PushAsync(new RecordsPage());
+            await _pageService.PushAsync(new RecordExercisesPage(new WorkoutViewModel(new Workout())));
         }
     }
 }
