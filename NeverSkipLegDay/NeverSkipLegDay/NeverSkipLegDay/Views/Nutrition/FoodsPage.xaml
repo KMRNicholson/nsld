@@ -15,12 +15,12 @@
         <Label Style="{StaticResource Header}"
           Text="{Binding Meal.Name}"/>
       </StackLayout>
+      <Label Style="{StaticResource HelpLabel}"
+          x:Name="helpLabel"
+          IsVisible="False"/>
       <StackLayout
         Margin="10"
         VerticalOptions="Start">
-        <Label Style="{StaticResource HelpLabel}"
-          x:Name="helpLabel"
-          IsVisible="False"/>
         <ListView Margin="0"
           x:Name="listView"
           ItemsSource="{Binding Foods}">
@@ -84,6 +84,56 @@
             </DataTemplate>
           </ListView.ItemTemplate>
         </ListView>
+        <StackLayout
+          BackgroundColor="{StaticResource CardBackgroundColor}">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="50*"/>
+              <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="16*"/>
+              <ColumnDefinition Width="16*"/>
+              <ColumnDefinition Width="16*"/>
+              <ColumnDefinition Width="16*"/>
+              <ColumnDefinition Width="16*"/>
+              <ColumnDefinition Width="16*"/>
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource GridNutritionalLabel}"
+            Text="Fat:"
+            Grid.Column="0"
+            Grid.Row="0"/>
+            <Label Style="{StaticResource GridNutritionalLabel}"
+            Text="{Binding Meal.FatTotal}"
+            Grid.Column="1"
+            Grid.Row="0"/>
+            <Label Style="{StaticResource GridNutritionalLabel}"
+            Text="Prot:"
+            Grid.Column="2"
+            Grid.Row="0"/>
+            <Label Style="{StaticResource GridNutritionalLabel}"
+            Text="{Binding Meal.ProtTotal}"
+            Grid.Column="3"
+            Grid.Row="0"/>
+            <Label Style="{StaticResource GridNutritionalLabel}"
+            Text="Carb:"
+            Grid.Column="4"
+            Grid.Row="0"/>
+            <Label Style="{StaticResource GridNutritionalLabel}"
+            Text="{Binding Meal.CarbTotal}"
+            Grid.Column="5"
+            Grid.Row="0"/>
+            <Label Style="{StaticResource GridNutritionalLabel}"
+            Text="Cal:"
+            Grid.Column="0"
+            Grid.Row="1"/>
+            <Label Style="{StaticResource GridNutritionalLabel}"
+            Text="{Binding Meal.CalTotal}"
+            Grid.Column="1"
+            Grid.Row="1"/>
+          </Grid>
+        </StackLayout>
+        
       </StackLayout>
       <Button Style="{StaticResource AddButton}"/>
     </StackLayout>
