@@ -15,20 +15,6 @@
       BackgroundColor="{StaticResource CardBackgroundColor}"
       Margin="10"
       VerticalOptions="Start">
-      <Label 
-        Text="Name:"
-        FontSize="20"
-        Margin="10"
-        TextColor="{StaticResource CardTextColor}"/>
-      <Entry 
-        Text="{Binding Record.Name}"
-        TextColor="{StaticResource CardTextColor}"
-        PlaceholderColor="{StaticResource PlaceholderColor}"
-        Placeholder="e.g. Back Squat" 
-        Margin="10,0,10,10" 
-        IsTextPredictionEnabled="True"  
-        Keyboard="Chat" 
-        IsSpellCheckEnabled="True" />
       <Grid 
         ColumnSpacing="0">
         <Grid.ColumnDefinitions>

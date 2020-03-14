@@ -29,7 +29,7 @@ namespace NeverSkipLegDay.ViewModels
             Record = new Record()
             {
                 Id = record.Id,
-                Name = record.Name,
+                ExerciseId = record.ExerciseId,
                 Reps = record.Reps,
                 Weight = record.Weight
             };
@@ -37,12 +37,6 @@ namespace NeverSkipLegDay.ViewModels
 
         public async Task Save()
         {
-            if (string.IsNullOrWhiteSpace(Record.Name))
-            {
-                await _pageService.DisplayAlert("Error", "Please enter a name.", "OK");
-                return;
-            }
-
             if (string.IsNullOrWhiteSpace(Record.Reps.ToString()))
             {
                 await _pageService.DisplayAlert("Error", "Please enter reps.", "OK");

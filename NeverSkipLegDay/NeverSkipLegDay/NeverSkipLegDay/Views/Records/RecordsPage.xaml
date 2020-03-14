@@ -25,7 +25,15 @@
                   BackgroundColor="{StaticResource CardBackgroundColor}"
                   Orientation="Horizontal">
                   <Label 
-                    Text="{Binding Name}"
+                    Text="{Binding Reps}"
+                    CharacterSpacing="1"
+                    FontSize="20"
+                    Margin="20"
+                    TextColor="{StaticResource CardTextColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+                  <Label 
+                    Text="{Binding Weight}"
                     CharacterSpacing="1"
                     FontSize="20"
                     Margin="20"
