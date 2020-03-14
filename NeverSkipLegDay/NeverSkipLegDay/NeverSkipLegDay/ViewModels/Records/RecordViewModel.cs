@@ -25,8 +25,8 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(Reps));
             }
         }
-        private int? _weight;
-        public int? Weight
+        private decimal? _weight;
+        public decimal? Weight
         {
             get { return _weight; }
             set

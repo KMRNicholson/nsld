@@ -31,21 +31,15 @@
                   BackgroundColor="{StaticResource CardBackgroundColor}"
                   Orientation="Horizontal">
                   <Label 
+                    Style="{StaticResource GridRecordLabel}"
                     Text="{Binding Reps}"
-                    CharacterSpacing="1"
-                    FontSize="20"
-                    Margin="20"
-                    TextColor="{StaticResource CardTextColor}"
-                    VerticalOptions="Center"
-                    HorizontalOptions="StartAndExpand"/>
+                    Margin="20,0,0,0"/>
                   <Label 
-                    Text="{Binding Weight}"
-                    CharacterSpacing="1"
-                    FontSize="20"
-                    Margin="20"
-                    TextColor="{StaticResource CardTextColor}"
-                    VerticalOptions="Center"
-                    HorizontalOptions="StartAndExpand"/>
+                    Style="{StaticResource GridRecordLabel}"
+                    Text="x"/>
+                  <Label 
+                    Style="{StaticResource GridRecordLabel}"
+                    Text="{Binding Weight}"/>
                   <Button Style="{StaticResource EditButton}"
                     Command="{Binding Source={x:Reference recordsPage}, Path=ViewModel.EditCommand}" />
                   <Button Style="{StaticResource DeleteButton}"
