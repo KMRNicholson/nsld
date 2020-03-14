@@ -12,11 +12,11 @@ namespace NeverSkipLegDay.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
-        public Dictionary<string, int> GetTotals()
+        public Dictionary<string, int> GetMealTotals(IFoodDal foodDal)
         {
             Dictionary<string, int> totals = new Dictionary<string, int>();
 
-            List<Food> foods = new FoodDal(new SQLiteDB()).GetFoodsByMealId(this.Id);
+            List<Food> foods = foodDal.GetFoodsByMealId(this.Id);
 
             totals.Add("Fat", foods.Select(x => x.Fat).Sum().Value);
             totals.Add("Prot", foods.Select(x => x.Prot).Sum().Value);
