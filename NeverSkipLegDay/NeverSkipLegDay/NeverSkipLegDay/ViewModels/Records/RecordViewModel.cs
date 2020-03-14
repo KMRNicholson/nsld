@@ -5,14 +5,14 @@ namespace NeverSkipLegDay.ViewModels
     public class RecordViewModel : BaseViewModel
     {
         public int Id { get; set; }
-        private string _name;
-        public string Name
+        private int _exerciseId;
+        public int ExerciseId
         {
-            get { return _name; }
+            get { return _exerciseId; }
             set
             {
-                SetValue(ref _name, value);
-                OnPropertyChanged(nameof(Name));
+                SetValue(ref _exerciseId, value);
+                OnPropertyChanged(nameof(ExerciseId));
             }
         }
         private int? _reps;
@@ -41,7 +41,7 @@ namespace NeverSkipLegDay.ViewModels
         public RecordViewModel(Record record)
         {
             Id = record.Id;
-            Name = record.Name;
+            ExerciseId = record.ExerciseId;
             Reps = record.Reps;
             Weight = record.Weight;
         }

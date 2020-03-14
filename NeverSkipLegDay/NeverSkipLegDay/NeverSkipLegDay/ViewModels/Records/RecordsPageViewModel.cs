@@ -12,7 +12,6 @@ namespace NeverSkipLegDay.ViewModels
 {
     public class RecordsPageViewModel : BaseViewModel
     {
-        private RecordViewModel _selectedRecord;
         private IRecordDal _recordDal;
         private IPageService _pageService;
 
@@ -56,7 +55,6 @@ namespace NeverSkipLegDay.ViewModels
             else
             {
                 recordInList.Id = record.Id;
-                recordInList.Name = record.Name;
                 recordInList.Reps = record.Reps;
                 recordInList.Weight = record.Weight;
             }
@@ -90,7 +88,7 @@ namespace NeverSkipLegDay.ViewModels
         {
             if (record == null) return;
 
-            if (await _pageService.DisplayAlert("Warning", $"Are you sure you want to delete {record.Name}?", "Yes", "No"))
+            if (await _pageService.DisplayAlert("Warning", $"Are you sure you want to delete this record?", "Yes", "No"))
             {
                 var recordModel = _recordDal.GetRecord(record.Id);
                 Records.Remove(record);
