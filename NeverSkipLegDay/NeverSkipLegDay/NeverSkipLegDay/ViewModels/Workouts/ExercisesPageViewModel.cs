@@ -39,6 +39,23 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand DeleteCommand { get; set; }
         public ICommand SelectCommand { get; set; }
 
+        public ExercisesPageViewModel(IExerciseDal exerciseDal, IPageService pageService)
+        {
+            MessagingCenter.Subscribe<AddEditExercisePageViewModel, Exercise>
+                (this, Events.ExerciseSaved, OnExerciseSaved);
+
+            _exerciseDal = exerciseDal;
+            _pageService = pageService;
+
+            Workout = new WorkoutViewModel(new Workout());
+
+            LoadDataCommand = new Command(() => LoadData());
+            AddCommand = new Command(async () => await AddExercise());
+            EditCommand = new Command<ExerciseViewModel>(async exercise => await EditExercise(exercise));
+            DeleteCommand = new Command<ExerciseViewModel>(async exercise => await DeleteExercise(exercise));
+            SelectCommand = new Command<ExerciseViewModel>(async exercise => await SelectExercise(exercise));
+        }
+
         public ExercisesPageViewModel(WorkoutViewModel workout, IExerciseDal exerciseDal, IPageService pageService)
         {
             MessagingCenter.Subscribe<AddEditExercisePageViewModel, Exercise>
