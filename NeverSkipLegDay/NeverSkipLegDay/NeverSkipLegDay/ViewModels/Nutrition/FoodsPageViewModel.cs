@@ -60,7 +60,7 @@ namespace NeverSkipLegDay.ViewModels
         {
             FoodViewModel foodInList = Foods.Where(e => e.Id == food.Id).ToList().FirstOrDefault();
 
-            Meal = new MealViewModel(new MealDal(new SQLiteDB()).GetMeal(Meal.Id));
+            SetTotals();
 
             if (foodInList == null)
             {
@@ -111,12 +111,20 @@ namespace NeverSkipLegDay.ViewModels
                 _foodDal.DeleteFood(foodModel);
             }
 
-            Meal = new MealViewModel(new MealDal(new SQLiteDB()).GetMeal(Meal.Id));
+            SetTotals();
         }
 
         public bool IsFoodsEmpty()
         {
             return Foods.Count == 0 ? true : false;
+        }
+
+        public void SetTotals()
+        {
+            var mealDal = new MealDal(new SQLiteDB());
+            var meal = mealDal.GetMeal(Meal.Id);
+
+            Meal = meal != null ? new MealViewModel(meal) : new MealViewModel();
         }
     }
 }
