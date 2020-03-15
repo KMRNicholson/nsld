@@ -167,7 +167,7 @@ namespace NeverSkipLegDay.ViewModels
             return Meals.Count == 0 ? true : false;
         }
 
-        private void SetTotals()
+        public void SetTotals()
         {
             List<Meal> meals = _mealDal.GetMeals();
             FoodDal foodDal = new FoodDal(new SQLiteDB());

@@ -24,6 +24,10 @@ namespace NeverSkipLegDay.Views
 
         protected override void OnAppearing()
         {
+            var meal = new MealViewModel(new MealDal(new SQLiteDB()).GetMeal(ViewModel.Meal.Id));
+            var foodDal = new FoodDal(new SQLiteDB());
+            var pageService = new PageService();
+            ViewModel = new FoodsPageViewModel(meal, foodDal, pageService);
             base.OnAppearing();
             ViewModel.LoadDataCommand.Execute(null);
         }
