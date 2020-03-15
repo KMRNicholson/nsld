@@ -16,6 +16,50 @@ namespace NeverSkipLegDay.ViewModels
         private IMealDal _mealDal;
         private IPageService _pageService;
 
+        private int _fatTotal;
+        public int FatTotal
+        {
+            get { return _fatTotal; }
+            set
+            {
+                SetValue(ref _fatTotal, value);
+                OnPropertyChanged(nameof(_fatTotal));
+            }
+        }
+
+        private int _protTotal;
+        public int ProtTotal
+        {
+            get { return _protTotal; }
+            set
+            {
+                SetValue(ref _protTotal, value);
+                OnPropertyChanged(nameof(_protTotal));
+            }
+        }
+
+        private int _carbTotal;
+        public int CarbTotal
+        {
+            get { return _carbTotal; }
+            set
+            {
+                SetValue(ref _carbTotal, value);
+                OnPropertyChanged(nameof(_carbTotal));
+            }
+        }
+
+        private int _calTotal;
+        public int CalTotal
+        {
+            get { return _calTotal; }
+            set
+            {
+                SetValue(ref _calTotal, value);
+                OnPropertyChanged(nameof(_calTotal));
+            }
+        }
+
         private bool _isDataLoaded;
 
         public string AddButtonText
@@ -46,6 +90,8 @@ namespace NeverSkipLegDay.ViewModels
             _mealDal = mealDal;
             _pageService = pageService;
 
+            SetTotals();
+
             LoadDataCommand = new Command(() => LoadData());
             AddCommand = new Command(async () => await AddMeal());
             EditCommand = new Command<MealViewModel>(async meal => await EditMeal(meal));
@@ -56,6 +102,8 @@ namespace NeverSkipLegDay.ViewModels
         private void OnMealSaved(AddEditMealPageViewModel source, Meal meal)
         {
             MealViewModel mealInList = Meals.Where(w => w.Id == meal.Id).ToList().FirstOrDefault();
+
+            SetTotals();
 
             if (mealInList == null)
             {
@@ -102,6 +150,8 @@ namespace NeverSkipLegDay.ViewModels
                 Meals.Remove(meal);
                 _mealDal.DeleteMeal(mealModel);
             }
+
+            SetTotals();
         }
 
         public async Task SelectMeal(MealViewModel meal)
@@ -115,6 +165,27 @@ namespace NeverSkipLegDay.ViewModels
         public bool IsMealsEmpty()
         {
             return Meals.Count == 0 ? true : false;
+        }
+
+        public void SetTotals()
+        {
+            List<Meal> meals = _mealDal.GetMeals();
+            FoodDal foodDal = new FoodDal(new SQLiteDB());
+
+            int fat = 0, prot = 0, carb = 0, cal = 0;
+
+            foreach (Meal meal in meals)
+            {
+                fat += meal.GetMealTotals(foodDal)["Fat"];
+                prot += meal.GetMealTotals(foodDal)["Prot"];
+                carb += meal.GetMealTotals(foodDal)["Carb"];
+                cal += meal.GetMealTotals(foodDal)["Cal"];
+            }
+
+            FatTotal = fat;
+            ProtTotal = prot;
+            CarbTotal = carb;
+            CalTotal = cal;
         }
     }
 }

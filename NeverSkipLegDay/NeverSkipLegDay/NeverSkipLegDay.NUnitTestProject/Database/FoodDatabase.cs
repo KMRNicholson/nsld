@@ -17,7 +17,10 @@ namespace NeverSkipLegDay.NUnitTestProject.Database
                 new Food(){ Id = 3, MealId = 1, Name = "2 Toast", Fat = 0, Prot = 5, Carb = 34, Cal = 150},
                 new Food(){ Id = 4, MealId = 2, Name = "Soup"},
                 new Food(){ Id = 5, MealId = 2, Name = "Bread"},
-                new Food(){ Id = 6, MealId = 2, Name = "1 Glass of Milk"}
+                new Food(){ Id = 6, MealId = 2, Name = "1 Glass of Milk"},
+                new Food(){ Id = 7, MealId = 3, Name = "100g Beef", Fat = 15, Prot = 26, Carb = 0, Cal = 250},
+                new Food(){ Id = 8, MealId = 3, Name = "2 Potatoes", Fat = 0, Prot = 4, Carb = 37, Cal = 160},
+                new Food(){ Id = 9, MealId = 3, Name = "500ml 1% Milk", Fat = 5, Prot = 17, Carb = 26, Cal = 220},
             };
         }
 
