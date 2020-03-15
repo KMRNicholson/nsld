@@ -26,7 +26,6 @@ namespace NeverSkipLegDay.Views
         {
             base.OnAppearing();
             ViewModel.LoadDataCommand.Execute(null);
-            helpLabel.IsVisible = ViewModel.IsExercisesEmpty();
         }
 
         void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)

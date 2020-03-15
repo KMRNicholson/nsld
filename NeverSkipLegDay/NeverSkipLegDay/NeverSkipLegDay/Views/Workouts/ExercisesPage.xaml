@@ -18,9 +18,6 @@
       <StackLayout
         Margin="10"
         VerticalOptions="Start">
-        <Label Style="{StaticResource HelpLabel}"
-          x:Name="helpLabel"
-          IsVisible="False"/>
         <ListView Margin="0"
           x:Name="listView"
           ItemsSource="{Binding Exercises}"

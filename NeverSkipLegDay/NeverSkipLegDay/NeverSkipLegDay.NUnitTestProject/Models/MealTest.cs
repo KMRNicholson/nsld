@@ -48,33 +48,5 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreEqual(mealTotals.GetValueOrDefault("Carb"), carbTotal);
             Assert.AreEqual(mealTotals.GetValueOrDefault("Cal"), calTotal);
         }
-
-        [Test]
-        public void GetAllMealsTotalsTest()
-        {
-            FoodDatabase foodDatabase = new FoodDatabase();
-            List<Meal> meals = mockDatabase.GetMeals();
-
-            int fatTotal = 0;
-            int protTotal = 0;
-            int carbTotal = 0;
-            int calTotal = 0;
-
-            foreach (Meal meal in meals)
-            {
-                fatTotal += meal.GetMealTotals(foodDatabase).GetValueOrDefault("Fat");
-                protTotal += meal.GetMealTotals(foodDatabase).GetValueOrDefault("Prot");
-                carbTotal += meal.GetMealTotals(foodDatabase).GetValueOrDefault("Carb");
-                calTotal += meal.GetMealTotals(foodDatabase).GetValueOrDefault("Cal");
-            }
-            
-
-            Dictionary<string, int> mealTotals = meal.GetAllMealsTotals(foodDatabase, mockDatabase);
-
-            Assert.AreEqual(mealTotals.GetValueOrDefault("Fat"), fatTotal);
-            Assert.AreEqual(mealTotals.GetValueOrDefault("Prot"), protTotal);
-            Assert.AreEqual(mealTotals.GetValueOrDefault("Carb"), carbTotal);
-            Assert.AreEqual(mealTotals.GetValueOrDefault("Cal"), calTotal);
-        }
     }
 }

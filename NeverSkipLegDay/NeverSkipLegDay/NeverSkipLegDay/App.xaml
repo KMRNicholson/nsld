@@ -153,7 +153,7 @@
       <Setter Property="VerticalOptions" Value="StartAndExpand"></Setter>
       <Setter Property="CharacterSpacing" Value="2"></Setter>
       <Setter Property="Padding" Value="20"></Setter>
-      <Setter Property="Margin" Value="40,40,40,0"></Setter>
+      <Setter Property="Margin" Value="10,10,10,0"></Setter>
       <Setter Property="Text" Value="Please tap the Add button below to add your first item!"></Setter>
     </Style>
     <Style x:Key="AppBarTitle" TargetType="Label">

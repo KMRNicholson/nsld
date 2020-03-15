@@ -15,9 +15,6 @@
         <Label Style="{StaticResource Header}"
           Text="{Binding Meal.Name}"/>
       </StackLayout>
-      <Label Style="{StaticResource HelpLabel}"
-          x:Name="helpLabel"
-          IsVisible="False"/>
       <StackLayout
         Margin="10"
         VerticalOptions="Start"
