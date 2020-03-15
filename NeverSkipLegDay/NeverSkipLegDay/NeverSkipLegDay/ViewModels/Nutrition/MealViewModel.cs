@@ -35,7 +35,7 @@ namespace NeverSkipLegDay.ViewModels
             FatTotal = totals["Fat"];
             ProtTotal = totals["Prot"];
             CarbTotal = totals["Carb"];
-            FatTotal = totals["Cal"];
+            CalTotal = totals["Cal"];
         }
     }
 }
