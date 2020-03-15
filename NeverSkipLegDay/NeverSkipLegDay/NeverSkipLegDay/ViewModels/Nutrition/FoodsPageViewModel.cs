@@ -11,13 +11,21 @@ namespace NeverSkipLegDay.ViewModels
 {
     public class FoodsPageViewModel : BaseViewModel
     {
-        private FoodViewModel _selectedFood;
         private IFoodDal _foodDal;
         private IPageService _pageService;
 
         private bool _isDataLoaded;
 
-        public MealViewModel Meal { get; private set; }
+        private MealViewModel _meal;
+        public MealViewModel Meal
+        {
+            get { return _meal; }
+            set
+            {
+                SetValue(ref _meal, value);
+                OnPropertyChanged(nameof(Meal));
+            }
+        }
 
         public string AddButtonText
         {
@@ -51,6 +59,8 @@ namespace NeverSkipLegDay.ViewModels
         private void OnFoodSaved(AddEditFoodPageViewModel source, Food food)
         {
             FoodViewModel foodInList = Foods.Where(e => e.Id == food.Id).ToList().FirstOrDefault();
+
+            Meal = new MealViewModel(new MealDal(new SQLiteDB()).GetMeal(Meal.Id));
 
             if (foodInList == null)
             {
@@ -100,6 +110,8 @@ namespace NeverSkipLegDay.ViewModels
                 Foods.Remove(food);
                 _foodDal.DeleteFood(foodModel);
             }
+
+            Meal = new MealViewModel(new MealDal(new SQLiteDB()).GetMeal(Meal.Id));
         }
 
         public bool IsFoodsEmpty()
