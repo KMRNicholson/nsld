@@ -169,23 +169,10 @@ namespace NeverSkipLegDay.ViewModels
 
         public void SetTotals()
         {
-            List<Meal> meals = _mealDal.GetMeals();
-            FoodDal foodDal = new FoodDal(new SQLiteDB());
-
-            int fat = 0, prot = 0, carb = 0, cal = 0;
-
-            foreach (Meal meal in meals)
-            {
-                fat += meal.GetMealTotals(foodDal)["Fat"];
-                prot += meal.GetMealTotals(foodDal)["Prot"];
-                carb += meal.GetMealTotals(foodDal)["Carb"];
-                cal += meal.GetMealTotals(foodDal)["Cal"];
-            }
-
-            FatTotal = fat;
-            ProtTotal = prot;
-            CarbTotal = carb;
-            CalTotal = cal;
+            FatTotal = Meals.Select(x => x.FatTotal).Sum();
+            ProtTotal = Meals.Select(x => x.ProtTotal).Sum();
+            CarbTotal = Meals.Select(x => x.CarbTotal).Sum();
+            CalTotal = Meals.Select(x => x.CalTotal).Sum();
         }
     }
 }
