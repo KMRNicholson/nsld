@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.Models.DAL;
-using NeverSkipLegDay.Views;
 using Xamarin.Forms;
 
 namespace NeverSkipLegDay.ViewModels
@@ -21,7 +20,16 @@ namespace NeverSkipLegDay.ViewModels
             get { return "Add Set"; }
         }
 
-        public ExerciseViewModel Exercise { get; private set; }
+        private ExerciseViewModel _exercise;
+        public ExerciseViewModel Exercise
+        {
+            get { return _exercise; }
+            set
+            {
+                SetValue(ref _exercise, value);
+                OnPropertyChanged(nameof(Exercise));
+            }
+        }
 
         public ObservableCollection<SetViewModel> Sets { get; private set; }
             = new ObservableCollection<SetViewModel>();
@@ -62,7 +70,8 @@ namespace NeverSkipLegDay.ViewModels
         {
             Set set = new Set() { ExerciseId = Exercise.Id };
             _setDal.SaveSet(set);
-            Sets.Add(new SetViewModel(set));   
+            Sets.Add(new SetViewModel(set));
+            SetTotals();
         }
 
         private void EditSet(SetViewModel set)
@@ -89,6 +98,8 @@ namespace NeverSkipLegDay.ViewModels
                 Sets.Remove(set);
                 _setDal.DeleteSet(setModel);
             }
+
+            SetTotals();
         }
 
         public async Task BatchSave()
@@ -99,6 +110,15 @@ namespace NeverSkipLegDay.ViewModels
             }
 
             await _pageService.DisplayAlert("Saved", "All sets are now saved.", "OK");
+            SetTotals();
+        }
+
+        public void SetTotals()
+        {
+            var exerciseDal = new ExerciseDal(new SQLiteDB());
+            var exercise = exerciseDal.GetExercise(Exercise.Id);
+
+            Exercise = exercise != null ? new ExerciseViewModel(exercise) : Exercise;
         }
     }
 }

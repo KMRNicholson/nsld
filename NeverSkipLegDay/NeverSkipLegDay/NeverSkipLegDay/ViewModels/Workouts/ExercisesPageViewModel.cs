@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -16,6 +17,28 @@ namespace NeverSkipLegDay.ViewModels
         private IPageService _pageService;
 
         private bool _isDataLoaded;
+        
+        private int? _repsTotal;
+        public int? RepsTotal
+        {
+            get { return _repsTotal; }
+            set
+            {
+                SetValue(ref _repsTotal, value);
+                OnPropertyChanged(nameof(_repsTotal));
+            }
+        }
+
+        private int _setsTotal;
+        public int SetsTotal
+        {
+            get { return _setsTotal; }
+            set
+            {
+                SetValue(ref _setsTotal, value);
+                OnPropertyChanged(nameof(_setsTotal));
+            }
+        }
 
         public WorkoutViewModel Workout { get; private set; }
 
@@ -60,6 +83,8 @@ namespace NeverSkipLegDay.ViewModels
         {
             ExerciseViewModel exerciseInList = Exercises.Where(e => e.Id == exercise.Id).ToList().FirstOrDefault();
 
+            SetTotals();    
+
             if(exerciseInList == null)
             {
                 Exercises.Add(new ExerciseViewModel(exercise));
@@ -73,14 +98,14 @@ namespace NeverSkipLegDay.ViewModels
 
         public void LoadData()
         {
-            if (_isDataLoaded) return;
-
-            _isDataLoaded = true;
+            Exercises.Clear();
             var exercises = _exerciseDal.GetExercisesByWorkoutId(Workout.Id);
             foreach (var exercise in exercises)
             {
                 Exercises.Add(new ExerciseViewModel(exercise));
             }
+
+            SetTotals();
         }
 
         private async Task AddExercise()
@@ -105,6 +130,8 @@ namespace NeverSkipLegDay.ViewModels
                 Exercises.Remove(exercise);
                 _exerciseDal.DeleteExercise(exerciseModel);
             }
+
+            SetTotals();
         }
 
         private async Task SelectExercise(ExerciseViewModel exercise)
@@ -126,6 +153,12 @@ namespace NeverSkipLegDay.ViewModels
         public bool IsExercisesEmpty()
         {
             return Exercises.Count == 0 ? true : false;
+        }
+
+        public void SetTotals()
+        {
+            RepsTotal = Exercises.Select(x => x.Reps).Sum();
+            SetsTotal = Exercises.Select(x => x.Sets).Sum();
         }
     }
 }

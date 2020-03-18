@@ -1,9 +1,11 @@
 ﻿using NeverSkipLegDay.Models;
+using NeverSkipLegDay.Models.DAL;
 
 namespace NeverSkipLegDay.ViewModels
 {
     public class ExerciseViewModel : BaseViewModel
     {
+        private SetDal _setDal;
         public int Id { get; set; }
         private int _workoutId;
         public int WorkoutId
@@ -27,6 +29,28 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
+        private int? _reps;
+        public int? Reps
+        {
+            get { return _reps; }
+            set
+            {
+                SetValue(ref _reps, value);
+                OnPropertyChanged(nameof(Reps));
+            }
+        }
+
+        private int _sets;
+        public int Sets
+        {
+            get { return _sets; }
+            set
+            {
+                SetValue(ref _sets, value);
+                OnPropertyChanged(nameof(Sets));
+            }
+        }
+
         public ExerciseViewModel() { }
 
         public ExerciseViewModel(Exercise exercise)
@@ -34,6 +58,11 @@ namespace NeverSkipLegDay.ViewModels
             Id = exercise.Id;
             WorkoutId = exercise.WorkoutId;
             Name = exercise.Name;
+
+            _setDal = new SetDal(new SQLiteDB());
+
+            Reps = exercise.GetRepsTotal(_setDal);
+            Sets = exercise.GetSetsTotal(_setDal);
         }
     }
 }
