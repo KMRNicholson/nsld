@@ -118,14 +118,14 @@ namespace NeverSkipLegDay.ViewModels
 
         public void LoadData()
         {
-            if (_isDataLoaded) return;
-
-            _isDataLoaded = true;
+            Meals.Clear();
             List<Meal> meals = _mealDal.GetMeals();
             foreach (var meal in meals)
             {
                 Meals.Add(new MealViewModel(meal));
             }
+
+            SetTotals();
         }
 
         private async Task AddMeal()

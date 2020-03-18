@@ -98,14 +98,14 @@ namespace NeverSkipLegDay.ViewModels
 
         public void LoadData()
         {
-            if (_isDataLoaded) return;
-
-            _isDataLoaded = true;
+            Exercises.Clear();
             var exercises = _exerciseDal.GetExercisesByWorkoutId(Workout.Id);
             foreach (var exercise in exercises)
             {
                 Exercises.Add(new ExerciseViewModel(exercise));
             }
+
+            SetTotals();
         }
 
         private async Task AddExercise()
