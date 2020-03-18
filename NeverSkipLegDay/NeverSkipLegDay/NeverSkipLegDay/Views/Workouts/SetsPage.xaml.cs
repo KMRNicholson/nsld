@@ -28,8 +28,12 @@ namespace NeverSkipLegDay.Views
         }
         protected override void OnAppearing()
         {
-            ViewModel.LoadDataCommand.Execute(null);
+            var exercise = new ExerciseViewModel(new ExerciseDal(new SQLiteDB()).GetExercise(ViewModel.Exercise.Id));
+            var setDal = new SetDal(new SQLiteDB());
+            var pageService = new PageService();
+            ViewModel = new SetsPageViewModel(exercise, setDal, pageService);
             base.OnAppearing();
+            ViewModel.LoadDataCommand.Execute(null);
         }
     }
 }

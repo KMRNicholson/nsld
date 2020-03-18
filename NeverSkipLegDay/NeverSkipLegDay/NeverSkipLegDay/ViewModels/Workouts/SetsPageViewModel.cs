@@ -110,6 +110,7 @@ namespace NeverSkipLegDay.ViewModels
             }
 
             await _pageService.DisplayAlert("Saved", "All sets are now saved.", "OK");
+            SetTotals();
         }
 
         public void SetTotals()
