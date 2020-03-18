@@ -118,7 +118,7 @@ namespace NeverSkipLegDay.ViewModels
             var exerciseDal = new ExerciseDal(new SQLiteDB());
             var exercise = exerciseDal.GetExercise(Exercise.Id);
 
-            Exercise = exercise != null ? new ExerciseViewModel(exercise) : new ExerciseViewModel();
+            Exercise = exercise != null ? new ExerciseViewModel(exercise) : Exercise;
         }
     }
 }
