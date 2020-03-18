@@ -121,6 +121,7 @@ namespace NeverSkipLegDay.ViewModels
 
         public void SetTotals()
         {
+            //THIS SHOULD NOT ACTUALLY CALL THE DAL. UPDATE THE CURRENT MODEL ON THE FLY
             var mealDal = new MealDal(new SQLiteDB());
             var meal = mealDal.GetMeal(Meal.Id);
 
