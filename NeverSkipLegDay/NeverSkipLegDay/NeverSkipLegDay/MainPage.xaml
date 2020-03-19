@@ -15,42 +15,38 @@
         <RowDefinition Height="20*"/>
       </Grid.RowDefinitions>
       <StackLayout
+        Style="{StaticResource MainPageLabelBackground}"
         x:Name="never"
-        Opacity="0"
         BackgroundColor="{StaticResource BarBackgroundColor}"
         Grid.Row="0">
         <Label 
-          CharacterSpacing="1"
           Style="{StaticResource MainPageLabel}"
           Text="NEVER"/>
       </StackLayout>
       <StackLayout
+        Style="{StaticResource MainPageLabelBackground}"
         x:Name="skip"
-        Opacity="0"
         BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
         Grid.Row="1">
         <Label
-          CharacterSpacing="1"
           Style="{StaticResource MainPageLabel}"
           Text="SKIP" />
       </StackLayout>
       <StackLayout
-        Opacity="0"
+        Style="{StaticResource MainPageLabelBackground}"
         x:Name="leg"
         BackgroundColor="{StaticResource NutritionBackgroundColor}"
         Grid.Row="2">
         <Label 
-          CharacterSpacing="1"
           Style="{StaticResource MainPageLabel}"
           Text="LEG" />
       </StackLayout>
       <StackLayout
-        Opacity="0"
+        Style="{StaticResource MainPageLabelBackground}"
         x:Name="day"
         BackgroundColor="{StaticResource RecordsBackgroundColor}"
         Grid.Row="3">
         <Label 
-          CharacterSpacing="1"
           Style="{StaticResource MainPageLabel}"
           Text="DAY"  />
       </StackLayout>
@@ -60,7 +56,7 @@
         Grid.Row="4">
         <Button 
           Style="{StaticResource PanelButton}"
-          Text="E n t e r"
+          Text="Enter"
           Clicked="OnEnter"/>
       </StackLayout>
     </Grid>

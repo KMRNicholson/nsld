@@ -22,14 +22,34 @@
     <Color x:Key="RecordsBackgroundColor">LightSteelBlue</Color>
     <Color x:Key="PlaceholderColor">LightGray</Color>
 
-    <!--*** MAIN PAGE STYLES ***-->
+    <!--*** STYLES ***-->
+
+    <!--*** SHARED ***-->
+    <Style x:Key="PanelButton" TargetType="Button">
+      <Setter Property="CharacterSpacing" Value="5"></Setter>
+      <Setter Property="BackgroundColor" Value="{StaticResource Key=PanelButtonColor}"></Setter>
+      <Setter Property="BorderColor" Value="{StaticResource Key=PanelButtonBorderColor}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Key=PanelButtonTextColor}"></Setter>
+      <Setter Property="BorderWidth" Value="1"></Setter>
+      <Setter Property="WidthRequest" Value="150"></Setter>
+      <Setter Property="HeightRequest" Value="80"></Setter>
+      <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+      <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+      <Setter Property="Margin" Value="10"></Setter>
+    </Style>
+
+    <!--*** MAIN PAGE ***-->
     <Style x:Key="MainPageLabel" TargetType="Label">
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
       <Setter Property="FontAttributes" Value="Bold"></Setter>
       <Setter Property="FontSize" Value="80"></Setter>
       <Setter Property="TextColor" Value="{StaticResource BackgroundTextColor}"></Setter>
       <Setter Property="HorizontalOptions" Value="StartAndExpand"></Setter>
       <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
       <Setter Property="Margin" Value="20,0,0,0"></Setter>
+    </Style>
+    <Style x:Key="MainPageLabelBackground" TargetType="StackLayout">
+      <Setter Property="Opacity" Value="0"></Setter>
     </Style>
     
     <Style x:Key="NutritionalLabel" TargetType="Label">
@@ -104,17 +124,6 @@
       <Setter Property="Margin" Value="0,0,0,20"></Setter>
       <Setter Property="Command" Value="{Binding AddCommand}"></Setter>
       <Setter Property="Text" Value="{Binding AddButtonText}"></Setter>
-    </Style>
-    <Style x:Key="PanelButton" TargetType="Button">
-      <Setter Property="BackgroundColor" Value="{StaticResource Key=PanelButtonColor}"></Setter>
-      <Setter Property="BorderColor" Value="{StaticResource Key=PanelButtonBorderColor}"></Setter>
-      <Setter Property="TextColor" Value="{StaticResource Key=PanelButtonTextColor}"></Setter>
-      <Setter Property="BorderWidth" Value="1"></Setter>
-      <Setter Property="WidthRequest" Value="150"></Setter>
-      <Setter Property="HeightRequest" Value="80"></Setter>
-      <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
-      <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
-      <Setter Property="Margin" Value="10"></Setter>
     </Style>
     <Style x:Key="EditButton" TargetType="Button">
       <Setter Property="FontSize" Value="10"></Setter>
