@@ -17,21 +17,24 @@ namespace NeverSkipLegDay
 
         protected override async void OnAppearing()
         {
-            uint fade = 800;
-            int delay = 100;
+            await FadeInLabel(never);
+            await FadeInLabel(skip);
+            await FadeInLabel(leg);
+            await FadeInLabel(day);
 
-            never.FadeTo(1, fade).ConfigureAwait(true).GetAwaiter();
-            await Task.Delay(delay).ConfigureAwait(true);
-            skip.FadeTo(1, fade).ConfigureAwait(true).GetAwaiter();
-            await Task.Delay(delay).ConfigureAwait(true);
-            leg.FadeTo(1, fade).ConfigureAwait(true).GetAwaiter();
-            await Task.Delay(delay).ConfigureAwait(true);
-            day.FadeTo(1, fade).ConfigureAwait(true).GetAwaiter();
-            await Task.Delay(delay).ConfigureAwait(true);
             base.OnAppearing();
         }
 
-        async void OnEnter(object sender, EventArgs e)
+        private async Task FadeInLabel(StackLayout label)
+        {
+            uint fade = 800;
+            int delay = 100;
+
+            label.FadeTo(1, fade).ConfigureAwait(true).GetAwaiter();
+            await Task.Delay(delay).ConfigureAwait(false);
+        }
+
+        public async void OnEnter(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new DashboardPage());
         }
