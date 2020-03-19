@@ -17,16 +17,16 @@ namespace NeverSkipLegDay
 
         protected override async void OnAppearing()
         {
-            uint wordFade = 800;
+            uint fade = 800;
             int delay = 100;
 
-            never.FadeTo(1, wordFade).ConfigureAwait(true).GetAwaiter();
+            never.FadeTo(1, fade).ConfigureAwait(true).GetAwaiter();
             await Task.Delay(delay).ConfigureAwait(true);
-            skip.FadeTo(1, wordFade).ConfigureAwait(true).GetAwaiter();
+            skip.FadeTo(1, fade).ConfigureAwait(true).GetAwaiter();
             await Task.Delay(delay).ConfigureAwait(true);
-            leg.FadeTo(1, wordFade).ConfigureAwait(true).GetAwaiter();
+            leg.FadeTo(1, fade).ConfigureAwait(true).GetAwaiter();
             await Task.Delay(delay).ConfigureAwait(true);
-            day.FadeTo(1, wordFade).ConfigureAwait(true).GetAwaiter();
+            day.FadeTo(1, fade).ConfigureAwait(true).GetAwaiter();
             await Task.Delay(delay).ConfigureAwait(true);
             base.OnAppearing();
         }

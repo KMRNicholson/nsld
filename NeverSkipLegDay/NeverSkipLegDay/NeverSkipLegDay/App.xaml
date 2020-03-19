@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
              x:Class="NeverSkipLegDay.App">
   <Application.Resources>
+    
+    <!--*** COLORS ***-->
     <Color x:Key="BackgroundTextColor">White</Color>
     <Color x:Key="BackgroundColor">LightSkyBlue</Color>
     <Color x:Key="BackgroundButtonColor">White</Color>
@@ -22,6 +21,17 @@
     <Color x:Key="NutritionBackgroundColor">LightBlue</Color>
     <Color x:Key="RecordsBackgroundColor">LightSteelBlue</Color>
     <Color x:Key="PlaceholderColor">LightGray</Color>
+
+    <!--*** MAIN PAGE STYLES ***-->
+    <Style x:Key="MainPageLabel" TargetType="Label">
+      <Setter Property="FontAttributes" Value="Bold"></Setter>
+      <Setter Property="FontSize" Value="80"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource BackgroundTextColor}"></Setter>
+      <Setter Property="HorizontalOptions" Value="StartAndExpand"></Setter>
+      <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+      <Setter Property="Margin" Value="20,0,0,0"></Setter>
+    </Style>
+    
     <Style x:Key="NutritionalLabel" TargetType="Label">
       <Setter Property="FontSize" Value="13"></Setter>
       <Setter Property="Margin" Value="0,10,20,10"></Setter>
@@ -163,14 +173,7 @@
       <Setter Property="HorizontalOptions" Value="Center"></Setter>
       <Setter Property="Margin" Value="0,0,70,0"></Setter>
     </Style>
-    <Style x:Key="MainPageLabel" TargetType="Label">
-      <Setter Property="FontAttributes" Value="Bold"></Setter>
-      <Setter Property="FontSize" Value="80"></Setter>
-      <Setter Property="TextColor" Value="{StaticResource BackgroundTextColor}"></Setter>
-      <Setter Property="HorizontalOptions" Value="StartAndExpand"></Setter>
-      <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
-      <Setter Property="Margin" Value="20,0,0,0"></Setter>
-    </Style>
+    
     <Style x:Key="HeaderCard" TargetType="StackLayout">
       <Setter Property="BackgroundColor" Value="{StaticResource CardBackgroundColor}"></Setter>
       <Setter Property="VerticalOptions" Value="Start"></Setter>

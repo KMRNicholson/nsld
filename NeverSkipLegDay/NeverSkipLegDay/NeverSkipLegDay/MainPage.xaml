@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             BackgroundColor="LightSteelBlue"
-             mc:Ignorable="d"
+             BackgroundColor="{StaticResource RecordsBackgroundColor}"
              x:Class="NeverSkipLegDay.MainPage">
-  <StackLayout BackgroundColor="LightSteelBlue">
-    <Grid 
-      VerticalOptions="FillAndExpand"
+  <ContentPage.Content>
+    <Grid
       RowSpacing="0"    
       ColumnSpacing="0">
       <Grid.RowDefinitions>
@@ -23,15 +19,19 @@
         Opacity="0"
         BackgroundColor="{StaticResource BarBackgroundColor}"
         Grid.Row="0">
-        <Label Style="{StaticResource MainPageLabel}"
+        <Label 
+          CharacterSpacing="1"
+          Style="{StaticResource MainPageLabel}"
           Text="NEVER"/>
       </StackLayout>
       <StackLayout
-        Opacity="0"
         x:Name="skip"
+        Opacity="0"
         BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
         Grid.Row="1">
-        <Label Style="{StaticResource MainPageLabel}"
+        <Label
+          CharacterSpacing="1"
+          Style="{StaticResource MainPageLabel}"
           Text="SKIP" />
       </StackLayout>
       <StackLayout
@@ -39,7 +39,9 @@
         x:Name="leg"
         BackgroundColor="{StaticResource NutritionBackgroundColor}"
         Grid.Row="2">
-        <Label Style="{StaticResource MainPageLabel}"
+        <Label 
+          CharacterSpacing="1"
+          Style="{StaticResource MainPageLabel}"
           Text="LEG" />
       </StackLayout>
       <StackLayout
@@ -47,17 +49,20 @@
         x:Name="day"
         BackgroundColor="{StaticResource RecordsBackgroundColor}"
         Grid.Row="3">
-        <Label Style="{StaticResource MainPageLabel}"
+        <Label 
+          CharacterSpacing="1"
+          Style="{StaticResource MainPageLabel}"
           Text="DAY"  />
       </StackLayout>
       <StackLayout
         x:Name="enter"
         BackgroundColor="LightSteelBlue"
         Grid.Row="4">
-        <Button Style="{StaticResource PanelButton}"
+        <Button 
+          Style="{StaticResource PanelButton}"
           Text="E n t e r"
           Clicked="OnEnter"/>
       </StackLayout>
     </Grid>
-  </StackLayout>
+  </ContentPage.Content>
 </ContentPage>
