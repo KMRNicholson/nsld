@@ -3,8 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NeverSkipLegDay.App">
   <Application.Resources>
+
+    <!--*******************-->
+    <!--**  C O L O R S  **-->
+    <!--*******************-->
     
-    <!--*** COLORS ***-->
     <Color x:Key="BackgroundTextColor">White</Color>
     <Color x:Key="BackgroundColor">LightSkyBlue</Color>
     <Color x:Key="BackgroundButtonColor">White</Color>
@@ -22,9 +25,14 @@
     <Color x:Key="RecordsBackgroundColor">LightSteelBlue</Color>
     <Color x:Key="PlaceholderColor">LightGray</Color>
 
-    <!--*** STYLES ***-->
+    
+    
+    <!--*******************-->
+    <!--**  S T Y L E S  **-->
+    <!--*******************-->
 
-    <!--*** SHARED ***-->
+    <!--**  S H A R E D  **-->
+    
     <Style x:Key="PanelButton" TargetType="Button">
       <Setter Property="BackgroundColor" Value="{StaticResource Key=PanelButtonColor}"></Setter>
       <Setter Property="BorderColor" Value="{StaticResource Key=PanelButtonBorderColor}"></Setter>
@@ -51,7 +59,9 @@
       <Setter Property="RowSpacing" Value="0"></Setter>
     </Style>
 
-    <!--*** MAIN PAGE ***-->
+    
+    <!--**  M A I N  P A G E  **-->
+    
     <Style x:Key="MainPageLabel" TargetType="Label">
       <Setter Property="TextColor" Value="{StaticResource BackgroundTextColor}"></Setter>
       <Setter Property="FontAttributes" Value="Bold"></Setter>
