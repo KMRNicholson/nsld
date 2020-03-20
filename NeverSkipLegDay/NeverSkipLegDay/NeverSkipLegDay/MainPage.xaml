@@ -44,8 +44,7 @@
       <StackLayout
         x:Name="day"
         Grid.Row="3"
-        Style="{StaticResource MainPageLabelBackground}"
-        BackgroundColor="{StaticResource RecordsBackgroundColor}">
+        Style="{StaticResource MainPageLabelBackground}">
         <Label 
           Style="{StaticResource MainPageLabel}"
           Text="DAY"  />

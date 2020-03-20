@@ -26,27 +26,26 @@
 
     <!--*** SHARED ***-->
     <Style x:Key="PanelButton" TargetType="Button">
-      <Setter Property="CharacterSpacing" Value="5"></Setter>
       <Setter Property="BackgroundColor" Value="{StaticResource Key=PanelButtonColor}"></Setter>
       <Setter Property="BorderColor" Value="{StaticResource Key=PanelButtonBorderColor}"></Setter>
       <Setter Property="TextColor" Value="{StaticResource Key=PanelButtonTextColor}"></Setter>
+      <Setter Property="CharacterSpacing" Value="5"></Setter>
+      <Setter Property="Margin" Value="10"></Setter>
       <Setter Property="BorderWidth" Value="1"></Setter>
       <Setter Property="WidthRequest" Value="150"></Setter>
       <Setter Property="HeightRequest" Value="80"></Setter>
-      <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+      <Setter Property="HorizontalOptions" Value="Center"></Setter>
       <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
-      <Setter Property="Margin" Value="10"></Setter>
     </Style>
 
     <!--*** MAIN PAGE ***-->
     <Style x:Key="MainPageLabel" TargetType="Label">
-      <Setter Property="CharacterSpacing" Value="1"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource BackgroundTextColor}"></Setter>
       <Setter Property="FontAttributes" Value="Bold"></Setter>
       <Setter Property="FontSize" Value="80"></Setter>
-      <Setter Property="TextColor" Value="{StaticResource BackgroundTextColor}"></Setter>
-      <Setter Property="HorizontalOptions" Value="StartAndExpand"></Setter>
-      <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+      <Setter Property="CharacterSpacing" Value="1"></Setter>
       <Setter Property="Margin" Value="20,0,0,0"></Setter>
+      <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
     </Style>
     <Style x:Key="MainPageLabelBackground" TargetType="StackLayout">
       <Setter Property="Opacity" Value="0"></Setter>
