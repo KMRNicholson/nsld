@@ -5,8 +5,7 @@
              x:Class="NeverSkipLegDay.MainPage">
   <ContentPage.Content>
     <Grid
-      RowSpacing="0"    
-      ColumnSpacing="0">
+      Style="{StaticResource NoSpacingGrid}">
       <Grid.RowDefinitions>
         <RowDefinition Height="20*"/>
         <RowDefinition Height="20*"/>
@@ -15,19 +14,19 @@
         <RowDefinition Height="20*"/>
       </Grid.RowDefinitions>
       <StackLayout
-        Style="{StaticResource MainPageLabelBackground}"
         x:Name="never"
+        Grid.Row="0"
         BackgroundColor="{StaticResource BarBackgroundColor}"
-        Grid.Row="0">
+        Style="{StaticResource MainPageLabelBackground}">
         <Label 
           Style="{StaticResource MainPageLabel}"
           Text="NEVER"/>
       </StackLayout>
       <StackLayout
-        Style="{StaticResource MainPageLabelBackground}"
         x:Name="skip"
-        BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
-        Grid.Row="1">
+        Grid.Row="1"
+        Style="{StaticResource MainPageLabelBackground}"
+        BackgroundColor="{StaticResource WorkoutsBackgroundColor}">
         <Label
           Style="{StaticResource MainPageLabel}"
           Text="SKIP" />

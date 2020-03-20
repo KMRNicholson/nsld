@@ -37,6 +37,19 @@
       <Setter Property="HorizontalOptions" Value="Center"></Setter>
       <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
     </Style>
+    <Style x:Key="AppBarTitle" TargetType="Label">
+      <Setter Property="TextColor" Value="{StaticResource Key=BarTextColor}"></Setter>
+      <Setter Property="Text" Value="{Binding PageName}"></Setter>
+      <Setter Property="Margin" Value="0,0,70,0"></Setter>
+      <Setter Property="FontAttributes" Value="Bold"></Setter>
+      <Setter Property="FontSize" Value="20"></Setter>
+      <Setter Property="CharacterSpacing" Value="5"></Setter>
+      <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+    </Style>
+    <Style x:Key="NoSpacingGrid" TargetType="Grid">
+      <Setter Property="ColumnSpacing" Value="0"></Setter>
+      <Setter Property="RowSpacing" Value="0"></Setter>
+    </Style>
 
     <!--*** MAIN PAGE ***-->
     <Style x:Key="MainPageLabel" TargetType="Label">
@@ -174,13 +187,7 @@
       <Setter Property="Margin" Value="10,10,10,0"></Setter>
       <Setter Property="Text" Value="Please tap the Add button below to add your first item!"></Setter>
     </Style>
-    <Style x:Key="AppBarTitle" TargetType="Label">
-      <Setter Property="FontAttributes" Value="Bold"></Setter>
-      <Setter Property="FontSize" Value="20"></Setter>
-      <Setter Property="TextColor" Value="{StaticResource Key=BarTextColor}"></Setter>
-      <Setter Property="HorizontalOptions" Value="Center"></Setter>
-      <Setter Property="Margin" Value="0,0,70,0"></Setter>
-    </Style>
+    
     
     <Style x:Key="HeaderCard" TargetType="StackLayout">
       <Setter Property="BackgroundColor" Value="{StaticResource CardBackgroundColor}"></Setter>

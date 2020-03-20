@@ -22,8 +22,6 @@ namespace NeverSkipLegDay.Views
 
         protected override async void OnAppearing()
         {
-            await title.FadeTo(1, 250).ConfigureAwait(true);
-
             uint scaleBig = 100;
             uint scaleBack = 100;
 
@@ -36,5 +34,7 @@ namespace NeverSkipLegDay.Views
 
             base.OnAppearing();
         }
+
+
     }
 }

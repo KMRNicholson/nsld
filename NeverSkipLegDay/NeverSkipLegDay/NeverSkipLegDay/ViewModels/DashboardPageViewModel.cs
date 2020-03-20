@@ -12,6 +12,7 @@ namespace NeverSkipLegDay.ViewModels
     public class DashboardPageViewModel : BaseViewModel
     {
         private IPageService _pageService;
+        public string PageName { get => "NSLD"; }
         public ICommand SelectWorkoutsCommand { get; set; }
         public ICommand SelectNutritionCommand { get; set; }
         public ICommand SelectRecordsCommand { get; set; }

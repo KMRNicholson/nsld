@@ -4,17 +4,12 @@
              x:Name="dashboardPage"
              x:Class="NeverSkipLegDay.Views.DashboardPage" >
   <NavigationPage.TitleView>
-    <Label 
-      x:Name="title"
-      Opacity="0"
-      Style="{StaticResource AppBarTitle}"
-      Text="N S L D"/>
+    <Label
+      Style="{StaticResource AppBarTitle}"/>
   </NavigationPage.TitleView>
-  <StackLayout>
+  <ContentPage.Content>
     <Grid 
-      VerticalOptions="FillAndExpand"
-      RowSpacing="0"    
-      ColumnSpacing="0">
+      Style="{StaticResource NoSpacingGrid}">
       <Grid.RowDefinitions>
         <RowDefinition Height="33*"/>
         <RowDefinition Height="33*"/>
@@ -25,9 +20,8 @@
         Grid.Row="0">
         <Button 
           x:Name="workouts"
-          Scale="1"
+          Text="Workouts"
           Style="{StaticResource PanelButton}"
-          Text="W o r k o u t s"
           Command="{Binding SelectWorkoutsCommand}"/>
       </StackLayout>
       <StackLayout
@@ -35,9 +29,8 @@
         Grid.Row="1">
         <Button 
           x:Name="nutrition"
-          Scale="1"
+          Text="Nutrition"
           Style="{StaticResource PanelButton}"
-          Text="N u t r i t i o n"
           Command="{Binding SelectNutritionCommand}"/>
       </StackLayout>
       <StackLayout
@@ -45,11 +38,10 @@
         Grid.Row="2">
         <Button 
           x:Name="records"
-          Scale="1"
+          Text="Records"
           Style="{StaticResource PanelButton}"
-          Text="R e c o r d s"
           Command="{Binding SelectRecordsCommand}"/>
       </StackLayout>
     </Grid>
-  </StackLayout>
+  </ContentPage.Content>
 </ContentPage>
