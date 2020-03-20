@@ -3,10 +3,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+
+using Xamarin.Forms;
+
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.Models.DAL;
 using NeverSkipLegDay.Views;
-using Xamarin.Forms;
 
 namespace NeverSkipLegDay.ViewModels
 {
