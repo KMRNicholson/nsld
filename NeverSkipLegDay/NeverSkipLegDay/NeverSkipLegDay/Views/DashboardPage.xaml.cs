@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Threading.Tasks;
 
 using NeverSkipLegDay.ViewModels;
 
@@ -22,19 +23,20 @@ namespace NeverSkipLegDay.Views
 
         protected override async void OnAppearing()
         {
-            uint scaleBig = 100;
-            uint scaleBack = 100;
-
-            await workouts.ScaleTo(1.1, scaleBig).ConfigureAwait(true);
-            workouts.ScaleTo(1, scaleBack).ConfigureAwait(true).GetAwaiter();
-            await nutrition.ScaleTo(1.1, scaleBig).ConfigureAwait(true);
-            nutrition.ScaleTo(1, scaleBack).ConfigureAwait(true).GetAwaiter();
-            await records.ScaleTo(1.1, scaleBig).ConfigureAwait(true);
-            records.ScaleTo(1, scaleBack).ConfigureAwait(true).GetAwaiter();
+            await ButtonPop(workouts).ConfigureAwait(false);
+            await ButtonPop(nutrition).ConfigureAwait(false);
+            await ButtonPop(records).ConfigureAwait(false);
 
             base.OnAppearing();
         }
 
+        private async Task ButtonPop(Button button)
+        {
+            uint scaleBig = 100;
+            uint scaleBack = 100;
 
+            await button.ScaleTo(1.1, scaleBig).ConfigureAwait(true);
+            button.ScaleTo(1, scaleBack).ConfigureAwait(true).GetAwaiter();
+        }
     }
 }
