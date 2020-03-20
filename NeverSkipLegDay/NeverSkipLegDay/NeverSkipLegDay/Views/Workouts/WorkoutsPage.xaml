@@ -5,8 +5,8 @@
              x:Name="workoutsPage"
              x:Class="NeverSkipLegDay.Views.WorkoutsPage">
   <NavigationPage.TitleView>
-    <Label Style="{StaticResource AppBarTitle}"
-      Text="W O R K O U T S"/>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout>

@@ -3,11 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NeverSkipLegDay.App">
   <Application.Resources>
-
-    <!--*******************-->
-    <!--**  C O L O R S  **-->
-    <!--*******************-->
     
+    <!--#region Colors -->
     <Color x:Key="BackgroundTextColor">White</Color>
     <Color x:Key="BackgroundColor">LightSkyBlue</Color>
     <Color x:Key="BackgroundButtonColor">White</Color>
@@ -24,15 +21,11 @@
     <Color x:Key="NutritionBackgroundColor">LightBlue</Color>
     <Color x:Key="RecordsBackgroundColor">LightSteelBlue</Color>
     <Color x:Key="PlaceholderColor">LightGray</Color>
-
+    <!--#endregion-->
     
+    <!--#region Styles-->
     
-    <!--*******************-->
-    <!--**  S T Y L E S  **-->
-    <!--*******************-->
-
-    <!--**  S H A R E D  **-->
-    
+    <!--#region Shared-->    
     <Style x:Key="PanelButton" TargetType="Button">
       <Setter Property="BackgroundColor" Value="{StaticResource Key=PanelButtonColor}"></Setter>
       <Setter Property="BorderColor" Value="{StaticResource Key=PanelButtonBorderColor}"></Setter>
@@ -58,10 +51,9 @@
       <Setter Property="ColumnSpacing" Value="0"></Setter>
       <Setter Property="RowSpacing" Value="0"></Setter>
     </Style>
-
+    <!--#endregion-->
     
-    <!--**  M A I N  P A G E  **-->
-    
+    <!--#region Main Page-->   
     <Style x:Key="MainPageLabel" TargetType="Label">
       <Setter Property="TextColor" Value="{StaticResource BackgroundTextColor}"></Setter>
       <Setter Property="FontAttributes" Value="Bold"></Setter>
@@ -73,6 +65,7 @@
     <Style x:Key="MainPageLabelBackground" TargetType="StackLayout">
       <Setter Property="Opacity" Value="0"></Setter>
     </Style>
+    <!--#endregion-->
     
     <Style x:Key="NutritionalLabel" TargetType="Label">
       <Setter Property="FontSize" Value="13"></Setter>
@@ -205,5 +198,7 @@
       <Setter Property="Margin" Value="10,10,10,-9"></Setter>
       <Setter Property="HeightRequest" Value="80"></Setter>
     </Style>
+    <!--#endregion-->
+    
   </Application.Resources>
 </Application>

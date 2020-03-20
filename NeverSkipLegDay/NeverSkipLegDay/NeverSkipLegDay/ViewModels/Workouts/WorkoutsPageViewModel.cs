@@ -14,6 +14,7 @@ namespace NeverSkipLegDay.ViewModels
 {
     public class WorkoutsPageViewModel : BaseViewModel
     {
+        public string PageTitle { get; private set; }
         private WorkoutViewModel _selectedWorkout;
         private IWorkoutDal _workoutDal;
         private IPageService _pageService;
@@ -44,6 +45,8 @@ namespace NeverSkipLegDay.ViewModels
         {
             MessagingCenter.Subscribe<AddEditWorkoutPageViewModel, Workout>
                 (this, Events.WorkoutSaved, OnWorkoutSaved);
+
+            PageTitle = "WORKOUTS";
 
             _workoutDal = workoutDal;
             _pageService = pageService;
