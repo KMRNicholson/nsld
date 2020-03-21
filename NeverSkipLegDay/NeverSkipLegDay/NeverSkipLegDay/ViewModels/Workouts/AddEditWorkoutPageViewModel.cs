@@ -28,7 +28,7 @@ namespace NeverSkipLegDay.ViewModels
             if (workout == null)
                 throw new ArgumentNullException(nameof(workout));
 
-            PageTitle = "Workout";
+            PageTitle = "WORKOUT";
 
             _workoutDal = workoutDal;
             _pageService = pageService;
