@@ -19,6 +19,9 @@ namespace NeverSkipLegDay.ViewModels
         #region public properties
         public string PageTitle { get; private set; }
         public Workout Workout { get; private set; }
+        #endregion
+
+        #region commands
         public ICommand SaveCommand { get; private set; }
         #endregion
 

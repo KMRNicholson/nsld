@@ -143,6 +143,5 @@ namespace NeverSkipLegDay.ViewModels
             return Workouts.Count == 0 ? true : false;
         }
         #endregion
-
     }
 }
