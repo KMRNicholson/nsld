@@ -22,14 +22,14 @@ namespace NeverSkipLegDay.ViewModels {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ViewModelStrings {
+    internal class Events {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ViewModelStrings() {
+        internal Events() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace NeverSkipLegDay.ViewModels {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NeverSkipLegDay.ViewModels.ViewModelStrings", typeof(ViewModelStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NeverSkipLegDay.ViewModels.Events", typeof(Events).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,47 @@ namespace NeverSkipLegDay.ViewModels {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error.
+        ///   Looks up a localized string similar to SaveExercise.
         /// </summary>
-        internal static string Error {
+        internal static string ExerciseSaved {
             get {
-                return ResourceManager.GetString("Error", resourceCulture);
+                return ResourceManager.GetString("ExerciseSaved", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a name..
+        ///   Looks up a localized string similar to SaveFood.
         /// </summary>
-        internal static string NullNameWarning {
+        internal static string FoodSaved {
             get {
-                return ResourceManager.GetString("NullNameWarning", resourceCulture);
+                return ResourceManager.GetString("FoodSaved", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OK.
+        ///   Looks up a localized string similar to SaveMeal.
         /// </summary>
-        internal static string Ok {
+        internal static string MealSaved {
             get {
-                return ResourceManager.GetString("Ok", resourceCulture);
+                return ResourceManager.GetString("MealSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SaveRecord.
+        /// </summary>
+        internal static string RecordSaved {
+            get {
+                return ResourceManager.GetString("RecordSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SaveWorkout.
+        /// </summary>
+        internal static string WorkoutSaved {
+            get {
+                return ResourceManager.GetString("WorkoutSaved", resourceCulture);
             }
         }
     }

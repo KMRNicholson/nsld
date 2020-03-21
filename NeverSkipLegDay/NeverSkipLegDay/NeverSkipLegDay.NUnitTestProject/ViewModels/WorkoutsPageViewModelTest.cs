@@ -30,6 +30,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         public void ConstructorTest()
         {
             Assert.AreNotEqual(viewModel, null);
+            Assert.AreEqual(viewModel.PageTitle, "WORKOUTS");
             Assert.AreEqual(viewModel.ButtonText, "Add Workout");
             Assert.AreEqual(viewModel.Workouts.Count, workouts.Count);
             Assert.AreEqual(viewModel.SelectedWorkout, null);

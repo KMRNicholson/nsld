@@ -41,7 +41,7 @@ namespace NeverSkipLegDay.ViewModels
         {
             if (string.IsNullOrWhiteSpace(Workout.Name))
             {
-                await _pageService.DisplayAlert(ViewModelStrings.Error, ViewModelStrings.NullNameWarning, ViewModelStrings.Ok).ConfigureAwait(false);
+                await _pageService.DisplayAlert(DisplayAlerts.Error, DisplayAlerts.NullNameWarning, DisplayAlerts.Ok).ConfigureAwait(false);
                 return;
             }
 
