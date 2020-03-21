@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NeverSkipLegDay.ViewModels.Resources {
+namespace NeverSkipLegDay.ViewModels {
     using System;
     
     
