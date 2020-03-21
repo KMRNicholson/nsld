@@ -14,50 +14,93 @@ namespace NeverSkipLegDay.ViewModels
 {
     public class WorkoutsPageViewModel : BaseViewModel
     {
-        public string PageTitle { get; private set; }
+        #region private properties
         private WorkoutViewModel _selectedWorkout;
-        private IWorkoutDal _workoutDal;
-        private IPageService _pageService;
-
+        private readonly IWorkoutDal _workoutDal;
+        private readonly IPageService _pageService;
         private bool _isDataLoaded;
+        private bool _showHelpLabel;
+        #endregion
 
-        public string AddButtonText
-        {
-            get { return "Add Workout"; }
-        }
-
+        #region public properties
+        public string PageTitle { get; private set; }
+        public string AddButtonText { get; private set; }
         public ObservableCollection<WorkoutViewModel> Workouts { get; private set; }
             = new ObservableCollection<WorkoutViewModel>();
-
         public WorkoutViewModel SelectedWorkout
         {
             get { return _selectedWorkout; }
             set { SetValue(ref _selectedWorkout, value); }
         }
+        public bool ShowHelpLabel
+        {
+            get { return _showHelpLabel; }
+            set
+            {
+                SetValue(ref _showHelpLabel, value);
+                OnPropertyChanged(nameof(ShowHelpLabel));
+            }
+        }
+        #endregion
 
+        #region commands
         public ICommand LoadDataCommand { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand SelectCommand { get; set; }
+        #endregion
 
+        #region constructor
         public WorkoutsPageViewModel(IWorkoutDal workoutDal, IPageService pageService)
         {
             MessagingCenter.Subscribe<AddEditWorkoutPageViewModel, Workout>
                 (this, Events.WorkoutSaved, OnWorkoutSaved);
 
             PageTitle = "WORKOUTS";
+            AddButtonText = "Add Workouts";
 
             _workoutDal = workoutDal;
             _pageService = pageService;
 
             LoadDataCommand = new Command(() => LoadData());
-            AddCommand = new Command(async () => await AddWorkout());
-            EditCommand = new Command<WorkoutViewModel>(async workout => await EditWorkout(workout));
-            DeleteCommand = new Command<WorkoutViewModel>(async workout => await DeleteWorkout(workout));
-            SelectCommand = new Command<WorkoutViewModel>(async workout => await SelectWorkout(workout));            
+            AddCommand = new Command(async () => await AddWorkout().ConfigureAwait(false));
+            EditCommand = new Command<WorkoutViewModel>(async workout => await EditWorkout(workout).ConfigureAwait(false));
+            DeleteCommand = new Command<WorkoutViewModel>(async workout => await DeleteWorkout(workout).ConfigureAwait(false));
+            SelectCommand = new Command<WorkoutViewModel>(async workout => await SelectWorkout(workout).ConfigureAwait(false));            
         }
+        #endregion
 
+        #region public methods
+        public void LoadData()
+        {
+            if (_isDataLoaded) return;
+
+            _isDataLoaded = true;
+            List<Workout> workouts = _workoutDal.GetWorkouts();
+            foreach (var workout in workouts)
+            {
+                Workouts.Add(new WorkoutViewModel(workout));
+            }
+        }
+        public async Task DeleteWorkout(WorkoutViewModel workout)
+        {
+            if (workout == null) return;
+
+            if (await _pageService.DisplayAlert("Warning", $"Are you sure you want to delete {workout.Name}?", "Yes", "No").ConfigureAwait(false))
+            {
+                var workoutModel = _workoutDal.GetWorkout(workout.Id);
+                Workouts.Remove(workout);
+                _workoutDal.DeleteWorkout(workoutModel);
+            }
+        }
+        public bool IsWorkoutsEmpty()
+        {
+            return Workouts.Count == 0 ? true : false;
+        }
+        #endregion
+
+        #region private methods
         private void OnWorkoutSaved(AddEditWorkoutPageViewModel source, Workout workout)
         {
             WorkoutViewModel workoutInList = Workouts.Where(w => w.Id == workout.Id).ToList().FirstOrDefault();
@@ -72,54 +115,24 @@ namespace NeverSkipLegDay.ViewModels
                 workoutInList.Name = workout.Name;
             }
         }
-
-        public void LoadData()
-        {
-            if (_isDataLoaded) return;
-
-            _isDataLoaded = true;
-            List<Workout> workouts = _workoutDal.GetWorkouts();
-            foreach(var workout in workouts)
-            {
-                Workouts.Add(new WorkoutViewModel(workout));
-            }
-        }
-
         private async Task AddWorkout()
         {
-            await _pageService.PushAsync(new AddEditWorkoutPage(new WorkoutViewModel()));
+            await _pageService.PushAsync(new AddEditWorkoutPage(new WorkoutViewModel())).ConfigureAwait(false);
         }
-
         private async Task EditWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
 
-            await _pageService.PushAsync(new AddEditWorkoutPage(workout));
+            await _pageService.PushAsync(new AddEditWorkoutPage(workout)).ConfigureAwait(false);
         }
-
-        public async Task DeleteWorkout(WorkoutViewModel workout)
-        {
-            if (workout == null) return;
-
-            if(await _pageService.DisplayAlert("Warning", $"Are you sure you want to delete {workout.Name}?", "Yes", "No"))
-            {
-                var workoutModel = _workoutDal.GetWorkout(workout.Id);
-                Workouts.Remove(workout);
-                _workoutDal.DeleteWorkout(workoutModel);
-            }
-        }
-
-        public async Task SelectWorkout(WorkoutViewModel workout)
+        private async Task SelectWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
 
             SelectedWorkout = null;
-            await _pageService.PushAsync(new ExercisesPage(workout));
+            await _pageService.PushAsync(new ExercisesPage(workout)).ConfigureAwait(false);
         }
+        #endregion
 
-        public bool IsWorkoutsEmpty()
-        {
-            return Workouts.Count == 0 ? true : false;
-        }
     }
 }

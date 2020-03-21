@@ -66,6 +66,7 @@
     <Style x:Key="HelpLabel" TargetType="Label">
       <Setter Property="BackgroundColor" Value="{StaticResource Key=CardBackgroundColor}"/>
       <Setter Property="TextColor" Value="{StaticResource Key=CardTextColor}"/>
+      <Setter Property="IsVisible" Value="{Binding ShowHelpLabel, Mode=TwoWay}"/>
       <Setter Property="HorizontalTextAlignment" Value="Center"/>
       <Setter Property="FontSize" Value="15"/>
       <Setter Property="HorizontalOptions" Value="Center"/>
