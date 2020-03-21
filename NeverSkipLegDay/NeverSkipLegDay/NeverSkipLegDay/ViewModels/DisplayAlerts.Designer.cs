@@ -61,6 +61,15 @@ namespace NeverSkipLegDay.ViewModels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete {0}?.
+        /// </summary>
+        internal static string DeleteWarning {
+            get {
+                return ResourceManager.GetString("DeleteWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string Error {
@@ -70,11 +79,20 @@ namespace NeverSkipLegDay.ViewModels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a name..
         /// </summary>
-        internal static string NullNameWarning {
+        internal static string NullNameError {
             get {
-                return ResourceManager.GetString("NullNameWarning", resourceCulture);
+                return ResourceManager.GetString("NullNameError", resourceCulture);
             }
         }
         
@@ -84,6 +102,24 @@ namespace NeverSkipLegDay.ViewModels {
         internal static string Ok {
             get {
                 return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

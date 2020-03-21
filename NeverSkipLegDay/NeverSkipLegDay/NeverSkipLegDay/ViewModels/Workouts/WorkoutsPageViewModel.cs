@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.Models.DAL;
 using NeverSkipLegDay.Views;
+using System.Globalization;
 
 namespace NeverSkipLegDay.ViewModels
 {
@@ -79,7 +80,9 @@ namespace NeverSkipLegDay.ViewModels
         {
             if (workout == null) return;
 
-            if (await _pageService.DisplayAlert("Warning", $"Are you sure you want to delete {workout.Name}?", "Yes", "No").ConfigureAwait(false))
+            string warningMessage = string.Format(new CultureInfo("en-US"), DisplayAlerts.DeleteWarning, workout.Name);
+
+            if (await _pageService.DisplayAlert(DisplayAlerts.Warning, warningMessage, DisplayAlerts.Yes, DisplayAlerts.No).ConfigureAwait(false))
             {
                 var workoutModel = _workoutDal.GetWorkout(workout.Id);
                 Workouts.Remove(workout);
