@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+
+using Xamarin.Forms;
+
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.Models.DAL;
-using Xamarin.Forms;
 
 namespace NeverSkipLegDay.ViewModels
 {
@@ -20,10 +22,13 @@ namespace NeverSkipLegDay.ViewModels
         public ICommand SaveCommand { get; private set; }
         #endregion
 
+        #region constructor
         public AddEditWorkoutPageViewModel(WorkoutViewModel workout, IWorkoutDal workoutDal, IPageService pageService)
         {
             if (workout == null)
                 throw new ArgumentNullException(nameof(workout));
+
+            PageTitle = "Workout";
 
             _workoutDal = workoutDal;
             _pageService = pageService;
@@ -36,7 +41,9 @@ namespace NeverSkipLegDay.ViewModels
                 Name = workout.Name
             };
         }
+        #endregion
 
+        #region public methods
         public async Task Save()
         {
             if (string.IsNullOrWhiteSpace(Workout.Name))
@@ -49,5 +56,6 @@ namespace NeverSkipLegDay.ViewModels
             MessagingCenter.Send(this, Events.WorkoutSaved, Workout);
             await _pageService.PopAsync().ConfigureAwait(false);
         }
+        #endregion
     }
 }

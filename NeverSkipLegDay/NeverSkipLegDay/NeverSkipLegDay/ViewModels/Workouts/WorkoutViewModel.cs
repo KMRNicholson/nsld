@@ -1,4 +1,6 @@
-﻿using NeverSkipLegDay.Models;
+﻿using System;
+
+using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.ViewModels
 {
@@ -20,6 +22,9 @@ namespace NeverSkipLegDay.ViewModels
 
         public WorkoutViewModel(Workout workout)
         {
+            if (workout == null)
+                throw new ArgumentNullException(nameof(workout));
+
             Id = workout.Id;
             Name = workout.Name;
         }
