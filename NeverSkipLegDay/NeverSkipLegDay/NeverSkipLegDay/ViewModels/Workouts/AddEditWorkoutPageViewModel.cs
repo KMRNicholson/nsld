@@ -9,12 +9,16 @@ namespace NeverSkipLegDay.ViewModels
 {
     public class AddEditWorkoutPageViewModel : BaseViewModel
     {
-        private IWorkoutDal _workoutDal;
-        private IPageService _pageService;
+        #region private properties
+        private readonly IWorkoutDal _workoutDal;
+        private readonly IPageService _pageService;
+        #endregion
 
+        #region public properties
+        public string PageTitle { get; private set; }
         public Workout Workout { get; private set; }
-
         public ICommand SaveCommand { get; private set; }
+        #endregion
 
         public AddEditWorkoutPageViewModel(WorkoutViewModel workout, IWorkoutDal workoutDal, IPageService pageService)
         {
@@ -24,7 +28,7 @@ namespace NeverSkipLegDay.ViewModels
             _workoutDal = workoutDal;
             _pageService = pageService;
 
-            SaveCommand = new Command(async () => await Save());
+            SaveCommand = new Command(async () => await Save().ConfigureAwait(false));
 
             Workout = new Workout()
             {
@@ -37,13 +41,13 @@ namespace NeverSkipLegDay.ViewModels
         {
             if (string.IsNullOrWhiteSpace(Workout.Name))
             {
-                await _pageService.DisplayAlert("Error", "Please enter a name.", "OK");
+                await _pageService.DisplayAlert(ViewModelStrings.Error, ViewModelStrings.NullNameWarning, ViewModelStrings.Ok).ConfigureAwait(false);
                 return;
             }
 
             _workoutDal.SaveWorkout(Workout);
             MessagingCenter.Send(this, Events.WorkoutSaved, Workout);
-            await _pageService.PopAsync();
+            await _pageService.PopAsync().ConfigureAwait(false);
         }
     }
 }
