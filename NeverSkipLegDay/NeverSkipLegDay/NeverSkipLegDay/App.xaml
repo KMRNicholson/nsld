@@ -26,6 +26,8 @@
     <!--#region Styles-->
     
     <!--#region Shared-->
+    
+    <!-- Buttons -->
     <Style x:Key="PanelButton" TargetType="Button">
       <Setter Property="BackgroundColor" Value="{StaticResource Key=PanelButtonColor}"/>
       <Setter Property="BorderColor" Value="{StaticResource Key=PanelButtonBorderColor}"/>
@@ -50,6 +52,8 @@
       <Setter Property="HorizontalOptions" Value="Center"/>
       <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
+    
+    <!-- Labels -->
     <Style x:Key="AppBarTitle" TargetType="Label">
       <Setter Property="TextColor" Value="{StaticResource Key=BarTextColor}"/>
       <Setter Property="Text" Value="{Binding PageTitle}"/>
@@ -80,15 +84,21 @@
       <Setter Property="VerticalOptions" Value="Center"/>
       <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
     </Style>
+
+    <!-- StackLayouts -->
     <Style x:Key="ListItemBackground" TargetType="StackLayout">
       <Setter Property="BackgroundColor" Value="{StaticResource CardBackgroundColor}"/>
       <Setter Property="Orientation" Value="Horizontal"/>
       <Setter Property="Padding" Value="15"/>
     </Style>
+
+    <!-- Grids -->
     <Style x:Key="NoSpacingGrid" TargetType="Grid">
       <Setter Property="ColumnSpacing" Value="0"/>
       <Setter Property="RowSpacing" Value="0"/>
     </Style>
+
+    <!-- ListViews -->
     <Style x:Key="ItemList" TargetType="ListView">
       <Setter Property="HasUnevenRows" Value="True"/>
       <Setter Property="Margin" Value="10"/>
