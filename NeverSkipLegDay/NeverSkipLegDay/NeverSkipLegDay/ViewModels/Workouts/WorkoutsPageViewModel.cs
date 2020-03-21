@@ -15,22 +15,25 @@ namespace NeverSkipLegDay.ViewModels
     public class WorkoutsPageViewModel : BaseViewModel
     {
         #region private properties
-        private WorkoutViewModel _selectedWorkout;
         private readonly IWorkoutDal _workoutDal;
         private readonly IPageService _pageService;
+        private WorkoutViewModel _selectedWorkout;
         private bool _isDataLoaded;
         private bool _showHelpLabel;
         #endregion
 
         #region public properties
         public string PageTitle { get; private set; }
-        public string AddButtonText { get; private set; }
+        public string ButtonText { get; private set; }
         public ObservableCollection<WorkoutViewModel> Workouts { get; private set; }
             = new ObservableCollection<WorkoutViewModel>();
         public WorkoutViewModel SelectedWorkout
         {
             get { return _selectedWorkout; }
-            set { SetValue(ref _selectedWorkout, value); }
+            set 
+            { 
+                SetValue(ref _selectedWorkout, value); 
+            }
         }
         public bool ShowHelpLabel
         {
@@ -58,7 +61,7 @@ namespace NeverSkipLegDay.ViewModels
                 (this, Events.WorkoutSaved, OnWorkoutSaved);
 
             PageTitle = "WORKOUTS";
-            AddButtonText = "Add Workouts";
+            ButtonText = "Add Workout";
 
             _workoutDal = workoutDal;
             _pageService = pageService;
@@ -72,17 +75,6 @@ namespace NeverSkipLegDay.ViewModels
         #endregion
 
         #region public methods
-        public void LoadData()
-        {
-            if (_isDataLoaded) return;
-
-            _isDataLoaded = true;
-            List<Workout> workouts = _workoutDal.GetWorkouts();
-            foreach (var workout in workouts)
-            {
-                Workouts.Add(new WorkoutViewModel(workout));
-            }
-        }
         public async Task DeleteWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
@@ -93,14 +85,25 @@ namespace NeverSkipLegDay.ViewModels
                 Workouts.Remove(workout);
                 _workoutDal.DeleteWorkout(workoutModel);
             }
-        }
-        public bool IsWorkoutsEmpty()
-        {
-            return Workouts.Count == 0 ? true : false;
+
+            ShowHelpLabel = IsWorkoutsEmpty();
         }
         #endregion
 
         #region private methods
+        private void LoadData()
+        {
+            if (_isDataLoaded) return;
+
+            _isDataLoaded = true;
+            List<Workout> workouts = _workoutDal.GetWorkouts();
+            foreach (var workout in workouts)
+            {
+                Workouts.Add(new WorkoutViewModel(workout));
+            }
+
+            ShowHelpLabel = IsWorkoutsEmpty();
+        }
         private void OnWorkoutSaved(AddEditWorkoutPageViewModel source, Workout workout)
         {
             WorkoutViewModel workoutInList = Workouts.Where(w => w.Id == workout.Id).ToList().FirstOrDefault();
@@ -131,6 +134,10 @@ namespace NeverSkipLegDay.ViewModels
 
             SelectedWorkout = null;
             await _pageService.PushAsync(new ExercisesPage(workout)).ConfigureAwait(false);
+        }
+        private bool IsWorkoutsEmpty()
+        {
+            return Workouts.Count == 0 ? true : false;
         }
         #endregion
 

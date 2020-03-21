@@ -32,6 +32,7 @@
       <Setter Property="BackgroundColor" Value="{StaticResource Key=PanelButtonColor}"/>
       <Setter Property="BorderColor" Value="{StaticResource Key=PanelButtonBorderColor}"/>
       <Setter Property="TextColor" Value="{StaticResource Key=PanelButtonTextColor}"/>
+      <Setter Property="Text" Value="{Binding ButtonText}"/>
       <Setter Property="CharacterSpacing" Value="5"/>
       <Setter Property="BorderWidth" Value="1"/>
       <Setter Property="WidthRequest" Value="150"/>

@@ -15,7 +15,6 @@
         <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
       <Label 
-        x:Name="helpLabel"
         Style="{StaticResource HelpLabel}"/>
       <ListView
         ItemSelected="OnWorkoutSelected"
@@ -46,8 +45,7 @@
         Grid.Row="1"
         Margin="0,0,0,20"
         Style="{StaticResource PanelButton}"
-        Command="{Binding AddCommand}"
-        Text="{Binding AddButtonText}"/>
+        Command="{Binding AddCommand}"/>
     </Grid>
   </ContentPage.Content>
 </ContentPage>

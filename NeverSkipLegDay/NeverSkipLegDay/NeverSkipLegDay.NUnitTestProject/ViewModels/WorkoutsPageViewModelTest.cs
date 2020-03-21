@@ -30,7 +30,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         public void ConstructorTest()
         {
             Assert.AreNotEqual(viewModel, null);
-            Assert.AreEqual(viewModel.AddButtonText, "Add Workout");
+            Assert.AreEqual(viewModel.ButtonText, "Add Workout");
             Assert.AreEqual(viewModel.Workouts.Count, workouts.Count);
             Assert.AreEqual(viewModel.SelectedWorkout, null);
         }
@@ -43,7 +43,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         }
 
         [Test]
-        public async Task DeleteCommand()
+        public async Task DeleteCommandTest()
         {
             WorkoutViewModel workoutViewModel = viewModel.Workouts.FirstOrDefault();
             Workout workout = workouts.FirstOrDefault();
@@ -63,7 +63,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         }
 
         [Test]
-        public async Task DeleteNullCommand()
+        public async Task DeleteNullCommandTest()
         {
             int numInList = viewModel.Workouts.Count;
             int numInDb = workouts.Count;
@@ -77,16 +77,6 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreEqual(viewModel.Workouts.Count, workouts.Count);
             Assert.AreEqual(viewModel.Workouts.Count, numInList);
             Assert.AreEqual(workouts.Count, numInDb);
-        }
-
-        [Test]
-        public void IsWorkoutsEmptyTest()
-        {
-            Assert.IsFalse(viewModel.IsWorkoutsEmpty());
-
-            viewModel.Workouts.Clear();
-
-            Assert.IsTrue(viewModel.IsWorkoutsEmpty());
         }
     }
 }
