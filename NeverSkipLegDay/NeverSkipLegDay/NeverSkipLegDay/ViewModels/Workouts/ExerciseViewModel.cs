@@ -4,6 +4,10 @@ using System;
 
 namespace NeverSkipLegDay.ViewModels
 {
+    /*
+     * Class which defines the ViewModel for the Exercise model. This is used for displaying exercises,
+     * as well as mapping values from the view to the model/database, through the binded ViewModel.
+     */
     public class ExerciseViewModel : BaseViewModel
     {
         #region private properties
