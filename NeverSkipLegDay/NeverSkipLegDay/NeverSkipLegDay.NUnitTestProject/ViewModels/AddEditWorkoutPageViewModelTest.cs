@@ -41,6 +41,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreNotEqual(editViewModel, null);
             Assert.AreEqual(editViewModel.Workout.Id, workout.Id);
             Assert.AreEqual(editViewModel.Workout.Name, workout.Name);
+            Assert.AreEqual(editViewModel.PageTitle, "WORKOUT");
         }
 
         [Test]
@@ -49,6 +50,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreNotEqual(addViewModel, null);
             Assert.AreEqual(addViewModel.Workout.Id, 0);
             Assert.AreEqual(addViewModel.Workout.Name, null);
+            Assert.AreEqual(editViewModel.PageTitle, "WORKOUT");
         }
 
         [Test]

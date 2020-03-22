@@ -37,7 +37,8 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         {
             Assert.AreNotEqual(viewModel, null);
             Assert.AreEqual(viewModel.Workout, workoutViewModel);
-            Assert.AreEqual(viewModel.AddButtonText, "Add Exercise");
+            Assert.AreEqual(viewModel.PageTitle, "EXERCISES");
+            Assert.AreEqual(viewModel.ButtonText, "Add Exercise");
             Assert.AreEqual(viewModel.Exercises.Count, exercises.Count);
             Assert.AreEqual(viewModel.SelectedExercise, null);
         }
@@ -84,16 +85,6 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreEqual(viewModel.Exercises.Count, exercises.Count);
             Assert.AreEqual(viewModel.Exercises.Count, numInList);
             Assert.AreEqual(exercises.Count, numInDb);
-        }
-
-        [Test]
-        public void IsExercisesEmptyTest()
-        {
-            Assert.IsFalse(viewModel.IsExercisesEmpty());
-
-            viewModel.Exercises.Clear();
-
-            Assert.IsTrue(viewModel.IsExercisesEmpty());
         }
     }
 }
