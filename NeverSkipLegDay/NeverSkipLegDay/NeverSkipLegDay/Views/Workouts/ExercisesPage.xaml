@@ -24,7 +24,7 @@
         Grid.Row="0"
         Style="{StaticResource ListHeaderBackground}">
         <Label 
-          Style="{StaticResource ListHeader}"
+          Style="{StaticResource ListHeaderLabel}"
           Text="{Binding Workout.Name}"/>
       </StackLayout>
       <ListView 
