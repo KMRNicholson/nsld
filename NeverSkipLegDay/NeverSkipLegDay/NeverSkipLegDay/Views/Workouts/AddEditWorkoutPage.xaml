@@ -13,7 +13,7 @@
       <Label 
         Style="{StaticResource AddEditItemNameLabel}"/>
       <Entry 
-        Placeholder="e.g. Push Day"
+        Placeholder="e.g. Leg Day"
         Keyboard="Chat"
         Style="{StaticResource AddEditItemEntry}"
         Text="{Binding Workout.Name}"/>

@@ -124,6 +124,7 @@
     <Style x:Key="AddEditItemEntry" TargetType="Entry">
       <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderColor}"/>
       <Setter Property="TextColor" Value="{StaticResource CardTextColor}"/>
+      <Setter Property="CharacterSpacing" Value="1"/>
       <Setter Property="IsTextPredictionEnabled" Value="True"/>
       <Setter Property="IsSpellCheckEnabled" Value="True"/>
     </Style>
