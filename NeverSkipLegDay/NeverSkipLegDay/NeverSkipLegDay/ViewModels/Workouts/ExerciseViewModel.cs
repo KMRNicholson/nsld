@@ -1,6 +1,7 @@
-﻿using NeverSkipLegDay.Models;
+﻿using System;
+
+using NeverSkipLegDay.Models;
 using NeverSkipLegDay.Models.DAL;
-using System;
 
 namespace NeverSkipLegDay.ViewModels
 {
