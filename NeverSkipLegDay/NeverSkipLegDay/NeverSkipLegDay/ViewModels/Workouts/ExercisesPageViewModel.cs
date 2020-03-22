@@ -182,7 +182,7 @@ namespace NeverSkipLegDay.ViewModels
         }
 
         // Method which is triggered when the ExerciseSaved event occurs. It simply takes the saved exercise and updates/adds it to the list.
-        // params: AddEditExercisePageViewModel - Passed in by the MessagingCenter.subscribe. This is the source which triggered the event.
+        // params: AddEditExercisePageViewModel - Passed in by the MessagingCenter.subscribe(). This is the source which triggered the event.
         //         Exercise - The model which is being saved.
         private void OnExerciseSaved(AddEditExercisePageViewModel source, Exercise exercise)
         {

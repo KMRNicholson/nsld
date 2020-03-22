@@ -14,6 +14,11 @@ using NeverSkipLegDay.Views;
 
 namespace NeverSkipLegDay.ViewModels
 {
+    /*
+     * The ViewModel for the WorkoutsPage.xaml.cs.
+     * Contains all methods for retrieving information from the model
+     * and displaying this information to the view.
+     */
     public class WorkoutsPageViewModel : BaseViewModel
     {
         #region private properties
@@ -77,6 +82,8 @@ namespace NeverSkipLegDay.ViewModels
         #endregion
 
         #region public methods
+        // Asynchronous task for deleting a workout from the database and removing it from the list.
+        // params: WorkoutViewModel - required for removing the viewmodel from the list, and to delete the record in the database.
         public async Task DeleteWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
@@ -95,6 +102,7 @@ namespace NeverSkipLegDay.ViewModels
         #endregion
 
         #region private methods
+        // Method which returns a list of workouts. If _isDataLoaded is true we do nothing.
         private void LoadData()
         {
             if (_isDataLoaded) return;
@@ -109,6 +117,9 @@ namespace NeverSkipLegDay.ViewModels
             ShowHelpLabel = IsWorkoutsEmpty();
         }
 
+        // Method which is triggered when the WorkoutSaved event occurs. It simply takes the saved workout and updates/adds it to the list.
+        // params: AddEditWorkoutPageViewModel - Passed in by the MessagingCenter.subscribe(). This is the source which triggered the event.
+        //         Workout - The model which is being saved.
         private void OnWorkoutSaved(AddEditWorkoutPageViewModel source, Workout workout)
         {
             WorkoutViewModel workoutInList = Workouts.Where(w => w.Id == workout.Id).ToList().FirstOrDefault();
@@ -124,11 +135,14 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
+        // Method which sends the user to the page to add a new workout.
         private async Task AddWorkout()
         {
             await _pageService.PushAsync(new AddEditWorkoutPage(new WorkoutViewModel())).ConfigureAwait(false);
         }
 
+        // Method which sends the user to the page to edit a workout.
+        // params: WorkoutViewModel - The bounded viewmodel in the list which is being chosen for edit.
         private async Task EditWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
@@ -136,6 +150,8 @@ namespace NeverSkipLegDay.ViewModels
             await _pageService.PushAsync(new AddEditWorkoutPage(workout)).ConfigureAwait(false);
         }
 
+        // Method which is triggered when a user selects a workout from the list.
+        // params: WorkoutViewModel - The selected item from the WorkoutViewModel list.
         private async Task SelectWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
@@ -144,6 +160,7 @@ namespace NeverSkipLegDay.ViewModels
             await _pageService.PushAsync(new ExercisesPage(workout)).ConfigureAwait(false);
         }
 
+        // Method which checks to see if the workout list is empty, in order to display the help label in the view.
         private bool IsWorkoutsEmpty()
         {
             return Workouts.Count == 0 ? true : false;
