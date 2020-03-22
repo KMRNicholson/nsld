@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Globalization;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -8,7 +10,6 @@ using Xamarin.Forms;
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.Models.DAL;
 using NeverSkipLegDay.Views;
-using System;
 
 namespace NeverSkipLegDay.ViewModels
 {
@@ -20,6 +21,7 @@ namespace NeverSkipLegDay.ViewModels
         private readonly IPageService _pageService;
         private int _repsTotal;
         private int _setsTotal;
+        private bool _showHelpLabel;
         #endregion
 
         #region public properties
@@ -44,6 +46,15 @@ namespace NeverSkipLegDay.ViewModels
             {
                 SetValue(ref _setsTotal, value);
                 OnPropertyChanged(nameof(_setsTotal));
+            }
+        }
+        public bool ShowHelpLabel
+        {
+            get { return _showHelpLabel; }
+            set
+            {
+                SetValue(ref _showHelpLabel, value);
+                OnPropertyChanged(nameof(ShowHelpLabel));
             }
         }
         public ExerciseViewModel SelectedExercise
@@ -74,6 +85,7 @@ namespace NeverSkipLegDay.ViewModels
             ButtonText = "Add Exercise";
 
             Workout = workout ?? throw new ArgumentNullException(nameof(workout));
+
             _exerciseDal = exerciseDal ?? throw new ArgumentNullException(nameof(exerciseDal));
             _pageService = pageService ?? throw new ArgumentNullException(nameof(pageService));
 
@@ -85,10 +97,44 @@ namespace NeverSkipLegDay.ViewModels
         }
         #endregion
 
+        #region public methods
+        public async Task DeleteExercise(ExerciseViewModel exercise)
+        {
+            if (exercise == null) return;
+
+            string warningMessage = string.Format(new CultureInfo("en-US"), DisplayAlerts.DeleteWarning, exercise.Name);
+
+            if (await _pageService.DisplayAlert(DisplayAlerts.Warning, warningMessage, DisplayAlerts.Yes, DisplayAlerts.No).ConfigureAwait(false))
+            {
+                var exerciseModel = _exerciseDal.GetExercise(exercise.Id);
+                Exercises.Remove(exercise);
+                _exerciseDal.DeleteExercise(exerciseModel);
+            }
+
+            ShowHelpLabel = IsExercisesEmpty();
+
+            SetTotals();
+        }
+        #endregion
+
+        #region private methods
+        private void LoadData()
+        {
+            Exercises.Clear();
+
+            var exercises = _exerciseDal.GetExercisesByWorkoutId(Workout.Id);
+            foreach (var exercise in exercises)
+            {
+                Exercises.Add(new ExerciseViewModel(exercise));
+            }
+
+            ShowHelpLabel = IsExercisesEmpty();
+
+            SetTotals();
+        }
+
         private void OnExerciseSaved(AddEditExercisePageViewModel source, Exercise exercise)
         {
-            SetTotals();
-
             ExerciseViewModel exerciseInList = Exercises.Where(e => e.Id == exercise.Id).ToList().FirstOrDefault();
 
             if(exerciseInList == null)
@@ -102,21 +148,10 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        public void LoadData()
-        {
-            Exercises.Clear();
-            var exercises = _exerciseDal.GetExercisesByWorkoutId(Workout.Id);
-            foreach (var exercise in exercises)
-            {
-                Exercises.Add(new ExerciseViewModel(exercise));
-            }
-
-            SetTotals();
-        }
-
         private async Task AddExercise()
         {
-            await _pageService.PushAsync(new AddEditExercisePage(new ExerciseViewModel() { WorkoutId = Workout.Id })).ConfigureAwait(false);
+            ExerciseViewModel viewModel = new ExerciseViewModel() { WorkoutId = Workout.Id };
+            await _pageService.PushAsync(new AddEditExercisePage(viewModel)).ConfigureAwait(false);
         }
 
         private async Task EditExercise(ExerciseViewModel exercise)
@@ -126,26 +161,13 @@ namespace NeverSkipLegDay.ViewModels
             await _pageService.PushAsync(new AddEditExercisePage(exercise)).ConfigureAwait(false);
         }
 
-        public async Task DeleteExercise(ExerciseViewModel exercise)
-        {
-            if (exercise == null) return;
-
-            if(await _pageService.DisplayAlert("Warning", $"Are you sure you want to delete {exercise.Name}?", "Yes", "No").ConfigureAwait(false))
-            {
-                var exerciseModel = _exerciseDal.GetExercise(exercise.Id);
-                Exercises.Remove(exercise);
-                _exerciseDal.DeleteExercise(exerciseModel);
-            }
-
-            SetTotals();
-        }
-
         private async Task SelectExercise(ExerciseViewModel exercise)
         {
             if (exercise == null) return;
 
             SelectedExercise = null;
 
+            //If the exercise does not have a workout id, it was created in the "Records" feature.
             if (exercise.WorkoutId == 0)
             {
                 await _pageService.PushAsync(new RecordsPage(exercise)).ConfigureAwait(false);
@@ -156,15 +178,16 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        public bool IsExercisesEmpty()
+        private bool IsExercisesEmpty()
         {
             return Exercises.Count == 0 ? true : false;
         }
 
-        public void SetTotals()
+        private void SetTotals()
         {
             RepsTotal = Exercises.Select(x => x.Reps).Sum();
             SetsTotal = Exercises.Select(x => x.Sets).Sum();
         }
+        #endregion
     }
 }

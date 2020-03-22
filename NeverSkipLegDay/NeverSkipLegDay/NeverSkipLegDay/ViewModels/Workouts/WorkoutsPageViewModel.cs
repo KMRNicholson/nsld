@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Globalization;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,16 +11,15 @@ using Xamarin.Forms;
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.Models.DAL;
 using NeverSkipLegDay.Views;
-using System.Globalization;
 
 namespace NeverSkipLegDay.ViewModels
 {
     public class WorkoutsPageViewModel : BaseViewModel
     {
         #region private properties
+        private WorkoutViewModel _selectedWorkout;
         private readonly IWorkoutDal _workoutDal;
         private readonly IPageService _pageService;
-        private WorkoutViewModel _selectedWorkout;
         private bool _isDataLoaded;
         private bool _showHelpLabel;
         #endregion
@@ -28,14 +29,6 @@ namespace NeverSkipLegDay.ViewModels
         public string ButtonText { get; private set; }
         public ObservableCollection<WorkoutViewModel> Workouts { get; private set; }
             = new ObservableCollection<WorkoutViewModel>();
-        public WorkoutViewModel SelectedWorkout
-        {
-            get { return _selectedWorkout; }
-            set 
-            { 
-                SetValue(ref _selectedWorkout, value); 
-            }
-        }
         public bool ShowHelpLabel
         {
             get { return _showHelpLabel; }
@@ -43,6 +36,14 @@ namespace NeverSkipLegDay.ViewModels
             {
                 SetValue(ref _showHelpLabel, value);
                 OnPropertyChanged(nameof(ShowHelpLabel));
+            }
+        }
+        public WorkoutViewModel SelectedWorkout
+        {
+            get { return _selectedWorkout; }
+            set
+            {
+                SetValue(ref _selectedWorkout, value);
             }
         }
         #endregion
@@ -64,8 +65,8 @@ namespace NeverSkipLegDay.ViewModels
             PageTitle = "WORKOUTS";
             ButtonText = "Add Workout";
 
-            _workoutDal = workoutDal;
-            _pageService = pageService;
+            _workoutDal = workoutDal ?? throw new ArgumentNullException(nameof(workoutDal));
+            _pageService = pageService ?? throw new ArgumentNullException(nameof(pageService));
 
             LoadDataCommand = new Command(() => LoadData());
             AddCommand = new Command(async () => await AddWorkout().ConfigureAwait(false));
@@ -107,6 +108,7 @@ namespace NeverSkipLegDay.ViewModels
 
             ShowHelpLabel = IsWorkoutsEmpty();
         }
+
         private void OnWorkoutSaved(AddEditWorkoutPageViewModel source, Workout workout)
         {
             WorkoutViewModel workoutInList = Workouts.Where(w => w.Id == workout.Id).ToList().FirstOrDefault();
@@ -121,16 +123,19 @@ namespace NeverSkipLegDay.ViewModels
                 workoutInList.Name = workout.Name;
             }
         }
+
         private async Task AddWorkout()
         {
             await _pageService.PushAsync(new AddEditWorkoutPage(new WorkoutViewModel())).ConfigureAwait(false);
         }
+
         private async Task EditWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
 
             await _pageService.PushAsync(new AddEditWorkoutPage(workout)).ConfigureAwait(false);
         }
+
         private async Task SelectWorkout(WorkoutViewModel workout)
         {
             if (workout == null) return;
@@ -138,6 +143,7 @@ namespace NeverSkipLegDay.ViewModels
             SelectedWorkout = null;
             await _pageService.PushAsync(new ExercisesPage(workout)).ConfigureAwait(false);
         }
+
         private bool IsWorkoutsEmpty()
         {
             return Workouts.Count == 0 ? true : false;
