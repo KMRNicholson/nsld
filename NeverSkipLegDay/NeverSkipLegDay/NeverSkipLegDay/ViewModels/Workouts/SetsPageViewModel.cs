@@ -170,6 +170,7 @@ namespace NeverSkipLegDay.ViewModels
         // Method which gets the total reps and sets for the exercise to display in the view.
         private void SetTotals()
         {
+            //TODO: Make this logic better.
             var exerciseDal = new ExerciseDal(new SQLiteDB());
             var exercise = exerciseDal.GetExercise(Exercise.Id);
 
