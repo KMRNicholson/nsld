@@ -106,6 +106,24 @@ namespace NeverSkipLegDay.ViewModels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Saved.
+        /// </summary>
+        internal static string Saved {
+            get {
+                return ResourceManager.GetString("Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All sets are now saved..
+        /// </summary>
+        internal static string SetsSaved {
+            get {
+                return ResourceManager.GetString("SetsSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Warning.
         /// </summary>
         internal static string Warning {

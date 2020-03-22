@@ -21,40 +21,20 @@ namespace NeverSkipLegDay.ViewModels
     public class ExercisesPageViewModel : BaseViewModel
     {
         #region private properties
-        // Holds the data for the selected exercise.
         private ExerciseViewModel _selectedExercise;
-
-        // Used for database operations.
         private readonly IExerciseDal _exerciseDal;
-
-        // Used for page services such as display alerts and navigation.
         private readonly IPageService _pageService;
-
-        // Set to the total reps, used to trigger property changed events for two-way binding.
         private int _repsTotal;
-
-        // Set to the total sets, used to trigger property changed events for two-way binding.
         private int _setsTotal;
-
-        // Set to whether the list of exercises is empty for the selected workout, used to trigger property changed events for two-way binding.
         private bool _showHelpLabel;
         #endregion
 
         #region public properties
-        // Property which is binded to the title in the app bar.
         public string PageTitle { get; private set; }
-
-        // Property which is binded to the text attribute for the Add button in the view.
         public string ButtonText { get; private set; }
-
-        // The viewmodel which contains important information, such as workout id, for the selected workout.
         public WorkoutViewModel Workout { get; private set; }
-
-        // List of viewmodels which are binded as items in the ListView.
         public ObservableCollection<ExerciseViewModel> Exercises { get; private set; }
             = new ObservableCollection<ExerciseViewModel>();
-
-        // Property which is binded to the view to display the total reps for the exercises in the ListView.
         public int RepsTotal
         {
             get { return _repsTotal; }
@@ -64,8 +44,6 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_repsTotal));
             }
         }
-
-        // Property which is binded to the view to display the total sets for the exercises in the ListView.
         public int SetsTotal
         {
             get { return _setsTotal; }
@@ -75,8 +53,6 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_setsTotal));
             }
         }
-
-        // Property which is binded to the IsVisible attribute for the HelpLabel in the view.
         public bool ShowHelpLabel
         {
             get { return _showHelpLabel; }
@@ -86,8 +62,6 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(ShowHelpLabel));
             }
         }
-
-        // ViewModel for the selected exercise in the ListView.
         public ExerciseViewModel SelectedExercise
         {
             get { return _selectedExercise; }
@@ -99,23 +73,14 @@ namespace NeverSkipLegDay.ViewModels
         #endregion
 
         #region commands
-        // Command which is set to the LoadData() method, triggered when the page exercises page appears.
         public ICommand LoadDataCommand { get; set; }
-
-        // Command which is set to the AddExercise() method, binded to the "Add" button in the view.
         public ICommand AddCommand { get; set; }
-
-        // Command which is set to the EditExercise() method, binded to the "Edit" button on the viewcell of the list in the view.
         public ICommand EditCommand { get; set; }
-
-        // Command which is set to the DeleteExercise() method, binded to the "Delete" button on the viewcell of the list in the view.
         public ICommand DeleteCommand { get; set; }
-
-        // Command which is set to the SelectExercise() method, which is triggered when the user selects the item in the list in the view.
         public ICommand SelectCommand { get; set; }
         #endregion
 
-        #region constructor
+        #region constructors
         // Constructor for the ExercisesPageViewModel.
         // params: WorkoutViewModel - required to link the exercises to the selected workout.
         //         IExerciseDal - required for database operations.
