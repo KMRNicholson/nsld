@@ -16,8 +16,8 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        private int? _reps;
-        public int? Reps
+        private int _reps;
+        public int Reps
         {
             get { return _reps; }
             set
@@ -27,8 +27,8 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        private decimal? _weight;
-        public decimal? Weight
+        private decimal _weight;
+        public decimal Weight
         {
             get { return _weight; }
             set
