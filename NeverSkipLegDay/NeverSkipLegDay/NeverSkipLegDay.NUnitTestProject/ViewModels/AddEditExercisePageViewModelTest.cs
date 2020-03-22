@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
-using NeverSkipLegDay.Models.DAL;
-using NeverSkipLegDay.ViewModels;
-using NeverSkipLegDay.Models;
-using System.Collections.Generic;
-using NeverSkipLegDay.NUnitTestProject.Database;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using Xamarin.Forms;
+
+using NUnit.Framework;
+
+using NeverSkipLegDay.NUnitTestProject.Database;
+using NeverSkipLegDay.ViewModels;
+using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.NUnitTestProject.ViewModels
 {
