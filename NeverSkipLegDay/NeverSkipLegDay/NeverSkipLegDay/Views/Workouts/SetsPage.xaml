@@ -11,9 +11,8 @@
                  Command="{Binding BatchSaveCommand}"/>
   </ContentPage.ToolbarItems>
   <NavigationPage.TitleView>
-    <Label Style="{StaticResource AppBarTitle}"
-      Text="S E T S"
-           Margin="0,0,10,0"/>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout 
