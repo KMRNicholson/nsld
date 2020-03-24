@@ -130,6 +130,8 @@ namespace NeverSkipLegDay.ViewModels
             _setDal.SaveSet(set);
             Sets.Add(new SetViewModel(set));
 
+            ShowHelpLabel = IsSetsEmpty();
+
             SetTotals();
         }
 

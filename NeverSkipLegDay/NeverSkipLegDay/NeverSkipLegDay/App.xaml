@@ -171,6 +171,29 @@
     </Style>
     <!--#endregion-->
     
+    
+    <!--#region Sets Page-->
+    <Style x:Key="SetListLabel" TargetType="Label">
+      <Setter Property="TextColor" Value="{StaticResource CardTextColor}"/>
+      <Setter Property="FontSize" Value="15"/>
+      <Setter Property="CharacterSpacing" Value="1"/>
+      <Setter Property="VerticalOptions" Value="Center"/>
+      <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+    <Style x:Key="SetListItemEntry" TargetType="Entry">
+      <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderColor}"/>
+      <Setter Property="TextColor" Value="{StaticResource CardTextColor}"/>
+      <Setter Property="FontSize" Value="15"/>
+      <Setter Property="Margin" Value="0,0,5,0"/>
+      <Setter Property="WidthRequest" Value="50"/>
+      <Setter Property="CharacterSpacing" Value="1"/>
+      <Setter Property="IsTextPredictionEnabled" Value="True"/>
+      <Setter Property="IsSpellCheckEnabled" Value="True"/>
+      <Setter Property="Keyboard" Value="Numeric"/>
+    </Style>
+    <!--#endregion-->
+    
+    
     <!--#region Main Page-->   
     <Style x:Key="MainPageLabel" TargetType="Label">
       <Setter Property="TextColor" Value="{StaticResource BackgroundTextColor}"/>
