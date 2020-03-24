@@ -1,8 +1,8 @@
-﻿using NeverSkipLegDay.Models.DAL;
-using NeverSkipLegDay.ViewModels;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using NeverSkipLegDay.Models.DAL;
+using NeverSkipLegDay.ViewModels;
 
 namespace NeverSkipLegDay.Views
 {
