@@ -12,11 +12,21 @@ namespace NeverSkipLegDay.ViewModels
 {
     public class MealsPageViewModel : BaseViewModel
     {
+        #region private properties
+        private readonly IMealDal _mealDal;
+        private readonly IPageService _pageService;
         private MealViewModel _selectedMeal;
-        private IMealDal _mealDal;
-        private IPageService _pageService;
-
         private int _fatTotal;
+        private int _protTotal;
+        private int _carbTotal;
+        private int _calTotal;
+        #endregion
+
+        #region public properties
+        public string PageTitle { get; private set; }
+        public string ButtonText { get; private set; }
+        public ObservableCollection<MealViewModel> Meals { get; private set; }
+            = new ObservableCollection<MealViewModel>();
         public int FatTotal
         {
             get { return _fatTotal; }
@@ -26,8 +36,6 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_fatTotal));
             }
         }
-
-        private int _protTotal;
         public int ProtTotal
         {
             get { return _protTotal; }
@@ -37,8 +45,6 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_protTotal));
             }
         }
-
-        private int _carbTotal;
         public int CarbTotal
         {
             get { return _carbTotal; }
@@ -48,8 +54,6 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_carbTotal));
             }
         }
-
-        private int _calTotal;
         public int CalTotal
         {
             get { return _calTotal; }
@@ -59,31 +63,29 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_calTotal));
             }
         }
-
-        public string AddButtonText
-        {
-            get { return "Add Meal"; }
-        }
-
-        public ObservableCollection<MealViewModel> Meals { get; private set; }
-            = new ObservableCollection<MealViewModel>();
-
         public MealViewModel SelectedMeal
         {
             get { return _selectedMeal; }
             set { SetValue(ref _selectedMeal, value); }
         }
+        #endregion
 
+        #region commands
         public ICommand LoadDataCommand { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand SelectCommand { get; set; }
+        #endregion
 
+        #region constructors
         public MealsPageViewModel(IMealDal mealDal, IPageService pageService)
         {
             MessagingCenter.Subscribe<AddEditMealPageViewModel, Meal>
                 (this, Events.MealSaved, OnMealSaved);
+
+            PageTitle = "MEALS";
+            ButtonText = "Add Meal";
 
             _mealDal = mealDal;
             _pageService = pageService;
@@ -96,6 +98,7 @@ namespace NeverSkipLegDay.ViewModels
             DeleteCommand = new Command<MealViewModel>(async meal => await DeleteMeal(meal).ConfigureAwait(false));
             SelectCommand = new Command<MealViewModel>(async meal => await SelectMeal(meal).ConfigureAwait(false));
         }
+        #endregion
 
         private void OnMealSaved(AddEditMealPageViewModel source, Meal meal)
         {
