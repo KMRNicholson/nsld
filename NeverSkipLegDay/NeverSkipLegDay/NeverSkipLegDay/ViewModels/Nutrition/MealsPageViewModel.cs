@@ -60,8 +60,6 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        private bool _isDataLoaded;
-
         public string AddButtonText
         {
             get { return "Add Meal"; }
@@ -93,10 +91,10 @@ namespace NeverSkipLegDay.ViewModels
             SetTotals();
 
             LoadDataCommand = new Command(() => LoadData());
-            AddCommand = new Command(async () => await AddMeal());
-            EditCommand = new Command<MealViewModel>(async meal => await EditMeal(meal));
-            DeleteCommand = new Command<MealViewModel>(async meal => await DeleteMeal(meal));
-            SelectCommand = new Command<MealViewModel>(async meal => await SelectMeal(meal));
+            AddCommand = new Command(async () => await AddMeal().ConfigureAwait(false));
+            EditCommand = new Command<MealViewModel>(async meal => await EditMeal(meal).ConfigureAwait(false));
+            DeleteCommand = new Command<MealViewModel>(async meal => await DeleteMeal(meal).ConfigureAwait(false));
+            SelectCommand = new Command<MealViewModel>(async meal => await SelectMeal(meal).ConfigureAwait(false));
         }
 
         private void OnMealSaved(AddEditMealPageViewModel source, Meal meal)
@@ -130,21 +128,21 @@ namespace NeverSkipLegDay.ViewModels
 
         private async Task AddMeal()
         {
-            await _pageService.PushAsync(new AddEditMealPage(new MealViewModel()));
+            await _pageService.PushAsync(new AddEditMealPage(new MealViewModel())).ConfigureAwait(false);
         }
 
         private async Task EditMeal(MealViewModel meal)
         {
             if (meal == null) return;
 
-            await _pageService.PushAsync(new AddEditMealPage(meal));
+            await _pageService.PushAsync(new AddEditMealPage(meal)).ConfigureAwait(false);
         }
 
         public async Task DeleteMeal(MealViewModel meal)
         {
             if (meal == null) return;
 
-            if (await _pageService.DisplayAlert("Warning", $"Are you sure you want to delete {meal.Name}?", "Yes", "No"))
+            if (await _pageService.DisplayAlert(DisplayAlerts.Warning, $"Are you sure you want to delete {meal.Name}?", DisplayAlerts.Yes, DisplayAlerts.No).ConfigureAwait(false))
             {
                 var mealModel = _mealDal.GetMeal(meal.Id);
                 Meals.Remove(meal);
@@ -159,7 +157,7 @@ namespace NeverSkipLegDay.ViewModels
             if (meal == null) return;
 
             SelectedMeal = null;
-            await _pageService.PushAsync(new FoodsPage(meal));
+            await _pageService.PushAsync(new FoodsPage(meal)).ConfigureAwait(false);
         }
 
         public bool IsMealsEmpty()
