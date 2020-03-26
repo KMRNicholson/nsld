@@ -37,7 +37,8 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         {
             Assert.AreNotEqual(viewModel, null);
             Assert.AreEqual(viewModel.Exercise, exerciseViewModel);
-            Assert.AreEqual(viewModel.AddButtonText, "Add Set");
+            Assert.AreEqual(viewModel.PageTitle, "SETS");
+            Assert.AreEqual(viewModel.ButtonText, "Add Set");
             Assert.AreEqual(viewModel.Sets.Count, sets.Count);
         }
 
@@ -57,7 +58,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
 
             Assert.AreEqual(viewModel.Sets.Count, sets.Count);
 
-            viewModel.AddSet();
+            viewModel.AddCommand.Execute(null);
 
             sets = mockDatabase.GetSetsByExerciseId(viewModel.Exercise.Id);
 
@@ -89,7 +90,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             secondSetViewModel.Reps -= 1;
             secondSetViewModel.Weight += 5;
 
-            await viewModel.BatchSave();
+            await viewModel.BatchSaveCommand.Execute(null);
 
             Set newSetFromDb1 = mockDatabase.GetSet(firstSetViewModel.Id);
             Set newSetFromDb2 = mockDatabase.GetSet(secondSetViewModel.Id);

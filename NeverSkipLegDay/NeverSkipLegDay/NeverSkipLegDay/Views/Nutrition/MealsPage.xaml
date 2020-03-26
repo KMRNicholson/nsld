@@ -5,8 +5,8 @@
              x:Name="mealsPage"
              x:Class="NeverSkipLegDay.Views.MealsPage">
   <NavigationPage.TitleView>
-    <Label Style="{StaticResource AppBarTitle}"
-      Text="N U T R I T I O N"/>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout>

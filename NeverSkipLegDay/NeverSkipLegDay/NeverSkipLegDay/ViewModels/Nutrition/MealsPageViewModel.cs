@@ -3,19 +3,27 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+
+using Xamarin.Forms;
+
 using NeverSkipLegDay.Models;
 using NeverSkipLegDay.Models.DAL;
 using NeverSkipLegDay.Views;
-using Xamarin.Forms;
 
 namespace NeverSkipLegDay.ViewModels
 {
+    /*
+     * The ViewModel for the MealsPage.xaml.cs.
+     * Contains all methods for retrieving information from the model
+     * and displaying this information to the view.
+     */
     public class MealsPageViewModel : BaseViewModel
     {
         #region private properties
         private readonly IMealDal _mealDal;
         private readonly IPageService _pageService;
         private MealViewModel _selectedMeal;
+        private bool _showHelpLabel;
         private int _fatTotal;
         private int _protTotal;
         private int _carbTotal;
@@ -63,6 +71,15 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_calTotal));
             }
         }
+        public bool ShowHelpLabel
+        {
+            get { return _showHelpLabel; }
+            set
+            {
+                SetValue(ref _showHelpLabel, value);
+                OnPropertyChanged(nameof(ShowHelpLabel));
+            }
+        }
         public MealViewModel SelectedMeal
         {
             get { return _selectedMeal; }
@@ -100,6 +117,45 @@ namespace NeverSkipLegDay.ViewModels
         }
         #endregion
 
+        #region public methods
+        // Asynchronous task for deleting a meal from the database and removing it from the list.
+        // params: MealViewModel - required for removing the viewmodel from the list, and to delete the record in the database.
+        public async Task DeleteMeal(MealViewModel meal)
+        {
+            if (meal == null) return;
+
+            if (await _pageService.DisplayAlert(DisplayAlerts.Warning, $"Are you sure you want to delete {meal.Name}?", DisplayAlerts.Yes, DisplayAlerts.No).ConfigureAwait(false))
+            {
+                var mealModel = _mealDal.GetMeal(meal.Id);
+                Meals.Remove(meal);
+                _mealDal.DeleteMeal(mealModel);
+            }
+
+            ShowHelpLabel = IsMealsEmpty();
+
+            SetTotals();
+        }
+        #endregion
+
+        #region private methods
+        // Method which returns a list of meals.
+        private void LoadData()
+        {
+            Meals.Clear();
+            List<Meal> meals = _mealDal.GetMeals();
+            foreach (var meal in meals)
+            {
+                Meals.Add(new MealViewModel(meal));
+            }
+
+            ShowHelpLabel = IsMealsEmpty();
+
+            SetTotals();
+        }
+
+        // Method which is triggered when the MealSaved event occurs. It simply takes the saved meal and updates/adds it to the list.
+        // params: AddEditMealPageViewModel - Passed in by the MessagingCenter.subscribe(). This is the source which triggered the event
+        //         Meal - The model which is being saved.
         private void OnMealSaved(AddEditMealPageViewModel source, Meal meal)
         {
             MealViewModel mealInList = Meals.Where(w => w.Id == meal.Id).ToList().FirstOrDefault();
@@ -117,23 +173,14 @@ namespace NeverSkipLegDay.ViewModels
             }
         }
 
-        public void LoadData()
-        {
-            Meals.Clear();
-            List<Meal> meals = _mealDal.GetMeals();
-            foreach (var meal in meals)
-            {
-                Meals.Add(new MealViewModel(meal));
-            }
-
-            SetTotals();
-        }
-
+        // Method which sends the user to the page to add a new meal.
         private async Task AddMeal()
         {
             await _pageService.PushAsync(new AddEditMealPage(new MealViewModel())).ConfigureAwait(false);
         }
 
+        // Method which sends the user to the page to edit a meal.
+        // params: MealViewModel - The bounded viewmodel in the list which is being chosen for edit.
         private async Task EditMeal(MealViewModel meal)
         {
             if (meal == null) return;
@@ -141,21 +188,9 @@ namespace NeverSkipLegDay.ViewModels
             await _pageService.PushAsync(new AddEditMealPage(meal)).ConfigureAwait(false);
         }
 
-        public async Task DeleteMeal(MealViewModel meal)
-        {
-            if (meal == null) return;
-
-            if (await _pageService.DisplayAlert(DisplayAlerts.Warning, $"Are you sure you want to delete {meal.Name}?", DisplayAlerts.Yes, DisplayAlerts.No).ConfigureAwait(false))
-            {
-                var mealModel = _mealDal.GetMeal(meal.Id);
-                Meals.Remove(meal);
-                _mealDal.DeleteMeal(mealModel);
-            }
-
-            SetTotals();
-        }
-
-        public async Task SelectMeal(MealViewModel meal)
+        // Method which is triggered when a user selects a meal from the list.
+        // params: MealViewModel - The selected item from the MealViewModel list.
+        private async Task SelectMeal(MealViewModel meal)
         {
             if (meal == null) return;
 
@@ -163,17 +198,20 @@ namespace NeverSkipLegDay.ViewModels
             await _pageService.PushAsync(new FoodsPage(meal)).ConfigureAwait(false);
         }
 
-        public bool IsMealsEmpty()
+        // Method which checks to see if the meal list is empty, in order to display the help label in the view.
+        private bool IsMealsEmpty()
         {
             return Meals.Count == 0 ? true : false;
         }
 
-        public void SetTotals()
+        // Method which sets the totals for the macronutrients and calories.
+        private void SetTotals()
         {
             FatTotal = Meals.Select(x => x.FatTotal).Sum();
             ProtTotal = Meals.Select(x => x.ProtTotal).Sum();
             CarbTotal = Meals.Select(x => x.CarbTotal).Sum();
             CalTotal = Meals.Select(x => x.CalTotal).Sum();
         }
+        #endregion
     }
 }
