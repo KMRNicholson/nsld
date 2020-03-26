@@ -90,7 +90,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             secondSetViewModel.Reps -= 1;
             secondSetViewModel.Weight += 5;
 
-            await viewModel.BatchSaveCommand.Execute(null);
+            viewModel.BatchSaveCommand.Execute(null);
 
             Set newSetFromDb1 = mockDatabase.GetSet(firstSetViewModel.Id);
             Set newSetFromDb2 = mockDatabase.GetSet(secondSetViewModel.Id);
