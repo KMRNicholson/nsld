@@ -30,7 +30,8 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         public void ConstructorTest()
         {
             Assert.AreNotEqual(viewModel, null);
-            Assert.AreEqual(viewModel.AddButtonText, "Add Meal");
+            Assert.AreEqual(viewModel.ButtonText, "Add Meal");
+            Assert.AreEqual(viewModel.PageTitle, "MEALS");
             Assert.AreEqual(viewModel.Meals.Count, meals.Count);
             Assert.AreEqual(viewModel.SelectedMeal, null);
         }
@@ -77,16 +78,6 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreEqual(viewModel.Meals.Count, meals.Count);
             Assert.AreEqual(viewModel.Meals.Count, numInList);
             Assert.AreEqual(meals.Count, numInDb);
-        }
-
-        [Test]
-        public void IsMealsEmptyTest()
-        {
-            Assert.IsFalse(viewModel.IsMealsEmpty());
-
-            viewModel.Meals.Clear();
-
-            Assert.IsTrue(viewModel.IsMealsEmpty());
         }
     }
 }
