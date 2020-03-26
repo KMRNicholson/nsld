@@ -21,8 +21,8 @@ namespace NeverSkipLegDay.ViewModels
     {
         #region private properties
         private ExerciseViewModel _exercise;
-        private ISetDal _setDal;
-        private IPageService _pageService;
+        private readonly ISetDal _setDal;
+        private readonly IPageService _pageService;
         private bool _isDataLoaded;
         private bool _showHelpLabel;
         #endregion

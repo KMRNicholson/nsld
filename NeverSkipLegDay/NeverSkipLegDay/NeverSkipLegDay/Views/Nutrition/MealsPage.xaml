@@ -9,7 +9,10 @@
       Style="{StaticResource AppBarTitle}"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout>
+    <Grid>
+      
+    </Grid>
+    <!--<StackLayout>
       <StackLayout 
         VerticalOptions="Start">
         <Label Style="{StaticResource HelpLabel}"
@@ -113,6 +116,6 @@
         </StackLayout>
       </StackLayout>
       <Button Style="{StaticResource AddButton}"/>
-    </StackLayout>
+    </StackLayout>-->
   </ContentPage.Content>
 </ContentPage>
