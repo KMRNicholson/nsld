@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Globalization;
 
 using Xamarin.Forms;
 
@@ -124,7 +125,9 @@ namespace NeverSkipLegDay.ViewModels
         {
             if (meal == null) return;
 
-            if (await _pageService.DisplayAlert(DisplayAlerts.Warning, $"Are you sure you want to delete {meal.Name}?", DisplayAlerts.Yes, DisplayAlerts.No).ConfigureAwait(false))
+            string warningMessage = string.Format(new CultureInfo("en-US"), DisplayAlerts.DeleteWarning, meal.Name);
+
+            if (await _pageService.DisplayAlert(DisplayAlerts.Warning, warningMessage, DisplayAlerts.Yes, DisplayAlerts.No).ConfigureAwait(false))
             {
                 var mealModel = _mealDal.GetMeal(meal.Id);
                 Meals.Remove(meal);
