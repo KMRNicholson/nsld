@@ -17,10 +17,10 @@ namespace NeverSkipLegDay.ViewModels
 
         #region public properties
         public int Id { get; set; }
-        public int FatTotal { get; private set; }
-        public int ProtTotal { get; private set; }
-        public int CarbTotal { get; private set; }
-        public int CalTotal { get; private set; }
+        public decimal FatTotal { get; private set; }
+        public decimal ProtTotal { get; private set; }
+        public decimal CarbTotal { get; private set; }
+        public decimal CalTotal { get; private set; }
         public string Name
         {
             get { return _name; }
@@ -43,7 +43,7 @@ namespace NeverSkipLegDay.ViewModels
             Id = meal.Id;
             Name = meal.Name;
             
-            Dictionary<string, int> totals = meal.GetMealTotals(new FoodDal(new SQLiteDB()));
+            Dictionary<string, decimal> totals = meal.GetMealTotals(new FoodDal(new SQLiteDB()));
 
             FatTotal = totals["Fat"];
             ProtTotal = totals["Prot"];
