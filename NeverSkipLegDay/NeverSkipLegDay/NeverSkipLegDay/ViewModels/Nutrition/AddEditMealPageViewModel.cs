@@ -9,6 +9,9 @@ using NeverSkipLegDay.Models.DAL;
 
 namespace NeverSkipLegDay.ViewModels
 {
+    /*
+     * Class which defines the ViewModel for the AddEditMealPage.xaml.cs.
+     */
     public class AddEditMealPageViewModel : BaseViewModel
     {
         #region private properties
@@ -47,6 +50,7 @@ namespace NeverSkipLegDay.ViewModels
         #endregion
 
         #region public methods
+        //Method which saves the meal, and sends an event to the MessagingCenter.
         public async Task Save()
         {
             if (string.IsNullOrWhiteSpace(Meal.Name))
