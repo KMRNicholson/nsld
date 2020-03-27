@@ -5,153 +5,171 @@
              x:Name="foodsPage"
              x:Class="NeverSkipLegDay.Views.FoodsPage">
   <NavigationPage.TitleView>
-    <Label Style="{StaticResource AppBarTitle}"
-      Text="F O O D"/>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout Spacing="0">
+    <Grid
+      Style="{StaticResource NoSpacingGrid}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="100*"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label 
+        Grid.Row="1"
+        Style="{StaticResource HelpLabel}"/>
       <StackLayout
-        Style="{StaticResource HeaderCard}">
-        <Label Style="{StaticResource Header}"
+        Grid.Row="0"
+        Style="{StaticResource ListHeaderBackground}">
+        <Label 
+          Style="{StaticResource ListHeaderLabel}"
           Text="{Binding Meal.Name}"/>
       </StackLayout>
-      <StackLayout
-        Margin="10"
-        VerticalOptions="Start"
-        Spacing="1">
-        <ListView 
-          Margin="0"
-          x:Name="listView"
-          ItemsSource="{Binding Foods}">
-          <ListView.ItemTemplate>
-            <DataTemplate>
-              <ViewCell>
-                <StackLayout
-                  Spacing="0">
-                  <StackLayout 
-                  BackgroundColor="{StaticResource CardBackgroundColor}"
-                  Orientation="Horizontal">
-                    <Label 
-                    Text="{Binding Name}"
-                    CharacterSpacing="1"
-                    FontSize="20"
-                    Margin="20"
-                    TextColor="{StaticResource CardTextColor}"
-                    VerticalOptions="Center"
-                    HorizontalOptions="StartAndExpand"/>
-                    <Button Style="{StaticResource EditButton}"
-                    Command="{Binding Source={x:Reference foodsPage}, Path=ViewModel.EditCommand}" />
-                    <Button Style="{StaticResource DeleteButton}"
-                    Command="{Binding Source={x:Reference foodsPage}, Path=ViewModel.DeleteCommand}" />
-                  </StackLayout>
-                  <StackLayout
-                    BackgroundColor="{StaticResource CardBackgroundColor}"
-                    Orientation="Horizontal"
-                    Spacing="0">
-                    <Label 
-                      Style="{StaticResource NutritionalLabel}"
-                      Text="Fat:"
-                      Margin="20,20,5,20"/>
-                    <Label 
-                      Style="{StaticResource NutritionalLabel}"
-                      Text="{Binding Fat}"/>
-                    <Label 
-                      Style="{StaticResource NutritionalLabel}"
-                      Text="Prot:"
-                      Margin="0,20,5,20"/>
-                    <Label 
-                      Style="{StaticResource NutritionalLabel}"
-                      Text="{Binding Prot}"/>
-                    <Label 
-                      Style="{StaticResource NutritionalLabel}"
-                      Text="Carb:"
-                      Margin="0,20,5,20"/>
-                    <Label
-                      Style="{StaticResource NutritionalLabel}"
-                      Text="{Binding Carb}"/>
-                    <Label
-                      Style="{StaticResource NutritionalLabel}"
-                      Text="Cals:"
-                      Margin="0,20,5,20"
-                      HorizontalOptions="EndAndExpand"/>
-                    <Label 
-                      Style="{StaticResource NutritionalLabel}"
-                      Text="{Binding Cal}"/>
-                  </StackLayout>
-                </StackLayout>
-              </ViewCell>
-            </DataTemplate>
-          </ListView.ItemTemplate>
-        </ListView>
-        <StackLayout
-          HeightRequest="200"
-          HorizontalOptions="StartAndExpand"
-          BackgroundColor="{StaticResource CardBackgroundColor}">
-          <Grid>
-            <Grid.RowDefinitions>
-              <RowDefinition Height="33*"/>
-              <RowDefinition Height="33*"/>
-              <RowDefinition Height="33*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="25*"/>
-              <ColumnDefinition Width="25*"/>
-              <ColumnDefinition Width="25*"/>
-              <ColumnDefinition Width="25*"/>
-            </Grid.ColumnDefinitions>
-            <Label 
-              Style="{StaticResource GridTotalsLabel}"
-              Margin="0,10,0,0"
-              FontSize="15"
-              Text="Totals"
-              Grid.Column="0"
-              Grid.Row="0"
-              Grid.ColumnSpan="8"
-              HorizontalOptions="CenterAndExpand"/>
-            <Label 
-              Style="{StaticResource GridTotalsLabel}"
-              Text="Fat:"
-              Grid.Column="0"
-              Grid.Row="1"/>
-            <Label 
-              Style="{StaticResource GridTotalsLabel}"
-              Text="{Binding Meal.FatTotal}"
-              Grid.Column="1"
-              Grid.Row="1"/>
-            <Label 
-              Style="{StaticResource GridTotalsLabel}"
-              Text="Prot:"
-              Grid.Column="2"
-              Grid.Row="1"/>
-            <Label 
-              Style="{StaticResource GridTotalsLabel}"
-              Text="{Binding Meal.ProtTotal}"
-              Grid.Column="3"
-              Grid.Row="1"/>
-            <Label 
-              Style="{StaticResource GridTotalsLabel}"
-              Text="Carb:"
-              Grid.Column="0"
-              Grid.Row="2"/>
-            <Label 
-              Style="{StaticResource GridTotalsLabel}"
-              Text="{Binding Meal.CarbTotal}"
-              Grid.Column="1"
-              Grid.Row="2"/>
-            <Label 
-              Style="{StaticResource GridTotalsLabel}"
-              Text="Cal:"
-              Grid.Column="2"
-              Grid.Row="2"/>
-            <Label 
-              Style="{StaticResource GridTotalsLabel}"
-              Text="{Binding Meal.CalTotal}"
-              Grid.Column="3"
-              Grid.Row="2"/>
-          </Grid>
-        </StackLayout>
-      </StackLayout>
-      <Button Style="{StaticResource AddButton}"/>
-    </StackLayout>
+      <ListView 
+        Style="{StaticResource ItemListWithHeader}"
+        ItemsSource="{Binding Foods}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid
+                Style="{StaticResource ListItemGrid}">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="25*"/>
+                  <ColumnDefinition Width="25*"/>
+                  <ColumnDefinition Width="25*"/>
+                  <ColumnDefinition Width="25*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="3"
+                  Style="{StaticResource ListItemLabelName}"/>
+                <Button 
+                  Grid.Row="0"
+                  Grid.Column="3"
+                  Text="Del"
+                  HorizontalOptions="End"
+                  Style="{StaticResource ListItemButton}"
+                  Command="{Binding Source={x:Reference foodsPage}, Path=ViewModel.DeleteCommand}" />
+                <Label 
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  Text="Fat:"
+                  Style="{StaticResource SetListLabel}"/>
+                <Label 
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  Text="{Binding Fat}"
+                  Style="{StaticResource SetListLabel}"/>
+                <Label 
+                  Grid.Row="1"
+                  Grid.Column="2"
+                  Text="Protein:"
+                  Style="{StaticResource SetListLabel}"/>
+                <Label 
+                  Grid.Row="1"
+                  Grid.Column="3"
+                  Text="{Binding Prot}"
+                  Style="{StaticResource SetListLabel}"/>
+                <Label 
+                  Grid.Row="2"
+                  Grid.Column="0"
+                  Text="Carbs:"
+                  Style="{StaticResource SetListLabel}"/>
+                <Label 
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  Text="{Binding Carb}"
+                  Style="{StaticResource SetListLabel}"/>
+                <Label 
+                  Grid.Row="2"
+                  Grid.Column="2"
+                  Text="Calories:"
+                  Style="{StaticResource SetListLabel}"/>
+                <Label 
+                  Grid.Row="2"
+                  Grid.Column="3"
+                  Text="{Binding Cal}"
+                  Style="{StaticResource SetListLabel}"/>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <Grid 
+        Grid.Row="2"
+        Style="{StaticResource TotalsGrid}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="25*"/>
+        </Grid.ColumnDefinitions>
+        <Label     
+          Text="Totals"
+          Grid.Column="0"
+          Grid.Row="0"
+          Grid.ColumnSpan="4"
+          HorizontalOptions="Center"
+          Style="{StaticResource TotalsGridLabel}"/>
+        <Label 
+          Text="Fat:"
+          Grid.Column="0"
+          Grid.Row="1"
+          Style="{StaticResource TotalsGridLabel}"/>
+        <Label 
+          Grid.Column="1"
+          Grid.Row="1"
+          Text="{Binding FatTotal}"
+          Style="{StaticResource TotalsGridLabel}"/>
+        <Label 
+          Text="Prot:"
+          Grid.Column="2"
+          Grid.Row="1"
+          Style="{StaticResource TotalsGridLabel}"/>
+        <Label 
+          Grid.Column="3"
+          Grid.Row="1"
+          Text="{Binding ProtTotal}"
+          Style="{StaticResource TotalsGridLabel}"/>
+        <Label 
+          Text="Carb:"
+          Grid.Column="0"
+          Grid.Row="2"
+          Style="{StaticResource TotalsGridLabel}"/>
+        <Label 
+          Grid.Column="1"
+          Grid.Row="2"
+          Text="{Binding CarbTotal}"
+          Style="{StaticResource TotalsGridLabel}"/>
+        <Label 
+          Text="Cal:"
+          Grid.Column="2"
+          Grid.Row="2"
+          Style="{StaticResource TotalsGridLabel}"/>
+        <Label 
+          Grid.Column="3"
+          Grid.Row="2"
+          Text="{Binding CalTotal}"
+          Style="{StaticResource TotalsGridLabel}"/>
+      </Grid>
+      <Button
+        Grid.Row="3"
+        Margin="0,0,0,20"
+        Command="{Binding AddCommand}"
+        Style="{StaticResource PanelButton}"/>
+    </Grid>
   </ContentPage.Content>
 </ContentPage>

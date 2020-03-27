@@ -5,8 +5,8 @@
              x:Name="addEditFoodPage"
              x:Class="NeverSkipLegDay.Views.AddEditFoodPage">
   <NavigationPage.TitleView>
-    <Label Style="{StaticResource AppBarTitle}"
-      Text="F O O D"/>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout 

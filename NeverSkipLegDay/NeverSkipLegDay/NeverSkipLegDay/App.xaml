@@ -152,6 +152,12 @@
       <Setter Property="ColumnSpacing" Value="0"/>
       <Setter Property="RowSpacing" Value="0"/>
     </Style>
+    <Style x:Key="ListItemGrid" TargetType="Grid">
+      <Setter Property="BackgroundColor" Value="{StaticResource CardBackgroundColor}"/>
+      <Setter Property="Padding" Value="15"/>
+      <Setter Property="ColumnSpacing" Value="0"/>
+      <Setter Property="RowSpacing" Value="10"/>
+    </Style>
     <Style x:Key="TotalsGrid" TargetType="Grid">
       <Setter Property="BackgroundColor" Value="{StaticResource CardBackgroundColor}"/>
       <Setter Property="Padding" Value="15"/>
@@ -172,7 +178,7 @@
     <!--#endregion-->
     
     
-    <!--#region Sets Page-->
+    <!--#region Sets -->
     <Style x:Key="SetListLabel" TargetType="Label">
       <Setter Property="TextColor" Value="{StaticResource CardTextColor}"/>
       <Setter Property="FontSize" Value="15"/>
@@ -191,6 +197,9 @@
       <Setter Property="IsSpellCheckEnabled" Value="True"/>
       <Setter Property="Keyboard" Value="Numeric"/>
     </Style>
+    <!--#endregion-->
+    
+    <!--#region Foods -->
     <!--#endregion-->
     
     
