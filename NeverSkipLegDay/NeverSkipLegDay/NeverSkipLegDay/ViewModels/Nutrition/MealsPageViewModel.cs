@@ -25,10 +25,10 @@ namespace NeverSkipLegDay.ViewModels
         private readonly IPageService _pageService;
         private MealViewModel _selectedMeal;
         private bool _showHelpLabel;
-        private int _fatTotal;
-        private int _protTotal;
-        private int _carbTotal;
-        private int _calTotal;
+        private decimal _fatTotal;
+        private decimal _protTotal;
+        private decimal _carbTotal;
+        private decimal _calTotal;
         #endregion
 
         #region public properties
@@ -36,7 +36,7 @@ namespace NeverSkipLegDay.ViewModels
         public string ButtonText { get; private set; }
         public ObservableCollection<MealViewModel> Meals { get; private set; }
             = new ObservableCollection<MealViewModel>();
-        public int FatTotal
+        public decimal FatTotal
         {
             get { return _fatTotal; }
             set
@@ -45,7 +45,7 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_fatTotal));
             }
         }
-        public int ProtTotal
+        public decimal ProtTotal
         {
             get { return _protTotal; }
             set
@@ -54,7 +54,7 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_protTotal));
             }
         }
-        public int CarbTotal
+        public decimal CarbTotal
         {
             get { return _carbTotal; }
             set
@@ -63,7 +63,7 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(_carbTotal));
             }
         }
-        public int CalTotal
+        public decimal CalTotal
         {
             get { return _calTotal; }
             set

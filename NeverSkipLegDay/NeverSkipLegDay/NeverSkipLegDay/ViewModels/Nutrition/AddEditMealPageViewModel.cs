@@ -39,7 +39,7 @@ namespace NeverSkipLegDay.ViewModels
             _mealDal = mealDal;
             _pageService = pageService;
 
-            SaveCommand = new Command(async () => await Save());
+            SaveCommand = new Command(async () => await Save().ConfigureAwait(false));
 
             Meal = new Meal()
             {
