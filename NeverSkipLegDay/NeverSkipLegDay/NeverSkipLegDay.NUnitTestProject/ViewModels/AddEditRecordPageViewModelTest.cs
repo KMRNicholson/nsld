@@ -47,6 +47,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreEqual(editViewModel.Record.ExerciseId, record.ExerciseId);
             Assert.AreEqual(editViewModel.Record.Reps, record.Reps);
             Assert.AreEqual(editViewModel.Record.Weight, record.Weight);
+            Assert.AreEqual(editViewModel.PageTitle, "RECORD");
         }
 
         [Test]
@@ -55,8 +56,9 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreNotEqual(addViewModel, null);
             Assert.AreEqual(addViewModel.Record.Id, 0);
             Assert.AreEqual(addViewModel.Record.ExerciseId, newExercise.Id);
-            Assert.AreEqual(addViewModel.Record.Reps, null);
-            Assert.AreEqual(addViewModel.Record.Weight, null);
+            Assert.AreEqual(addViewModel.Record.Reps, 0);
+            Assert.AreEqual(addViewModel.Record.Weight, 0);
+            Assert.AreEqual(editViewModel.PageTitle, "RECORD");
         }
 
         [Test]
@@ -64,8 +66,8 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         {
             Assert.AreEqual(addViewModel.Record.Id, 0);
             Assert.AreEqual(addViewModel.Record.ExerciseId, newExercise.Id);
-            Assert.AreEqual(addViewModel.Record.Reps, null);
-            Assert.AreEqual(addViewModel.Record.Weight, null);
+            Assert.AreEqual(addViewModel.Record.Reps, 0);
+            Assert.AreEqual(addViewModel.Record.Weight, 0);
 
             addViewModel.Record.Reps = 1;
             addViewModel.Record.Weight = 100;
@@ -104,11 +106,11 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         }
 
         [Test]
-        public async Task SaveNewRecordWithEmtpyNameTest()
+        public async Task SaveNewRecordWithEmtpyValuesTest()
         {
             Assert.AreEqual(addViewModel.Record.Id, 0);
-            Assert.AreEqual(addViewModel.Record.Reps, null);
-            Assert.AreEqual(addViewModel.Record.Weight, null);
+            Assert.AreEqual(addViewModel.Record.Reps, 0);
+            Assert.AreEqual(addViewModel.Record.Weight, 0);
 
             await addViewModel.Save();
 
@@ -119,7 +121,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         }
 
         [Test]
-        public async Task SaveExistingRecordWithEmtpyNameTest()
+        public async Task SaveExistingRecordWithEmtpyValuesTest()
         {
             Assert.AreEqual(editViewModel.Record.Id, record.Id);
             Assert.AreEqual(editViewModel.Record.Reps, record.Reps);
