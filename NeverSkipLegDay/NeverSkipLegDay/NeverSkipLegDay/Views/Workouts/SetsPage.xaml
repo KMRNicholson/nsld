@@ -45,13 +45,13 @@
                 Style="{StaticResource ListItemBackground}">
                 <Label 
                   Text="Reps:"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
                 <Entry
                   Text="{Binding Reps}"
                   Style="{StaticResource SetListItemEntry}"/>
                 <Label 
                   Text="Weight:"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
                 <Entry
                   Keyboard="Telephone"
                   HorizontalOptions="StartAndExpand"

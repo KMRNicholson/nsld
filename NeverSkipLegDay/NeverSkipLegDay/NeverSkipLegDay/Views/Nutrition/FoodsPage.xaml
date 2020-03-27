@@ -49,55 +49,63 @@
                 <Label 
                   Grid.Row="0"
                   Grid.Column="0"
-                  Grid.ColumnSpan="3"
+                  Grid.ColumnSpan="2"
                   Style="{StaticResource ListItemLabelName}"/>
-                <Button 
+                <StackLayout
                   Grid.Row="0"
-                  Grid.Column="3"
-                  Text="Del"
-                  HorizontalOptions="End"
-                  Style="{StaticResource ListItemButton}"
-                  Command="{Binding Source={x:Reference foodsPage}, Path=ViewModel.DeleteCommand}" />
+                  Grid.ColumnSpan="2"
+                  Grid.Column="2"
+                  Orientation="Horizontal"
+                  HorizontalOptions="End">
+                  <Button 
+                    Text="Edit"
+                    Style="{StaticResource ListItemButton}"
+                    Command="{Binding Source={x:Reference foodsPage}, Path=ViewModel.EditCommand}" />
+                  <Button 
+                    Text="Del"
+                    Style="{StaticResource ListItemButton}"
+                    Command="{Binding Source={x:Reference foodsPage}, Path=ViewModel.DeleteCommand}" />
+                </StackLayout>
                 <Label 
                   Grid.Row="1"
                   Grid.Column="0"
                   Text="Fat:"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
                 <Label 
                   Grid.Row="1"
                   Grid.Column="1"
                   Text="{Binding Fat}"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
                 <Label 
                   Grid.Row="1"
                   Grid.Column="2"
                   Text="Protein:"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
                 <Label 
                   Grid.Row="1"
                   Grid.Column="3"
                   Text="{Binding Prot}"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
                 <Label 
                   Grid.Row="2"
                   Grid.Column="0"
                   Text="Carbs:"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
                 <Label 
                   Grid.Row="2"
                   Grid.Column="1"
                   Text="{Binding Carb}"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
                 <Label 
                   Grid.Row="2"
                   Grid.Column="2"
                   Text="Calories:"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
                 <Label 
                   Grid.Row="2"
                   Grid.Column="3"
                   Text="{Binding Cal}"
-                  Style="{StaticResource SetListLabel}"/>
+                  Style="{StaticResource ListItemLabel}"/>
               </Grid>
             </ViewCell>
           </DataTemplate>
@@ -132,7 +140,7 @@
         <Label 
           Grid.Column="1"
           Grid.Row="1"
-          Text="{Binding FatTotal}"
+          Text="{Binding Meal.FatTotal}"
           Style="{StaticResource TotalsGridLabel}"/>
         <Label 
           Text="Prot:"
@@ -142,7 +150,7 @@
         <Label 
           Grid.Column="3"
           Grid.Row="1"
-          Text="{Binding ProtTotal}"
+          Text="{Binding Meal.ProtTotal}"
           Style="{StaticResource TotalsGridLabel}"/>
         <Label 
           Text="Carb:"
@@ -152,7 +160,7 @@
         <Label 
           Grid.Column="1"
           Grid.Row="2"
-          Text="{Binding CarbTotal}"
+          Text="{Binding Meal.CarbTotal}"
           Style="{StaticResource TotalsGridLabel}"/>
         <Label 
           Text="Cal:"
@@ -162,7 +170,7 @@
         <Label 
           Grid.Column="3"
           Grid.Row="2"
-          Text="{Binding CalTotal}"
+          Text="{Binding Meal.CalTotal}"
           Style="{StaticResource TotalsGridLabel}"/>
       </Grid>
       <Button
