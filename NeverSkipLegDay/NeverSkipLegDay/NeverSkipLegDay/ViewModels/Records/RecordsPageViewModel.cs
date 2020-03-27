@@ -132,6 +132,8 @@ namespace NeverSkipLegDay.ViewModels
                 recordInList.Reps = record.Reps;
                 recordInList.Weight = record.Weight;
             }
+
+            ShowHelpLabel = IsRecordsEmpty();
         }
 
         // Method which adds and saves a new record to the list and database.
