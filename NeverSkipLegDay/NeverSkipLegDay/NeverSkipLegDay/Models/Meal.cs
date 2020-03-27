@@ -22,19 +22,19 @@ namespace NeverSkipLegDay.Models
 
         #region public methods
         // Method for collecting the total macronutrients and calories for the meal using the foodDal and the meal id.
-        public Dictionary<string, int> GetMealTotals(IFoodDal foodDal)
+        public Dictionary<string, decimal> GetMealTotals(IFoodDal foodDal)
         {
             if (foodDal == null)
                 throw new ArgumentNullException(nameof(foodDal));
 
-            Dictionary<string, int> totals = new Dictionary<string, int>();
+            Dictionary<string, decimal> totals = new Dictionary<string, decimal>();
 
             List<Food> foods = foodDal.GetFoodsByMealId(this.Id);
 
-            totals.Add("Fat", foods.Select(x => x.Fat).Sum().Value);
-            totals.Add("Prot", foods.Select(x => x.Prot).Sum().Value);
-            totals.Add("Carb", foods.Select(x => x.Carb).Sum().Value);
-            totals.Add("Cal", foods.Select(x => x.Cal).Sum().Value);
+            totals.Add("Fat", foods.Select(x => x.Fat).Sum());
+            totals.Add("Prot", foods.Select(x => x.Prot).Sum());
+            totals.Add("Carb", foods.Select(x => x.Carb).Sum());
+            totals.Add("Cal", foods.Select(x => x.Cal).Sum());
 
             return totals;
         }

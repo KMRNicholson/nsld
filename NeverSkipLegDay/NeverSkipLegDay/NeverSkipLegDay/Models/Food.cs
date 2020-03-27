@@ -2,6 +2,9 @@
 
 namespace NeverSkipLegDay.Models
 {
+    /*
+     * Class which defines the behavior and properties of the Food model, and entity in the database.
+     */
     public class Food
     {
         #region attributes
