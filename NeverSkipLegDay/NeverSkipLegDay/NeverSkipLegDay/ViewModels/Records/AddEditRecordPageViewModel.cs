@@ -56,13 +56,13 @@ namespace NeverSkipLegDay.ViewModels
         // Method which saves a record to the database and sends the saved event using MessagingCenter.
         public async Task Save()
         {
-            if (string.IsNullOrWhiteSpace(Record.Reps.ToString(new CultureInfo("en-US"))))
+            if (Record.Reps < 1)
             {
                 await _pageService.DisplayAlert(DisplayAlerts.Error, DisplayAlerts.NullRepsError, DisplayAlerts.Ok).ConfigureAwait(false);
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(Record.Weight.ToString(new CultureInfo("en-US"))))
+            if (Record.Weight <= 0)
             {
                 await _pageService.DisplayAlert(DisplayAlerts.Error, DisplayAlerts.NullWeightError, DisplayAlerts.Ok).ConfigureAwait(false);
                 return;

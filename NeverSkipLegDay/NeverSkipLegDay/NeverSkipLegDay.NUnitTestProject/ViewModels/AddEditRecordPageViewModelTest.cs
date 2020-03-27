@@ -125,8 +125,8 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreEqual(editViewModel.Record.Reps, record.Reps);
             Assert.AreEqual(editViewModel.Record.Weight, record.Weight);
 
-            editViewModel.Record.Reps = null;
-            editViewModel.Record.Weight = null;
+            editViewModel.Record.Reps = 0;
+            editViewModel.Record.Weight = 0;
 
             await editViewModel.Save();
 

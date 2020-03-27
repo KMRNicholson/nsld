@@ -37,7 +37,8 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
         {
             Assert.AreNotEqual(viewModel, null);
             Assert.AreEqual(viewModel.Exercise, exerciseViewModel);
-            Assert.AreEqual(viewModel.AddButtonText, "Add Record");
+            Assert.AreEqual(viewModel.ButtonText, "Add Record");
+            Assert.AreEqual(viewModel.PageTitle, "RECORDS");
             Assert.AreEqual(viewModel.Records.Count, records.Count);
         }
 
