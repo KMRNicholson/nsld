@@ -31,11 +31,11 @@
                 <Button 
                   Text="Edit"
                   Style="{StaticResource ListItemButton}"
-                  Command="{Binding Source={x:Reference workoutsPage}, Path=ViewModel.EditCommand}" />
+                  Command="{Binding Source={x:Reference exerciseRecordsPage}, Path=ViewModel.EditCommand}" />
                 <Button 
                   Text="Del"
                   Style="{StaticResource ListItemButton}"
-                  Command="{Binding Source={x:Reference workoutsPage}, Path=ViewModel.DeleteCommand}" />
+                  Command="{Binding Source={x:Reference exerciseRecordsPage}, Path=ViewModel.DeleteCommand}" />
               </StackLayout>
             </ViewCell>
           </DataTemplate>
