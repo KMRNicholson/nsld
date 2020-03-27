@@ -46,7 +46,7 @@
                 <Button 
                   Text="Del"
                   Style="{StaticResource ListItemButton}"
-                 Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.DeleteCommand}" />
+                  Command="{Binding Source={x:Reference exercisesPage}, Path=ViewModel.DeleteCommand}" />
               </StackLayout>
             </ViewCell>
           </DataTemplate>
