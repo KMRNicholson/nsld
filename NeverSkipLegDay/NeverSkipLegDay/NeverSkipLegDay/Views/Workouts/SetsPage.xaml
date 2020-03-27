@@ -48,7 +48,7 @@
                   Style="{StaticResource ListItemLabel}"/>
                 <Entry
                   Text="{Binding Reps}"
-                  Style="{StaticResource SetListItemEntry}"/>
+                  Style="{StaticResource ListItemEntry}"/>
                 <Label 
                   Text="Weight:"
                   Style="{StaticResource ListItemLabel}"/>
@@ -56,7 +56,7 @@
                   Keyboard="Telephone"
                   HorizontalOptions="StartAndExpand"
                   Text="{Binding Weight}"
-                  Style="{StaticResource SetListItemEntry}"/>
+                  Style="{StaticResource ListItemEntry}"/>
                 <Button 
                   Text="Del"
                   Style="{StaticResource ListItemButton}"
