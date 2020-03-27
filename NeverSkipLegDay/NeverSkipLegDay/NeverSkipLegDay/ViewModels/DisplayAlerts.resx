@@ -129,6 +129,12 @@
   <data name="NullNameError" xml:space="preserve">
     <value>Please enter a name.</value>
   </data>
+  <data name="NullRepsError" xml:space="preserve">
+    <value>Please give reps a value.</value>
+  </data>
+  <data name="NullWeightError" xml:space="preserve">
+    <value>Please give weight a value.</value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
   </data>

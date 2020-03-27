@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 
 namespace NeverSkipLegDay.Models
 {
     /*
      * Class which defines the behavior and properties of the Set model, and entity in the database.
      */
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "<Pending>")]
     public class Set
     {
         [PrimaryKey, AutoIncrement]

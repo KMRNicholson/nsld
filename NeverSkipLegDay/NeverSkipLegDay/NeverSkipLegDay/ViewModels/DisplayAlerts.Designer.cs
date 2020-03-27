@@ -22,14 +22,14 @@ namespace NeverSkipLegDay.ViewModels {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Events {
+    internal class DisplayAlerts {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Events() {
+        internal DisplayAlerts() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace NeverSkipLegDay.ViewModels {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NeverSkipLegDay.ViewModels.Resources.Events", typeof(Events).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NeverSkipLegDay.ViewModels.DisplayAlerts", typeof(DisplayAlerts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,101 @@ namespace NeverSkipLegDay.ViewModels {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SaveExercise.
+        ///   Looks up a localized string similar to Are you sure you want to delete {0}?.
         /// </summary>
-        internal static string ExerciseSaved {
+        internal static string DeleteWarning {
             get {
-                return ResourceManager.GetString("ExerciseSaved", resourceCulture);
+                return ResourceManager.GetString("DeleteWarning", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SaveFood.
+        ///   Looks up a localized string similar to Error.
         /// </summary>
-        internal static string FoodSaved {
+        internal static string Error {
             get {
-                return ResourceManager.GetString("FoodSaved", resourceCulture);
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SaveMeal.
+        ///   Looks up a localized string similar to No.
         /// </summary>
-        internal static string MealSaved {
+        internal static string No {
             get {
-                return ResourceManager.GetString("MealSaved", resourceCulture);
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SaveRecord.
+        ///   Looks up a localized string similar to Please enter a name..
         /// </summary>
-        internal static string RecordSaved {
+        internal static string NullNameError {
             get {
-                return ResourceManager.GetString("RecordSaved", resourceCulture);
+                return ResourceManager.GetString("NullNameError", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SaveWorkout.
+        ///   Looks up a localized string similar to Please give reps a value..
         /// </summary>
-        internal static string WorkoutSaved {
+        internal static string NullRepsError {
             get {
-                return ResourceManager.GetString("WorkoutSaved", resourceCulture);
+                return ResourceManager.GetString("NullRepsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please give weight a value..
+        /// </summary>
+        internal static string NullWeightError {
+            get {
+                return ResourceManager.GetString("NullWeightError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved.
+        /// </summary>
+        internal static string Saved {
+            get {
+                return ResourceManager.GetString("Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All sets are now saved..
+        /// </summary>
+        internal static string SetsSaved {
+            get {
+                return ResourceManager.GetString("SetsSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

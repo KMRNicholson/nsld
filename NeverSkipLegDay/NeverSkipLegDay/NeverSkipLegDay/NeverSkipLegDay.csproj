@@ -28,12 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ViewModels\Resources\DisplayAlerts.Designer.cs">
+    <Compile Update="ViewModels\DisplayAlerts.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DisplayAlerts.resx</DependentUpon>
     </Compile>
-    <Compile Update="ViewModels\Resources\Events.Designer.cs">
+    <Compile Update="ViewModels\Events.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Events.resx</DependentUpon>
@@ -59,11 +59,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="ViewModels\Resources\DisplayAlerts.resx">
+    <EmbeddedResource Update="ViewModels\DisplayAlerts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DisplayAlerts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewModels\Resources\Events.resx">
+    <EmbeddedResource Update="ViewModels\Events.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Events.Designer.cs</LastGenOutput>
     </EmbeddedResource>
