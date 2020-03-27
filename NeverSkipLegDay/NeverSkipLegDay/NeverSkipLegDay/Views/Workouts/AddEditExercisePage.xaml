@@ -1,38 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Name="addEditExercisePage"
              x:Class="NeverSkipLegDay.Views.AddEditExercisePage">
   <NavigationPage.TitleView>
-    <Label Style="{StaticResource AppBarTitle}"
-      Text="E X E R C I S E S"/>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
     <StackLayout 
-      BackgroundColor="{StaticResource CardBackgroundColor}"
-      Margin="10"
-      VerticalOptions="Start">
+      Style="{StaticResource AddEditItemBackground}">
       <Label 
-        Text="Name:"
-        FontSize="20"
-        Margin="10"
-        TextColor="{StaticResource CardTextColor}"/>
+        Style="{StaticResource AddEditItemNameLabel}"/>
       <Entry 
-        Text="{Binding Exercise.Name}"
-        Placeholder="e.g. Bench Press" 
-        PlaceholderColor="{StaticResource PlaceholderColor}"
-        TextColor="{StaticResource CardTextColor}"
-        Margin="10,0,10,10" 
-        IsTextPredictionEnabled="True"  
-        Keyboard="Chat" 
-        IsSpellCheckEnabled="True"/>
+        Placeholder="e.g. Back Squat"
+        Keyboard="Chat"
+        Style="{StaticResource AddEditItemEntry}"
+        Text="{Binding Exercise.Name}"/>
       <Button
-        Text="Save"
-        HorizontalOptions="End"
-        Margin="0,0,10,10"
-        BackgroundColor="{StaticResource BarBackgroundColor}"
-        TextColor="{StaticResource BarTextColor}"
-        Command="{Binding SaveCommand}"/>
+        Style="{StaticResource SaveButton}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

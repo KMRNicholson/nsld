@@ -5,6 +5,9 @@ using SQLite;
 
 namespace NeverSkipLegDay.Models
 {
+    /*
+     * Class which defines the behavior and properties of the Workout model and entity in the database.
+     */
     public class Workout
     {
         [PrimaryKey, AutoIncrement]

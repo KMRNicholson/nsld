@@ -28,6 +28,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ViewModels\DisplayAlerts.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DisplayAlerts.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ViewModels\Events.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Events.resx</DependentUpon>
+    </Compile>
     <Compile Update="Views\Records\AddEditRecordPage.xaml.cs">
       <DependentUpon>AddEditRecordPage.xaml</DependentUpon>
     </Compile>
@@ -49,6 +59,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="ViewModels\DisplayAlerts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DisplayAlerts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ViewModels\Events.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Events.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\DashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -36,12 +36,12 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             FoodDatabase foodDatabase = new FoodDatabase();
             List<Food> foods = foodDatabase.GetFoodsByMealId(meal.Id);
 
-            int fatTotal = foods.Select(x => x.Fat).Sum().Value;
-            int protTotal = foods.Select(x => x.Prot).Sum().Value;
-            int carbTotal = foods.Select(x => x.Carb).Sum().Value;
-            int calTotal = foods.Select(x => x.Cal).Sum().Value;
+            decimal fatTotal = foods.Select(x => x.Fat).Sum();
+            decimal protTotal = foods.Select(x => x.Prot).Sum();
+            decimal carbTotal = foods.Select(x => x.Carb).Sum();
+            decimal calTotal = foods.Select(x => x.Cal).Sum();
 
-            Dictionary<string, int> mealTotals = meal.GetMealTotals(foodDatabase);
+            Dictionary<string, decimal> mealTotals = meal.GetMealTotals(foodDatabase);
 
             Assert.AreEqual(mealTotals.GetValueOrDefault("Fat"), fatTotal);
             Assert.AreEqual(mealTotals.GetValueOrDefault("Prot"), protTotal);

@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using NeverSkipLegDay.ViewModels;
@@ -16,9 +18,14 @@ namespace NeverSkipLegDay.Views
         }
         public AddEditExercisePage(ExerciseViewModel exerciseViewModel)
         {
+            if (exerciseViewModel == null)
+                throw new ArgumentNullException(nameof(exerciseViewModel));
+
+            // If the exerciseViewModel's workout id is 0, we know that we must set the color to the records background color. Otherwise, workouts.
+            BackgroundColor = exerciseViewModel.WorkoutId == 0 ? Color.LightSteelBlue : Color.LightSkyBlue;
+
             var exerciseDal = new ExerciseDal(new SQLiteDB());
             var pageService = new PageService();
-            this.BackgroundColor = exerciseViewModel.WorkoutId == 0 ? Color.LightSteelBlue : Color.LightSkyBlue;
             ViewModel = new AddEditExercisePageViewModel(exerciseViewModel, exerciseDal, pageService);
             InitializeComponent();
         }

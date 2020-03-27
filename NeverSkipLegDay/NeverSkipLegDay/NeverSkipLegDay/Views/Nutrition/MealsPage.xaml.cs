@@ -26,7 +26,6 @@ namespace NeverSkipLegDay.Views
         {
             base.OnAppearing();
             ViewModel.LoadDataCommand.Execute(null);
-            helpLabel.IsVisible = ViewModel.IsMealsEmpty();
         }
 
         void OnMealSelected(object sender, SelectedItemChangedEventArgs e)

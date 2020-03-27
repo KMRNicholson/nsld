@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
-using NeverSkipLegDay.Models.DAL;
-using NeverSkipLegDay.ViewModels;
-using NeverSkipLegDay.Models;
-using System.Collections.Generic;
-using NeverSkipLegDay.NUnitTestProject.Database;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using Xamarin.Forms;
+
+using NUnit.Framework;
+
+using NeverSkipLegDay.NUnitTestProject.Database;
+using NeverSkipLegDay.ViewModels;
+using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.NUnitTestProject.ViewModels
 {
@@ -46,6 +46,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreEqual(editViewModel.Exercise.Id, exercise.Id);
             Assert.AreEqual(editViewModel.Exercise.WorkoutId, exercise.WorkoutId);
             Assert.AreEqual(editViewModel.Exercise.Name, exercise.Name);
+            Assert.AreEqual(editViewModel.PageTitle, "EXERCISE");
         }
 
         [Test]
@@ -55,6 +56,7 @@ namespace NeverSkipLegDay.NUnitTestProject.ViewModels
             Assert.AreEqual(addViewModel.Exercise.Id, 0);
             Assert.AreEqual(addViewModel.Exercise.WorkoutId, newWorkout.Id);
             Assert.AreEqual(addViewModel.Exercise.Name, null);
+            Assert.AreEqual(editViewModel.PageTitle, "EXERCISE");
         }
 
         [Test]

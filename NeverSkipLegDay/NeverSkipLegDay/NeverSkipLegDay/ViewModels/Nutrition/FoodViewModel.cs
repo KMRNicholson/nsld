@@ -1,22 +1,26 @@
-﻿using NeverSkipLegDay.Models;
+﻿using System;
+
+using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.ViewModels
 {
+    /*
+     * Class which defines the ViewModel for the Food model. This is used for displaying exercises,
+     * as well as mapping values from the view to the model/database, through the binded ViewModel.
+     */
     public class FoodViewModel : BaseViewModel
     {
-        public int Id { get; set; }
-        private int _mealId;
-        public int MealId
-        {
-            get { return _mealId; }
-            set
-            {
-                SetValue(ref _mealId, value);
-                OnPropertyChanged(nameof(MealId));
-            }
-        }
-
+        #region private properties
         private string _name;
+        private decimal _fat;
+        private decimal _prot;
+        private decimal _carb;
+        private decimal _cal;
+        #endregion
+
+        #region public properties
+        public int Id { get; set; }
+        public int MealId { get; set; }
         public string Name
         {
             get { return _name; }
@@ -26,9 +30,7 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(Name));
             }
         }
-
-        private int? _fat;
-        public int? Fat
+        public decimal Fat
         {
             get { return _fat; }
             set
@@ -37,9 +39,7 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(Fat));
             }
         }
-
-        private int? _prot;
-        public int? Prot
+        public decimal Prot
         {
             get { return _prot; }
             set
@@ -48,9 +48,7 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(Prot));
             }
         }
-
-        private int? _carb;
-        public int? Carb
+        public decimal Carb
         {
             get { return _carb; }
             set
@@ -59,9 +57,7 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(Carb));
             }
         }
-
-        private int? _cal;
-        public int? Cal
+        public decimal Cal
         {
             get { return _cal; }
             set
@@ -70,21 +66,24 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(Cal));
             }
         }
+        #endregion
 
+        #region constructors
         public FoodViewModel() { }
 
         public FoodViewModel(Food food)
         {
-            if (food != null)
-            {
-                Id = food.Id;
-                MealId = food.MealId;
-                Name = food.Name;
-                Fat = food.Fat;
-                Prot = food.Prot;
-                Carb = food.Carb;
-                Cal = food.Cal;
-            } 
+            if (food == null)
+                throw new ArgumentNullException(nameof(food));
+            
+            Id = food.Id;
+            MealId = food.MealId;
+            Name = food.Name;
+            Fat = food.Fat;
+            Prot = food.Prot;
+            Carb = food.Carb;
+            Cal = food.Cal;
         }
+        #endregion
     }
 }

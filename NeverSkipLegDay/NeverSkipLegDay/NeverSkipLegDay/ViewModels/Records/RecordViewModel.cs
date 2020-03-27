@@ -1,22 +1,24 @@
-﻿using NeverSkipLegDay.Models;
+﻿using System;
+
+using NeverSkipLegDay.Models;
 
 namespace NeverSkipLegDay.ViewModels
 {
+    /*
+     * Class which defines the ViewModel for the Record model. This is used for displaying records,
+     * as well as mapping values from the view to the model/database, through the binded ViewModel.
+     */
     public class RecordViewModel : BaseViewModel
     {
+        #region private properties
+        private int _reps;
+        private decimal _weight;
+        #endregion
+
+        #region public properties
         public int Id { get; set; }
-        private int _exerciseId;
-        public int ExerciseId
-        {
-            get { return _exerciseId; }
-            set
-            {
-                SetValue(ref _exerciseId, value);
-                OnPropertyChanged(nameof(ExerciseId));
-            }
-        }
-        private int? _reps;
-        public int? Reps
+        public int ExerciseId { get; set; }
+        public int Reps
         {
             get { return _reps; }
             set
@@ -25,8 +27,7 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(Reps));
             }
         }
-        private decimal? _weight;
-        public decimal? Weight
+        public decimal Weight
         {
             get { return _weight; }
             set
@@ -35,15 +36,21 @@ namespace NeverSkipLegDay.ViewModels
                 OnPropertyChanged(nameof(Weight));
             }
         }
+        #endregion
 
+        #region constructors
         public RecordViewModel() { }
 
         public RecordViewModel(Record record)
         {
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+
             Id = record.Id;
             ExerciseId = record.ExerciseId;
             Reps = record.Reps;
             Weight = record.Weight;
         }
+        #endregion
     }
 }

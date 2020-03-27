@@ -17,23 +17,26 @@ namespace NeverSkipLegDay
 
         protected override async void OnAppearing()
         {
-            uint wordFade = 800;
-            int delay = 100;
+            await FadeInLabel(never).ConfigureAwait(false);
+            await FadeInLabel(skip).ConfigureAwait(false);
+            await FadeInLabel(leg).ConfigureAwait(false);
+            await FadeInLabel(day).ConfigureAwait(false);
 
-            never.FadeTo(1, wordFade).ConfigureAwait(true).GetAwaiter();
-            await Task.Delay(delay).ConfigureAwait(true);
-            skip.FadeTo(1, wordFade).ConfigureAwait(true).GetAwaiter();
-            await Task.Delay(delay).ConfigureAwait(true);
-            leg.FadeTo(1, wordFade).ConfigureAwait(true).GetAwaiter();
-            await Task.Delay(delay).ConfigureAwait(true);
-            day.FadeTo(1, wordFade).ConfigureAwait(true).GetAwaiter();
-            await Task.Delay(delay).ConfigureAwait(true);
             base.OnAppearing();
         }
 
-        async void OnEnter(object sender, EventArgs e)
+        private async Task FadeInLabel(StackLayout label)
         {
-            await Navigation.PushAsync(new DashboardPage());
+            uint fade = 800;
+            int delay = 100;
+
+            label.FadeTo(1, fade).ConfigureAwait(false).GetAwaiter();
+            await Task.Delay(delay).ConfigureAwait(false);
+        }
+
+        public async void OnEnter(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DashboardPage()).ConfigureAwait(false);
         }
     }
 }

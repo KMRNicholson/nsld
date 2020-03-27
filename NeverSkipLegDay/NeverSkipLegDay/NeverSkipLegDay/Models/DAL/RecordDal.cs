@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+
 using SQLite;
 
 namespace NeverSkipLegDay.Models.DAL
@@ -8,6 +10,9 @@ namespace NeverSkipLegDay.Models.DAL
         readonly SQLiteConnection _database;
         public RecordDal(SQLiteDB db)
         {
+            if (db == null)
+                throw new ArgumentNullException(nameof(db));
+
             _database = db.GetConnection();
             _database.CreateTable<Record>();
         }
@@ -31,6 +36,9 @@ namespace NeverSkipLegDay.Models.DAL
 
         public int SaveRecord(Record model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             if (model.Id != 0)
             {
                 return _database.Update(model);

@@ -5,46 +5,47 @@
              x:Name="workoutsPage"
              x:Class="NeverSkipLegDay.Views.WorkoutsPage">
   <NavigationPage.TitleView>
-    <Label Style="{StaticResource AppBarTitle}"
-      Text="W O R K O U T S"/>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
   </NavigationPage.TitleView>
   <ContentPage.Content>
-    <StackLayout>
-      <StackLayout 
-        VerticalOptions="Start">
-        <Label Style="{StaticResource HelpLabel}"
-          x:Name="helpLabel"
-          IsVisible="False"/>
-        <ListView 
-          x:Name="listView"
-          ItemsSource="{Binding Workouts}"
-          SelectedItem="{Binding SelectedWorkout, Mode=TwoWay}"
-          ItemSelected="OnWorkoutSelected">
-          <ListView.ItemTemplate>
-            <DataTemplate>
-              <ViewCell>
-                <StackLayout 
-                  BackgroundColor="{StaticResource CardBackgroundColor}"
-                  Orientation="Horizontal">
-                  <Label 
-                    Text="{Binding Name}"
-                    CharacterSpacing="1"
-                    FontSize="20"
-                    Margin="20"
-                    TextColor="{StaticResource CardTextColor}"
-                    VerticalOptions="Center"
-                    HorizontalOptions="StartAndExpand"/>
-                  <Button Style="{StaticResource EditButton}"
-                    Command="{Binding Source={x:Reference workoutsPage}, Path=ViewModel.EditCommand}" />
-                  <Button Style="{StaticResource DeleteButton}"
-                    Command="{Binding Source={x:Reference workoutsPage}, Path=ViewModel.DeleteCommand}" />
-                </StackLayout>
-              </ViewCell>
-            </DataTemplate>
-          </ListView.ItemTemplate>
-        </ListView>
-      </StackLayout>
-      <Button Style="{StaticResource AddButton}"/>
-    </StackLayout>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label 
+        Style="{StaticResource HelpLabel}"/>
+      <ListView
+        ItemSelected="OnWorkoutSelected"
+        Style="{StaticResource ItemList}"
+        ItemsSource="{Binding Workouts}"
+        SelectedItem="{Binding SelectedWorkout, Mode=TwoWay}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout
+                Style="{StaticResource ListItemBackground}">
+                <Label 
+                  Style="{StaticResource ListItemLabelName}"/>
+                <Button 
+                  Text="Edit"
+                  Style="{StaticResource ListItemButton}"
+                  Command="{Binding Source={x:Reference workoutsPage}, Path=ViewModel.EditCommand}" />
+                <Button 
+                  Text="Del"
+                  Style="{StaticResource ListItemButton}"
+                  Command="{Binding Source={x:Reference workoutsPage}, Path=ViewModel.DeleteCommand}" />
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <Button
+        Grid.Row="1"
+        Margin="0,0,0,20"
+        Style="{StaticResource PanelButton}"
+        Command="{Binding AddCommand}"/>
+    </Grid>
   </ContentPage.Content>
 </ContentPage>
