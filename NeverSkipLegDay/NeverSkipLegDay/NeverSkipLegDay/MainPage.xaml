@@ -1,38 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             BackgroundImageSource="https://i.imgur.com/0UlThfF.jpg?1"
-             mc:Ignorable="d"
+             BackgroundColor="{StaticResource RecordsBackgroundColor}"
              x:Class="NeverSkipLegDay.MainPage">
-    <StackLayout>
-        <StackLayout>
-            <Label Text="NEVER" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-            <Label Text="SKIP" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-            <Label Text="LEG" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-            <Label Text="DAY" 
-               TextColor="White"
-               FontSize="80"
-               Margin="5" />
-        </StackLayout>
-        <StackLayout VerticalOptions="FillAndExpand">
-            <Button Text="E n t e r"
-                BackgroundColor="{StaticResource CardBackgroundColor}"
-                HorizontalOptions="Center"
-                VerticalOptions="CenterAndExpand"
-                Margin="10"
-                WidthRequest="100"
-                Clicked="OnEnter"/>
-        </StackLayout>
-    </StackLayout>
+  <ContentPage.Content>
+    <Grid
+      Style="{StaticResource NoSpacingGrid}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="20*"/>
+      </Grid.RowDefinitions>
+      <StackLayout
+        x:Name="never"
+        Grid.Row="0"
+        BackgroundColor="{StaticResource BarBackgroundColor}"
+        Style="{StaticResource MainPageLabelBackground}">
+        <Label 
+          Style="{StaticResource MainPageLabel}"
+          Text="NEVER"/>
+      </StackLayout>
+      <StackLayout
+        x:Name="skip"
+        Grid.Row="1"
+        Style="{StaticResource MainPageLabelBackground}"
+        BackgroundColor="{StaticResource WorkoutsBackgroundColor}">
+        <Label
+          Style="{StaticResource MainPageLabel}"
+          Text="SKIP" />
+      </StackLayout>
+      <StackLayout
+        x:Name="leg"
+        Grid.Row="2"
+        Style="{StaticResource MainPageLabelBackground}"
+        BackgroundColor="{StaticResource NutritionBackgroundColor}">
+        <Label 
+          Style="{StaticResource MainPageLabel}"
+          Text="LEG" />
+      </StackLayout>
+      <StackLayout
+        x:Name="day"
+        Grid.Row="3"
+        Style="{StaticResource MainPageLabelBackground}">
+        <Label 
+          Style="{StaticResource MainPageLabel}"
+          Text="DAY"  />
+      </StackLayout>
+      <StackLayout
+        x:Name="enter"
+        Grid.Row="4">
+        <Button 
+          Style="{StaticResource PanelButton}"
+          Text="Enter"
+          Clicked="OnEnter"/>
+      </StackLayout>
+    </Grid>
+  </ContentPage.Content>
 </ContentPage>

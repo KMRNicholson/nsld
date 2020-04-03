@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource RecordsBackgroundColor}"
+             x:Name="recordsPage"
+             x:Class="NeverSkipLegDay.Views.RecordsPage">
+  <NavigationPage.TitleView>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <Grid
+      Style="{StaticResource NoSpacingGrid}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="100*"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label 
+        Grid.Row="1"
+        Style="{StaticResource HelpLabel}"/>
+      <StackLayout
+        Grid.Row="0"
+        Style="{StaticResource ListHeaderBackground}">
+        <Label 
+          Style="{StaticResource ListHeaderLabel}"
+          Text="{Binding Exercise.Name}"/>
+      </StackLayout>
+      <ListView 
+        Style="{StaticResource ItemListWithHeader}"
+        ItemsSource="{Binding Records}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout
+                Style="{StaticResource ListItemBackground}">
+                <Label 
+                  Text="Reps:"
+                  Style="{StaticResource ListItemLabel}"/>
+                <Label
+                  Text="{Binding Reps}"
+                  Style="{StaticResource ListItemLabel}"/>
+                <Label 
+                  Margin="20,0,0,0"
+                  Text="Weight:"
+                  Style="{StaticResource ListItemLabel}"/>
+                <Label
+                  HorizontalOptions="StartAndExpand"
+                  Text="{Binding Weight}"
+                  Style="{StaticResource ListItemLabel}"/>
+                <Button 
+                  Text="Edit"
+                  Style="{StaticResource ListItemButton}"
+                  Command="{Binding Source={x:Reference recordsPage}, Path=ViewModel.EditCommand}" />
+                <Button 
+                  Text="Del"
+                  Style="{StaticResource ListItemButton}"
+                  Command="{Binding Source={x:Reference recordsPage}, Path=ViewModel.DeleteCommand}" />
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <Button
+        Grid.Row="2"
+        Margin="0,0,0,20"
+        Command="{Binding AddCommand}"
+        Style="{StaticResource PanelButton}"/>
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

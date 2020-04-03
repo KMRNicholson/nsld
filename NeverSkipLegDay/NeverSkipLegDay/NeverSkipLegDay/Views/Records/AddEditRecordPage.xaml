@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource RecordsBackgroundColor}"
+             x:Class="NeverSkipLegDay.Views.AddEditRecordPage">
+  <NavigationPage.TitleView>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout 
+      Style="{StaticResource AddEditItemBackground}">
+      <Grid 
+        Style="{StaticResource NoSpacingGrid}">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="25*"/>
+        </Grid.ColumnDefinitions>
+        <Label 
+          Grid.Column="0"
+          Grid.Row="0"
+          Text="Reps:"
+          Style="{StaticResource ListItemLabel}"/>
+        <Label
+          Grid.Column="2"
+          Grid.Row="0"
+          Text="Weight:"
+          Style="{StaticResource ListItemLabel}"/>
+        <Entry 
+          Grid.Column="1"
+          Grid.Row="0"
+          Text="{Binding Record.Reps}"
+          Style="{StaticResource ListItemEntry}"/>
+        <Entry
+          Grid.Column="3"
+          Grid.Row="0"
+          Keyboard="Telephone"
+          Text="{Binding Record.Weight}"
+          Style="{StaticResource ListItemEntry}"/>
+      </Grid>
+      <Button
+        Style="{StaticResource SaveButton}"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

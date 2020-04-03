@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
+using NeverSkipLegDay.Views;
+using System.Threading.Tasks;
 
 namespace NeverSkipLegDay
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
@@ -19,9 +15,28 @@ namespace NeverSkipLegDay
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        async void OnEnter(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            await Navigation.PushAsync(new Dashboard());
+            await FadeInLabel(never).ConfigureAwait(false);
+            await FadeInLabel(skip).ConfigureAwait(false);
+            await FadeInLabel(leg).ConfigureAwait(false);
+            await FadeInLabel(day).ConfigureAwait(false);
+
+            base.OnAppearing();
+        }
+
+        private async Task FadeInLabel(StackLayout label)
+        {
+            uint fade = 800;
+            int delay = 100;
+
+            label.FadeTo(1, fade).ConfigureAwait(false).GetAwaiter();
+            await Task.Delay(delay).ConfigureAwait(false);
+        }
+
+        public async void OnEnter(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DashboardPage()).ConfigureAwait(false);
         }
     }
 }

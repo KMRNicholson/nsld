@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="dashboardPage"
+             x:Class="NeverSkipLegDay.Views.DashboardPage" >
+  <NavigationPage.TitleView>
+    <Label
+      Style="{StaticResource AppBarTitle}"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <Grid 
+      Style="{StaticResource NoSpacingGrid}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="33*"/>
+        <RowDefinition Height="33*"/>
+        <RowDefinition Height="33*"/>
+      </Grid.RowDefinitions>
+      <StackLayout 
+        BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
+        Grid.Row="0">
+        <Button 
+          x:Name="workouts"
+          Text="Workouts"
+          Style="{StaticResource PanelButton}"
+          Command="{Binding SelectWorkoutsCommand}"/>
+      </StackLayout>
+      <StackLayout
+        BackgroundColor="{StaticResource NutritionBackgroundColor}"
+        Grid.Row="1">
+        <Button 
+          x:Name="nutrition"
+          Text="Nutrition"
+          Style="{StaticResource PanelButton}"
+          Command="{Binding SelectNutritionCommand}"/>
+      </StackLayout>
+      <StackLayout
+        BackgroundColor="{StaticResource RecordsBackgroundColor}"
+        Grid.Row="2">
+        <Button 
+          x:Name="records"
+          Text="Records"
+          Style="{StaticResource PanelButton}"
+          Command="{Binding SelectRecordsCommand}"/>
+      </StackLayout>
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

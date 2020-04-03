@@ -25,8 +25,6 @@ namespace NeverSkipLegDay.Droid
             Window window = this.Window;
             window.ClearFlags(WindowManagerFlags.TranslucentStatus);
             window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
-            window.SetStatusBarColor(Android.Graphics.Color.Rgb(63, 63, 63));
-            window.SetNavigationBarColor(Android.Graphics.Color.Rgb(63, 63, 63));
 
             LoadApplication(new App());
         }

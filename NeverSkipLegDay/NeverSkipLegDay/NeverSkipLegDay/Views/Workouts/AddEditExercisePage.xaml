@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NeverSkipLegDay.Views.AddEditExercisePage">
+  <NavigationPage.TitleView>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout 
+      Style="{StaticResource AddEditItemBackground}">
+      <Label 
+        Style="{StaticResource AddEditItemNameLabel}"/>
+      <Entry 
+        Placeholder="e.g. Back Squat"
+        Keyboard="Chat"
+        Style="{StaticResource AddEditItemEntry}"
+        Text="{Binding Exercise.Name}"/>
+      <Button
+        Style="{StaticResource SaveButton}"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

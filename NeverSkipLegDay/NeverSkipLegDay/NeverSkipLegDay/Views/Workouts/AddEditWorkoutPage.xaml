@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource WorkoutsBackgroundColor}"
+             x:Class="NeverSkipLegDay.Views.AddEditWorkoutPage">
+  <NavigationPage.TitleView>
+    <Label 
+      Style="{StaticResource AppBarTitle}"/>
+  </NavigationPage.TitleView>
+  <ContentPage.Content>
+    <StackLayout 
+      Style="{StaticResource AddEditItemBackground}">
+      <Label 
+        Style="{StaticResource AddEditItemNameLabel}"/>
+      <Entry 
+        Placeholder="e.g. Leg Day"
+        Keyboard="Chat"
+        Style="{StaticResource AddEditItemEntry}"
+        Text="{Binding Workout.Name}"/>
+      <Button
+        Style="{StaticResource SaveButton}"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
