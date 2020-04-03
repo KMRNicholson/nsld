@@ -133,6 +133,8 @@ namespace NeverSkipLegDay.ViewModels
                 workoutInList.Id = workout.Id;
                 workoutInList.Name = workout.Name;
             }
+
+            ShowHelpLabel = IsWorkoutsEmpty();
         }
 
         // Method which sends the user to the page to add a new workout.
